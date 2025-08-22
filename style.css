@@ -1,0 +1,271 @@
+/* ==================== */
+/* General Section Style */
+/* ==================== */
+.section {
+  padding: 100px 0;
+  scroll-margin-top: 80px; /* biar offset navbar */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card Hover */
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* Contact icons */
+#contact img {
+  width: 60px;
+  transition: transform 0.3s;
+}
+
+#contact img:hover {
+  transform: scale(1.1);
+}
+
+/* ==================== */
+/* Home Section */
+/* ==================== */
+.home-section {
+  position: relative;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: cover;
+  background-position: center;
+}
+
+.home-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* overlay */
+  z-index: 1;
+}
+
+.home-section .container {
+  position: relative;
+  z-index: 2; /* supaya teks di atas overlay */
+}
+
+.home-section .btn {
+  border-radius: 30px;
+  padding: 12px 28px;
+  transition: 0.3s;
+}
+
+.home-section .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.6);
+}
+
+/* ==================== */
+/* Typing Animation */
+/* ==================== */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  animation: typing 3s steps(30, end);
+  font-size: 2.5rem; /* default desktop */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 4s ease forwards;
+  animation-delay: 3s; /* muncul setelah typing selesai */
+  font-size: 1.25rem; /* default desktop */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#sertifikat .card {
+  margin-bottom: 30px; /* default */
+  border: none; /* opsional, biar lebih clean */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* kasih shadow dikit biar elegan */
+  border-radius: 20px;
+}
+
+#sertifikat .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+}
+
+#sertifikat .card-body img {
+  width: 100%;
+  height: 300px; /* tinggi fix biar seragam */
+  object-fit: contain; /* biar gambar nggak kepotong */
+  border-radius: 15px;
+  background: #fff; /* kasih background putih biar rapi */
+  padding: 10px; /* jarak antara gambar dan background */
+}
+
+/* Responsive Mobile */
+@media (max-width: 576px) {
+  #sertifikat .card {
+    margin-bottom: 40px; /* lebih lega di mobile */
+  }
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 80px 0;
+}
+
+.contact-icon {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-icon i {
+  font-size: 3rem;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icon p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.contact-icon:hover {
+  transform: translateY(-5px);
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+.contact-icon:hover i {
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.6);
+  transform: scale(1.1);
+}
+
+/* ==================== */
+/* Project Timeline */
+/* ==================== */
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Garis vertikal */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 4px;
+  height: 100%;
+  background: #00f5d4;
+  box-shadow: 0 0 15px #00f5d4;
+  border-radius: 2px;
+}
+
+/* Item */
+.timeline-item {
+  position: relative;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+
+/* Icon Bulat */
+.timeline-icon {
+  position: absolute;
+  left: -47px;
+  top: 120px;
+  width: 20px;
+  height: 20px;
+  background: #00f5d4;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00f5d4;
+}
+
+/* Card Content */
+.timeline-content {
+  border-radius: 15px;
+  padding: 20px;
+  background: #fff;
+}
+
+/* Date Label */
+.timeline-date {
+  float: right;
+  background: #00f5d4;
+  color: #000;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 0 15px #00f5d4;
+}
+
+/* Skill Tags */
+.tags .badge {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+/* ==================== */
+/* Responsive Layout */
+/* ==================== */
+@media (max-width: 768px) {
+  .typing {
+    font-size: 2rem;
+  }
+
+  .fade-in {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .typing {
+    font-size: 1.5rem;
+  }
+
+  .fade-in {
+    font-size: 1rem;
+  }
+
+  .timeline-date {
+    display: block;
+    float: none;
+    margin-top: 17px; /* jarak antara tag skill dan tanggal */
+    text-align: center;
+  }
+
+  .tags {
+    margin-bottom: 10px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+}
