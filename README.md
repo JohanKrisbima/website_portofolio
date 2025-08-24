@@ -25,3 +25,9 @@ Website ini adalah personal portfolio interaktif yang menampilkan profil, pengal
 1. Clone repository ini  
    ```bash
    git clone https://github.com/username/portfolio.git
+
+## 🤖 AI Support Explanation
+Project ini dikembangkan dengan dukungan **AI Assistant** untuk:  
+- Membantu menulis kode HTML, CSS, dan animasi modern  
+- Memberikan saran desain responsif dan clean UI/UX  
+- Mempercepat proses debugging serta perbaikan kode  
