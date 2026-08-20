@@ -1,181 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio</title>
+    <title>Johan Krisbima Abi - Software Developer Portfolio</title>
+    <meta name="description" content="Portofolio resmi Johan Krisbima Abi - Software Developer, Backend & Web Specialist berpengalaman di PT PAL Indonesia, PT Universal Big Data, dan PT Stechoq." />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
+
+    <!-- Custom Modern Rounded CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body id="page-top" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" data-bs-root-margin="0px 0px -40%" tabindex="0">
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#home">My Portofolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-          <span class="navbar-toggler-icon"></span>
+  <body id="page-top">
+    <!-- Ambient Background Lighting Orbs -->
+    <div class="bg-ambient">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-2"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <!-- Floating Rounded Navbar -->
+    <header class="floating-navbar-container">
+      <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-pill">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand-pill" href="#home">
+            <span class="brand-avatar-mini">JK</span>
+            <span>Johan<span class="text-gradient">.dev</span></span>
+          </a>
+
+          <!-- Mobile Menu Trigger Button -->
+          <button class="navbar-toggler-pill d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+            <i class="bi bi-grid fs-5"></i>
+          </button>
+
+          <!-- Desktop Navigation Links -->
+          <div class="collapse navbar-collapse d-none d-lg-block">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#project">Experience</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#sertifikat">Sertifikat</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer (Offcanvas) -->
+    <div class="offcanvas offcanvas-end offcanvas-mobile-drawer" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+      <div class="offcanvas-header border-bottom border-white border-opacity-10 pb-3">
+        <div class="d-flex align-items-center gap-2" id="mobileMenuLabel">
+          <span class="brand-avatar-mini">JK</span>
+          <span class="text-white fw-bold">Johan<span class="text-gradient">.dev</span></span>
+        </div>
+        <button type="button" class="btn-close-custom" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
-            <li class="nav-item"><a class="nav-link" href="#sertifikat">Sertifikat</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column justify-content-between pt-4">
+        <!-- Navigation Links with Icons -->
+        <ul class="mobile-nav-list list-unstyled">
+          <li>
+            <a href="#home" class="mobile-nav-item">
+              <div class="mobile-nav-icon"><i class="bi bi-house-door-fill"></i></div>
+              <span>Home</span>
+              <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="mobile-nav-item">
+              <div class="mobile-nav-icon"><i class="bi bi-person-badge-fill"></i></div>
+              <span>About</span>
+              <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#project" class="mobile-nav-item">
+              <div class="mobile-nav-icon"><i class="bi bi-briefcase-fill"></i></div>
+              <span>Experience</span>
+              <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#sertifikat" class="mobile-nav-item">
+              <div class="mobile-nav-icon"><i class="bi bi-award-fill"></i></div>
+              <span>Sertifikat</span>
+              <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="mobile-nav-item">
+              <div class="mobile-nav-icon"><i class="bi bi-envelope-paper-heart-fill"></i></div>
+              <span>Contact</span>
+              <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Bottom CTA & Social Links in Mobile Drawer -->
+        <div class="mobile-drawer-footer pt-3 border-top border-white border-opacity-10">
+          <a href="https://wa.me/6287851865091" target="_blank" class="btn-pill-primary w-100 justify-content-center mb-3">
+            <i class="bi bi-whatsapp"></i>
+            <span>Chat via WhatsApp</span>
+          </a>
+          <div class="d-flex justify-content-center gap-3 text-muted small">
+            <a href="https://instagram.com/johankrisbima" target="_blank" class="social-mini-pill">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://wa.me/6287851865091" target="_blank" class="social-mini-pill">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <!-- HOME SECTION -->
-    <section id="home" class="d-flex flex-column justify-content-center align-items-center text-center vh-100 home-section text-white">
-      <div class="container">
-        <h1 class="fw-bold mb-3 typing">Hi, I’m <span class="text-info">Johan Krisbima Abi</span></h1>
-        <p class="fade-in">Software Developer</p>
-
-        <div class="mt-4">
-          <a href="#contact" class="btn btn-info btn-lg me-2">Hire Me</a>
-          <!-- <a href="cv.pdf" class="btn btn-outline-light btn-lg">Download CV</a> -->
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section bg-dark text-white">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 mb-3">
-            <img src="img/aku.jpg" class="img-fluid rounded" alt="About Me" />
-          </div>
-          <div class="col-md-6">
-            <h2>About Me</h2>
-            <p>
-              Saya Johan Krisbima Abi, lulusan dari mahasiswa Program Studi D4 Teknik Informatika di Politeknik Negeri Jember angkatan tahun 2021. Selama menempuh pendidikan, saya telah mengembangkan kemampuan di bidang software
-              development, khususnya dalam pembuatan dan pengembangan website application. Selain keterampilan teknis, saya juga memiliki soft skill yang kuat yaitu kemampuan mengelola waktu secara efisien dalam penyelesaian proyek sesuai
-              dengan tenggat yang telah ditentukan. Dengan kombinasi antara keahlian teknis dan soft skill tersebut, saya mampu bekerja secara produktif, baik secara individu maupun dalam tim, serta berorientasi pada hasil yang berkualitas
-              tinggi. Saya berkomitmen untuk terus mengembangkan kemampuan saya di dunia teknologi informasi dan siap berkontribusi secara maksimal dalam lingkungan profesional.
+          <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span>Available for New Opportunities</span>
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <br class="d-none d-sm-inline" />
+              <span class="text-gradient">Johan Krisbima Abi</span>
+            </h1>
+
+            <p class="hero-desc">
+              <span class="fw-semibold text-white">Software Developer & Backend Engineer</span> dengan pengalaman dalam merancang RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Project -->
-    <section id="project" class="section bg-white text-dark">
-      <div class="container">
-        <h2 class="text-center mb-5">Projects</h2>
-        <div class="timeline">
-          <!-- Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="timeline-content card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Aplikasi Dekstop Absensi Ruang Sekretariat TIF PSDKU Sidoarjo</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Politeknik Negeri Jember</h6>
-                <p class="card-text">
-                  Saya mengembangkan sebuah website e-commerce untuk mendukung UMKM toko pakaian berbasis web. Dari sisi frontend, saya membangun tampilan antarmuka pengguna menggunakan HTML, CSS, dan JavaScript agar mudah digunakan dan
-                  responsif. Sementara dari sisi backend, saya mengimplementasikan sistem CRUD serta integrasi dengan MySQL menggunakan PHP native untuk mengelola data produk, transaksi, dan pengguna. Website ini dirancang untuk memudahkan
-                  pengelolaan toko sekaligus memperluas jangkauan penjualan secara online.
-                </p>
-                <div class="tags">
-                  <span class="badge bg-dark">Java</span>
-                  <span class="badge bg-dark">MySQL</span>
-                  <span class="badge bg-dark">Desktop App</span>
+            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+              <a href="#contact" class="btn-pill-primary">
+                <span>Let's Talk</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#project" class="btn-pill-secondary">
+                <span>View Projects</span>
+                <i class="bi bi-code-slash"></i>
+              </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats-bar mt-5">
+              <div class="row g-3">
+                <div class="col-4">
+                  <div class="stat-item">
+                    <div class="stat-icon-pill d-none d-sm-flex">
+                      <i class="bi bi-briefcase"></i>
+                    </div>
+                    <div>
+                      <div class="stat-number">3+</div>
+                      <div class="stat-label">Pengalaman Kerja</div>
+                    </div>
+                  </div>
                 </div>
-                <span class="timeline-date">Juli 2021 – Oktober 2021</span>
+                <div class="col-4 border-start border-white border-opacity-10 ps-3">
+                  <div class="stat-item">
+                    <div class="stat-icon-pill d-none d-sm-flex">
+                      <i class="bi bi-stack"></i>
+                    </div>
+                    <div>
+                      <div class="stat-number">10+</div>
+                      <div class="stat-label">Tech Stack</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 border-start border-white border-opacity-10 ps-3">
+                  <div class="stat-item">
+                    <div class="stat-icon-pill d-none d-sm-flex">
+                      <i class="bi bi-patch-check"></i>
+                    </div>
+                    <div>
+                      <div class="stat-number">6+</div>
+                      <div class="stat-label">Sertifikasi</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="timeline-content card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Website E-Commerce “Ilham Collection”</h5>
-                <h6 class="card-subtitle mb-2 text-muted">UMKM Project</h6>
-                <p class="card-text">
-                  Saya mengembangkan sebuah website e-commerce untuk mendukung UMKM toko pakaian berbasis web. Dari sisi frontend, saya membangun tampilan antarmuka pengguna menggunakan HTML, CSS, dan JavaScript agar mudah digunakan dan
-                  responsif. Sementara dari sisi backend, saya mengimplementasikan sistem CRUD serta integrasi dengan MySQL menggunakan PHP native untuk mengelola data produk, transaksi, dan pengguna. Website ini dirancang untuk memudahkan
-                  pengelolaan toko sekaligus memperluas jangkauan penjualan secara online.
-                </p>
-                <div class="tags">
-                  <span class="badge bg-dark">PHP</span>
-                  <span class="badge bg-dark">MySQL</span>
-                  <span class="badge bg-dark">JavaScript</span>
-                  <span class="badge bg-dark">HTML</span>
-                  <span class="badge bg-dark">CSS</span>
-                </div>
-                <span class="timeline-date">Juni 2022 – Oktober 2022</span>
+          <!-- Hero Profile Image with Rounded Rings & Floating Pills -->
+          <div class="col-lg-5 text-center">
+            <div class="hero-avatar-wrapper">
+              <div class="hero-avatar-ring">
+                <img src="img/aku.jpg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
               </div>
-            </div>
-          </div>
-          <!-- Item 3 -->
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="timeline-content card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Website Photo Sales “POVSHOTNBK”</h5>
-                <h6 class="card-subtitle mb-2 text-muted">UMKM Project</h6>
-                <p class="card-text">
-                  Saya mengembangkan sebuah website penjualan foto untuk mendukung UMKM fotografer. Dari sisi frontend, saya menggunakan framework Bootstrap untuk membangun antarmuka pengguna yang responsif dan mudah diakses. Sementara pada
-                  sisi backend, saya mengimplementasikan fitur CRUD serta integrasi dengan MySQL menggunakan framework Laravel untuk mengelola data foto, transaksi, dan pengguna. Website ini membantu fotografer dalam memasarkan karyanya
-                  secara lebih profesional dan menjangkau pelanggan secara online.
-                </p>
-                <div class="tags">
-                  <span class="badge bg-dark">Laravel</span>
-                  <span class="badge bg-dark">MySQL</span>
-                  <span class="badge bg-dark">Bootstrap</span>
+
+              <!-- Floating Chip 1 -->
+              <div class="floating-chip chip-1">
+                <i class="bi bi-code-square chip-icon"></i>
+                <div>
+                  <div class="chip-subtitle">Specialist</div>
+                  <div>Backend & Web</div>
                 </div>
-                <span class="timeline-date">Maret 2023 – Juni 2023</span>
               </div>
-            </div>
-          </div>
-          <!-- Item 4 -->
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="timeline-content card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Backend Developer Intern</h5>
-                <h6 class="card-subtitle mb-2 text-muted">PT Stechoq Robotika Indonesia</h6>
-                <p class="card-text">
-                  Saya merancang dan mengembangkan sistem API manajemen gudang untuk toko handphone menggunakan Node.js, Express, dan MySQL. Fitur utama meliputi pencatatan stok masuk/keluar, pelacakan berdasarkan lokasi, manajemen produk &
-                  supplier, riwayat mutasi, notifikasi stok minimum, serta laporan periodik. Sistem dilengkapi autentikasi JWT, dokumentasi Swagger, dan pengujian dengan Postman & Jest. Hasilnya meningkatkan efisiensi, akurasi pencatatan,
-                  dan mempercepat operasional gudang, sekaligus siap diintegrasikan dengan POS atau cabang lain.
-                </p>
-                <div class="tags">
-                  <span class="badge bg-dark">Express Js</span>
-                  <span class="badge bg-dark">MySQL</span>
-                  <span class="badge bg-dark">Node Js</span>
+
+              <!-- Floating Chip 2 -->
+              <div class="floating-chip chip-2">
+                <i class="bi bi-database-check chip-icon"></i>
+                <div>
+                  <div class="chip-subtitle">Core Tech</div>
+                  <div>Laravel</div>
                 </div>
-                <span class="timeline-date">Februari 2024 - Juli 2024</span>
-              </div>
-            </div>
-          </div>
-          <!-- Item 5 -->
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="timeline-content card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Web Automation Intern</h5>
-                <h6 class="card-subtitle mb-2 text-muted">PT Universal Big Data</h6>
-                <p class="card-text">
-                  Saya mengembangkan dan memelihara Nobox Extractor, aplikasi desktop untuk otomatis mengekstrak data publik dari berbagai situs e-commerce global. Sistem ini mengumpulkan info produk (judul, harga, lokasi, kontak), lalu
-                  menyinkronkannya ke platform web Nobox AI agar mudah dicari dan difilter. Saya menangani logika pencarian, pagination, deteksi “no result”, format nomor telepon, serta optimasi performa agar aplikasi stabil, ringan, dan
-                  responsif.
-                </p>
-                <div class="tags">
-                  <span class="badge bg-dark">.NET</span>
-                  <span class="badge bg-dark">MySQL</span>
-                  <span class="badge bg-dark">C#</span>
-                  <span class="badge bg-dark">Desktop App</span>
-                </div>
-                <span class="timeline-date">Juli 2024 - Desember 2024 </span>
               </div>
             </div>
           </div>
@@ -183,56 +226,340 @@
       </div>
     </section>
 
-    <!-- Sertifikat -->
-    <section id="sertifikat" class="section bg-dark text-white">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
       <div class="container">
-        <h2 class="text-center mb-5">Sertifikat</h2>
+        <div class="section-title-wrapper text-center">
+          <div class="section-pill-tag">
+            <i class="bi bi-person-badge"></i>
+            <span>About Me</span>
+          </div>
+          <h2 class="section-main-title">Profil & Keahlian</h2>
+          <p class="section-subtitle">Dedikasi dalam membangun arsitektur perangkat lunak yang efisien, bersih, dan solutif.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Bio Bento Card -->
+          <div class="col-lg-7">
+            <div class="bento-card">
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="mini-card-icon">
+                  <i class="bi bi-person-lines-fill"></i>
+                </div>
+                <div>
+                  <h3 class="h4 mb-0 fw-bold text-white">Johan Krisbima Abi</h3>
+                  <p class="text-muted mb-0 small">Software Developer & D4 Teknik Informatika</p>
+                </div>
+              </div>
+
+              <p class="about-bio-text">
+                Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan aplikasi web melalui program MagangHub dan berlanjut
+                ke kontrak kerja di <span class="highlight-pill">PT PAL Indonesia</span>.
+              </p>
+              <p class="about-bio-text mb-4">
+                Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai dari analisis kebutuhan bisnis, perancangan basis data, implementasi backend & frontend, security hardening, hingga testing dan deployment di
+                lingkungan server perusahaan. Kolaboratif, adaptif, serta berorientasi pada solusi nyata.
+              </p>
+
+              <!-- Education / Focus Mini Cards -->
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="mini-rounded-card">
+                    <i class="bi bi-mortarboard fs-3 text-info"></i>
+                    <div>
+                      <div class="fw-bold text-white small">Pendidikan</div>
+                      <div class="mini-card-text">D4 Teknik Informatika Polije</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="mini-rounded-card">
+                    <i class="bi bi-building-check fs-3 text-success"></i>
+                    <div>
+                      <div class="fw-bold text-white small">Pengalaman</div>
+                      <div class="mini-card-text">Enterprise & Startup Intern</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Bento Card -->
+          <div class="col-lg-5">
+            <div class="bento-card">
+              <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i>Tech Stack</h3>
+
+              <!-- Backend -->
+              <div class="skill-category-title">
+                <i class="bi bi-server"></i>
+                <span>Backend & Frameworks</span>
+              </div>
+              <div class="skill-chips-group">
+                <span class="skill-pill"><i class="bi bi-fire"></i>Laravel</span>
+                <span class="skill-pill"><i class="bi bi-diagram-3"></i>Node.js</span>
+                <span class="skill-pill"><i class="bi bi-lightning-charge"></i>Express.js</span>
+                <span class="skill-pill"><i class="bi bi-terminal"></i>C#</span>
+                <span class="skill-pill"><i class="bi bi-window"></i>.NET</span>
+                <span class="skill-pill"><i class="bi bi-boxes"></i>Odoo</span>
+              </div>
+
+              <!-- Database -->
+              <div class="skill-category-title">
+                <i class="bi bi-database"></i>
+                <span>Databases</span>
+              </div>
+              <div class="skill-chips-group">
+                <span class="skill-pill"><i class="bi bi-database-fill"></i>MySQL</span>
+                <span class="skill-pill"><i class="bi bi-database-check"></i>PostgreSQL</span>
+              </div>
+
+              <!-- Frontend & Tools -->
+              <div class="skill-category-title">
+                <i class="bi bi-tools"></i>
+                <span>Frontend & Development Tools</span>
+              </div>
+              <div class="skill-chips-group">
+                <span class="skill-pill"><i class="bi bi-bootstrap"></i>Bootstrap</span>
+                <span class="skill-pill"><i class="bi bi-filetype-js"></i>JavaScript</span>
+                <span class="skill-pill"><i class="bi bi-git"></i>Git & GitHub</span>
+                <span class="skill-pill"><i class="bi bi-send-check"></i>Postman</span>
+                <span class="skill-pill"><i class="bi bi-check2-circle"></i>Unit Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / PROJECTS SECTION -->
+    <section id="project" class="section">
+      <div class="container">
+        <div class="section-title-wrapper text-center">
+          <div class="section-pill-tag">
+            <i class="bi bi-journal-code"></i>
+            <span>Professional Journey</span>
+          </div>
+          <h2 class="section-main-title">Pengalaman & Proyek</h2>
+          <p class="section-subtitle">Rekam jejak kontribusi pengembangan aplikasi web, backend API, dan otomatisasi sistem.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <!-- Item 1: PT PAL Indonesia -->
+            <div class="experience-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Pemrogram Komputer Contract</h3>
+                  <div class="exp-company">
+                    <i class="bi bi-building"></i>
+                    <span>PT PAL Indonesia</span>
+                  </div>
+                </div>
+                <div class="date-pill">
+                  <i class="bi bi-calendar3"></i>
+                  <span>Oktober 2025 - Agustus 2026</span>
+                </div>
+              </div>
+
+              <p class="exp-desc">
+                Berkontribusi dalam pengembangan dan pemeliharaan berbagai aplikasi web perusahaan skala enterprise, meliputi sistem absensi, manajemen dokumen, e-bidding, dan manajemen vendor. Bertanggung jawab penuh dalam pengembangan
+                fitur baru, refactoring & optimasi performa sistem, security hardening, integrasi database, unit testing, penanganan bug, deployment ke server perusahaan, hingga penyusunan dokumentasi UAT dan panduan pengguna.
+              </p>
+
+              <div class="tags-group">
+                <span class="tag-pill">Laravel</span>
+                <span class="tag-pill">MySQL</span>
+                <span class="tag-pill">PostgreSQL</span>
+                <span class="tag-pill">Bootstrap</span>
+                <span class="tag-pill">Odoo</span>
+                <span class="tag-pill">Enterprise App</span>
+                <span class="tag-pill">Server Deployment</span>
+              </div>
+            </div>
+
+            <!-- Item 2: PT Universal Big Data -->
+            <div class="experience-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Web Automation Intern</h3>
+                  <div class="exp-company">
+                    <i class="bi bi-robot"></i>
+                    <span>PT Universal Big Data</span>
+                  </div>
+                </div>
+                <div class="date-pill">
+                  <i class="bi bi-calendar3"></i>
+                  <span>Juli 2024 - Desember 2024</span>
+                </div>
+              </div>
+
+              <p class="exp-desc">
+                Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop berbasis C# dan .NET untuk ekstraksi otomatis data publik dari berbagai platform e-commerce global. Mengumpulkan metadata produk lengkap (judul,
+                harga, lokasi, kontak) dan menyinkronkannya ke platform web Nobox AI. Mengoptimalkan logika multi-threading pencarian, pagination dinamis, penanganan filter error, serta kestabilan aplikasi agar efisien dan ringan.
+              </p>
+
+              <div class="tags-group">
+                <span class="tag-pill">.NET</span>
+                <span class="tag-pill">C#</span>
+                <span class="tag-pill">MySQL</span>
+                <span class="tag-pill">Desktop Automation</span>
+                <span class="tag-pill">Data Scraping</span>
+                <span class="tag-pill">AI Integration</span>
+              </div>
+            </div>
+
+            <!-- Item 3: PT Stechoq Robotika Indonesia -->
+            <div class="experience-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Backend Developer Intern</h3>
+                  <div class="exp-company">
+                    <i class="bi bi-gear-wide-connected"></i>
+                    <span>PT Stechoq Robotika Indonesia</span>
+                  </div>
+                </div>
+                <div class="date-pill">
+                  <i class="bi bi-calendar3"></i>
+                  <span>Februari 2024 - Juli 2024</span>
+                </div>
+              </div>
+
+              <p class="exp-desc">
+                Merancang dan mengembangkan arsitektur RESTful API sistem manajemen gudang untuk retail handphone menggunakan Node.js, Express, dan MySQL. Fitur utama mencakup pelacakan stok multi-lokasi, manajemen produk & supplier,
+                riwayat mutasi real-time, threshold stok minimum otomatis, dan pelaporan periodik. Dilengkapi sistem autentikasi JWT terproteksi, dokumentasi interaktif Swagger API, serta automated testing menggunakan Jest & Postman.
+              </p>
+
+              <div class="tags-group">
+                <span class="tag-pill">Express.js</span>
+                <span class="tag-pill">Node.js</span>
+                <span class="tag-pill">MySQL</span>
+                <span class="tag-pill">RESTful API</span>
+                <span class="tag-pill">JWT</span>
+                <span class="tag-pill">Swagger</span>
+                <span class="tag-pill">Jest Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERTIFIKAT SECTION -->
+    <section id="sertifikat" class="section">
+      <div class="container">
+        <div class="section-title-wrapper text-center">
+          <div class="section-pill-tag">
+            <i class="bi bi-award"></i>
+            <span>Certificates</span>
+          </div>
+          <h2 class="section-main-title">Sertifikasi & Penghargaan</h2>
+          <p class="section-subtitle">Bukti kompetensi dan keikutsertaan dalam berbagai program magang dan pengembangan teknologi. Klik untuk melihat detail sertifikat.</p>
+        </div>
 
         <!-- Carousel -->
         <div id="sertifikatCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <!-- Item 1 -->
+            <!-- Slide 1 -->
             <div class="carousel-item active">
-              <div class="row justify-content-center">
+              <div class="row g-4 justify-content-center">
+                <!-- Cert 1 -->
                 <div class="col-md-4">
-                  <div class="card bg-dark border-0 shadow rounded-4">
-                    <div class="card-body p-0">
-                      <img src="img/sertifikat_Kepesertaan_MSIB.jpg" class="img-fluid rounded-4" alt="Sertifikat 1" />
+                  <div class="cert-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB">
+                    <div class="cert-img-wrapper">
+                      <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">Sertifikat Kepesertaan MSIB</div>
+                      <div class="cert-badge">Kampus Merdeka • Kemendikbudristek</div>
                     </div>
                   </div>
                 </div>
+
+                <!-- Cert 2 -->
                 <div class="col-md-4">
-                  <div class="card bg-dark border-0 shadow rounded-4">
-                    <div class="card-body p-0">
-                      <img src="img/sertifMsib1.png" class="img-fluid rounded-4" alt="Sertifikat 2" />
+                  <div class="cert-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Sertifikat Magang - PT Stechoq Robotika Indonesia">
+                    <div class="cert-img-wrapper">
+                      <img src="img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">Backend Developer Intern</div>
+                      <div class="cert-badge">PT Stechoq Robotika Indonesia</div>
                     </div>
                   </div>
                 </div>
+
+                <!-- Cert 3 -->
                 <div class="col-md-4">
-                  <div class="card bg-dark border-0 shadow rounded-4">
-                    <div class="card-body p-0">
-                      <img src="img/sertifMsib2.png" class="img-fluid rounded-4" alt="Sertifikat 3" />
+                  <div class="cert-card" data-cert-img="img/sertifMsib2.png" data-cert-title="Sertifikat Magang - PT Universal Big Data">
+                    <div class="cert-img-wrapper">
+                      <img src="img/sertifMsib2.png" alt="Sertifikat MSIB UBig" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">Web Automation Intern</div>
+                      <div class="cert-badge">PT Universal Big Data</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Item 2 (slide berikutnya) -->
+            <!-- Slide 2 -->
             <div class="carousel-item">
-              <div class="row justify-content-center">
+              <div class="row g-4 justify-content-center">
+                <!-- Cert 4 -->
                 <div class="col-md-4">
-                  <div class="card bg-dark border-0 shadow rounded-4">
-                    <div class="card-body p-0">
-                      <img src="img/sertifPKM.jpg" class="img-fluid rounded-4" alt="Sertifikat 4" />
+                  <div class="cert-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Sertifikat Program Kreativitas Mahasiswa (PKM)">
+                    <div class="cert-img-wrapper">
+                      <img src="img/sertifPKM.jpg" alt="Sertifikat PKM" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">Sertifikat PKM</div>
+                      <div class="cert-badge">Program Kreativitas Mahasiswa</div>
                     </div>
                   </div>
                 </div>
-                <!-- bisa tambah sertifikat lainnya -->
+
+                <!-- Cert 5 -->
                 <div class="col-md-4">
-                  <div class="card bg-dark border-0 shadow rounded-4">
-                    <div class="card-body p-0">
-                      <img src="img/ubig.png" class="img-fluid rounded-4" alt="Sertifikat 4" />
+                  <div class="cert-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
+                    <div class="cert-img-wrapper">
+                      <img src="img/ubig.png" alt="UBig Certificate" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">UBiG Certificate of Completion</div>
+                      <div class="cert-badge">Universal Big Data</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cert 6 -->
+                <div class="col-md-4">
+                  <div class="cert-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat MagangHub Kemnaker">
+                    <div class="cert-img-wrapper">
+                      <img src="img/Sertif Maganghub.jpeg" alt="Sertifikat MagangHub" loading="lazy" />
+                      <div class="cert-overlay">
+                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
+                      </div>
+                    </div>
+                    <div class="cert-info">
+                      <div class="cert-title">Sertifikat MagangHub</div>
+                      <div class="cert-badge">Kemnaker & PT PAL Indonesia</div>
                     </div>
                   </div>
                 </div>
@@ -240,42 +567,122 @@
             </div>
           </div>
 
-          <!-- Control Button -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-info rounded-circle p-3"></span>
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="prev" aria-label="Previous Slide">
+            <span class="carousel-btn-pill"><i class="bi bi-chevron-left"></i></span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-info rounded-circle p-3"></span>
+          <button class="carousel-control-next custom-next" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="next" aria-label="Next Slide">
+            <span class="carousel-btn-pill"><i class="bi bi-chevron-right"></i></span>
           </button>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators carousel-indicators-pill">
+            <button type="button" data-bs-target="#sertifikatCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#sertifikatCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact-section text-center">
-      <h2 class="fw-bold mb-4">Contact Me</h2>
-      <div class="d-flex justify-content-center gap-4">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/6287851865091" target="_blank" class="contact-icon">
-          <i class="bi bi-whatsapp"></i>
-          <p>WhatsApp</p>
-        </a>
-        <!-- Instagram -->
-        <a href="https://instagram.com/johankrisbima" target="_blank" class="contact-icon">
-          <i class="bi bi-instagram"></i>
-          <p>Instagram</p>
-        </a>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="contact-card-main">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+                  <div class="section-pill-tag">
+                    <i class="bi bi-envelope-heart"></i>
+                    <span>Let's Connect</span>
+                  </div>
+                  <h2 class="section-main-title mb-3">Siap Berkolaborasi?</h2>
+                  <p class="text-white mb-4 pe-lg-4">Saya terbuka untuk peluang kerja Full-time, Contract, maupun project freelance. Silakan hubungi saya melalui kanal komunikasi di bawah ini.</p>
+
+                  <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white bg-opacity-10 text-white small">
+                    <i class="bi bi-geo-alt-fill text-danger"></i>
+                    <span>Indonesia • Remote / On-site Ready</span>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <!-- WhatsApp Link -->
+                  <a href="https://wa.me/6287851865091?text=Halo%20Johan,%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" class="contact-link-pill wa-pill">
+                    <div class="contact-icon-wrapper whatsapp-icon">
+                      <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <div>
+                      <div class="contact-info-title">WhatsApp Chat</div>
+                      <div class="contact-info-subtitle">+62 878-5186-5091</div>
+                    </div>
+                    <i class="bi bi-arrow-up-right ms-auto text-muted"></i>
+                  </a>
+
+                  <!-- Instagram Link -->
+                  <a href="https://instagram.com/johankrisbima" target="_blank" class="contact-link-pill ig-pill">
+                    <div class="contact-icon-wrapper instagram-icon">
+                      <i class="bi bi-instagram"></i>
+                    </div>
+                    <div>
+                      <div class="contact-info-title">Instagram</div>
+                      <div class="contact-info-subtitle">@johankrisbima</div>
+                    </div>
+                    <i class="bi bi-arrow-up-right ms-auto text-muted"></i>
+                  </a>
+
+                  <!-- Direct Chat / Hire Pill -->
+                  <a href="https://wa.me/6287851865091" target="_blank" class="btn-pill-primary w-100 justify-content-center mt-2">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Kirim Pesan Langsung</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-1">
+    <!-- FOOTER -->
+    <footer class="footer-rounded text-center">
       <div class="container">
-        <p class="mb-1">&copy; 2025 Johan Krisbima Abi. All Rights Reserved.</p>
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2">
+            <span class="brand-avatar-mini brand-avatar-footer">JK</span>
+            <span class="text-white fw-bold small">Johan Krisbima Abi</span>
+          </div>
+          <p class="text-white small mb-0">&copy; 2026 Johan Krisbima Abi. All Rights Reserved. Crafted with rounded precision.</p>
+          <div class="d-flex gap-3">
+            <a href="#home" class="text-white text-decoration-none small hover-white">Back to Top <i class="bi bi-arrow-up"></i></a>
+          </div>
+        </div>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Floating Back to Top Button -->
+    <a href="#home" id="backToTop" class="back-to-top-btn" aria-label="Scroll to top">
+      <i class="bi bi-chevron-up"></i>
+    </a>
+
+    <!-- Certificate Preview Modal (Lightbox) -->
+    <div class="modal fade modal-rounded" id="certModal" tabindex="-1" aria-labelledby="certModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="certModalLabel">Preview Sertifikat</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img id="certModalImg" src="" alt="Detail Sertifikat" class="modal-cert-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Portfolio JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
