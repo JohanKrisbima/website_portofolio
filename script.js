@@ -34,20 +34,117 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 2. Certificate Modal Lightbox (Click-to-zoom)
+  // 2. Certificate & Experience Modal Lightbox (Single & Multi-Image Gallery)
   const certCards = document.querySelectorAll(".cert-card");
+  const expProofBtns = document.querySelectorAll(".btn-exp-proof");
+  const certModalDesc = document.getElementById("certModalDesc");
+  const modalSingleContainer = document.getElementById("modalSingleContainer");
+  const modalGalleryCarousel = document.getElementById("modalGalleryCarousel");
+  const modalGalleryInner = document.getElementById("modalGalleryInner");
+  const galleryCaption = document.getElementById("galleryCaption");
+  const galleryCounter = document.getElementById("galleryCounter");
+
+  let currentGalleryItems = [];
+
+  function updateGalleryFooter(index) {
+    if (!currentGalleryItems || currentGalleryItems.length === 0) return;
+    const item = currentGalleryItems[index];
+    if (galleryCaption && item) {
+      galleryCaption.textContent = item.caption || `Dokumentasi ${index + 1}`;
+    }
+    if (galleryCounter) {
+      galleryCounter.textContent = `${index + 1} / ${currentGalleryItems.length}`;
+    }
+  }
+
+  // Certificate card single click
   certCards.forEach((card) => {
     card.addEventListener("click", () => {
       const imgSrc = card.getAttribute("data-cert-img");
       const title = card.getAttribute("data-cert-title");
 
       if (imgSrc && certBootstrapModal && certModalImg && certModalTitle) {
+        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
+        if (modalSingleContainer) modalSingleContainer.classList.remove("d-none");
+
         certModalImg.src = imgSrc;
         certModalTitle.textContent = title || "Detail Sertifikat";
+        if (certModalDesc) certModalDesc.textContent = "Sertifikasi Resmi & Terverifikasi";
         certBootstrapModal.show();
       }
     });
   });
+
+  // Experience Proof click (supports data-gallery JSON or single data-proof-img)
+  expProofBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const galleryAttr = btn.getAttribute("data-gallery");
+      const singleImg = btn.getAttribute("data-proof-img");
+      const title = btn.getAttribute("data-proof-title");
+      const desc = btn.getAttribute("data-proof-desc");
+
+      if (!certBootstrapModal || !certModalTitle) return;
+
+      certModalTitle.textContent = title || "Dokumentasi Pengalaman Kerja";
+      if (certModalDesc) certModalDesc.textContent = desc || "Dokumentasi Terverifikasi";
+
+      currentGalleryItems = [];
+      if (galleryAttr) {
+        try {
+          currentGalleryItems = JSON.parse(galleryAttr);
+        } catch (err) {
+          console.error("Failed to parse gallery JSON", err);
+          currentGalleryItems = [];
+        }
+      } else if (singleImg) {
+        currentGalleryItems = [{ src: singleImg, caption: title || "Dokumentasi Kerja" }];
+      }
+
+      if (currentGalleryItems.length > 1 && modalGalleryCarousel && modalGalleryInner) {
+        // Multi-image gallery mode
+        if (modalSingleContainer) modalSingleContainer.classList.add("d-none");
+        modalGalleryCarousel.classList.remove("d-none");
+
+        modalGalleryInner.innerHTML = currentGalleryItems
+          .map(
+            (item, idx) => `
+          <div class="carousel-item ${idx === 0 ? "active" : ""}">
+            <div class="text-center">
+              <img src="${item.src}" class="modal-cert-img" alt="${item.caption || "Dokumentasi Proyek"}" />
+            </div>
+          </div>
+        `
+          )
+          .join("");
+
+        updateGalleryFooter(0);
+
+        const bsCarousel = bootstrap.Carousel.getOrCreateInstance(modalGalleryCarousel, {
+          interval: false,
+          wrap: true
+        });
+        bsCarousel.to(0);
+
+        certBootstrapModal.show();
+      } else if (currentGalleryItems.length === 1 && modalSingleContainer && certModalImg) {
+        // Single image mode
+        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
+        modalSingleContainer.classList.remove("d-none");
+
+        certModalImg.src = currentGalleryItems[0].src;
+        if (currentGalleryItems[0].caption && certModalDesc) {
+          certModalDesc.textContent = currentGalleryItems[0].caption;
+        }
+        certBootstrapModal.show();
+      }
+    });
+  });
+
+  if (modalGalleryCarousel) {
+    modalGalleryCarousel.addEventListener("slid.bs.carousel", (e) => {
+      updateGalleryFooter(e.to);
+    });
+  }
 
   // 3. Active Link State Synchronizer
   function updateActiveNav(activeId) {

@@ -525,6 +525,120 @@ body {
   transform: translateY(-3px);
 }
 
+.btn-pill-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.btn-pill-cv:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  color: #070a13;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 245, 212, 0.4);
+}
+
+.nav-btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 245, 212, 0.1);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-left: 8px;
+}
+
+.nav-btn-cv:hover {
+  background: var(--accent-cyan);
+  color: #070a13;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 245, 212, 0.45);
+  transform: translateY(-1px);
+}
+
+/* CV Download Banner in About Section */
+.cv-download-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.08) 0%, rgba(56, 189, 248, 0.04) 100%);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  margin-top: 24px;
+}
+
+.cv-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 245, 212, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.btn-cv-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-cv-view {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+}
+
+.btn-cv-view:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-cv-download {
+  background: var(--gradient-primary);
+  border: none;
+  color: #070a13;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3);
+}
+
+.btn-cv-download:hover {
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 245, 212, 0.5);
+}
+
 /* Hero Profile Frame */
 .hero-avatar-wrapper {
   position: relative;
@@ -833,6 +947,39 @@ body {
   color: #fff;
 }
 
+/* Experience Proof Button & Bar */
+.exp-proof-bar {
+  margin-top: 18px;
+}
+
+.btn-exp-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 0.86rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-exp-proof:hover {
+  background: var(--accent-cyan);
+  color: #070a13;
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 245, 212, 0.35);
+}
+
+.btn-exp-proof i {
+  font-size: 1rem;
+}
+
 /* ==========================================================================
    Certificate Showcase
    ========================================================================== */
@@ -1008,6 +1155,12 @@ body {
   font-size: 1.15rem;
 }
 
+.modal-rounded .modal-subtitle {
+  color: #cbd5e1;
+  font-size: 0.86rem;
+  margin-top: 4px;
+}
+
 .modal-rounded .modal-body {
   padding: 20px;
   text-align: center;
@@ -1020,6 +1173,86 @@ body {
   border-radius: var(--radius-md);
   background: #ffffff;
   padding: 10px;
+}
+
+/* Modal Multi-Image Gallery */
+.gallery-ctrl {
+  width: 60px;
+  opacity: 0.85;
+  z-index: 20;
+  top: 0;
+  bottom: 60px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-ctrl:hover {
+  opacity: 1;
+}
+
+.carousel-control-prev.gallery-ctrl {
+  left: 12px;
+  justify-content: flex-start;
+}
+
+.carousel-control-next.gallery-ctrl {
+  right: 12px;
+  justify-content: flex-end;
+}
+
+.gallery-nav-pill {
+  width: 46px;
+  height: 46px;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  color: var(--accent-cyan);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.gallery-ctrl:hover .gallery-nav-pill {
+  background: var(--accent-cyan);
+  color: #070a13;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 25px rgba(0, 245, 212, 0.7);
+  transform: scale(1.12);
+}
+
+.gallery-ctrl:active .gallery-nav-pill {
+  transform: scale(0.95);
+}
+
+.gallery-footer-info {
+  background: rgba(11, 17, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+}
+
+.gallery-counter-badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.text-cyan {
+  color: var(--accent-cyan) !important;
+}
+
+.bg-cyan {
+  background-color: var(--accent-cyan) !important;
 }
 
 /* ==========================================================================
@@ -1238,5 +1471,26 @@ body {
   
   .contact-card-main {
     padding: 30px 20px;
+  }
+  
+  .cv-download-banner {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .cv-download-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .cv-download-banner > div:last-child {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .cv-download-banner .btn-cv-action {
+    flex: 1;
+    justify-content: center;
   }
 }
