@@ -206,10 +206,10 @@
     <section id="home" class="hero-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
+          <div class="col-lg-7 text-center text-lg-start mb-0">
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              <span>Available for New Opportunities</span>
+              <span>Available for Opportunities</span>
             </div>
 
             <h1 class="hero-title">
@@ -217,16 +217,50 @@
               <span class="text-gradient">Johan Krisbima Abi</span>
             </h1>
 
-            <!-- Interactive Dynamic Typewriter Role -->
+            <!-- Interactive Dynamic Typewriter Role Pill -->
             <div class="hero-role-wrapper mb-3">
-              <span class="text-white-50 fs-5">Focusing on </span>
-              <span id="heroTypewriter" class="typewriter-text text-gradient fw-bold fs-5"></span>
-              <span class="typewriter-cursor">|</span>
+              <div class="hero-role-pill">
+                <i class="bi bi-stars text-cyan"></i>
+                <span id="heroTypewriter" class="typewriter-text text-gradient fw-bold"></span>
+                <span class="typewriter-cursor">|</span>
+              </div>
             </div>
 
-            <p class="hero-desc"><span class="fw-semibold text-white">Software Developer</span> dengan pengalaman dalam merancang RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.</p>
+            <!-- Mobile Portrait Card: Prominent, Sharp & Fully Visible -->
+            <div class="hero-avatar-wrapper hero-avatar-mobile d-lg-none my-3">
+              <div class="hero-avatar-ring">
+                <img src="img/profile.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
+              </div>
 
-            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+              <!-- Floating Chip 1 -->
+              <div class="floating-chip chip-1">
+                <i class="bi bi-code-square chip-icon"></i>
+                <div>
+                  <div class="chip-subtitle">Specialist</div>
+                  <div>Web Development</div>
+                </div>
+              </div>
+
+              <!-- Floating Chip 2 -->
+              <div class="floating-chip chip-2">
+                <i class="bi bi-database-check chip-icon"></i>
+                <div>
+                  <div class="chip-subtitle">Core Tech</div>
+                  <div>Laravel</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="hero-desc"><span class="fw-semibold text-white">Software Developer</span> dengan keahlian perancangan RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.</p>
+
+            <!-- Quick Tech Focus Badges -->
+            <div class="hero-tech-chips d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start mb-3">
+              <span class="hero-tech-badge"><i class="bi bi-layers-fill text-cyan"></i> Laravel</span>
+              <span class="hero-tech-badge"><i class="bi bi-node-plus-fill text-info"></i> Node.js</span>
+              <span class="hero-tech-badge"><i class="bi bi-hdd-network-fill text-warning"></i> REST API</span>
+            </div>
+
+            <div class="hero-cta-group d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
               <a href="#contact" class="btn-pill-primary">
                 <span>Let's Talk</span>
                 <i class="bi bi-arrow-right"></i>
@@ -238,22 +272,22 @@
             </div>
 
             <!-- Stats Bar with Animated Numbers -->
-            <div class="hero-stats-bar mt-5 spotlight-card">
-              <div class="row g-3">
+            <div class="hero-stats-bar spotlight-card">
+              <div class="row g-2 align-items-center">
                 <div class="col-4">
                   <div class="stat-item">
-                    <div class="stat-icon-pill d-none d-sm-flex">
+                    <div class="stat-icon-pill d-none d-md-flex">
                       <i class="bi bi-briefcase"></i>
                     </div>
                     <div>
                       <div class="stat-number"><span class="stat-counter" data-target="3">0</span>+</div>
-                      <div class="stat-label">Pengalaman Kerja</div>
+                      <div class="stat-label">Pengalaman</div>
                     </div>
                   </div>
                 </div>
-                <div class="col-4 border-start border-white border-opacity-10 ps-3">
+                <div class="col-4 border-start border-white border-opacity-10 ps-2 ps-sm-3">
                   <div class="stat-item">
-                    <div class="stat-icon-pill d-none d-sm-flex">
+                    <div class="stat-icon-pill d-none d-md-flex">
                       <i class="bi bi-stack"></i>
                     </div>
                     <div>
@@ -262,9 +296,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 border-start border-white border-opacity-10 ps-3">
+                <div class="col-4 border-start border-white border-opacity-10 ps-2 ps-sm-3">
                   <div class="stat-item">
-                    <div class="stat-icon-pill d-none d-sm-flex">
+                    <div class="stat-icon-pill d-none d-md-flex">
                       <i class="bi bi-patch-check"></i>
                     </div>
                     <div>
@@ -277,8 +311,8 @@
             </div>
           </div>
 
-          <!-- Hero Profile Image with Rounded Rings & Floating Pills -->
-          <div class="col-lg-5 text-center">
+          <!-- Hero Profile Image with Rounded Rings & Floating Pills (Desktop Only) -->
+          <div class="col-lg-5 text-center d-none d-lg-block">
             <div class="hero-avatar-wrapper">
               <div class="hero-avatar-ring">
                 <img src="img/profile.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
@@ -472,6 +506,9 @@
                   <span class="term-prompt-user"><span class="d-none d-sm-inline">guest@</span>johan</span><span class="text-white-50">:</span><span class="term-prompt-path">~</span><span class="term-prompt-symbol">$</span>
                 </div>
                 <input type="text" id="terminalInput" class="term-input" placeholder="Ketik perintah (contoh: skills)..." autocomplete="off" spellcheck="false" />
+                <button type="button" class="term-send-btn" id="termSendBtn" title="Kirim Perintah" aria-label="Kirim Perintah">
+                  <i class="bi bi-arrow-return-left"></i>
+                </button>
               </div>
             </div>
           </div>

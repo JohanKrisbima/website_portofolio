@@ -357,6 +357,20 @@ Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai
     });
   }
 
+  const termSendBtn = document.getElementById("termSendBtn");
+  if (termSendBtn && terminalInput) {
+    termSendBtn.addEventListener("click", () => {
+      const val = terminalInput.value.trim();
+      if (val) {
+        executeTerminalCommand(val);
+        terminalInput.value = "";
+      } else {
+        executeTerminalCommand("help");
+      }
+      terminalInput.focus();
+    });
+  }
+
   termChips.forEach((chip) => {
     chip.addEventListener("click", () => {
       const cmd = chip.getAttribute("data-cmd");

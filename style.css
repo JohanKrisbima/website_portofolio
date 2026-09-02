@@ -639,6 +639,30 @@ body {
   box-shadow: 0 6px 20px rgba(0, 245, 212, 0.5);
 }
 
+/* Hero Tech Badges */
+.hero-tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.hero-tech-badge:hover {
+  background: rgba(0, 245, 212, 0.1);
+  border-color: rgba(0, 245, 212, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 /* Hero Profile Frame */
 .hero-avatar-wrapper {
   position: relative;
@@ -658,8 +682,53 @@ body {
   max-width: 380px;
   height: 440px;
   object-fit: cover;
+  object-position: center 15%;
   border-radius: var(--radius-lg);
   display: block;
+}
+
+/* Mobile Hero Avatar Card */
+.hero-avatar-mobile {
+  max-width: 260px;
+  margin: 18px auto 22px !important;
+}
+
+.hero-avatar-mobile .hero-avatar-ring {
+  padding: 7px;
+  border-radius: var(--radius-xl);
+}
+
+.hero-avatar-mobile .hero-avatar-img {
+  width: 100%;
+  max-width: 245px;
+  height: 310px;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: var(--radius-lg);
+}
+
+.hero-avatar-mobile .floating-chip {
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  gap: 6px;
+}
+
+.hero-avatar-mobile .chip-subtitle {
+  font-size: 0.68rem;
+}
+
+.hero-avatar-mobile .chip-icon {
+  font-size: 0.95rem;
+}
+
+.hero-avatar-mobile .chip-1 {
+  top: 14px;
+  left: -14px;
+}
+
+.hero-avatar-mobile .chip-2 {
+  bottom: 14px;
+  right: -14px;
 }
 
 /* Floating Tech Pills */
@@ -708,7 +777,7 @@ body {
 
 /* Hero Stats Bar */
 .hero-stats-bar {
-  margin-top: 50px;
+  margin-top: 36px;
   padding: 20px 30px;
   border-radius: var(--radius-pill);
   background: var(--bg-card);
@@ -1451,38 +1520,99 @@ body {
   }
   
   .hero-section {
-    padding-top: 110px;
+    padding-top: 86px;
+    padding-bottom: 45px;
+    min-height: auto;
     text-align: center;
+    background: radial-gradient(circle at 50% 20%, rgba(0, 245, 212, 0.14) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 75%);
   }
-  
+
+  .status-badge {
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-role-wrapper {
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-role-pill {
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
   .hero-desc {
-    margin: 0 auto 30px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    max-width: 440px;
+    margin: 0 auto 20px;
   }
-  
+
+  .hero-cta-group {
+    gap: 10px;
+  }
+
+  .btn-pill-primary {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 16px rgba(0, 245, 212, 0.35);
+  }
+
+  .btn-pill-secondary {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+  }
+
   .hero-avatar-img {
     max-width: 260px;
     height: 320px;
   }
-  
+
   .chip-1 {
     left: 0px;
     top: 10px;
   }
-  
+
   .chip-2 {
     right: 0px;
     bottom: 10px;
   }
-  
+
   .hero-stats-bar {
     border-radius: var(--radius-lg);
-    padding: 20px;
+    padding: 12px 14px;
+    margin-top: 20px;
   }
-  
+
+  .stat-item {
+    gap: 6px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
   .contact-card-main {
     padding: 30px 20px;
   }
-  
+
   .cv-download-banner {
     padding: 16px;
   }
@@ -1549,6 +1679,13 @@ body {
     font-size: 0.78rem;
   }
 
+  .term-send-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.78rem;
+    margin-left: 4px;
+  }
+
   .back-to-top-btn {
     bottom: 18px;
     right: 16px;
@@ -1572,6 +1709,39 @@ body {
   .cv-download-banner .btn-cv-action {
     flex: 1;
     justify-content: center;
+  }
+
+  .hero-avatar-mobile {
+    max-width: 230px;
+  }
+
+  .hero-avatar-mobile .hero-avatar-img {
+    max-width: 215px;
+    height: 280px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-role-pill {
+    max-width: 100%;
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-pill-primary,
+  .hero-cta-group .btn-pill-secondary {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.84rem;
   }
 
   .terminal-card {
@@ -1606,11 +1776,23 @@ body {
 
 /* 2. Typewriter & Hero Role */
 .hero-role-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.hero-role-pill {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  min-height: 34px;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: 0.95rem;
 }
 
 .typewriter-text {
@@ -1944,6 +2126,34 @@ body {
   color: rgba(255, 255, 255, 0.3);
   font-style: italic;
   font-size: 0.78rem;
+}
+
+.term-send-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 245, 212, 0.12);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 6px;
+}
+
+.term-send-btn:hover {
+  background: var(--accent-cyan);
+  color: #070a13;
+  box-shadow: 0 0 14px rgba(0, 245, 212, 0.55);
+  transform: scale(1.06);
+}
+
+.term-send-btn:active {
+  transform: scale(0.92);
 }
 
 /* 6. Quick Copy Chips */
