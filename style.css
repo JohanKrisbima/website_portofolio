@@ -1320,6 +1320,11 @@ body {
   color: #38bdf8;
 }
 
+.github-icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
 .contact-link-pill:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
@@ -1339,6 +1344,11 @@ body {
 .contact-link-pill:hover.mail-pill {
   border-color: rgba(56, 189, 248, 0.5);
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+}
+
+.contact-link-pill:hover.gh-pill {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }
 
 .contact-link-pill:hover .contact-icon-wrapper {
