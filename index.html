@@ -12,15 +12,15 @@
     <link rel="canonical" href="https://website-portofolio-johan.vercel.app/" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="img/aku.jpg" />
-    <link rel="apple-touch-icon" href="img/aku.jpg" />
+    <link rel="icon" type="image/jpeg" href="img/profile.jpeg" />
+    <link rel="apple-touch-icon" href="img/profile.jpeg" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Johan Krisbima Abi - Software Developer Portfolio" />
     <meta property="og:description" content="Portofolio resmi Johan Krisbima Abi - Software Developer, Backend & Web Specialist berpengalaman di PT PAL Indonesia, PT Universal Big Data, dan PT Stechoq." />
     <meta property="og:url" content="https://website-portofolio-johan.vercel.app/" />
-    <meta property="og:image" content="https://website-portofolio-johan.vercel.app/img/aku.jpg" />
+    <meta property="og:image" content="https://website-portofolio-johan.vercel.app/img/profile.jpeg" />
     <meta property="og:site_name" content="Johan Krisbima Abi Portfolio" />
     <meta property="og:locale" content="id_ID" />
 
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Johan Krisbima Abi - Software Developer Portfolio" />
     <meta name="twitter:description" content="Portofolio resmi Johan Krisbima Abi - Software Developer & Web Specialist." />
-    <meta name="twitter:image" content="https://website-portofolio-johan.vercel.app/img/aku.jpg" />
+    <meta name="twitter:image" content="https://website-portofolio-johan.vercel.app/img/profile.jpeg" />
 
     <!-- Schema.org JSON-LD Structured Data for Person & Website -->
     <script type="application/ld+json">
@@ -43,7 +43,7 @@
             "jobTitle": "Software Developer",
             "description": "Software Developer dengan keahlian dalam merancang RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.",
             "url": "https://website-portofolio-johan.vercel.app/",
-            "image": "https://website-portofolio-johan.vercel.app/img/aku.jpg",
+            "image": "https://website-portofolio-johan.vercel.app/img/profile.jpeg",
             "alumniOf": {
               "@type": "EducationalOrganization",
               "name": "Politeknik Negeri Jember"
@@ -81,6 +81,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body id="page-top">
+    <!-- Top Scroll Reading Progress Bar -->
+    <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
     <!-- Ambient Background Lighting Orbs -->
     <div class="bg-ambient">
       <div class="ambient-orb orb-1"></div>
@@ -214,6 +217,13 @@
               <span class="text-gradient">Johan Krisbima Abi</span>
             </h1>
 
+            <!-- Interactive Dynamic Typewriter Role -->
+            <div class="hero-role-wrapper mb-3">
+              <span class="text-white-50 fs-5">Focusing on </span>
+              <span id="heroTypewriter" class="typewriter-text text-gradient fw-bold fs-5"></span>
+              <span class="typewriter-cursor">|</span>
+            </div>
+
             <p class="hero-desc"><span class="fw-semibold text-white">Software Developer</span> dengan pengalaman dalam merancang RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.</p>
 
             <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
@@ -227,8 +237,8 @@
               </a>
             </div>
 
-            <!-- Stats Bar -->
-            <div class="hero-stats-bar mt-5">
+            <!-- Stats Bar with Animated Numbers -->
+            <div class="hero-stats-bar mt-5 spotlight-card">
               <div class="row g-3">
                 <div class="col-4">
                   <div class="stat-item">
@@ -236,7 +246,7 @@
                       <i class="bi bi-briefcase"></i>
                     </div>
                     <div>
-                      <div class="stat-number">3+</div>
+                      <div class="stat-number"><span class="stat-counter" data-target="3">0</span>+</div>
                       <div class="stat-label">Pengalaman Kerja</div>
                     </div>
                   </div>
@@ -247,7 +257,7 @@
                       <i class="bi bi-stack"></i>
                     </div>
                     <div>
-                      <div class="stat-number">10+</div>
+                      <div class="stat-number"><span class="stat-counter" data-target="10">0</span>+</div>
                       <div class="stat-label">Tech Stack</div>
                     </div>
                   </div>
@@ -258,7 +268,7 @@
                       <i class="bi bi-patch-check"></i>
                     </div>
                     <div>
-                      <div class="stat-number">6+</div>
+                      <div class="stat-number"><span class="stat-counter" data-target="6">0</span>+</div>
                       <div class="stat-label">Sertifikasi</div>
                     </div>
                   </div>
@@ -271,7 +281,7 @@
           <div class="col-lg-5 text-center">
             <div class="hero-avatar-wrapper">
               <div class="hero-avatar-ring">
-                <img src="img/aku.jpg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
+                <img src="img/profile.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
               </div>
 
               <!-- Floating Chip 1 -->
@@ -312,14 +322,14 @@
         <div class="row g-4">
           <!-- Bio Bento Card -->
           <div class="col-lg-7">
-            <div class="bento-card">
+            <div class="bento-card spotlight-card">
               <div class="d-flex align-items-center gap-3 mb-4">
                 <div class="mini-card-icon">
                   <i class="bi bi-person-lines-fill"></i>
                 </div>
                 <div>
                   <h3 class="h4 mb-0 fw-bold text-white">Johan Krisbima Abi</h3>
-                  <p class="text-muted mb-0 small">Software Developer & D4 Teknik Informatika</p>
+                  <p class="text-white mb-0 small">Software Developer & D4 Teknik Informatika</p>
                 </div>
               </div>
 
@@ -335,7 +345,7 @@
               <!-- Education / Focus Mini Cards -->
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <div class="mini-rounded-card">
+                  <div class="mini-rounded-card spotlight-card">
                     <i class="bi bi-mortarboard fs-3 text-info"></i>
                     <div>
                       <div class="fw-bold text-white small">Pendidikan</div>
@@ -344,7 +354,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="mini-rounded-card">
+                  <div class="mini-rounded-card spotlight-card">
                     <i class="bi bi-building-check fs-3 text-success"></i>
                     <div>
                       <div class="fw-bold text-white small">Pengalaman</div>
@@ -377,7 +387,7 @@
 
           <!-- Skills Bento Card -->
           <div class="col-lg-5">
-            <div class="bento-card">
+            <div class="bento-card spotlight-card">
               <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i>Tech Stack</h3>
 
               <!-- Backend -->
@@ -419,6 +429,53 @@
             </div>
           </div>
         </div>
+
+        <!-- Interactive Developer CLI Terminal Card -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="terminal-card spotlight-card">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot dot-red"></span>
+                  <span class="terminal-dot dot-yellow"></span>
+                  <span class="terminal-dot dot-green"></span>
+                </div>
+                <div class="terminal-title">
+                  <i class="bi bi-terminal-fill me-1 text-cyan"></i>
+                  <span>johan@portfolio:~</span>
+                  <span class="d-none d-md-inline text-white-50 ms-1">(Interactive CLI)</span>
+                </div>
+                <div class="terminal-actions">
+                  <button type="button" class="term-clear-btn" id="termClearBtn" title="Bersihkan Terminal"><i class="bi bi-trash3"></i> <span>Clear</span></button>
+                </div>
+              </div>
+
+              <!-- Quick Command Chips (Scrollable Ribbon on Mobile) -->
+              <div class="terminal-quick-actions">
+                <span class="term-quick-label"><i class="bi bi-lightning-charge-fill text-warning"></i> <span class="d-none d-sm-inline">Quick:</span></span>
+                <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
+                <button type="button" class="term-chip" data-cmd="skills">skills</button>
+                <button type="button" class="term-chip" data-cmd="projects">projects</button>
+                <button type="button" class="term-chip" data-cmd="cert">certificates</button>
+                <button type="button" class="term-chip" data-cmd="contact">contact</button>
+                <button type="button" class="term-chip" data-cmd="hire">hire</button>
+                <button type="button" class="term-chip" data-cmd="help">help</button>
+              </div>
+
+              <div class="terminal-body" id="terminalOutput">
+                <div class="term-line term-welcome"><span class="text-cyan fw-bold">Johan.dev Interactive Shell v2.4</span> [Type <span class="text-warning">'help'</span> or click buttons above]</div>
+                <div class="term-line text-white-50">Selamat datang! Anda dapat mengeksplorasi profil, tech stack, dan proyek Johan melalui terminal interaktif ini.</div>
+              </div>
+
+              <div class="terminal-input-wrapper">
+                <div class="term-prompt">
+                  <span class="term-prompt-user"><span class="d-none d-sm-inline">guest@</span>johan</span><span class="text-white-50">:</span><span class="term-prompt-path">~</span><span class="term-prompt-symbol">$</span>
+                </div>
+                <input type="text" id="terminalInput" class="term-input" placeholder="Ketik perintah (contoh: skills)..." autocomplete="off" spellcheck="false" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -436,8 +493,31 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-10">
+            <!-- Interactive Category Filter Tabs -->
+            <div class="exp-filter-wrapper text-center mb-4">
+              <div class="filter-pill-group">
+                <button type="button" class="filter-btn active" data-filter="all">
+                  <i class="bi bi-grid-fill"></i>
+                  <span>Semua</span>
+                  <span class="filter-badge" id="badgeAll">3</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="enterprise">
+                  <i class="bi bi-building"></i>
+                  <span>Enterprise & Web</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="automation">
+                  <i class="bi bi-robot"></i>
+                  <span>Web Automation</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="backend">
+                  <i class="bi bi-gear-wide-connected"></i>
+                  <span>Backend & API</span>
+                </button>
+              </div>
+            </div>
+
             <!-- Item 1: PT PAL Indonesia -->
-            <div class="experience-card">
+            <div class="experience-card spotlight-card" data-category="enterprise">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role">Pemrogram Komputer Contract</h3>
@@ -492,7 +572,7 @@
             </div>
 
             <!-- Item 2: PT Universal Big Data -->
-            <div class="experience-card">
+            <div class="experience-card spotlight-card" data-category="automation">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role">Web Automation Intern</h3>
@@ -541,7 +621,7 @@
             </div>
 
             <!-- Item 3: PT Stechoq Robotika Indonesia -->
-            <div class="experience-card">
+            <div class="experience-card spotlight-card" data-category="backend">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role">Backend Developer Intern</h3>
@@ -570,22 +650,6 @@
                 <span class="tag-pill">Swagger</span>
                 <span class="tag-pill">Jest Testing</span>
               </div>
-
-              <!-- <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
-                <span class="text-white small d-inline-flex align-items-center gap-2">
-                  <i class="bi bi-shield-check text-info"></i>
-                  <span>Dokumentasi Terverifikasi</span>
-                </span>
-                <button
-                  type="button"
-                  class="btn-exp-proof"
-                  data-proof-img="img/msib.jpeg"
-                  data-proof-title="Dokumentasi & Sertifikat - PT Stechoq Robotika Indonesia"
-                  data-proof-desc="Sertifikat MSIB Backend Developer Intern & Dokumentasi Proyek Warehouse Management RESTful API.">
-                  <i class="bi bi-image"></i>
-                  <span>Lihat Bukti Foto / Dokumen</span>
-                </button>
-              </div> -->
             </div>
           </div>
         </div>
@@ -612,7 +676,7 @@
               <div class="row g-4 justify-content-center">
                 <!-- Cert 1 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB">
                     <div class="cert-img-wrapper">
                       <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
                       <div class="cert-overlay">
@@ -628,7 +692,7 @@
 
                 <!-- Cert 2 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Sertifikat Magang - PT Stechoq Robotika Indonesia">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Sertifikat Magang - PT Stechoq Robotika Indonesia">
                     <div class="cert-img-wrapper">
                       <img src="img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
                       <div class="cert-overlay">
@@ -644,7 +708,7 @@
 
                 <!-- Cert 3 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/sertifMsib2.png" data-cert-title="Sertifikat Magang - PT Universal Big Data">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib2.png" data-cert-title="Sertifikat Magang - PT Universal Big Data">
                     <div class="cert-img-wrapper">
                       <img src="img/sertifMsib2.png" alt="Sertifikat MSIB UBig" loading="lazy" />
                       <div class="cert-overlay">
@@ -665,7 +729,7 @@
               <div class="row g-4 justify-content-center">
                 <!-- Cert 4 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Sertifikat Program Kreativitas Mahasiswa (PKM)">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Sertifikat Program Kreativitas Mahasiswa (PKM)">
                     <div class="cert-img-wrapper">
                       <img src="img/sertifPKM.jpg" alt="Sertifikat PKM" loading="lazy" />
                       <div class="cert-overlay">
@@ -681,7 +745,7 @@
 
                 <!-- Cert 5 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
+                  <div class="cert-card spotlight-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
                     <div class="cert-img-wrapper">
                       <img src="img/ubig.png" alt="UBig Certificate" loading="lazy" />
                       <div class="cert-overlay">
@@ -697,7 +761,7 @@
 
                 <!-- Cert 6 -->
                 <div class="col-md-4">
-                  <div class="cert-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat MagangHub Kemnaker">
+                  <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat MagangHub Kemnaker">
                     <div class="cert-img-wrapper">
                       <img src="img/Sertif Maganghub.jpeg" alt="Sertifikat MagangHub" loading="lazy" />
                       <div class="cert-overlay">
@@ -736,7 +800,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10">
-            <div class="contact-card-main">
+            <div class="contact-card-main spotlight-card">
               <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
                   <div class="section-pill-tag">
@@ -746,54 +810,72 @@
                   <h2 class="section-main-title mb-3">Siap Berkolaborasi?</h2>
                   <p class="text-white mb-4 pe-lg-4">Saya terbuka untuk peluang kerja Full-time, Contract, maupun project freelance. Silakan hubungi saya melalui kanal komunikasi di bawah ini.</p>
 
-                  <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white bg-opacity-10 text-white small">
+                  <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white bg-opacity-10 text-white small mb-4">
                     <i class="bi bi-geo-alt-fill text-danger"></i>
                     <span>Indonesia • Remote / On-site Ready</span>
+                  </div>
+
+                  <!-- Quick Copy Action Bar -->
+                  <div class="quick-copy-box pt-3 border-top border-white border-opacity-10">
+                    <div class="text-white-50 small mb-2 text-start"><i class="bi bi-clipboard-check me-1 text-cyan"></i> Salin Kontak Cepat:</div>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
+                      <button type="button" class="btn-copy-chip" data-copy="johankrisbimaabi@gmail.com" title="Klik untuk salin email">
+                        <i class="bi bi-envelope-fill text-info"></i>
+                        <span>johankrisbimaabi@gmail.com</span>
+                        <i class="bi bi-copy ms-1 opacity-50"></i>
+                      </button>
+                      <button type="button" class="btn-copy-chip" data-copy="+6287851865091" title="Klik untuk salin no WhatsApp">
+                        <i class="bi bi-whatsapp text-success"></i>
+                        <span>+62 878-5186-5091</span>
+                        <i class="bi bi-copy ms-1 opacity-50"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
                 <div class="col-lg-6">
-                  <!-- WhatsApp Link -->
-                  <a href="https://wa.me/6287851865091?text=Halo%20Johan,%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" class="contact-link-pill wa-pill">
-                    <div class="contact-icon-wrapper whatsapp-icon">
-                      <i class="bi bi-whatsapp"></i>
+                  <!-- Interactive Quick WhatsApp Message Composer -->
+                  <div class="composer-card p-3 p-sm-4 rounded-4 mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-chat-square-dots-fill text-cyan fs-5"></i>
+                        <span class="text-white fw-bold small">Kirim Pesan Instan</span>
+                      </div>
+                      <span class="badge bg-cyan text-dark rounded-pill px-2 py-1 small">Auto WhatsApp</span>
                     </div>
-                    <div>
-                      <div class="contact-info-title">WhatsApp Chat</div>
-                      <div class="contact-info-subtitle">+62 878-5186-5091</div>
-                    </div>
-                    <i class="bi bi-arrow-up-right ms-auto text-muted"></i>
-                  </a>
 
-                  <!-- Instagram Link -->
-                  <a href="https://instagram.com/johankrisbima" target="_blank" class="contact-link-pill ig-pill">
-                    <div class="contact-icon-wrapper instagram-icon">
-                      <i class="bi bi-instagram"></i>
+                    <div class="mb-2">
+                      <label for="composerName" class="form-label text-white-50 small mb-1">Nama / Perusahaan</label>
+                      <input type="text" id="composerName" class="form-control composer-input" placeholder="Contoh: Budi - Rekruter / Tim Tech" />
                     </div>
-                    <div>
-                      <div class="contact-info-title">Instagram</div>
-                      <div class="contact-info-subtitle">@johankrisbima</div>
-                    </div>
-                    <i class="bi bi-arrow-up-right ms-auto text-muted"></i>
-                  </a>
 
-                  <!-- GitHub Link -->
-                  <a href="https://github.com/JohanKrisbima" target="_blank" class="contact-link-pill gh-pill">
-                    <div class="contact-icon-wrapper github-icon">
-                      <i class="bi bi-github"></i>
+                    <div class="mb-2">
+                      <label for="composerTopic" class="form-label text-white-50 small mb-1">Tujuan / Kepentingan</label>
+                      <select id="composerTopic" class="form-select composer-input">
+                        <option value="Tawaran Pekerjaan Full-time / Kontrak">Lowongan Pekerjaan (Full-time / Kontrak)</option>
+                        <option value="Diskusi Proyek Web / Backend API">Proyek Web / RESTful API</option>
+                        <option value="Proyek Web Automation &amp; Scraping">Web Automation &amp; Scraping</option>
+                        <option value="Diskusi Teknis &amp; Pertanyaan Umum">Diskusi Teknis &amp; Tanya Jawab</option>
+                      </select>
                     </div>
-                    <div>
-                      <div class="contact-info-title">GitHub</div>
-                      <div class="contact-info-subtitle">github.com/JohanKrisbima</div>
-                    </div>
-                    <i class="bi bi-arrow-up-right ms-auto text-muted"></i>
-                  </a>
 
-                  <!-- Direct Chat / Hire Pill -->
-                  <a href="https://wa.me/6287851865091" target="_blank" class="btn-pill-primary w-100 justify-content-center mt-2">
-                    <i class="bi bi-chat-dots-fill"></i>
-                    <span>Kirim Pesan Langsung</span>
-                  </a>
+                    <div class="mb-3">
+                      <label for="composerMessage" class="form-label text-white-50 small mb-1">Pesan Tambahan (Opsional)</label>
+                      <textarea id="composerMessage" class="form-control composer-input" rows="2" placeholder="Tuliskan catatan atau detail tawaran di sini..."></textarea>
+                    </div>
+
+                    <button type="button" id="btnSendComposer" class="btn-pill-primary w-100 justify-content-center">
+                      <i class="bi bi-whatsapp fs-5"></i>
+                      <span>Generate &amp; Kirim ke WhatsApp</span>
+                    </button>
+                  </div>
+
+                  <!-- Direct Channel Pills -->
+                  <div class="d-flex flex-wrap gap-2 justify-content-center">
+                    <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa" title="WhatsApp Langsung"> <i class="bi bi-whatsapp"></i> <span>WhatsApp</span> </a>
+                    <a href="https://github.com/JohanKrisbima" target="_blank" class="channel-mini-pill gh" title="GitHub Profile"> <i class="bi bi-github"></i> <span>GitHub</span> </a>
+                    <a href="https://instagram.com/johankrisbima" target="_blank" class="channel-mini-pill ig" title="Instagram Profile"> <i class="bi bi-instagram"></i> <span>Instagram</span> </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -865,6 +947,14 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Interactive Floating Toast Notification -->
+    <div id="toastNotification" class="portfolio-toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-inner">
+        <i class="bi bi-check-circle-fill toast-icon" id="toastIcon"></i>
+        <span id="toastMessage" class="toast-text">Tersalin ke clipboard!</span>
       </div>
     </div>
 
