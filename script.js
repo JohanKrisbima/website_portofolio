@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   const typewriterEl = document.getElementById("heroTypewriter");
   if (typewriterEl) {
-    const roles = ["Software Developer", "Backend & RESTful API Specialist", "Web Automation Engineer", "Laravel & Node.js Specialist"];
+    const roles = ["Software Developer", "Backend & RESTful API Specialist", "Web Developer", "Laravel Specialist"];
     let roleIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
