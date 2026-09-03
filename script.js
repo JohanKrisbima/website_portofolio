@@ -256,7 +256,7 @@ Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai
 <div class="term-output-block">
   <div class="text-cyan fw-bold mb-1">Hubungi Johan:</div>
   <div>• WhatsApp : <a href="https://wa.me/6287851865091" target="_blank" class="text-decoration-none text-success">+62 878-5186-5091</a></div>
-  <div>• Email    : <span class="text-light">johankrisbimaabi@gmail.com</span></div>
+  <div>• Email    : <span class="text-light">johankrisbima77@gmail.com</span></div>
   <div>• GitHub   : <a href="https://github.com/JohanKrisbima" target="_blank" class="text-decoration-none text-info">github.com/JohanKrisbima</a></div>
   <div>• Instagram: <a href="https://instagram.com/johankrisbima" target="_blank" class="text-decoration-none text-danger">@johankrisbima</a></div>
 </div>`,
