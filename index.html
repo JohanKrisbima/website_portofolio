@@ -79,6 +79,22 @@
 
     <!-- Custom Modern Rounded CSS -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Theme Initialization (Prevents Flash of Unstyled Theme) -->
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("portfolio_theme_mode");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+          } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+            document.documentElement.setAttribute("data-theme", "light");
+          } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body id="page-top">
     <!-- Top Scroll Reading Progress Bar -->
@@ -177,8 +193,23 @@
           </li>
         </ul>
 
-        <!-- Bottom CTA & Social Links in Mobile Drawer -->
+        <!-- Bottom CTA, Theme Segment & Social Links in Mobile Drawer -->
         <div class="mobile-drawer-footer pt-3 border-top border-white border-opacity-10">
+          <!-- Mobile Theme Switcher Segment -->
+          <div class="mobile-theme-segment-box mb-3">
+            <span class="small fw-semibold text-white d-block mb-2"><i class="bi bi-palette2 me-1 text-cyan"></i> Mode Tampilan:</span>
+            <div class="theme-segmented-group" role="group" aria-label="Pilih Mode Tema">
+              <button type="button" class="theme-seg-btn active" data-theme-choice="dark" id="btnThemeDark">
+                <i class="bi bi-moon-stars-fill"></i>
+                <span>Dark</span>
+              </button>
+              <button type="button" class="theme-seg-btn" data-theme-choice="light" id="btnThemeLight">
+                <i class="bi bi-sun-fill"></i>
+                <span>Light</span>
+              </button>
+            </div>
+          </div>
+
           <a href="pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" target="_blank" class="btn-pill-cv w-100 justify-content-center mb-2">
             <i class="bi bi-file-earmark-arrow-down-fill"></i>
             <span>Unduh CV (PDF)</span>
@@ -934,6 +965,17 @@
         </div>
       </div>
     </footer>
+
+    <!-- Floating Theme Switcher Button (Fixed Bottom-Left) -->
+    <div class="floating-theme-wrapper" id="floatingThemeWrapper">
+      <button type="button" id="themeToggleBtn" class="floating-theme-btn" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
+        <div class="floating-theme-icon-box">
+          <i class="bi bi-sun-fill theme-icon-sun"></i>
+          <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
+        </div>
+        <span class="floating-theme-text" id="themeToggleText">Light Mode</span>
+      </button>
+    </div>
 
     <!-- Floating Back to Top Button -->
     <a href="#home" id="backToTop" class="back-to-top-btn" aria-label="Scroll to top">

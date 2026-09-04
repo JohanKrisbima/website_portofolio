@@ -24,6 +24,99 @@ document.addEventListener("DOMContentLoaded", () => {
   const toastMessage = document.getElementById("toastMessage");
   const toastIcon = document.getElementById("toastIcon");
 
+  // Theme Toggle Elements
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+  const themeToggleText = document.getElementById("themeToggleText");
+  const themeSegBtns = document.querySelectorAll(".theme-seg-btn");
+  const THEME_STORAGE_KEY = "portfolio_theme_mode";
+
+  // =========================================================================
+  // 2. Toast System Function
+  // =========================================================================
+  let toastTimer = null;
+
+  function showToast(message, iconClass = "bi-check-circle-fill") {
+    if (!toastNotification || !toastMessage) return;
+
+    if (toastIcon) {
+      toastIcon.className = `bi ${iconClass} toast-icon`;
+    }
+    toastMessage.textContent = message;
+    toastNotification.classList.add("show");
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastNotification.classList.remove("show");
+    }, 3200);
+  }
+
+  // =========================================================================
+  // 3. Theme Manager (Dark & Light Modes)
+  // =========================================================================
+  function applyTheme(theme, notify = false) {
+    const isLight = theme === "light";
+    const activeTheme = isLight ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", activeTheme);
+    document.body.setAttribute("data-theme", activeTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, activeTheme);
+
+    const tooltipLabel = isLight ? "Ganti ke Mode Gelap" : "Ganti ke Mode Terang";
+    const buttonLabel = isLight ? "Dark Mode" : "Light Mode";
+
+    if (themeToggleBtn) {
+      themeToggleBtn.setAttribute("title", tooltipLabel);
+      themeToggleBtn.setAttribute("aria-label", tooltipLabel);
+    }
+    if (themeToggleText) {
+      themeToggleText.textContent = buttonLabel;
+    }
+
+    // Sync segmented control buttons in mobile offcanvas
+    themeSegBtns.forEach((btn) => {
+      const choice = btn.getAttribute("data-theme-choice");
+      if (choice === activeTheme) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    if (notify) {
+      showToast(
+        isLight ? "Mode Terang Aktif" : "Mode Gelap Aktif",
+        isLight ? "bi-sun-fill" : "bi-moon-stars-fill"
+      );
+    }
+  }
+
+  // Initialize theme on page load
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  if (savedTheme === "light" || savedTheme === "dark") {
+    applyTheme(savedTheme, false);
+  } else {
+    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    applyTheme(prefersLight ? "light" : "dark", false);
+  }
+
+  // Floating Theme button click handler
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const nextTheme = current === "light" ? "dark" : "light";
+      applyTheme(nextTheme, true);
+    });
+  }
+
+  themeSegBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const choice = btn.getAttribute("data-theme-choice");
+      if (choice) {
+        applyTheme(choice, true);
+      }
+    });
+  });
+
   // =========================================================================
   // 2. Scroll Progress Bar & Floating Navbar
   // =========================================================================
@@ -201,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div><span class="text-warning">cert</span>     : Daftar sertifikasi resmi yang dimiliki</div>
   <div><span class="text-warning">contact</span>  : Kanal komunikasi (WhatsApp, Email, GitHub)</div>
   <div><span class="text-warning">hire</span>     : Status ketersediaan & tawaran kerja</div>
+  <div><span class="text-warning">theme</span>    : Mengganti tema tampilan (Dark / Light)</div>
   <div><span class="text-warning">date</span>     : Menampilkan tanggal & waktu lokal saat ini</div>
   <div><span class="text-warning">clear</span>    : Membersihkan tampilan terminal</div>
 </div>`,
@@ -272,6 +366,17 @@ Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai
   </div>
 </div>`,
 
+    theme: () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const nextTheme = current === "light" ? "dark" : "light";
+      applyTheme(nextTheme, true);
+      return `
+<div class="term-output-block">
+  <div class="text-cyan fw-bold mb-1">Theme Updated:</div>
+  <div>Mode tampilan berhasil diubah ke: <span class="text-warning fw-bold">${nextTheme.toUpperCase()} MODE</span></div>
+</div>`;
+    },
+
     date: () => `
 <div class="term-output-block">
   <span class="text-muted">Local Time:</span> <span class="text-white">${new Date().toLocaleString("id-ID")}</span>
@@ -284,6 +389,15 @@ Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai
   terminalCommands.exp = terminalCommands.projects;
   terminalCommands.project = terminalCommands.projects;
   terminalCommands.bio = terminalCommands.whoami;
+  terminalCommands.mode = terminalCommands.theme;
+  terminalCommands.dark = () => {
+    applyTheme("dark", true);
+    return `<div class="term-output-block"><div class="text-cyan fw-bold">Dark Mode Activated</div></div>`;
+  };
+  terminalCommands.light = () => {
+    applyTheme("light", true);
+    return `<div class="term-output-block"><div class="text-cyan fw-bold">Light Mode Activated</div></div>`;
+  };
 
   function executeTerminalCommand(rawCmd) {
     const cmd = rawCmd.trim().toLowerCase();
@@ -410,25 +524,8 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
   }
 
   // =========================================================================
-  // 9. Quick Copy to Clipboard & Toast System
+  // 9. Quick Copy to Clipboard System
   // =========================================================================
-  let toastTimer = null;
-
-  function showToast(message, iconClass = "bi-check-circle-fill") {
-    if (!toastNotification || !toastMessage) return;
-
-    if (toastIcon) {
-      toastIcon.className = `bi ${iconClass} toast-icon`;
-    }
-    toastMessage.textContent = message;
-    toastNotification.classList.add("show");
-
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toastNotification.classList.remove("show");
-    }, 3200);
-  }
-
   const copyButtons = document.querySelectorAll("[data-copy]");
   copyButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
