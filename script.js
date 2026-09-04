@@ -83,10 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (notify) {
-      showToast(
-        isLight ? "Mode Terang Aktif" : "Mode Gelap Aktif",
-        isLight ? "bi-sun-fill" : "bi-moon-stars-fill"
-      );
+      showToast(isLight ? "Mode Terang Aktif" : "Mode Gelap Aktif", isLight ? "bi-sun-fill" : "bi-moon-stars-fill");
     }
   }
 
@@ -150,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   const typewriterEl = document.getElementById("heroTypewriter");
   if (typewriterEl) {
-    const roles = ["Software Developer", "Backend & RESTful API Specialist", "Web Developer", "Laravel Specialist"];
+    const roles = ["Software Developer", "Backend & RESTful API Specialist", "Experience 1 year as Web Developer"];
     let roleIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
