@@ -1913,6 +1913,7 @@ body {
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1944,6 +1945,83 @@ body {
 .filter-btn.active .filter-badge {
   background: #070a13;
   color: var(--accent-cyan);
+}
+
+/* Responsive Mobile Filter Tabs (Full-Fit Segmented Capsule, Zero Horizontal Scroll) */
+@media (max-width: 768px) {
+  .exp-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 4px 0 16px 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .filter-pill-group {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 520px;
+    gap: 4px;
+    padding: 4px 6px;
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+  }
+
+  .filter-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 0.78rem;
+    gap: 4px;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .filter-btn i {
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .filter-badge {
+    width: 16px;
+    height: 16px;
+    font-size: 0.64rem;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .filter-pill-group {
+    padding: 3px 4px;
+    gap: 3px;
+  }
+
+  .filter-btn {
+    padding: 6px 3px;
+    font-size: 0.72rem;
+    gap: 3px;
+  }
+
+  .filter-btn i {
+    font-size: 0.74rem;
+  }
+
+  .filter-badge {
+    width: 15px;
+    height: 15px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .filter-btn {
+    padding: 6px 2px;
+    font-size: 0.68rem;
+  }
+  .filter-btn i {
+    display: none;
+  }
 }
 
 .experience-card {
