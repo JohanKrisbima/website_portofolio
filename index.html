@@ -80,21 +80,8 @@
     <!-- Custom Modern Rounded CSS -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Theme Initialization (Prevents Flash of Unstyled Theme) -->
-    <script>
-      (function () {
-        try {
-          const savedTheme = localStorage.getItem("portfolio_theme_mode");
-          if (savedTheme === "light" || savedTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", savedTheme);
-          } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-            document.documentElement.setAttribute("data-theme", "light");
-          } else {
-            document.documentElement.setAttribute("data-theme", "dark");
-          }
-        } catch (e) {}
-      })();
-    </script>
+    <!-- Main Portfolio Interactive Script -->
+    <script src="script.js"></script>
   </head>
   <body id="page-top">
     <!-- Top Scroll Reading Progress Bar -->
@@ -399,31 +386,32 @@
               </div>
 
               <p class="about-bio-text">
-                Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan aplikasi web melalui program MagangHub dan berlanjut
-                ke kontrak kerja di <span class="highlight-pill">PT PAL Indonesia</span>.
+                Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan <em>web application</em> melalui program MagangHub yang dilanjutkan dengan kontrak internship di <span class="highlight-pill">PT PAL Indonesia</span>.
               </p>
               <p class="about-bio-text mb-4">
-                Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai dari analisis kebutuhan bisnis, perancangan basis data, implementasi backend & frontend, security hardening, hingga testing dan deployment di
-                lingkungan server perusahaan. Kolaboratif, adaptif, serta berorientasi pada solusi nyata.
+                Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.
               </p>
 
-              <!-- Education / Focus Mini Cards -->
-              <div class="row g-3">
+              <!-- Education & Achievements Mini Cards (Exact CV) -->
+              <div class="row g-3 mb-4">
                 <div class="col-sm-6">
-                  <div class="mini-rounded-card spotlight-card">
-                    <i class="bi bi-mortarboard fs-3 text-info"></i>
+                  <div class="mini-rounded-card spotlight-card h-100">
+                    <i class="bi bi-mortarboard-fill fs-3 text-info"></i>
                     <div>
-                      <div class="fw-bold text-white small">Pendidikan</div>
-                      <div class="mini-card-text">D4 Teknik Informatika</div>
+                      <div class="fw-bold text-white small">Politeknik Negeri Jember</div>
+                      <div class="text-white-50 small">D4 Teknik Informatika (2021 - 2025)</div>
+                      <div class="badge bg-cyan text-dark rounded-pill px-2 py-1 small mt-1 fw-bold">IPK: 3.87 / 4.00</div>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="mini-rounded-card spotlight-card">
-                    <i class="bi bi-building-check fs-3 text-success"></i>
+                  <div class="mini-rounded-card spotlight-card h-100">
+                    <i class="bi bi-journal-bookmark-fill fs-3 text-success"></i>
                     <div>
-                      <div class="fw-bold text-white small">Pengalaman</div>
-                      <div class="mini-card-text">Enterprise & Startup Intern</div>
+                      <div class="fw-bold text-white small">Publikasi Jurnal &amp; PKM-PM</div>
+                      <div class="text-white-50 card-micro-desc">
+                        Lolos Pendanaan PKM-PM Kemendikbudristek &amp; Publikasi Jurnal Web Cloud GIS Deteksi Banjir Tambakkemerakan
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -436,8 +424,8 @@
                     <i class="bi bi-file-earmark-pdf-fill"></i>
                   </div>
                   <div>
-                    <div class="fw-bold text-white small">Curriculum Vitae (CV)</div>
-                    <div class="text-white small">Format PDF • Lengkap & Terverifikasi</div>
+                    <div class="fw-bold text-white small">Curriculum Vitae (CV) Resmi</div>
+                    <div class="text-white small">Format PDF • Lengkap &amp; Terverifikasi</div>
                   </div>
                 </div>
                 <div class="d-flex gap-2 mt-3 mt-sm-0">
@@ -450,46 +438,53 @@
             </div>
           </div>
 
-          <!-- Skills Bento Card -->
+          <!-- Skills Bento Card (Exact CV Skills) -->
           <div class="col-lg-5">
             <div class="bento-card spotlight-card">
-              <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i>Tech Stack</h3>
+              <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i>Skills &amp; Keahlian</h3>
 
-              <!-- Backend -->
+              <!-- Programming (from CV) -->
               <div class="skill-category-title">
-                <i class="bi bi-server"></i>
-                <span>Backend & Frameworks</span>
+                <i class="bi bi-code-slash"></i>
+                <span>Programming</span>
               </div>
               <div class="skill-chips-group">
+                <span class="skill-pill"><i class="bi bi-filetype-html"></i>HTML</span>
+                <span class="skill-pill"><i class="bi bi-filetype-css"></i>CSS</span>
+                <span class="skill-pill"><i class="bi bi-filetype-js"></i>JavaScript</span>
+                <span class="skill-pill"><i class="bi bi-filetype-php"></i>PHP</span>
+                <span class="skill-pill"><i class="bi bi-filetype-py"></i>Python</span>
+                <span class="skill-pill"><i class="bi bi-bootstrap"></i>Bootstrap</span>
                 <span class="skill-pill"><i class="bi bi-fire"></i>Laravel</span>
-                <span class="skill-pill"><i class="bi bi-diagram-3"></i>Node.js</span>
-                <span class="skill-pill"><i class="bi bi-lightning-charge"></i>Express.js</span>
-                <span class="skill-pill"><i class="bi bi-terminal"></i>C#</span>
-                <span class="skill-pill"><i class="bi bi-window"></i>.NET</span>
-                <span class="skill-pill"><i class="bi bi-boxes"></i>Odoo</span>
-              </div>
-
-              <!-- Database -->
-              <div class="skill-category-title">
-                <i class="bi bi-database"></i>
-                <span>Databases</span>
-              </div>
-              <div class="skill-chips-group">
-                <span class="skill-pill"><i class="bi bi-database-fill"></i>MySQL</span>
+                <span class="skill-pill"><i class="bi bi-lightning-charge"></i>Express Js</span>
+                <span class="skill-pill"><i class="bi bi-database"></i>MySQL</span>
                 <span class="skill-pill"><i class="bi bi-database-check"></i>PostgreSQL</span>
               </div>
 
-              <!-- Frontend & Tools -->
+              <!-- Non-Programming & Tools -->
               <div class="skill-category-title">
                 <i class="bi bi-tools"></i>
-                <span>Frontend & Development Tools</span>
+                <span>Non-Programming &amp; Tools</span>
               </div>
               <div class="skill-chips-group">
-                <span class="skill-pill"><i class="bi bi-bootstrap"></i>Bootstrap</span>
-                <span class="skill-pill"><i class="bi bi-filetype-js"></i>JavaScript</span>
-                <span class="skill-pill"><i class="bi bi-git"></i>Git & GitHub</span>
+                <span class="skill-pill"><i class="bi bi-file-word"></i>Microsoft Word</span>
+                <span class="skill-pill"><i class="bi bi-palette"></i>Canva</span>
+                <span class="skill-pill"><i class="bi bi-git"></i>Git &amp; GitHub</span>
                 <span class="skill-pill"><i class="bi bi-send-check"></i>Postman</span>
-                <span class="skill-pill"><i class="bi bi-check2-circle"></i>Unit Testing</span>
+              </div>
+
+              <!-- Soft Skills & Languages (from CV) -->
+              <div class="skill-category-title">
+                <i class="bi bi-person-check-fill"></i>
+                <span>Soft Skills &amp; Bahasa</span>
+              </div>
+              <div class="skill-chips-group">
+                <span class="skill-pill"><i class="bi bi-check2-circle"></i>Problem Solving</span>
+                <span class="skill-pill"><i class="bi bi-lightbulb"></i>Critical Thinking</span>
+                <span class="skill-pill"><i class="bi bi-graph-up-arrow"></i>Growth Mindset</span>
+                <span class="skill-pill"><i class="bi bi-kanban"></i>Project Management</span>
+                <span class="skill-pill"><i class="bi bi-translate"></i>Indonesia</span>
+                <span class="skill-pill"><i class="bi bi-translate"></i>Passive English</span>
               </div>
             </div>
           </div>
@@ -583,12 +578,11 @@
                 </button>
               </div>
             </div>
-
             <!-- Item 1: PT PAL Indonesia -->
             <div class="experience-card spotlight-card" data-category="enterprise">
               <div class="exp-header">
                 <div>
-                  <h3 class="exp-role">Pemrogram Komputer Contract</h3>
+                  <h3 class="exp-role">Pemprogram Komputer Contract</h3>
                   <div class="exp-company">
                     <i class="bi bi-building"></i>
                     <span>PT PAL Indonesia</span>
@@ -596,24 +590,48 @@
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Oktober 2025 - Agustus 2026</span>
+                  <span>Okt 2025 – Agu 2026</span>
                 </div>
               </div>
 
-              <p class="exp-desc">
-                Selama berkarir sebagai Pemrogram Komputer Contract di PT PAL Indonesia (Okt 2025 – Agu 2026), saya bertanggung jawab merancang, mengoptimalkan, dan mengamankan berbagai sistem informasi enterprise secara end-to-end. Scope
-                pekerjaan saya mencakup pengembangan penuh Website Subkon (Absensi Vendor) dari skema database hingga deployment, refactoring codebase dan security hardening pada Website Simandok (Sistem Management Document), serta
-                pengembangan fitur dan pengujian menyeluruh untuk Website Siamang (Absensi Makan Siang) dan Website Ebidding (Lelang Tender). Selain memastikan performa, stabilitas, dan keamanan sistem, saya juga menyusun dokumentasi teknis
-                yang komprehensif—mulai dari User Acceptance Testing (UAT), manual book, hingga video panduan bagi pengguna.
-              </p>
+              <div class="exp-desc">
+                <p class="mb-2 text-light">Mengembangkan, mengoptimalkan, dan mengamankan aplikasi web enterprise melalui 4 proyek utama:</p>
+                <div class="row g-2 mb-3">
+                  <div class="col-md-6">
+                    <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                      <div class="fw-bold text-white small"><i class="bi bi-cup-hot text-cyan me-1"></i>Website Siamang (Absensi Makan Siang)</div>
+                      <div class="text-white-50 exp-sub-desc">Membenahi bug, optimasi sistem &amp; fitur baru, deployment ke server, serta penyusunan UAT &amp; Manual Book.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                      <div class="fw-bold text-white small"><i class="bi bi-file-earmark-lock text-cyan me-1"></i>Website Simandok (Management Document)</div>
+                      <div class="text-white-50 exp-sub-desc">Refactoring codebase framework terbaru, security hardening proteksi data enterprise, dan dokumentasi UAT lengkap.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                      <div class="fw-bold text-white small"><i class="bi bi-cash-coin text-cyan me-1"></i>Website Ebidding (Lelang Tender)</div>
+                      <div class="text-white-50 exp-sub-desc">Fasilitasi vendor lelang tender, pengujian komprehensif stabilitas sistem, serta UAT &amp; video tutorial bagi vendor.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                      <div class="fw-bold text-white small"><i class="bi bi-people text-cyan me-1"></i>Website Subkon (Absensi Vendor)</div>
+                      <div class="text-white-50 exp-sub-desc">Pengembangan end-to-end (skema database s/d implementasi), User Management, data karyawan vendor &amp; deployment server.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="tags-group">
                 <span class="tag-pill">Laravel</span>
+                <span class="tag-pill">PHP</span>
                 <span class="tag-pill">MySQL</span>
                 <span class="tag-pill">PostgreSQL</span>
                 <span class="tag-pill">Bootstrap</span>
-                <span class="tag-pill">Odoo</span>
-                <span class="tag-pill">Enterprise App</span>
+                <span class="tag-pill">UAT Documentation</span>
+                <span class="tag-pill">Security Hardening</span>
                 <span class="tag-pill">Server Deployment</span>
               </div>
 
@@ -622,20 +640,11 @@
                   <i class="bi bi-shield-check text-info"></i>
                   <span>Dokumentasi Terverifikasi</span>
                 </span>
-                <button
-                  type="button"
-                  class="btn-exp-proof"
-                  data-proof-title="Dokumentasi Sistem - PT PAL Indonesia"
-                  data-proof-desc="Website Subkon, dan Simandok."
-                  data-gallery='[
-                    {"src": "img/login subkon.png", "caption": "1. Halaman Login Website Subkon – Sistem Absensi &amp; Manajemen Tenaga Kerja Vendor"},
-                    {"src": "img/subkon.png", "caption": "2. Halaman Utama Website Subkon – Sistem Absensi &amp; Manajemen Tenaga Kerja Vendor"},
-                    {"src": "img/login simandok.png", "caption": "3. Halaman Login Website Simandok – Sistem Manajemen Dokumen Enkripsi"},
-                    {"src": "img/simandok.png", "caption": "4. Halaman Utama Website Simandok – Sistem Manajemen Dokumen Enkripsi"}
-                  ]'>
-                  <i class="bi bi-images"></i>
-                  <span>Lihat Dokumentasi (4 Gambar)</span>
-                </button>
+                <a href="detail-pt-pal.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT PAL Indonesia">
+                  <i class="bi bi-journal-text"></i>
+                  <span>Baca Detail</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
 
@@ -651,22 +660,27 @@
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Juli 2024 - Desember 2024</span>
+                  <span>Jul 2024 – Des 2024</span>
                 </div>
               </div>
 
-              <p class="exp-desc">
-                Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop berbasis C# dan .NET untuk ekstraksi otomatis data publik dari berbagai platform e-commerce global. Mengumpulkan metadata produk lengkap (judul,
-                harga, lokasi, kontak) dan menyinkronkannya ke platform web Nobox AI. Mengoptimalkan logika multi-threading pencarian, pagination dinamis, penanganan filter error, serta kestabilan aplikasi agar efisien dan ringan.
-              </p>
+              <div class="exp-desc">
+                <div class="fw-semibold text-white mb-2"><i class="bi bi-window-stack text-cyan me-1"></i>Project: Web Scraping for Nobox Extractor App</div>
+                <ul class="subsystem-list mb-0">
+                  <li>Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
+                  <li>Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
+                  <li>Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
+                </ul>
+              </div>
 
               <div class="tags-group">
-                <span class="tag-pill">.NET</span>
                 <span class="tag-pill">C#</span>
+                <span class="tag-pill">.NET</span>
                 <span class="tag-pill">MySQL</span>
+                <span class="tag-pill">Web Scraping</span>
                 <span class="tag-pill">Desktop Automation</span>
-                <span class="tag-pill">Data Scraping</span>
-                <span class="tag-pill">AI Integration</span>
+                <span class="tag-pill">Data Normalization</span>
+                <span class="tag-pill">Nobox AI</span>
               </div>
 
               <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
@@ -674,17 +688,11 @@
                   <i class="bi bi-shield-check text-info"></i>
                   <span>Dokumentasi Terverifikasi</span>
                 </span>
-                <button
-                  type="button"
-                  class="btn-exp-proof"
-                  data-proof-title="Dokumentasi Nobox Extractor - PT Universal Big Data"
-                  data-proof-desc="Aplikasi Desktop Nobox Extractor untuk web scrapping"
-                  data-gallery='[
-                    {"src": "img/webscrapping.png", "caption": "Aplikasi Desktop Nobox Extractor untuk web scrapping"}
-                  ]'>
-                  <i class="bi bi-images"></i>
-                  <span>Lihat Dokumentasi (1 Gambar)</span>
-                </button>
+                <a href="detail-universal-big-data.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Universal Big Data">
+                  <i class="bi bi-journal-text"></i>
+                  <span>Baca Detail</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
 
@@ -700,23 +708,39 @@
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Februari 2024 - Juli 2024</span>
+                  <span>Feb 2024 – Jul 2024</span>
                 </div>
               </div>
 
-              <p class="exp-desc">
-                Merancang dan mengembangkan arsitektur RESTful API sistem manajemen gudang untuk retail handphone menggunakan Node.js, Express, dan MySQL. Fitur utama mencakup pelacakan stok multi-lokasi, manajemen produk & supplier,
-                riwayat mutasi real-time, threshold stok minimum otomatis, dan pelaporan periodik. Dilengkapi sistem autentikasi JWT terproteksi, dokumentasi interaktif Swagger API, serta automated testing menggunakan Jest & Postman.
-              </p>
+              <div class="exp-desc">
+                <div class="fw-semibold text-white mb-2"><i class="bi bi-box-seam text-cyan me-1"></i>Project: Website Management System for Mobile Phone Warehouse</div>
+                <ul class="subsystem-list mb-0">
+                  <li>Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
+                  <li>Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
+                  <li>Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
+                </ul>
+              </div>
 
               <div class="tags-group">
-                <span class="tag-pill">Express.js</span>
+                <span class="tag-pill">Express Js</span>
                 <span class="tag-pill">Node.js</span>
                 <span class="tag-pill">MySQL</span>
                 <span class="tag-pill">RESTful API</span>
                 <span class="tag-pill">JWT</span>
                 <span class="tag-pill">Swagger</span>
-                <span class="tag-pill">Jest Testing</span>
+                <span class="tag-pill">Database Management</span>
+              </div>
+
+              <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="text-white small d-inline-flex align-items-center gap-2">
+                  <i class="bi bi-code-slash text-info"></i>
+                  <span>REST API &amp; Warehouse System</span>
+                </span>
+                <a href="detail-stechoq.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Stechoq Robotika Indonesia">
+                  <i class="bi bi-journal-text"></i>
+                  <span>Baca Detail</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -730,10 +754,10 @@
         <div class="section-title-wrapper text-center">
           <div class="section-pill-tag">
             <i class="bi bi-award"></i>
-            <span>Certificates</span>
+            <span>Certificates &amp; Awards</span>
           </div>
-          <h2 class="section-main-title">Sertifikasi & Penghargaan</h2>
-          <p class="section-subtitle">Bukti kompetensi dan keikutsertaan dalam berbagai program magang dan pengembangan teknologi. Klik untuk melihat detail sertifikat.</p>
+          <h2 class="section-main-title">Sertifikasi &amp; Penghargaan</h2>
+          <p class="section-subtitle">Tersertifikasi resmi Web Developer oleh <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, keikutsertaan program MSIB &amp; MagangHub, serta penghargaan pendanaan PKM-PM Kemendikbudristek.</p>
         </div>
 
         <!-- Carousel -->
@@ -742,23 +766,23 @@
             <!-- Slide 1 -->
             <div class="carousel-item active">
               <div class="row g-4 justify-content-center">
-                <!-- Cert 1 -->
+                <!-- Cert 1: BNSP Web Developer & MagangHub -->
                 <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB">
+                  <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Web Developer - BNSP &amp; MagangHub">
                     <div class="cert-img-wrapper">
-                      <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
+                      <img src="img/Sertif Maganghub.jpeg" alt="Web Developer BNSP &amp; MagangHub" loading="lazy" />
                       <div class="cert-overlay">
                         <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
                       </div>
                     </div>
                     <div class="cert-info">
-                      <div class="cert-title">Sertifikat Kepesertaan MSIB</div>
-                      <div class="cert-badge">Kampus Merdeka • Kemendikbudristek</div>
+                      <div class="cert-title">Web Developer (BNSP) &amp; MagangHub</div>
+                      <div class="cert-badge">BNSP (Agu 2025 – Agu 2028) • PT PAL Indonesia</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Cert 2 -->
+                <!-- Cert 2: PT Stechoq -->
                 <div class="col-md-4">
                   <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Sertifikat Magang - PT Stechoq Robotika Indonesia">
                     <div class="cert-img-wrapper">
@@ -769,12 +793,12 @@
                     </div>
                     <div class="cert-info">
                       <div class="cert-title">Backend Developer Intern</div>
-                      <div class="cert-badge">PT Stechoq Robotika Indonesia</div>
+                      <div class="cert-badge">PT Stechoq Robotika Indonesia • MSIB</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Cert 3 -->
+                <!-- Cert 3: PT Universal Big Data -->
                 <div class="col-md-4">
                   <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib2.png" data-cert-title="Sertifikat Magang - PT Universal Big Data">
                     <div class="cert-img-wrapper">
@@ -785,7 +809,7 @@
                     </div>
                     <div class="cert-info">
                       <div class="cert-title">Web Automation Intern</div>
-                      <div class="cert-badge">PT Universal Big Data</div>
+                      <div class="cert-badge">PT Universal Big Data • MSIB</div>
                     </div>
                   </div>
                 </div>
@@ -795,23 +819,23 @@
             <!-- Slide 2 -->
             <div class="carousel-item">
               <div class="row g-4 justify-content-center">
-                <!-- Cert 4 -->
+                <!-- Cert 4: Penghargaan PKM-PM -->
                 <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Sertifikat Program Kreativitas Mahasiswa (PKM)">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
                     <div class="cert-img-wrapper">
-                      <img src="img/sertifPKM.jpg" alt="Sertifikat PKM" loading="lazy" />
+                      <img src="img/sertifPKM.jpg" alt="Penghargaan PKM-PM Kemendikbudristek" loading="lazy" />
                       <div class="cert-overlay">
                         <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
                       </div>
                     </div>
                     <div class="cert-info">
-                      <div class="cert-title">Sertifikat PKM</div>
-                      <div class="cert-badge">Program Kreativitas Mahasiswa</div>
+                      <div class="cert-title">Lolos Pendanaan PKM-PM</div>
+                      <div class="cert-badge">Kemendikbudristek • GIS Deteksi Banjir</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Cert 5 -->
+                <!-- Cert 5: UBiG Certificate -->
                 <div class="col-md-4">
                   <div class="cert-card spotlight-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
                     <div class="cert-img-wrapper">
@@ -822,23 +846,23 @@
                     </div>
                     <div class="cert-info">
                       <div class="cert-title">UBiG Certificate of Completion</div>
-                      <div class="cert-badge">Universal Big Data</div>
+                      <div class="cert-badge">Universal Big Data AI Platform</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Cert 6 -->
+                <!-- Cert 6: Kepesertaan MSIB -->
                 <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat MagangHub Kemnaker">
+                  <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
                     <div class="cert-img-wrapper">
-                      <img src="img/Sertif Maganghub.jpeg" alt="Sertifikat MagangHub" loading="lazy" />
+                      <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
                       <div class="cert-overlay">
                         <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
                       </div>
                     </div>
                     <div class="cert-info">
-                      <div class="cert-title">Sertifikat MagangHub</div>
-                      <div class="cert-badge">Kemnaker & PT PAL Indonesia</div>
+                      <div class="cert-title">Sertifikat Kepesertaan MSIB</div>
+                      <div class="cert-badge">Kampus Merdeka • Kemendikbudristek</div>
                     </div>
                   </div>
                 </div>
@@ -880,7 +904,7 @@
 
                   <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white bg-opacity-10 text-white small mb-4">
                     <i class="bi bi-geo-alt-fill text-danger"></i>
-                    <span>Indonesia • Remote / On-site Ready</span>
+                    <span>Mojokerto, Jawa Timur, 61382 • Remote / On-site Ready</span>
                   </div>
 
                   <!-- Quick Copy Action Bar -->
@@ -938,10 +962,11 @@
 
                   <!-- Direct Channel Pills -->
                   <div class="d-flex flex-wrap gap-2 justify-content-center">
-                    <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa" title="WhatsApp Langsung"> <i class="bi bi-whatsapp"></i> <span>WhatsApp</span> </a>
+                    <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="channel-mini-pill in" title="LinkedIn Profile"> <i class="bi bi-linkedin text-info"></i> <span>LinkedIn</span> </a>
                     <a href="https://github.com/JohanKrisbima" target="_blank" class="channel-mini-pill gh" title="GitHub Profile"> <i class="bi bi-github"></i> <span>GitHub</span> </a>
                     <a href="https://instagram.com/johankrisbima" target="_blank" class="channel-mini-pill ig" title="Instagram Profile"> <i class="bi bi-instagram"></i> <span>Instagram</span> </a>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -973,7 +998,7 @@
           <i class="bi bi-sun-fill theme-icon-sun"></i>
           <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
         </div>
-        <span class="floating-theme-text" id="themeToggleText">Light Mode</span>
+        <span class="floating-theme-text" id="themeToggleText">Dark Mode</span>
       </button>
     </div>
 
@@ -1037,8 +1062,5 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom Portfolio JavaScript -->
-    <script src="script.js"></script>
   </body>
 </html>

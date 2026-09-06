@@ -4,6 +4,25 @@
  * Card Spotlight, Category Filters, Stat Counters & Toast System
  */
 
+// =========================================================================
+// 0. Immediate Theme Initialization (Prevents Flash of Unstyled Content)
+// =========================================================================
+(function initThemeImmediately() {
+  try {
+    const THEME_STORAGE_KEY = "portfolio_theme_mode";
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === "light" || savedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  } catch (error) {
+    console.warn("Theme storage access failed:", error);
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   // 1. Elements & References
@@ -61,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.setAttribute("data-theme", activeTheme);
     localStorage.setItem(THEME_STORAGE_KEY, activeTheme);
 
-    const tooltipLabel = isLight ? "Ganti ke Mode Gelap" : "Ganti ke Mode Terang";
-    const buttonLabel = isLight ? "Dark Mode" : "Light Mode";
+    const tooltipLabel = isLight ? "Ganti ke Dark Mode" : "Ganti ke Light Mode";
+    const buttonLabel = isLight ? "Light Mode" : "Dark Mode";
 
     if (themeToggleBtn) {
       themeToggleBtn.setAttribute("title", tooltipLabel);
@@ -299,57 +318,68 @@ document.addEventListener("DOMContentLoaded", () => {
     whoami: () => `
 <div class="term-output-block">
   <div class="text-white fw-bold">Johan Krisbima Abi</div>
-  <div class="text-muted small mb-2">D4 Teknik Informatika - Politeknik Negeri Jember (2025)</div>
-  <p class="mb-1 text-light">Saya Johan Krisbima Abi, lulusan D4 Teknik Informatika Politeknik Negeri Jember (2025) dengan pengalaman profesional dalam pengembangan aplikasi web melalui program MagangHub dan berlanjut ke kontrak kerja di PT PAL Indonesia.
-
-Memiliki keahlian teruji dalam siklus penuh pengembangan perangkat lunak—mulai dari analisis kebutuhan bisnis, perancangan basis data, implementasi backend & frontend, security hardening, hingga testing dan deployment di lingkungan server perusahaan. Kolaboratif, adaptif, serta berorientasi pada solusi nyata.</p>
-  <div class="text-cyan small"><i class="bi bi-geo-alt"></i> Indonesia (Remote / On-site Ready)</div>
+  <div class="text-cyan small mb-2">D4 Teknik Informatika &bull; Politeknik Negeri Jember (2021 - 2025) &bull; IPK: 3.87/4.00</div>
+  <p class="mb-2 text-light">Saya Johan Krisbima Abi, lulusan D4 Teknik Informatika Politeknik Negeri Jember (2025) dengan pengalaman profesional dalam pengembangan web application melalui program MagangHub yang dilanjutkan dengan kontrak internship di PT PAL Indonesia. Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.</p>
+  <div class="text-white-50 small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Mojokerto, Jawa Timur, 61382 | 087851865091</div>
+  <div class="text-info small mt-1"><i class="bi bi-journal-bookmark me-1"></i>Publikasi Jurnal: “Sistem Deteksi Dini Banjir Berbasis GIS Cloud Web di Kelurahan Tambakkemerakan”</div>
 </div>`,
 
     skills: () => `
 <div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Keahlian & Tech Stack:</div>
-  <div><strong class="text-info">• Backend:</strong> Laravel, Node.js, Express.js, C#, .NET, Odoo ERP</div>
-  <div><strong class="text-info">• Database:</strong> MySQL, PostgreSQL (Query Optimization & Schema Design)</div>
-  <div><strong class="text-info">• Web Automation:</strong> Desktop Data Scraper (C#/.NET), Multi-threading</div>
-  <div><strong class="text-info">• Tools & DevOps:</strong> Git, Postman, Swagger, Jest, Server Deployment</div>
+  <div class="text-cyan fw-bold mb-1">Skills & Keahlian (Berdasarkan CV):</div>
+  <div><strong class="text-info">• Programming:</strong> HTML, CSS, JavaScript, PHP, Python, Bootstrap, Laravel, MySQL, Express Js, PostgreSQL</div>
+  <div><strong class="text-info">• Non-Programming:</strong> Microsoft Word, Canva</div>
+  <div><strong class="text-info">• Soft Skills:</strong> Problem Solving, Critical Thinking, Growth Mindset, Project Management</div>
+  <div><strong class="text-info">• Bahasa:</strong> Indonesia, Passive English</div>
 </div>`,
 
     projects: () => `
 <div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Riwayat Pengalaman & Proyek:</div>
+  <div class="text-cyan fw-bold mb-1">Pengalaman & Proyek (Sesuai CV):</div>
   <div class="mb-2">
-    <span class="text-warning">1. PT PAL Indonesia</span> - Pemrogram Komputer Contract (2025 - 2026)<br/>
-    <span class="text-white-50">Mengembangkan & mengamankan sistem enterprise end-to-end: Website Subkon (Absensi Vendor), Simandok (Refactoring & Security), Siamang (Absensi Makan), serta Ebidding (Lelang Tender) beserta dokumentasi UAT & panduan pengguna.</span>
+    <span class="text-warning fw-bold">1. PT Stechoq Robotika Indonesia</span> (Feb 2024 – Jul 2024)<br/>
+    <span class="text-cyan small">Backend Developer Intern &bull; Project: Website Management System for Mobile Phone Warehouse</span><br/>
+    <span class="text-white-50 small">• Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</span><br/>
+    <span class="text-white-50 small">• Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</span><br/>
+    <span class="text-white-50 small">• Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</span>
   </div>
   <div class="mb-2">
-    <span class="text-warning">2. PT Universal Big Data</span> - Web Automation Intern (2024)<br/>
-    <span class="text-white-50">Nobox Extractor desktop application (C# .NET) untuk automated marketplace scraping.</span>
+    <span class="text-warning fw-bold">2. PT Universal Big Data</span> (Jul 2024 – Des 2024)<br/>
+    <span class="text-cyan small">Web Automation Intern &bull; Project: Web Scraping for Nobox Extractor App</span><br/>
+    <span class="text-white-50 small">• Mengembangkan dan memelihara Nobox Extractor, aplikasi desktop scraping data publik e-commerce global.</span><br/>
+    <span class="text-white-50 small">• Mengimplementasikan logika pencarian, pagination, deteksi "no result", dan normalisasi nomor telepon.</span><br/>
+    <span class="text-white-50 small">• Menyinkronkan data ke platform Nobox AI, pengujian, debugging, dan optimasi performa.</span>
   </div>
   <div>
-    <span class="text-warning">3. PT Stechoq Robotika</span> - Backend Developer Intern (2024)<br/>
-    <span class="text-white-50">Warehouse Management RESTful API menggunakan Express.js, Node.js, dan MySQL.</span>
+    <span class="text-warning fw-bold">3. PT PAL Indonesia</span> (Oct 2025 – Aug 2026)<br/>
+    <span class="text-cyan small">Pemrogram Komputer Contract</span><br/>
+    <span class="text-white-50 small">• Website Siamang: optimasi absensi, deployment server, dokumentasi UAT & Manual Book.</span><br/>
+    <span class="text-white-50 small">• Website Simandok: refactoring codebase framework terbaru, security hardening, dokumentasi UAT.</span><br/>
+    <span class="text-white-50 small">• Website Ebidding: pengujian stabilitas lelang tender vendor, UAT, dan video tutorial.</span><br/>
+    <span class="text-white-50 small">• Website Subkon: pengembangan end-to-end database, User Management, data karyawan vendor, server deployment.</span>
   </div>
 </div>`,
 
     cert: () => `
 <div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Sertifikasi Terverifikasi:</div>
-  <div>✓ Sertifikat Kepesertaan MSIB - Kampus Merdeka Kemendikbudristek</div>
-  <div>✓ Backend Developer Intern - PT Stechoq Robotika Indonesia</div>
-  <div>✓ Web Automation Intern - PT Universal Big Data</div>
-  <div>✓ Sertifikat PKM - Program Kreativitas Mahasiswa</div>
-  <div>✓ Certificate of Completion - Universal Big Data</div>
-  <div>✓ Sertifikat MagangHub - Kemnaker & PT PAL Indonesia</div>
+  <div class="text-cyan fw-bold mb-1">Sertifikasi & Penghargaan (Sesuai CV):</div>
+  <div><strong class="text-warning">★ Web Developer</strong> — Badan Nasional Sertifikasi Profesi (BNSP) (Aug 2025 – Aug 2028)</div>
+  <div><strong class="text-warning">★ Lolos Pendanaan PKM-PM</strong> — Kemendikbudristek (Sistem Deteksi Dini Banjir GIS Cloud Tambak Kemerakan)</div>
+  <div>✓ Backend Developer Intern — PT Stechoq Robotika Indonesia (MSIB Kampus Merdeka)</div>
+  <div>✓ Web Automation Intern — PT Universal Big Data (MSIB Kampus Merdeka)</div>
+  <div>✓ Sertifikat Kepesertaan MSIB — Kemendikbudristek</div>
+  <div>✓ Sertifikat MagangHub — Kemnaker & PT PAL Indonesia</div>
 </div>`,
 
     contact: () => `
 <div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Hubungi Johan:</div>
-  <div>• WhatsApp : <a href="https://wa.me/6287851865091" target="_blank" class="text-decoration-none text-success">+62 878-5186-5091</a></div>
-  <div>• Email    : <span class="text-light">johankrisbima77@gmail.com</span></div>
-  <div>• GitHub   : <a href="https://github.com/JohanKrisbima" target="_blank" class="text-decoration-none text-info">github.com/JohanKrisbima</a></div>
-  <div>• Instagram: <a href="https://instagram.com/johankrisbima" target="_blank" class="text-decoration-none text-danger">@johankrisbima</a></div>
+  <div class="text-cyan fw-bold mb-1">Kontak Resmi (Sesuai CV):</div>
+  <div>• Lokasi    : <span class="text-light">Mojokerto, Jawa Timur, 61382</span></div>
+  <div>• WhatsApp  : <a href="https://wa.me/6287851865091" target="_blank" class="text-decoration-none text-success">+62 878-5186-5091 (087851865091)</a></div>
+  <div>• Email     : <span class="text-light">johankrisbima77@gmail.com</span></div>
+  <div>• LinkedIn  : <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="text-decoration-none text-info">linkedin.com/in/johan-krisbima-abi</a></div>
+  <div>• GitHub    : <a href="https://github.com/JohanKrisbima" target="_blank" class="text-decoration-none text-info">github.com/JohanKrisbima</a></div>
+  <div>• Portfolio : <a href="https://website-portofolio-johan.vercel.app/" target="_blank" class="text-decoration-none text-cyan">website-portofolio-johan.vercel.app</a></div>
 </div>`,
 
     hire: () => `
