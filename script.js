@@ -789,4 +789,70 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
 
   window.addEventListener("scroll", handleScrollSpy);
   handleScrollSpy();
+
+  // =========================================================================
+  // 13. Dynamic Scroll Reveal Animation Engine (IntersectionObserver)
+  // =========================================================================
+  function initScrollReveal() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    document.documentElement.classList.add("reveal-init");
+
+    const targetSelectors = [
+      ".section-title-wrapper",
+      ".bento-card",
+      ".mini-rounded-card",
+      ".cv-download-banner",
+      ".exp-filter-wrapper",
+      ".experience-card",
+      ".cert-card",
+      ".contact-card-main",
+      ".composer-card",
+      ".quick-copy-box",
+      ".terminal-box",
+      ".github-showcase-box"
+    ];
+
+    const elements = document.querySelectorAll(targetSelectors.join(", "));
+
+    elements.forEach((el) => {
+      if (!el.classList.contains("reveal-on-scroll")) {
+        el.classList.add("reveal-on-scroll");
+      }
+
+      // Automatically stagger cards within multi-column grid rows
+      const colParent = el.closest(".col-lg-6, .col-lg-4, .col-lg-7, .col-lg-5, .col-md-6, .col-md-4, .col-sm-6");
+      if (colParent && colParent.parentElement) {
+        const siblings = Array.from(colParent.parentElement.children);
+        const colIdx = siblings.indexOf(colParent);
+        if (colIdx > 0 && colIdx <= 5 && !Array.from(el.classList).some((c) => c.startsWith("reveal-delay-"))) {
+          el.classList.add(`reveal-delay-${colIdx}`);
+        }
+      }
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.12,
+      }
+    );
+
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+      revealObserver.observe(el);
+    });
+  }
+
+  initScrollReveal();
 });

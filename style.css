@@ -31,6 +31,10 @@
   --border-glass: rgba(255, 255, 255, 0.08);
   --border-active: rgba(0, 245, 212, 0.4);
   
+  /* Background Technical Grid */
+  --bg-grid-line: rgba(255, 255, 255, 0.075);
+  --bg-grid-size: 52px;
+  
   /* Rounded Radii */
   --radius-xs: 8px;
   --radius-sm: 14px;
@@ -72,6 +76,10 @@
   --border-glass: rgba(99, 102, 241, 0.18);
   --border-active: rgba(2, 132, 199, 0.5);
   
+  /* Background Technical Grid (Light Mode) */
+  --bg-grid-line: rgba(15, 23, 42, 0.065);
+  --bg-grid-size: 52px;
+  
   /* Shadows with soft chromatic ambient diffusion */
   --shadow-sm: 0 4px 14px rgba(99, 102, 241, 0.08);
   --shadow-md: 0 10px 30px rgba(99, 102, 241, 0.12);
@@ -103,7 +111,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Ambient Background Lights */
+/* Ambient Background Lights & Developer Grid Overlay */
 .bg-ambient {
   position: fixed;
   top: 0;
@@ -113,13 +121,41 @@ body {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  background-color: var(--bg-dark);
 }
 
+/* Ambient Color Orbs */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.25;
+  opacity: 0.22;
+  z-index: 0;
+}
+
+/* Soft Ambient Radial Vignette for Depth */
+.bg-ambient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 20%, transparent 35%, var(--bg-dark) 92%);
+  opacity: 0.55;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Crisp Technical Grid Lines (Horizontal & Vertical) */
+.bg-ambient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--bg-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid-line) 1px, transparent 1px);
+  background-size: var(--bg-grid-size) var(--bg-grid-size);
+  background-position: center top;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .orb-1 {
@@ -449,6 +485,50 @@ body {
 }
 
 /* ==========================================================================
+   Hero Initial Entrance Animations (Saat Pertama Kali Buka)
+   ========================================================================== */
+@keyframes heroEntranceFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroEntranceScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes navbarEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-navbar-container {
+  animation: navbarEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
    Hero Section
    ========================================================================== */
 .hero-section {
@@ -458,6 +538,38 @@ body {
   position: relative;
   padding-top: 130px;
   padding-bottom: 70px;
+}
+
+.hero-section .status-badge {
+  animation: heroEntranceFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.hero-section .hero-title {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.hero-section .hero-role-wrapper {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+}
+
+.hero-section .hero-desc {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
+}
+
+.hero-section .hero-tech-chips {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+}
+
+.hero-section .hero-cta-group {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.62s both;
+}
+
+.hero-section .hero-stats-bar {
+  animation: heroEntranceFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+}
+
+.hero-section .hero-avatar-wrapper {
+  animation: heroEntranceScale 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .status-badge {
@@ -4314,6 +4426,69 @@ select.composer-input option {
 
 [data-theme="light"] .blog-switch-title {
   color: #0f172a;
+}
+
+/* ==========================================================================
+   Interactive Scroll Reveal Animations (Setiap Scroll Content)
+   ========================================================================== */
+.reveal-init .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(4px);
+  transition: 
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-init .reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Directional & Scale Variants */
+.reveal-init .reveal-on-scroll.reveal-left {
+  transform: translateX(-36px);
+}
+.reveal-init .reveal-on-scroll.reveal-left.revealed {
+  transform: translateX(0);
+}
+
+.reveal-init .reveal-on-scroll.reveal-right {
+  transform: translateX(36px);
+}
+.reveal-init .reveal-on-scroll.reveal-right.revealed {
+  transform: translateX(0);
+}
+
+.reveal-init .reveal-on-scroll.reveal-scale {
+  transform: scale(0.92) translateY(24px);
+}
+.reveal-init .reveal-on-scroll.reveal-scale.revealed {
+  transform: scale(1) translateY(0);
+}
+
+/* Staggered Cascade Delays for Grid Cards */
+.reveal-init .reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-init .reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-init .reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-init .reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-init .reveal-delay-5 { transition-delay: 0.40s; }
+.reveal-init .reveal-delay-6 { transition-delay: 0.48s; }
+
+/* Accessibility fallback */
+@media (prefers-reduced-motion: reduce) {
+  .floating-navbar-container,
+  .hero-section *,
+  .reveal-init .reveal-on-scroll {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 

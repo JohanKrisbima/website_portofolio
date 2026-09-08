@@ -146,9 +146,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /**
+   * Modul Animasi Scroll Reveal Otomatis
+   */
+  function initScrollReveal() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    document.documentElement.classList.add("reveal-init");
+
+    const targetSelectors = [
+      ".section-title-wrapper",
+      ".detail-hero-card",
+      ".detail-figure-box",
+      ".detail-article-card",
+      ".blog-metric-card",
+      ".blog-author-card",
+      ".blog-switch-card",
+      ".card-modern",
+      ".spotlight-card"
+    ];
+
+    const elements = document.querySelectorAll(targetSelectors.join(", "));
+
+    elements.forEach((el) => {
+      if (!el.classList.contains("reveal-on-scroll")) {
+        el.classList.add("reveal-on-scroll");
+      }
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.1,
+      }
+    );
+
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+      revealObserver.observe(el);
+    });
+  }
+
   // Jalankan semua modul inisialisasi
   initReadingProgressBar();
   initBackToTop();
   initThemeSwitcher();
   initImageLightbox();
+  initScrollReveal();
 });
