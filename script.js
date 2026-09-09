@@ -134,32 +134,66 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =========================================================================
-  // 2. Scroll Progress Bar & Floating Navbar
+  // 2. High-Performance Throttled Scroll Engine (rAF + Passive)
   // =========================================================================
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY || window.pageYOffset;
+  let isScrollTicking = false;
+
+  function updateScrollState() {
+    const scrollY = window.pageYOffset || window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-    // Top progress bar
+    // 1. Top progress bar
     if (scrollProgressBar && docHeight > 0) {
       const scrollPercent = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
       scrollProgressBar.style.width = `${scrollPercent}%`;
     }
 
-    // Floating navbar blur styling
+    // 2. Floating navbar styling
     if (scrollY > 50) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
 
-    // Back to top button
+    // 3. Back to top button
     if (scrollY > 350) {
       backToTopBtn.classList.add("show");
     } else {
       backToTopBtn.classList.remove("show");
     }
-  });
+
+    // 4. ScrollSpy Active Link Tracking
+    let currentSectionId = "home";
+    if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 60) {
+      currentSectionId = "contact";
+    } else {
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+    }
+    updateActiveNav(currentSectionId);
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!isScrollTicking) {
+        window.requestAnimationFrame(() => {
+          updateScrollState();
+          isScrollTicking = false;
+        });
+        isScrollTicking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  // Initial call on page load
+  updateScrollState();
 
   // =========================================================================
   // 3. Dynamic Typewriter Effect for Hero
@@ -259,14 +293,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   // 6. Experience & Project Category Filters
   // =========================================================================
-  const filterBtns = document.querySelectorAll(".filter-btn");
+  const expFilterBtns = document.querySelectorAll(".exp-filter-wrapper .filter-btn");
   const experienceCards = document.querySelectorAll(".experience-card[data-category]");
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+  expFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const filterValue = btn.getAttribute("data-filter");
+      if (!filterValue) return;
 
-      filterBtns.forEach((b) => b.classList.remove("active"));
+      expFilterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
       experienceCards.forEach((card) => {
@@ -284,6 +320,42 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             card.classList.add("is-filtered-out");
             card.style.display = "none";
+          }, 250);
+        }
+      });
+    });
+  });
+
+  // =========================================================================
+  // 6b. Certificate Category Filters
+  // =========================================================================
+  const certFilterBtns = document.querySelectorAll(".cert-filter-btn");
+  const certItems = document.querySelectorAll(".cert-item-col[data-cert-category]");
+
+  certFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const filterVal = btn.getAttribute("data-cert-filter");
+      if (!filterVal) return;
+
+      certFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      certItems.forEach((item) => {
+        const itemCat = item.getAttribute("data-cert-category");
+        if (filterVal === "all" || itemCat === filterVal) {
+          item.classList.remove("is-filtered-out");
+          item.style.display = "";
+          setTimeout(() => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0) scale(1)";
+          }, 20);
+        } else {
+          item.style.opacity = "0";
+          item.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            item.classList.add("is-filtered-out");
+            item.style.display = "none";
           }, 250);
         }
       });
@@ -766,32 +838,7 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
   });
 
   // =========================================================================
-  // 12. Dynamic ScrollSpy Tracking
-  // =========================================================================
-  function handleScrollSpy() {
-    const scrollY = window.pageYOffset;
-    let currentSectionId = "home";
-
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
-      currentSectionId = "contact";
-    } else {
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute("id");
-        }
-      });
-    }
-
-    updateActiveNav(currentSectionId);
-  }
-
-  window.addEventListener("scroll", handleScrollSpy);
-  handleScrollSpy();
-
-  // =========================================================================
-  // 13. Dynamic Scroll Reveal Animation Engine (IntersectionObserver)
+  // 12. Dynamic Scroll Reveal Animation Engine (Optimized & Instant)
   // =========================================================================
   function initScrollReveal() {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -807,6 +854,8 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
       ".cv-download-banner",
       ".exp-filter-wrapper",
       ".experience-card",
+      ".cert-highlights-bar",
+      ".cert-filter-wrapper",
       ".cert-card",
       ".contact-card-main",
       ".composer-card",
@@ -816,13 +865,14 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
     ];
 
     const elements = document.querySelectorAll(targetSelectors.join(", "));
+    const windowH = window.innerHeight;
 
     elements.forEach((el) => {
       if (!el.classList.contains("reveal-on-scroll")) {
         el.classList.add("reveal-on-scroll");
       }
 
-      // Automatically stagger cards within multi-column grid rows
+      // Fast stagger for multi-column grid items
       const colParent = el.closest(".col-lg-6, .col-lg-4, .col-lg-7, .col-lg-5, .col-md-6, .col-md-4, .col-sm-6");
       if (colParent && colParent.parentElement) {
         const siblings = Array.from(colParent.parentElement.children);
@@ -844,13 +894,19 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
       },
       {
         root: null,
-        rootMargin: "0px 0px -40px 0px",
-        threshold: 0.12,
+        rootMargin: "0px 0px -20px 0px",
+        threshold: 0.08,
       },
     );
 
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
-      revealObserver.observe(el);
+      // If already in viewport on initial page load, reveal smoothly
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowH - 80) {
+        el.classList.add("revealed");
+      } else {
+        revealObserver.observe(el);
+      }
     });
   }
 

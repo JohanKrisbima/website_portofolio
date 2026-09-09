@@ -205,17 +205,6 @@
             <i class="bi bi-whatsapp"></i>
             <span>Chat via WhatsApp</span>
           </a>
-          <div class="d-flex justify-content-center gap-3 text-muted small">
-            <a href="https://github.com/JohanKrisbima" target="_blank" class="social-mini-pill" aria-label="GitHub Profile">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="https://instagram.com/johankrisbima" target="_blank" class="social-mini-pill" aria-label="Instagram Profile">
-              <i class="bi bi-instagram"></i>
-            </a>
-            <a href="https://wa.me/6287851865091" target="_blank" class="social-mini-pill" aria-label="WhatsApp Chat">
-              <i class="bi bi-whatsapp"></i>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -400,7 +389,7 @@
                     <div>
                       <div class="fw-bold text-white small">Politeknik Negeri Jember</div>
                       <div class="text-white-50 small">D4 Teknik Informatika (2021 - 2025)</div>
-                      <div class="badge bg-cyan text-dark rounded-pill px-2 py-1 small mt-1 fw-bold">IPK: 3.87 / 4.00</div>
+                      <div class="badge bg-cyan text-dark ipk rounded-pill px-2 py-1 small mt-1 fw-bold">IPK: 3.87 / 4.00</div>
                     </div>
                   </div>
                 </div>
@@ -430,8 +419,8 @@
                 </div>
                 <div class="d-flex gap-2 mt-3 mt-sm-0">
                   <a href="pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" class="btn-cv-action btn-cv-download" title="Unduh file CV PDF">
-                    <i class="bi bi-download"></i>
-                    <span>Unduh CV</span>
+                    <i class="bi bi-download text-donwload-cv"></i>
+                    <span class="text-donwload-cv">Unduh CV</span>
                   </a>
                 </div>
               </div>
@@ -753,135 +742,261 @@
       <div class="container">
         <div class="section-title-wrapper text-center">
           <div class="section-pill-tag">
-            <i class="bi bi-award"></i>
+            <i class="bi bi-award-fill"></i>
             <span>Certificates &amp; Awards</span>
           </div>
-          <h2 class="section-main-title">Sertifikasi &amp; Penghargaan</h2>
-          <p class="section-subtitle">Tersertifikasi resmi Web Developer oleh <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, keikutsertaan program MSIB &amp; MagangHub, serta penghargaan pendanaan PKM-PM Kemendikbudristek.</p>
+          <h2 class="section-main-title">Sertifikasi &amp; Lisensi Resmi</h2>
+          <p class="section-subtitle">Kredensial profesional terverifikasi industri: Lisensi Web Developer resmi <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, program magang industri bersertifikat (MSIB), dan penghargaan hibah Kemendikbudristek.</p>
         </div>
 
-        <!-- Carousel -->
-        <div id="sertifikatCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-              <div class="row g-4 justify-content-center">
-                <!-- Cert 1: BNSP Web Developer & MagangHub -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Web Developer - BNSP &amp; MagangHub">
-                    <div class="cert-img-wrapper">
-                      <img src="img/Sertif Maganghub.jpeg" alt="Web Developer BNSP &amp; MagangHub" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">Web Developer (BNSP) &amp; MagangHub</div>
-                      <div class="cert-badge">BNSP (Agu 2025 – Agu 2028) • PT PAL Indonesia</div>
-                    </div>
-                  </div>
-                </div>
+        <!-- Credential Highlights Bar -->
+        <div class="cert-highlights-bar mb-4">
+          <div class="cert-highlight-item">
+            <div class="cert-highlight-icon cert-hl-gold"><i class="bi bi-shield-check"></i></div>
+            <div class="cert-highlight-text">
+              <span class="cert-hl-number">1 Lisensi BNSP</span>
+              <span class="cert-hl-sub">Web Developer RI (3 Th)</span>
+            </div>
+          </div>
+          <div class="cert-highlight-divider d-none d-md-block"></div>
+          <div class="cert-highlight-item">
+            <div class="cert-highlight-icon cert-hl-cyan"><i class="bi bi-buildings"></i></div>
+            <div class="cert-highlight-text">
+              <span class="cert-hl-number">4 Kredensial Industri</span>
+              <span class="cert-hl-sub">PT PAL, Stechoq &amp; UBig</span>
+            </div>
+          </div>
+          <div class="cert-highlight-divider d-none d-md-block"></div>
+          <div class="cert-highlight-item">
+            <div class="cert-highlight-icon cert-hl-purple"><i class="bi bi-trophy"></i></div>
+            <div class="cert-highlight-text">
+              <span class="cert-hl-number">1 Hibah Nasional</span>
+              <span class="cert-hl-sub">Kemendikbudristek (PKM-PM)</span>
+            </div>
+          </div>
+        </div>
 
-                <!-- Cert 2: PT Stechoq -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Sertifikat Magang - PT Stechoq Robotika Indonesia">
-                    <div class="cert-img-wrapper">
-                      <img src="img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">Backend Developer Intern</div>
-                      <div class="cert-badge">PT Stechoq Robotika Indonesia • MSIB</div>
-                    </div>
-                  </div>
-                </div>
+        <!-- Certificate Category Filter Tabs -->
+        <div class="cert-filter-wrapper mb-4 text-center">
+          <div class="filter-pill-group">
+            <button type="button" class="filter-btn cert-filter-btn active" data-cert-filter="all">
+              <i class="bi bi-grid-fill"></i>
+              <span>Semua</span>
+              <span class="filter-badge">6</span>
+            </button>
+            <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="bnsp">
+              <i class="bi bi-shield-check"></i>
+              <span>BNSP<span class="d-none d-md-inline"> &amp; Profesi</span></span>
+            </button>
+            <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="msib">
+              <i class="bi bi-building"></i>
+              <span>Magang<span class="d-none d-md-inline"> Industri</span></span>
+            </button>
+            <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="prestasi">
+              <i class="bi bi-award"></i>
+              <span>Prestasi<span class="d-none d-md-inline"> &amp; Hibah</span></span>
+            </button>
+          </div>
+        </div>
 
-                <!-- Cert 3: PT Universal Big Data -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib2.png" data-cert-title="Sertifikat Magang - PT Universal Big Data">
-                    <div class="cert-img-wrapper">
-                      <img src="img/sertifMsib2.png" alt="Sertifikat MSIB UBig" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">Web Automation Intern</div>
-                      <div class="cert-badge">PT Universal Big Data • MSIB</div>
-                    </div>
+        <!-- Modern Certificates Grid -->
+        <div class="row g-4 cert-grid-container" id="certGridContainer">
+          <!-- Cert 1: BNSP Web Developer (Official BNSP SKKNI) -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="bnsp">
+            <div class="cert-card spotlight-card" data-cert-img="img/Web Developer.jpg" data-cert-title="Sertifikat Kompetensi BNSP - Web Developer (Pengembang Web)">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-gold"><i class="bi bi-patch-check-fill"></i> BNSP RI</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/Web Developer.jpg" alt="Sertifikat Kompetensi BNSP Web Developer" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-              <div class="row g-4 justify-content-center">
-                <!-- Cert 4: Penghargaan PKM-PM -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
-                    <div class="cert-img-wrapper">
-                      <img src="img/sertifPKM.jpg" alt="Penghargaan PKM-PM Kemendikbudristek" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">Lolos Pendanaan PKM-PM</div>
-                      <div class="cert-badge">Kemendikbudristek • GIS Deteksi Banjir</div>
-                    </div>
-                  </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-shield-check"></i>
+                  <span>Badan Nasional Sertifikasi Profesi • LSP Polije</span>
                 </div>
-
-                <!-- Cert 5: UBiG Certificate -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
-                    <div class="cert-img-wrapper">
-                      <img src="img/ubig.png" alt="UBig Certificate" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">UBiG Certificate of Completion</div>
-                      <div class="cert-badge">Universal Big Data AI Platform</div>
-                    </div>
+                <h3 class="cert-title">Web Developer (Pengembang Web)</h3>
+                <p class="cert-desc">Sertifikat Kompetensi Kerja Nasional Indonesia (SKKNI) resmi skema Pengembang Web (Web Developer) terlisensi Badan Nasional Sertifikasi Profesi.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>19 Agu 2025 – 19 Agu 2028</span>
                   </div>
-                </div>
-
-                <!-- Cert 6: Kepesertaan MSIB -->
-                <div class="col-md-4">
-                  <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
-                    <div class="cert-img-wrapper">
-                      <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
-                      <div class="cert-overlay">
-                        <span class="cert-zoom-btn"><i class="bi bi-zoom-in"></i> Preview</span>
-                      </div>
-                    </div>
-                    <div class="cert-info">
-                      <div class="cert-title">Sertifikat Kepesertaan MSIB</div>
-                      <div class="cert-badge">Kampus Merdeka • Kemendikbudristek</div>
-                    </div>
-                  </div>
+                  <span class="cert-scope-tag">Lisensi 3 Tahun</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Carousel Controls -->
-          <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="prev" aria-label="Previous Slide">
-            <span class="carousel-btn-pill"><i class="bi bi-chevron-left"></i></span>
-          </button>
-          <button class="carousel-control-next custom-next" type="button" data-bs-target="#sertifikatCarousel" data-bs-slide="next" aria-label="Next Slide">
-            <span class="carousel-btn-pill"><i class="bi bi-chevron-right"></i></span>
-          </button>
+          <!-- Cert 2: PT PAL Indonesia (MagangHub Kemnaker) -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+            <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat Pemagangan PT PAL Indonesia - Pemrogram Komputer">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-building"></i> MagangHub</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/Sertif Maganghub.jpeg" alt="Sertifikat Pemagangan PT PAL Indonesia" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-building"></i>
+                  <span>Kemnaker RI • PT PAL Indonesia</span>
+                </div>
+                <h3 class="cert-title">Pemrogram Komputer (MagangHub)</h3>
+                <p class="cert-desc">Sertifikat resmi Program Pemagangan Kemnaker di PT PAL Indonesia pada Divisi TI &amp; K3LH dengan predikat kelulusan Sangat Baik.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>20 Okt 2025 – 19 Apr 2026</span>
+                  </div>
+                  <span class="cert-scope-tag">Predikat: Sangat Baik</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators carousel-indicators-pill">
-            <button type="button" data-bs-target="#sertifikatCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#sertifikatCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <!-- Cert 3: PT Stechoq Robotika Indonesia -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+            <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Backend Developer Intern - PT Stechoq Robotika Indonesia (MSIB)">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-cpu-fill"></i> MSIB Batch 6</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-building"></i>
+                  <span>PT Stechoq Robotika Indonesia</span>
+                </div>
+                <h3 class="cert-title">Backend Developer Intern</h3>
+                <p class="cert-desc">Certificate of Achievement perancangan sistem backend, arsitektur RESTful API, dan integrasi database IoT industri.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Feb 2024 – Jul 2024</span>
+                  </div>
+                  <span class="cert-scope-tag">Score: Excellent</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 4: Lolos Pendanaan PKM-PM -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="prestasi">
+            <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-purple"><i class="bi bi-trophy-fill"></i> Hibah Nasional</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/sertifPKM.jpg" alt="Penghargaan PKM-PM Kemendikbudristek" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-mortarboard-fill"></i>
+                  <span>Kemendikbudristek RI</span>
+                </div>
+                <h3 class="cert-title">Lolos Pendanaan PKM-PM</h3>
+                <p class="cert-desc">Penghargaan lolos pendanaan nasional skema Pengabdian Masyarakat: implementasi Web GIS peringatan dini banjir.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Tahun 2023 – 2024</span>
+                  </div>
+                  <span class="cert-scope-tag">Belmawa Dikti</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 5: UBiG Completion Certificate -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+            <div class="cert-card spotlight-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-blue"><i class="bi bi-database-fill-check"></i> AI Platform</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/ubig.png" alt="UBig Certificate" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-building"></i>
+                  <span>Universal Big Data (UBiG)</span>
+                </div>
+                <h3 class="cert-title">Web Automation Intern</h3>
+                <p class="cert-desc">Sertifikasi kelulusan proyek analitik platform kecerdasan buatan, otomasi data pipeline, dan pemrosesan data terdistribusi.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Desember 2024</span>
+                  </div>
+                  <span class="cert-scope-tag">Big Data &amp; AI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 6: Kepesertaan MSIB -->
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+            <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
+              <div class="cert-card-header">
+                <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-mortarboard-fill"></i> Kampus Merdeka</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+              </div>
+              <div class="cert-img-wrapper">
+                <div class="cert-doc-frame">
+                  <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
+                  <div class="cert-overlay">
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-info">
+                <div class="cert-issuer-line">
+                  <i class="bi bi-patch-check"></i>
+                  <span>Kemendikbudristek RI</span>
+                </div>
+                <h3 class="cert-title">Sertifikat Kepesertaan MSIB</h3>
+                <p class="cert-desc">Sertifikat resmi keikutsertaan program Magang &amp; Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</p>
+                <div class="cert-meta-footer">
+                  <div class="cert-period-badge">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Tahun 2024</span>
+                  </div>
+                  <span class="cert-scope-tag">Program Resmi</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -928,7 +1043,7 @@
                         <i class="bi bi-chat-square-dots-fill text-cyan fs-5"></i>
                         <span class="text-white fw-bold small">Kirim Pesan Instan</span>
                       </div>
-                      <span class="badge bg-cyan text-dark rounded-pill px-2 py-1 small">Auto WhatsApp</span>
+                      <span class="badge bg-cyan text-dark text-auto-whatsapp rounded-pill px-2 py-1 small">Auto WhatsApp</span>
                     </div>
 
                     <div class="mb-2">
