@@ -68,10 +68,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10 col-xl-9">
-            
             <!-- Blog Article Card -->
             <article class="blog-article-card">
-              
               <!-- Breadcrumbs -->
               <nav class="blog-breadcrumbs" aria-label="breadcrumb">
                 <a href="index.html"><i class="bi bi-house-door-fill me-1"></i>Beranda</a>
@@ -102,12 +100,8 @@
               </div>
 
               <!-- Main Title & Lead -->
-              <h1 class="blog-main-title">
-                Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia
-              </h1>
-              <p class="blog-subtitle-lead">
-                Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.
-              </p>
+              <h1 class="blog-main-title">Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia</h1>
+              <p class="blog-subtitle-lead">Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.</p>
 
               <!-- Executive Summary Callout Box (Exact CV Bullets) -->
               <div class="blog-executive-box">
@@ -126,7 +120,8 @@
                   <span>1. Latar Belakang &amp; Tantangan Pergudangan Retail</span>
                 </h2>
                 <p class="blog-body-p">
-                  Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum yang dihadapi retail meliputi:
+                  Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum
+                  yang dihadapi retail meliputi:
                 </p>
                 <ul class="subsystem-list">
                   <li><strong>Discrepancy Selisih Stok Antar Cabang:</strong> Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.</li>
@@ -141,13 +136,10 @@
                   <i class="bi bi-layers-fill"></i>
                   <span>2. Arsitektur Backend &amp; Endpoint Utama</span>
                 </h2>
-                <p class="blog-body-p">
-                  Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:
-                </p>
+                <p class="blog-body-p">Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:</p>
 
                 <!-- Subsystem Grid Cards -->
                 <div class="blog-grid-cards">
-                  
                   <div class="blog-subsystem-card">
                     <div class="subsystem-header">
                       <div class="subsystem-icon-box">
@@ -158,9 +150,7 @@
                         <span class="subsystem-role">Keamanan &amp; Hak Akses Berjenjang</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).
-                    </p>
+                    <p class="subsystem-desc">Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).</p>
                     <ul class="subsystem-list">
                       <li>Pembagian peran jelas: Superadmin, Manajer Gudang, Staff Input, dan Kasir Toko.</li>
                       <li>Enkripsi password menggunakan bcrypt dengan cost-factor aman.</li>
@@ -183,9 +173,7 @@
                         <span class="subsystem-role">Manajemen Stok &amp; Mutasi Real-time</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.
-                    </p>
+                    <p class="subsystem-desc">Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.</p>
                     <ul class="subsystem-list">
                       <li>ACID Transactions MySQL untuk menjamin integritas data mutasi stok.</li>
                       <li>Validasi stok sebelum transaksi pengeluaran (mencegah minus stock concurrency).</li>
@@ -208,9 +196,7 @@
                         <span class="subsystem-role">Pemicu Peringatan Stok Kritis</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.
-                    </p>
+                    <p class="subsystem-desc">Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.</p>
                     <ul class="subsystem-list">
                       <li>Perhitungan lead time dan minimum buffer stock per kategori varian produk.</li>
                       <li>Endpoint laporan otomatis produk prioritas restock untuk tim Purchasing.</li>
@@ -233,9 +219,7 @@
                         <span class="subsystem-role">Dokumentasi Interaktif &amp; QA Jest</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.
-                    </p>
+                    <p class="subsystem-desc">Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.</p>
                     <ul class="subsystem-list">
                       <li>Swagger UI interaktif yang memungkinkan tim developer mencoba request langsung.</li>
                       <li>Pengujian skenario endpoint menggunakan Jest dan Supertest (Happy &amp; Error Path).</li>
@@ -247,7 +231,6 @@
                       <span class="tag-pill">Postman</span>
                     </div>
                   </div>
-
                 </div>
               </section>
 
@@ -257,9 +240,7 @@
                   <i class="bi bi-award-fill"></i>
                   <span>3. Verifikasi &amp; Dokumentasi Magang</span>
                 </h2>
-                <p class="blog-body-p">
-                  Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:
-                </p>
+                <p class="blog-body-p">Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:</p>
 
                 <div class="blog-gallery-showcase">
                   <div class="row g-4">
@@ -292,9 +273,7 @@
                   <i class="bi bi-bar-chart-line-fill"></i>
                   <span>4. Dampak &amp; Metrik Hasil (Impact)</span>
                 </h2>
-                <p class="blog-body-p">
-                  Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:
-                </p>
+                <p class="blog-body-p">Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:</p>
 
                 <div class="blog-metrics-row">
                   <div class="blog-metric-card">
@@ -324,7 +303,8 @@
                 </h2>
                 <div class="blog-body-p">
                   <p>
-                    Pengalaman di PT Stechoq Robotika Indonesia memantapkan standar saya dalam merancang RESTful API kelas industri: mulai dari penamaan resource URI yang representatif, penanganan HTTP status codes yang semantik, hingga pentingnya automated test suite agar pembaruan fitur di masa depan tidak menimbulkan regresi (breaking changes).
+                    Pengalaman di PT Stechoq Robotika Indonesia memantapkan standar saya dalam merancang RESTful API kelas industri: mulai dari penamaan resource URI yang representatif, penanganan HTTP status codes yang semantik, hingga
+                    pentingnya automated test suite agar pembaruan fitur di masa depan tidak menimbulkan regresi (breaking changes).
                   </p>
                   <p class="mb-0">
                     Dokumentasi Swagger yang komprehensif terbukti sangat memangkas waktu rapat integrasi antara tim backend dan frontend, menghasilkan alur kerja pengembangan software yang jauh lebih cepat dan terkoordinasi.
@@ -356,7 +336,6 @@
                   </a>
                 </div>
               </div>
-
             </article>
 
             <!-- Previous / Next Experience Switcher -->
@@ -379,7 +358,6 @@
                 <div class="blog-switch-company"><i class="bi bi-robot me-1"></i>PT Universal Big Data</div>
               </a>
             </div>
-
           </div>
         </div>
       </div>

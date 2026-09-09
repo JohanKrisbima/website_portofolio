@@ -68,10 +68,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10 col-xl-9">
-            
             <!-- Blog Article Card -->
             <article class="blog-article-card">
-              
               <!-- Breadcrumbs -->
               <nav class="blog-breadcrumbs" aria-label="breadcrumb">
                 <a href="index.html"><i class="bi bi-house-door-fill me-1"></i>Beranda</a>
@@ -102,12 +100,8 @@
               </div>
 
               <!-- Main Title & Lead -->
-              <h1 class="blog-main-title">
-                Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data
-              </h1>
-              <p class="blog-subtitle-lead">
-                Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.
-              </p>
+              <h1 class="blog-main-title">Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data</h1>
+              <p class="blog-subtitle-lead">Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.</p>
 
               <!-- Executive Summary Callout Box (Exact CV Bullets) -->
               <div class="blog-executive-box">
@@ -126,7 +120,8 @@
                   <span>1. Latar Belakang Masalah &amp; Kebutuhan Data</span>
                 </h2>
                 <p class="blog-body-p">
-                  Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan teknis utama yang harus dipecahkan meliputi:
+                  Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan
+                  teknis utama yang harus dipecahkan meliputi:
                 </p>
                 <ul class="subsystem-list">
                   <li><strong>Volatilitas Struktur HTML:</strong> Layout situs e-commerce sering mengalami pembaruan selector CSS/DOM, yang rawan mematahkan script scraping konvensional.</li>
@@ -141,13 +136,10 @@
                   <i class="bi bi-cpu-fill"></i>
                   <span>2. Solusi Teknis &amp; Fitur Unggulan</span>
                 </h2>
-                <p class="blog-body-p">
-                  Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:
-                </p>
+                <p class="blog-body-p">Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:</p>
 
                 <!-- Feature Grid Cards -->
                 <div class="blog-grid-cards">
-                  
                   <div class="blog-subsystem-card">
                     <div class="subsystem-header">
                       <div class="subsystem-icon-box">
@@ -158,9 +150,7 @@
                         <span class="subsystem-role">C# Async / Await &amp; Task Parallel Library</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Memisahkan thread rendering UI dari thread HTTP crawler sehingga antarmuka tetap responsif 60 FPS meskipun sedang mengekstrak ribuan baris data secara simultan.
-                    </p>
+                    <p class="subsystem-desc">Memisahkan thread rendering UI dari thread HTTP crawler sehingga antarmuka tetap responsif 60 FPS meskipun sedang mengekstrak ribuan baris data secara simultan.</p>
                     <ul class="subsystem-list">
                       <li>Pengaturan konkurensi dinamis (configurable thread pool limit).</li>
                       <li>Distribusi antrian link target menggunakan thread-safe concurrent queue.</li>
@@ -183,9 +173,7 @@
                         <span class="subsystem-role">Normalisasi &amp; Validasi Data Otomatis</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Ekstraksi atribut esensial produk: judul listing, harga mata uang lokal/internasional, rating, lokasi seller, nomor kontak, serta deskripsi spesifikasi.
-                    </p>
+                    <p class="subsystem-desc">Ekstraksi atribut esensial produk: judul listing, harga mata uang lokal/internasional, rating, lokasi seller, nomor kontak, serta deskripsi spesifikasi.</p>
                     <ul class="subsystem-list">
                       <li>Sistem fallback selector jika kelas CSS target mengalami modifikasi ringan.</li>
                       <li>Pembersihan karakter regex, konversi format harga ke nilai integer baku.</li>
@@ -208,9 +196,7 @@
                         <span class="subsystem-role">MySQL Batch Inserts &amp; Cloud Integration</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Alih-alih melakukan query insert satu-per-satu yang membebani I/O, saya mengimplementasikan sistem batching buffer untuk sinkronisasi massal.
-                    </p>
+                    <p class="subsystem-desc">Alih-alih melakukan query insert satu-per-satu yang membebani I/O, saya mengimplementasikan sistem batching buffer untuk sinkronisasi massal.</p>
                     <ul class="subsystem-list">
                       <li>Batch insert 500 records per transaksi database untuk efisiensi tinggi.</li>
                       <li>Koneksi terenkripsi ke database staging dan production cloud Nobox AI.</li>
@@ -233,9 +219,7 @@
                         <span class="subsystem-role">Ketahanan Sistem &amp; Kestabilan Crawling</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">
-                      Meniru pola browsing manusia melalui variasi user-agent acak, random request delay interval, dan rotasi proxy HTTP/SOCKS5.
-                    </p>
+                    <p class="subsystem-desc">Meniru pola browsing manusia melalui variasi user-agent acak, random request delay interval, dan rotasi proxy HTTP/SOCKS5.</p>
                     <ul class="subsystem-list">
                       <li>Rotasi User-Agent realistis yang diperbarui secara periodik.</li>
                       <li>Exponential backoff retry saat mendeteksi status kode HTTP 429 atau 503.</li>
@@ -247,7 +231,6 @@
                       <span class="tag-pill">Reliability</span>
                     </div>
                   </div>
-
                 </div>
               </section>
 
@@ -257,9 +240,7 @@
                   <i class="bi bi-images"></i>
                   <span>3. Dokumentasi Tampilan Aplikasi Nobox Extractor</span>
                 </h2>
-                <p class="blog-body-p">
-                  Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:
-                </p>
+                <p class="blog-body-p">Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:</p>
 
                 <div class="blog-gallery-showcase">
                   <div class="row g-4">
@@ -292,9 +273,7 @@
                   <i class="bi bi-bar-chart-line-fill"></i>
                   <span>4. Dampak &amp; Metrik Hasil (Impact)</span>
                 </h2>
-                <p class="blog-body-p">
-                  Pengembangan Nobox Extractor memberikan percepatan dramatis terhadap proses intake data bagi tim kecerdasan buatan Nobox AI:
-                </p>
+                <p class="blog-body-p">Pengembangan Nobox Extractor memberikan percepatan dramatis terhadap proses intake data bagi tim kecerdasan buatan Nobox AI:</p>
 
                 <div class="blog-metrics-row">
                   <div class="blog-metric-card">
@@ -324,11 +303,10 @@
                 </h2>
                 <div class="blog-body-p">
                   <p>
-                    Proyek ini melatih pemahaman mendalam tentang arsitektur concurrency di .NET (thread synchronization, locking, async I/O), penanganan data berkapasitas besar, serta etika dan teknik penambangan data web (web scraping best practices).
+                    Proyek ini melatih pemahaman mendalam tentang arsitektur concurrency di .NET (thread synchronization, locking, async I/O), penanganan data berkapasitas besar, serta etika dan teknik penambangan data web (web scraping
+                    best practices).
                   </p>
-                  <p class="mb-0">
-                    Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.
-                  </p>
+                  <p class="mb-0">Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.</p>
                 </div>
               </section>
 
@@ -356,7 +334,6 @@
                   </a>
                 </div>
               </div>
-
             </article>
 
             <!-- Previous / Next Experience Switcher -->
@@ -379,7 +356,6 @@
                 <div class="blog-switch-company"><i class="bi bi-gear-wide-connected me-1"></i>PT Stechoq Robotika Indonesia</div>
               </a>
             </div>
-
           </div>
         </div>
       </div>

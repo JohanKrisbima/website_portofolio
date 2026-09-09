@@ -812,7 +812,7 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
       ".composer-card",
       ".quick-copy-box",
       ".terminal-box",
-      ".github-showcase-box"
+      ".github-showcase-box",
     ];
 
     const elements = document.querySelectorAll(targetSelectors.join(", "));
@@ -846,7 +846,7 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
         root: null,
         rootMargin: "0px 0px -40px 0px",
         threshold: 0.12,
-      }
+      },
     );
 
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
