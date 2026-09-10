@@ -1667,72 +1667,10 @@ body {
   }
 
   .cert-filter-wrapper {
-    margin: 4px 0 22px;
+    margin: 4px 0 20px;
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-
-  .cert-filter-wrapper .filter-pill-group {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 6px;
-    gap: 4px;
-    max-width: 100%;
-    border-radius: var(--radius-pill);
-  }
-
-  .cert-filter-wrapper .filter-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px 12px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    line-height: 1;
-    gap: 6px;
-    border-radius: var(--radius-pill);
-    white-space: nowrap;
-  }
-
-  .cert-filter-wrapper .filter-btn i {
-    font-size: 0.88rem;
-    line-height: 1;
-  }
-
-  .cert-filter-wrapper .filter-badge {
-    width: 19px;
-    height: 19px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-left: 2px;
-    border-radius: 50%;
-  }
-
-  @media (max-width: 380px) {
-    .cert-filter-wrapper .filter-pill-group {
-      padding: 4px 5px;
-      gap: 3px;
-    }
-
-    .cert-filter-wrapper .filter-btn {
-      padding: 6px 9px;
-      font-size: 0.76rem;
-      gap: 4px;
-    }
-
-    .cert-filter-wrapper .filter-btn i {
-      font-size: 0.8rem;
-    }
-
-    .cert-filter-wrapper .filter-badge {
-      width: 17px;
-      height: 17px;
-      font-size: 0.66rem;
-    }
   }
 
   .cert-card {
@@ -2019,14 +1957,429 @@ body {
 }
 
 /* ==========================================================================
-   Footer & Floating Back To Top
+   Footer & Floating Back To Top (Professional & Recruiter-Ready)
    ========================================================================== */
 .footer-rounded {
-  background: #050811;
+  background: radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.98), #050811 75%);
   border-top: 1px solid var(--border-glass);
-  padding: 35px 0;
+  padding: 55px 0 25px;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+}
+
+[data-theme="light"] .footer-rounded {
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f5f9 65%, #e2e8f0 100%);
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* 1. Brand Block */
+.footer-brand-title {
+  text-decoration: none;
+}
+
+.footer-brand-name {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="light"] .footer-brand-name {
+  color: #0f172a;
+}
+
+.footer-role-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="light"] .footer-role-badge {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+.footer-bio-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Social Channel Icons */
+.footer-social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-4px);
+  color: #ffffff;
+}
+
+.footer-social-icon.in:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+}
+
+.footer-social-icon.gh:hover {
+  background: #24292e;
+  border-color: #555;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.footer-social-icon.ig:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(214, 36, 159, 0.4);
+}
+
+.footer-social-icon.em:hover {
+  background: #ea4335;
+  border-color: #ea4335;
+  box-shadow: 0 8px 20px rgba(234, 67, 53, 0.4);
+}
+
+.footer-social-icon.wa:hover {
+  background: #25d366;
+  border-color: #25d366;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+[data-theme="light"] .footer-social-icon {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Column Headings & Navigation */
+.footer-col-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="light"] .footer-col-heading {
+  color: #0f172a;
+}
+
+.footer-nav-list li {
+  margin-bottom: 12px;
+}
+
+.footer-nav-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.footer-nav-list a i {
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  transition: transform 0.25s ease;
+}
+
+.footer-nav-list a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-nav-list a:hover i {
+  transform: translateX(2px);
+}
+
+[data-theme="light"] .footer-nav-list a:hover {
+  color: #0284c7;
+}
+
+/* 4. Tech Competency Micro-Cards */
+.footer-skill-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  transition: all 0.25s ease;
+}
+
+.footer-skill-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 245, 212, 0.3);
+  transform: translateX(3px);
+}
+
+.footer-skill-item .skill-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-skill-item .skill-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .footer-skill-item {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .footer-skill-item:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+[data-theme="light"] .footer-skill-item .skill-name {
+  color: #0f172a;
+}
+
+/* 5. HR Quick Facts */
+.recruiter-fact-item {
+  font-size: 0.88rem;
+}
+
+.fact-icon-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+[data-theme="light"] .fact-icon-box {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.fact-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.fact-value {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+[data-theme="light"] .fact-value {
+  color: #0f172a;
+}
+
+.fact-highlight-status {
+  color: #34d399 !important;
+}
+
+[data-theme="light"] .fact-highlight-status {
+  color: #059669 !important;
+}
+
+.fact-value-link {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+.fact-value-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+[data-theme="light"] .fact-value-link {
+  color: #0284c7;
+}
+
+[data-theme="light"] .fact-value-link:hover {
+  color: #0369a1;
+}
+
+/* 6. Footer Bottom Sub-bar */
+.footer-copy-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-credit-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="light"] .footer-verified-badge {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #475569;
+}
+
+.footer-back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-back-to-top-btn i {
+  font-size: 1.1rem;
+  color: var(--accent-cyan);
+  transition: transform 0.25s ease;
+}
+
+.footer-back-to-top-btn:hover {
+  background: rgba(0, 245, 212, 0.15);
+  border-color: rgba(0, 245, 212, 0.35);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-back-to-top-btn:hover i {
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .footer-back-to-top-btn {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #334155;
+}
+
+[data-theme="light"] .footer-back-to-top-btn:hover {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.3);
+  color: #0284c7;
+}
+
+/* Footer Responsive Breakpoints */
+@media (max-width: 991px) {
+  .footer-rounded {
+    padding: 45px 0 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-rounded {
+    padding-top: 40px;
+    padding-bottom: 95px !important; /* Safe padding clearance so floating FABs never overlap text */
+  }
+
+  .footer-main-grid {
+    padding-bottom: 0 !important;
+  }
+
+  .footer-col-heading {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    font-size: 0.92rem;
+  }
+
+  /* 2-column clean grid for navigation links on mobile */
+  .footer-nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 14px;
+  }
+
+  .footer-nav-list li {
+    margin-bottom: 0;
+  }
+
+  .footer-nav-list a {
+    font-size: 0.88rem;
+  }
+
+  /* Spacious, well-padded skill cards on mobile */
+  .footer-skill-tags {
+    gap: 10px !important;
+  }
+
+  .footer-skill-item {
+    padding: 10px 14px;
+  }
+
+  .footer-skill-item .skill-name {
+    font-size: 0.88rem;
+  }
+
+  .footer-skill-item .skill-detail {
+    font-size: 0.78rem;
+  }
+
+  /* Neat recruiter fact items on mobile */
+  .footer-recruiter-facts {
+    gap: 12px !important;
+  }
+
+  .recruiter-fact-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+  }
+
+  [data-theme="light"] .recruiter-fact-item {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(99, 102, 241, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
 }
 
 .back-to-top-btn {
@@ -2434,7 +2787,8 @@ body {
 }
 
 /* 4. Experience & Project Category Filters */
-.exp-filter-wrapper {
+.exp-filter-wrapper,
+.cert-filter-wrapper {
   margin-bottom: 35px;
 }
 
@@ -2450,11 +2804,13 @@ body {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(14px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 }
 
 .filter-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 8px 18px;
   border-radius: var(--radius-pill);
@@ -2463,8 +2819,10 @@ body {
   color: var(--text-light);
   font-size: 0.88rem;
   font-weight: 600;
+  line-height: 1.2;
   cursor: pointer;
   white-space: nowrap;
+  box-sizing: border-box;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -2491,6 +2849,8 @@ body {
   background: rgba(0, 0, 0, 0.25);
   font-size: 0.72rem;
   font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .filter-btn.active .filter-badge {
@@ -2498,9 +2858,10 @@ body {
   color: var(--accent-cyan);
 }
 
-/* Responsive Mobile Filter Tabs (Full-Fit Segmented Capsule, Zero Horizontal Scroll) */
+/* Responsive Mobile Filter Tabs (Full-Fit Segmented Capsule, Zero Horizontal Scroll & Zero Overflow) */
 @media (max-width: 768px) {
-  .exp-filter-wrapper {
+  .exp-filter-wrapper,
+  .cert-filter-wrapper {
     display: flex;
     justify-content: center;
     padding: 4px 0 16px 0;
@@ -2514,37 +2875,49 @@ body {
     width: 100%;
     max-width: 520px;
     gap: 4px;
-    padding: 4px 6px;
+    padding: 4px;
     border-radius: var(--radius-pill);
     box-sizing: border-box;
+    align-items: center;
   }
 
   .filter-btn {
     flex: 1;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
     padding: 7px 6px;
     font-size: 0.78rem;
+    line-height: 1.2;
     gap: 4px;
     min-width: 0;
     white-space: nowrap;
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+  }
+
+  .filter-btn.active {
+    box-shadow: 0 0 12px rgba(0, 245, 212, 0.35);
   }
 
   .filter-btn i {
     font-size: 0.8rem;
     flex-shrink: 0;
+    line-height: 1;
   }
 
   .filter-badge {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     font-size: 0.64rem;
     flex-shrink: 0;
+    line-height: 1;
   }
 }
 
 @media (max-width: 440px) {
   .filter-pill-group {
-    padding: 3px 4px;
+    padding: 3px;
     gap: 3px;
   }
 
@@ -2566,12 +2939,25 @@ body {
 }
 
 @media (max-width: 360px) {
-  .filter-btn {
-    padding: 6px 2px;
-    font-size: 0.68rem;
+  .filter-pill-group {
+    padding: 2px;
+    gap: 2px;
   }
+
+  .filter-btn {
+    padding: 5px 2px;
+    font-size: 0.68rem;
+    gap: 2px;
+  }
+
   .filter-btn i {
     display: none;
+  }
+
+  .filter-badge {
+    width: 14px;
+    height: 14px;
+    font-size: 0.58rem;
   }
 }
 
