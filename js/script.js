@@ -23,6 +23,19 @@
   }
 })();
 
+// =========================================================================
+// 0.1 Immediate Language Initialization
+// =========================================================================
+const LANG_STORAGE_KEY = "portfolio_language_choice";
+(function initLangImmediately() {
+  try {
+    const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
+    document.documentElement.setAttribute("lang", savedLang);
+  } catch (error) {
+    console.warn("Language storage access failed:", error);
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   // 1. Elements & References
@@ -48,6 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggleText = document.getElementById("themeToggleText");
   const themeSegBtns = document.querySelectorAll(".theme-seg-btn");
   const THEME_STORAGE_KEY = "portfolio_theme_mode";
+
+  // Language Toggle Elements
+  const langToggleBtn = document.getElementById("langToggleBtn");
+  const currentLangText = document.getElementById("currentLangText");
+  const langSegBtns = document.querySelectorAll(".lang-seg-btn");
+  let currentLanguage = localStorage.getItem(LANG_STORAGE_KEY) || "id";
 
   // =========================================================================
   // 2. Toast System Function
@@ -134,6 +153,94 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =========================================================================
+  // 1.1 Language Manager (Bilingual: ID & EN)
+  // =========================================================================
+  function applyLanguage(lang, notify = false) {
+    const targetLang = lang === "en" ? "en" : "id";
+    currentLanguage = targetLang;
+    document.documentElement.setAttribute("lang", targetLang);
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, targetLang);
+    } catch (e) {
+      console.warn("Failed to persist language choice in localStorage:", e);
+    }
+
+    if (typeof portfolioTranslations !== "undefined" && portfolioTranslations[targetLang]) {
+      const dict = portfolioTranslations[targetLang];
+
+      // 1. Update text of elements with [data-i18n]
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // 2. Update placeholder attributes
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key] !== undefined) {
+          el.setAttribute("placeholder", dict[key]);
+        }
+      });
+
+      // 3. Update title attributes
+      document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-title");
+        if (dict[key] !== undefined) {
+          el.setAttribute("title", dict[key]);
+        }
+      });
+
+      // 4. Update desktop navbar indicator text
+      if (currentLangText) {
+        currentLangText.textContent = targetLang === "id" ? "EN" : "ID";
+      }
+      if (langToggleBtn) {
+        const titleText = targetLang === "id" ? "Ganti ke English" : "Switch to Bahasa Indonesia";
+        langToggleBtn.setAttribute("title", titleText);
+        langToggleBtn.setAttribute("aria-label", titleText);
+      }
+
+      // 5. Update mobile drawer segmented buttons
+      langSegBtns.forEach((btn) => {
+        const choice = btn.getAttribute("data-lang-choice");
+        if (choice === targetLang) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      // 6. Notify user with toast notification
+      if (notify && typeof showToast === "function") {
+        showToast(dict.toast_lang_switched, "bi-translate");
+      }
+    }
+  }
+
+  // Initialize language on load
+  applyLanguage(currentLanguage, false);
+
+  // Desktop Navbar button click handler
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener("click", () => {
+      const nextLang = currentLanguage === "id" ? "en" : "id";
+      applyLanguage(nextLang, true);
+    });
+  }
+
+  // Mobile Drawer segmented buttons click handlers
+  langSegBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const choice = btn.getAttribute("data-lang-choice");
+      if (choice && choice !== currentLanguage) {
+        applyLanguage(choice, true);
+      }
+    });
+  });
+
+  // =========================================================================
   // 2. High-Performance Throttled Scroll Engine (rAF + Passive)
   // =========================================================================
   let isScrollTicking = false;
@@ -200,14 +307,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   const typewriterEl = document.getElementById("heroTypewriter");
   if (typewriterEl) {
-    const roles = ["Software Developer", "Backend & RESTful API Specialist", "Experience 1 year as Web Developer"];
+    const defaultRoles = ["Software Developer", "Backend & RESTful API Specialist", "Experience 1 year as Web Developer"];
     let roleIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
     let typeSpeed = 90;
 
     function typeLoop() {
-      const currentRole = roles[roleIdx];
+      const activeRoles = (typeof portfolioTranslations !== "undefined" && portfolioTranslations[currentLanguage] && portfolioTranslations[currentLanguage].typewriter_roles)
+        ? portfolioTranslations[currentLanguage].typewriter_roles
+        : defaultRoles;
+      const currentRole = activeRoles[roleIdx % activeRoles.length];
 
       if (isDeleting) {
         typewriterEl.textContent = currentRole.substring(0, charIdx - 1);
@@ -225,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isDeleting = true;
       } else if (isDeleting && charIdx === 0) {
         isDeleting = false;
-        roleIdx = (roleIdx + 1) % roles.length;
+        roleIdx = (roleIdx + 1) % activeRoles.length;
         typeSpeed = 450;
       }
 

@@ -197,7 +197,94 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /**
+   * Mengatur bahasa halaman detail berdasarkan preferensi tersimpan di localStorage ('portfolio_language_choice').
+   * Jika pilihan adalah 'en', maka otomatis menerjemahkan seluruh konten halaman ke Bahasa Inggris.
+   */
+  function initLanguageManager() {
+    const LANG_STORAGE_KEY = "portfolio_language_choice";
+    const blogLangToggleBtn = document.getElementById("blogLangToggleBtn");
+    const blogLangText = document.getElementById("blogLangText");
+
+    function applyDetailLanguage(lang) {
+      const targetLang = lang === "en" ? "en" : "id";
+      document.documentElement.setAttribute("lang", targetLang);
+      try {
+        localStorage.setItem(LANG_STORAGE_KEY, targetLang);
+      } catch (e) {
+        console.warn("Language storage access failed:", e);
+      }
+
+      if (typeof portfolioTranslations !== "undefined" && portfolioTranslations[targetLang]) {
+        const dict = portfolioTranslations[targetLang];
+
+        // 1. Terjemahkan elemen yang memiliki atribut data-i18n
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key] !== undefined) {
+            el.innerHTML = dict[key];
+          }
+        });
+
+        // 2. Terjemahkan atribut title jika ada data-i18n-title
+        document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-title");
+          if (dict[key] !== undefined) {
+            el.setAttribute("title", dict[key]);
+          }
+        });
+
+        // 3. Terjemahkan document title & meta description jika dispesifikasikan
+        const pageMetaTitleKey = document.querySelector("meta[name='page-meta-title-key']");
+        if (pageMetaTitleKey) {
+          const key = pageMetaTitleKey.getAttribute("content");
+          if (dict[key]) document.title = dict[key];
+        }
+        const pageMetaDescKey = document.querySelector("meta[name='page-meta-desc-key']");
+        if (pageMetaDescKey) {
+          const key = pageMetaDescKey.getAttribute("content");
+          const metaDesc = document.querySelector("meta[name='description']");
+          if (dict[key] && metaDesc) metaDesc.setAttribute("content", dict[key]);
+        }
+      }
+
+      // 4. Perbarui indikator tombol bahasa
+      if (blogLangText) {
+        blogLangText.textContent = targetLang === "id" ? "EN" : "ID";
+      }
+      if (blogLangToggleBtn) {
+        const titleText = targetLang === "id" ? "Ganti ke English" : "Switch to Bahasa Indonesia";
+        blogLangToggleBtn.setAttribute("title", titleText);
+        blogLangToggleBtn.setAttribute("aria-label", titleText);
+      }
+    }
+
+    // Inisialisasi status awal bahasa dari localStorage (default: 'id')
+    let savedLang = "id";
+    try {
+      savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
+    } catch (e) {
+      savedLang = "id";
+    }
+    applyDetailLanguage(savedLang);
+
+    // Event listener pergantian bahasa
+    if (blogLangToggleBtn) {
+      blogLangToggleBtn.addEventListener("click", () => {
+        let currentLang = "id";
+        try {
+          currentLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
+        } catch (e) {
+          currentLang = "id";
+        }
+        const nextLang = currentLang === "id" ? "en" : "id";
+        applyDetailLanguage(nextLang);
+      });
+    }
+  }
+
   // Jalankan semua modul inisialisasi
+  initLanguageManager();
   initReadingProgressBar();
   initBackToTop();
   initThemeSwitcher();

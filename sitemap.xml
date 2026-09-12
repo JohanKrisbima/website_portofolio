@@ -7,20 +7,20 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://website-portofolio-johan.vercel.app/detail-pt-pal.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://website-portofolio-johan.vercel.app/views/detail-pt-pal.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://website-portofolio-johan.vercel.app/detail-universal-big-data.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://website-portofolio-johan.vercel.app/views/detail-universal-big-data.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://website-portofolio-johan.vercel.app/detail-stechoq.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://website-portofolio-johan.vercel.app/views/detail-stechoq.html</loc>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

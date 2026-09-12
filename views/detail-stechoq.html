@@ -7,9 +7,12 @@
     <meta name="description" content="Studi kasus mendalam pengalaman Johan Krisbima Abi sebagai Backend Developer Intern di PT Stechoq Robotika Indonesia. Merancang RESTful API sistem manajemen gudang retail handphone." />
     <meta name="author" content="Johan Krisbima Abi" />
 
+    <meta name="page-meta-title-key" content="stechoq_meta_title" />
+    <meta name="page-meta-desc-key" content="stechoq_meta_desc" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="img/profile_wisuda.jpeg" />
-    <link rel="apple-touch-icon" href="img/profile_wisuda.jpeg" />
+    <link rel="icon" type="image/jpeg" href="../assets/img/profile_wisuda.jpeg" />
+    <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.jpeg" />
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,10 +26,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
-    <!-- Detail Page Interactive & Theme Script -->
-    <script src="detail.js"></script>
+    <!-- Translation Dictionary & Detail Interactive Scripts -->
+    <script src="../js/translations.js"></script>
+    <script src="../js/detail.js"></script>
   </head>
   <body id="page-top">
     <!-- Reading Progress Bar -->
@@ -42,24 +46,27 @@
     <!-- Floating Top Navigation Bar -->
     <header class="blog-nav-sticky">
       <div class="blog-nav-inner">
-        <a href="index.html#project" class="blog-back-btn" title="Kembali ke portofolio utama">
+        <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
           <i class="bi bi-arrow-left"></i>
-          <span class="d-none d-sm-inline">Kembali ke Portofolio</span>
-          <span class="d-inline d-sm-none">Kembali</span>
+          <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
+          <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
         </a>
 
-        <a href="index.html#home" class="navbar-brand-pill text-decoration-none">
+        <a href="../index.html#home" class="navbar-brand-pill text-decoration-none">
           <span class="brand-avatar-mini">JK</span>
           <span class="d-none d-md-inline">Johan<span class="text-gradient">.dev</span></span>
         </a>
 
-        <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
-          <div class="floating-theme-icon-box">
-            <i class="bi bi-sun-fill theme-icon-sun"></i>
-            <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-          </div>
-          <span class="floating-theme-text d-none d-md-inline" id="blogThemeText">Dark Mode</span>
-        </button>
+        <div class="d-flex align-items-center gap-2">
+
+          <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
+            <div class="floating-theme-icon-box">
+              <i class="bi bi-sun-fill theme-icon-sun"></i>
+              <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
+            </div>
+            <span class="floating-theme-text d-none d-md-inline" id="blogThemeText">Dark Mode</span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -72,9 +79,9 @@
             <article class="blog-article-card">
               <!-- Breadcrumbs -->
               <nav class="blog-breadcrumbs" aria-label="breadcrumb">
-                <a href="index.html"><i class="bi bi-house-door-fill me-1"></i>Beranda</a>
+                <a href="../index.html"><i class="bi bi-house-door-fill me-1"></i><span data-i18n="detail_breadcrumb_home">Beranda</span></a>
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <a href="index.html#project">Pengalaman &amp; Proyek</a>
+                <a href="../index.html#project" data-i18n="detail_breadcrumb_exp">Pengalaman &amp; Proyek</a>
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
                 <span class="text-white fw-semibold">PT Stechoq Robotika Indonesia</span>
               </nav>
@@ -87,29 +94,29 @@
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-briefcase-fill text-cyan"></i>
-                  <span>Backend Developer Intern</span>
+                  <span data-i18n="stechoq_role">Backend Developer Intern</span>
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-calendar3"></i>
-                  <span>Feb 2024 – Jul 2024</span>
+                  <span data-i18n="stechoq_date">Feb 2024 – Jul 2024</span>
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-folder-check"></i>
-                  <span>Project: Website Management System for Mobile Phone Warehouse</span>
+                  <span data-i18n="stechoq_proj_tag">Project: Website Management System for Mobile Phone Warehouse</span>
                 </span>
               </div>
 
               <!-- Main Title & Lead -->
-              <h1 class="blog-main-title">Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia</h1>
-              <p class="blog-subtitle-lead">Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.</p>
+              <h1 class="blog-main-title" data-i18n="stechoq_title">Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia</h1>
+              <p class="blog-subtitle-lead" data-i18n="stechoq_subtitle">Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.</p>
 
               <!-- Executive Summary Callout Box (Exact CV Bullets) -->
               <div class="blog-executive-box">
-                <h4><i class="bi bi-lightning-charge-fill"></i> Ringkasan Proyek (Berdasarkan CV Resmi)</h4>
+                <h4><i class="bi bi-lightning-charge-fill"></i> <span data-i18n="stechoq_exec_heading">Ringkasan Proyek (Berdasarkan CV Resmi)</span></h4>
                 <ul class="subsystem-list mb-0">
-                  <li>Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
-                  <li>Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
-                  <li>Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
+                  <li data-i18n="stechoq_exec_p1">Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
+                  <li data-i18n="stechoq_exec_p2">Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
+                  <li data-i18n="stechoq_exec_p3">Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
                 </ul>
               </div>
 
@@ -117,16 +124,16 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-compass"></i>
-                  <span>1. Latar Belakang &amp; Tantangan Pergudangan Retail</span>
+                  <span data-i18n="stechoq_sec1_heading">1. Latar Belakang &amp; Tantangan Pergudangan Retail</span>
                 </h2>
-                <p class="blog-body-p">
+                <p class="blog-body-p" data-i18n="stechoq_sec1_p">
                   Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum
                   yang dihadapi retail meliputi:
                 </p>
                 <ul class="subsystem-list">
-                  <li><strong>Discrepancy Selisih Stok Antar Cabang:</strong> Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.</li>
-                  <li><strong>Ketiadaan Peringatan Stok Rendah (Out of Stock Risk):</strong> Hilangnya potensi penjualan produk best-seller karena keterlambatan pengadaan ulang barang dari pihak prinsipal atau distributor.</li>
-                  <li><strong>Audit Trail yang Lemah:</strong> Kesulitan melacak staf mana yang mengotorisasi pengeluaran barang jika terjadi kehilangan unit bernilai tinggi.</li>
+                  <li data-i18n="stechoq_sec1_item1"><strong>Discrepancy Selisih Stok Antar Cabang:</strong> Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.</li>
+                  <li data-i18n="stechoq_sec1_item2"><strong>Ketiadaan Peringatan Stok Rendah (Out of Stock Risk):</strong> Hilangnya potensi penjualan produk best-seller karena keterlambatan pengadaan ulang barang dari pihak prinsipal atau distributor.</li>
+                  <li data-i18n="stechoq_sec1_item3"><strong>Audit Trail yang Lemah:</strong> Kesulitan melacak staf mana yang mengotorisasi pengeluaran barang jika terjadi kehilangan unit bernilai tinggi.</li>
                 </ul>
               </section>
 
@@ -134,9 +141,9 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-layers-fill"></i>
-                  <span>2. Arsitektur Backend &amp; Endpoint Utama</span>
+                  <span data-i18n="stechoq_sec2_heading">2. Arsitektur Backend &amp; Endpoint Utama</span>
                 </h2>
-                <p class="blog-body-p">Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:</p>
+                <p class="blog-body-p" data-i18n="stechoq_sec2_p">Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:</p>
 
                 <!-- Subsystem Grid Cards -->
                 <div class="blog-grid-cards">
@@ -146,15 +153,15 @@
                         <i class="bi bi-shield-check"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Autentikasi &amp; RBAC JWT Terproteksi</h3>
-                        <span class="subsystem-role">Keamanan &amp; Hak Akses Berjenjang</span>
+                        <h3 class="subsystem-title" data-i18n="stechoq_mod1_title">Autentikasi &amp; RBAC JWT Terproteksi</h3>
+                        <span class="subsystem-role" data-i18n="stechoq_mod1_role">Keamanan &amp; Hak Akses Berjenjang</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).</p>
+                    <p class="subsystem-desc" data-i18n="stechoq_mod1_desc">Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).</p>
                     <ul class="subsystem-list">
-                      <li>Pembagian peran jelas: Superadmin, Manajer Gudang, Staff Input, dan Kasir Toko.</li>
-                      <li>Enkripsi password menggunakan bcrypt dengan cost-factor aman.</li>
-                      <li>Blacklisting token saat user logout untuk mencegah replay attack.</li>
+                      <li data-i18n="stechoq_mod1_item1">Pembagian peran jelas: Superadmin, Manajer Gudang, Staff Input, dan Kasir Toko.</li>
+                      <li data-i18n="stechoq_mod1_item2">Enkripsi password menggunakan bcrypt dengan cost-factor aman.</li>
+                      <li data-i18n="stechoq_mod1_item3">Blacklisting token saat user logout untuk mencegah replay attack.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">JWT</span>
@@ -169,15 +176,15 @@
                         <i class="bi bi-box-seam-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Multi-Location Inventory Tracking</h3>
-                        <span class="subsystem-role">Manajemen Stok &amp; Mutasi Real-time</span>
+                        <h3 class="subsystem-title" data-i18n="stechoq_mod2_title">Multi-Location Inventory Tracking</h3>
+                        <span class="subsystem-role" data-i18n="stechoq_mod2_role">Manajemen Stok &amp; Mutasi Real-time</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.</p>
+                    <p class="subsystem-desc" data-i18n="stechoq_mod2_desc">Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.</p>
                     <ul class="subsystem-list">
-                      <li>ACID Transactions MySQL untuk menjamin integritas data mutasi stok.</li>
-                      <li>Validasi stok sebelum transaksi pengeluaran (mencegah minus stock concurrency).</li>
-                      <li>Pelacakan riwayat pergerakan unik setiap unit berdasarkan IMEI handphone.</li>
+                      <li data-i18n="stechoq_mod2_item1">ACID Transactions MySQL untuk menjamin integritas data mutasi stok.</li>
+                      <li data-i18n="stechoq_mod2_item2">Validasi stok sebelum transaksi pengeluaran (mencegah minus stock concurrency).</li>
+                      <li data-i18n="stechoq_mod2_item3">Pelacakan riwayat pergerakan unik setiap unit berdasarkan IMEI handphone.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">Node.js</span>
@@ -192,15 +199,15 @@
                         <i class="bi bi-bell-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Automated Reorder Threshold</h3>
-                        <span class="subsystem-role">Pemicu Peringatan Stok Kritis</span>
+                        <h3 class="subsystem-title" data-i18n="stechoq_mod3_title">Automated Reorder Threshold</h3>
+                        <span class="subsystem-role" data-i18n="stechoq_mod3_role">Pemicu Peringatan Stok Kritis</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.</p>
+                    <p class="subsystem-desc" data-i18n="stechoq_mod3_desc">Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.</p>
                     <ul class="subsystem-list">
-                      <li>Perhitungan lead time dan minimum buffer stock per kategori varian produk.</li>
-                      <li>Endpoint laporan otomatis produk prioritas restock untuk tim Purchasing.</li>
-                      <li>Penyaringan laporan berdasarkan vendor, merek handphone, dan lokasi cabang.</li>
+                      <li data-i18n="stechoq_mod3_item1">Perhitungan lead time dan minimum buffer stock per kategori varian produk.</li>
+                      <li data-i18n="stechoq_mod3_item2">Endpoint laporan otomatis produk prioritas restock untuk tim Purchasing.</li>
+                      <li data-i18n="stechoq_mod3_item3">Penyaringan laporan berdasarkan vendor, merek handphone, dan lokasi cabang.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">Business Logic</span>
@@ -215,15 +222,15 @@
                         <i class="bi bi-file-code-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Swagger OpenAPI &amp; Automated Testing</h3>
-                        <span class="subsystem-role">Dokumentasi Interaktif &amp; QA Jest</span>
+                        <h3 class="subsystem-title" data-i18n="stechoq_mod4_title">Swagger OpenAPI &amp; Automated Testing</h3>
+                        <span class="subsystem-role" data-i18n="stechoq_mod4_role">Dokumentasi Interaktif &amp; QA Jest</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.</p>
+                    <p class="subsystem-desc" data-i18n="stechoq_mod4_desc">Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.</p>
                     <ul class="subsystem-list">
-                      <li>Swagger UI interaktif yang memungkinkan tim developer mencoba request langsung.</li>
-                      <li>Pengujian skenario endpoint menggunakan Jest dan Supertest (Happy &amp; Error Path).</li>
-                      <li>Koleksi Postman terstruktur lengkap dengan environment variables otomatis.</li>
+                      <li data-i18n="stechoq_mod4_item1">Swagger UI interaktif yang memungkinkan tim developer mencoba request langsung.</li>
+                      <li data-i18n="stechoq_mod4_item2">Pengujian skenario endpoint menggunakan Jest dan Supertest (Happy &amp; Error Path).</li>
+                      <li data-i18n="stechoq_mod4_item3">Koleksi Postman terstruktur lengkap dengan environment variables otomatis.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">Swagger / OpenAPI</span>
@@ -238,28 +245,28 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-award-fill"></i>
-                  <span>3. Verifikasi &amp; Dokumentasi Magang</span>
+                  <span data-i18n="stechoq_sec3_heading">3. Verifikasi &amp; Dokumentasi Magang</span>
                 </h2>
-                <p class="blog-body-p">Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:</p>
+                <p class="blog-body-p" data-i18n="stechoq_sec3_p">Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:</p>
 
                 <div class="blog-gallery-showcase">
                   <div class="row g-4">
                     <div class="col-md-6">
                       <figure class="blog-figure">
-                        <img src="img/sertifMsib1.png" alt="Sertifikat Magang PT Stechoq Robotika Indonesia" class="img-fluid" data-zoom-img="img/sertifMsib1.png" />
+                        <img src="../assets/img/sertifMsib1.png" alt="Sertifikat Magang PT Stechoq Robotika Indonesia" class="img-fluid" data-zoom-img="../assets/img/sertifMsib1.png" />
                         <figcaption class="blog-figure-caption">
                           <i class="bi bi-patch-check-fill text-cyan"></i>
-                          <span>Sertifikat Kelulusan Program Magang &ndash; PT Stechoq Robotika Indonesia</span>
+                          <span data-i18n="stechoq_cap_cert1">Sertifikat Kelulusan Program Magang &ndash; PT Stechoq Robotika Indonesia</span>
                         </figcaption>
                       </figure>
                     </div>
 
                     <div class="col-md-6">
                       <figure class="blog-figure">
-                        <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" class="img-fluid" data-zoom-img="img/sertifMsib2.png" />
+                        <img src="../assets/img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" class="img-fluid" data-zoom-img="../assets/img/sertifMsib2.png" />
                         <figcaption class="blog-figure-caption">
                           <i class="bi bi-journal-check text-cyan"></i>
-                          <span>Sertifikat resmi keikutsertaan program Magang & Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</span>
+                          <span data-i18n="stechoq_cap_cert2">Sertifikat resmi keikutsertaan program Magang & Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</span>
                         </figcaption>
                       </figure>
                     </div>
@@ -271,26 +278,26 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-bar-chart-line-fill"></i>
-                  <span>4. Dampak &amp; Metrik Hasil (Impact)</span>
+                  <span data-i18n="stechoq_sec4_heading">4. Dampak &amp; Metrik Hasil (Impact)</span>
                 </h2>
-                <p class="blog-body-p">Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:</p>
+                <p class="blog-body-p" data-i18n="stechoq_sec4_p">Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:</p>
 
                 <div class="blog-metrics-row">
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">35+</span>
-                    <span class="blog-metric-label">RESTful Endpoint Dirancang &amp; Terdokumentasi</span>
+                    <span class="blog-metric-label" data-i18n="stechoq_metric1_label">RESTful Endpoint Dirancang &amp; Terdokumentasi</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">90%+</span>
-                    <span class="blog-metric-label">Code Coverage Unit Testing Menggunakan Jest</span>
+                    <span class="blog-metric-label" data-i18n="stechoq_metric2_label">Code Coverage Unit Testing Menggunakan Jest</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">100%</span>
-                    <span class="blog-metric-label">Integritas Transaksi ACID (Zero Ghost Stock)</span>
+                    <span class="blog-metric-label" data-i18n="stechoq_metric3_label">Integritas Transaksi ACID (Zero Ghost Stock)</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">&lt; 120ms</span>
-                    <span class="blog-metric-label">Rata-rata Respon Latency Endpoint CRUD</span>
+                    <span class="blog-metric-label" data-i18n="stechoq_metric4_label">Rata-rata Respon Latency Endpoint CRUD</span>
                   </div>
                 </div>
               </section>
@@ -299,14 +306,14 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-lightbulb-fill"></i>
-                  <span>5. Pembelajaran Utama (Key Takeaways)</span>
+                  <span data-i18n="stechoq_sec5_heading">5. Pembelajaran Utama (Key Takeaways)</span>
                 </h2>
                 <div class="blog-body-p">
-                  <p>
+                  <p data-i18n="stechoq_sec5_p1">
                     Pengalaman di PT Stechoq Robotika Indonesia memantapkan standar saya dalam merancang RESTful API kelas industri: mulai dari penamaan resource URI yang representatif, penanganan HTTP status codes yang semantik, hingga
                     pentingnya automated test suite agar pembaruan fitur di masa depan tidak menimbulkan regresi (breaking changes).
                   </p>
-                  <p class="mb-0">
+                  <p class="mb-0" data-i18n="stechoq_sec5_p2">
                     Dokumentasi Swagger yang komprehensif terbukti sangat memangkas waktu rapat integrasi antara tim backend dan frontend, menghasilkan alur kerja pengembangan software yang jauh lebih cepat dan terkoordinasi.
                   </p>
                 </div>
@@ -315,16 +322,16 @@
               <!-- Author Box Card -->
               <div class="blog-author-card">
                 <div class="author-info-group">
-                  <img src="img/profile_wisuda.jpeg" alt="Johan Krisbima Abi" class="author-avatar-img" />
+                  <img src="../assets/img/profile_wisuda.jpeg" alt="Johan Krisbima Abi" class="author-avatar-img" />
                   <div>
                     <h3 class="author-name">Johan Krisbima Abi</h3>
-                    <p class="author-desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
+                    <p class="author-desc" data-i18n="detail_author_desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
                   </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                   <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa">
                     <i class="bi bi-whatsapp"></i>
-                    <span>Hubungi via WA</span>
+                    <span data-i18n="detail_contact_wa">Hubungi via WA</span>
                   </a>
                   <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="channel-mini-pill in">
                     <i class="bi bi-linkedin text-info"></i>
@@ -351,8 +358,8 @@
 
               <a href="detail-universal-big-data.html" class="blog-switch-card">
                 <div class="blog-switch-dir">
-                  <i class="bi bi-arrow-left me-1"></i>
-                  <span>Pengalaman PT Universal Big Data</span>
+                  <span data-i18n="detail_next_exp">Pengalaman Selanjutnya</span>
+                  <i class="bi bi-arrow-right"></i>
                 </div>
                 <div class="blog-switch-title">Web Automation Intern &ndash; Nobox Extractor</div>
                 <div class="blog-switch-company"><i class="bi bi-robot me-1"></i>PT Universal Big Data</div>
@@ -374,12 +381,12 @@
             <!-- Column 1: Brand & Professional Summary -->
             <div class="col-12 col-md-6 col-lg-4">
               <div class="footer-brand-block">
-                <a href="index.html#home" class="footer-brand-title d-inline-flex align-items-center gap-2 mb-3 text-decoration-none">
+                <a href="../index.html#home" class="footer-brand-title d-inline-flex align-items-center gap-2 mb-3 text-decoration-none">
                   <span class="brand-avatar-mini brand-avatar-footer">JK</span>
                   <span class="footer-brand-name">Johan<span class="text-gradient">.dev</span></span>
                 </a>
                 <div class="footer-role-badge mb-3"><i class="bi bi-code-slash text-cyan me-1"></i> Software &amp; Web Developer</div>
-                <p class="footer-bio-text mb-4">
+                <p class="footer-bio-text mb-4" data-i18n="footer_brand_desc">
                   Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata
                   bagi bisnis.
                 </p>
@@ -409,23 +416,23 @@
             <div class="col-12 col-sm-6 col-lg-2">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Eksplorasi</span>
+                  <span data-i18n="footer_col_nav">Eksplorasi</span>
                 </h4>
                 <ul class="footer-nav-list list-unstyled mb-0">
                   <li>
-                    <a href="index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a>
+                    <a href="../index.html#home"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_home">Beranda</span></a>
                   </li>
                   <li>
-                    <a href="index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a>
+                    <a href="../index.html#about"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_about">Profil &amp; Edukasi</span></a>
                   </li>
                   <li>
-                    <a href="index.html#project"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a>
+                    <a href="../index.html#project"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_project">Pengalaman Kerja</span></a>
                   </li>
                   <li>
-                    <a href="index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a>
+                    <a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_certificate">Sertifikasi Resmi</span></a>
                   </li>
                   <li>
-                    <a href="index.html#contact"><i class="bi bi-chevron-right"></i> Hubungi Langsung</a>
+                    <a href="../index.html#contact"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_contact">Hubungi Langsung</span></a>
                   </li>
                 </ul>
               </div>
@@ -435,19 +442,19 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Keahlian Utama</span>
+                  <span data-i18n="footer_col_competencies">Keahlian Utama</span>
                 </h4>
                 <div class="footer-skill-tags d-flex flex-column gap-2">
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> Backend &amp; REST API</div>
+                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> <span data-i18n="footer_skill1_title">Backend &amp; REST API</span></div>
                     <div class="skill-detail">Laravel, PHP, MySQL, RESTful</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> Modern Frontend</div>
+                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> <span data-i18n="footer_skill2_title">Modern Frontend</span></div>
                     <div class="skill-detail">JavaScript ES6+, Bootstrap 5, UI/UX</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> Metodologi &amp; Tools</div>
+                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> <span data-i18n="footer_skill3_title">Metodologi &amp; Tools</span></div>
                     <div class="skill-detail">Git, GitHub, Agile Scrum, Postman</div>
                   </div>
                 </div>
@@ -458,28 +465,28 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Info Rekrutmen</span>
+                  <span data-i18n="footer_col_recruiter">Info Rekrutmen</span>
                 </h4>
                 <div class="footer-recruiter-facts d-flex flex-column gap-3">
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-danger"><i class="bi bi-geo-alt-fill"></i></div>
                     <div>
-                      <div class="fact-label">Lokasi Domisili</div>
-                      <div class="fact-value">Mojokerto / Jawa Timur</div>
+                      <div class="fact-label" data-i18n="footer_loc_label">Lokasi Domisili</div>
+                      <div class="fact-value" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-success"><i class="bi bi-briefcase-fill"></i></div>
                     <div>
-                      <div class="fact-label">Status Ketersediaan</div>
-                      <div class="fact-value fact-highlight-status">Tersedia Segera (Immediate)</div>
+                      <div class="fact-label" data-i18n="footer_status_label">Status Ketersediaan</div>
+                      <div class="fact-value fact-highlight-status" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-info"><i class="bi bi-building-check"></i></div>
                     <div>
-                      <div class="fact-label">Mobilitas Kerja</div>
-                      <div class="fact-value">On-site / Hybrid / Remote Ready</div>
+                      <div class="fact-label" data-i18n="footer_mobility_label">Mobilitas Kerja</div>
+                      <div class="fact-value" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
                     </div>
                   </div>
                 </div>
@@ -495,7 +502,7 @@
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title text-white small" id="zoomModalTitle">Pratinjau Dokumen / Gambar</h5>
+            <h5 class="modal-title text-white small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Dokumen / Gambar</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center p-2 p-md-4">
@@ -514,3 +521,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+

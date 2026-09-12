@@ -12,15 +12,15 @@
     <link rel="canonical" href="https://website-portofolio-johan.vercel.app/" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="img/profile_wisuda.jpeg" />
-    <link rel="apple-touch-icon" href="img/profile_wisuda.jpeg" />
+    <link rel="icon" type="image/jpeg" href="assets/img/profile_wisuda.jpeg" />
+    <link rel="apple-touch-icon" href="assets/img/profile_wisuda.jpeg" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Johan Krisbima Abi - Software Developer Portfolio" />
     <meta property="og:description" content="Portofolio resmi Johan Krisbima Abi - Software Developer, Backend & Web Specialist berpengalaman di PT PAL Indonesia, PT Universal Big Data, dan PT Stechoq." />
     <meta property="og:url" content="https://website-portofolio-johan.vercel.app/" />
-    <meta property="og:image" content="https://website-portofolio-johan.vercel.app/img/profile_wisuda.jpeg" />
+    <meta property="og:image" content="https://website-portofolio-johan.vercel.app/assets/img/profile_wisuda.jpeg" />
     <meta property="og:site_name" content="Johan Krisbima Abi Portfolio" />
     <meta property="og:locale" content="id_ID" />
 
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Johan Krisbima Abi - Software Developer Portfolio" />
     <meta name="twitter:description" content="Portofolio resmi Johan Krisbima Abi - Software Developer & Web Specialist." />
-    <meta name="twitter:image" content="https://website-portofolio-johan.vercel.app/img/profile_wisuda.jpeg" />
+    <meta name="twitter:image" content="https://website-portofolio-johan.vercel.app/assets/img/profile_wisuda.jpeg" />
 
     <!-- Schema.org JSON-LD Structured Data for Person & Website -->
     <script type="application/ld+json">
@@ -43,7 +43,7 @@
             "jobTitle": "Software Developer",
             "description": "Software Developer dengan keahlian dalam merancang RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.",
             "url": "https://website-portofolio-johan.vercel.app/",
-            "image": "https://website-portofolio-johan.vercel.app/img/profile_wisuda.jpeg",
+            "image": "https://website-portofolio-johan.vercel.app/assets/img/profile_wisuda.jpeg",
             "alumniOf": {
               "@type": "EducationalOrganization",
               "name": "Politeknik Negeri Jember"
@@ -78,10 +78,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom Modern Rounded CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Translations Dictionary -->
+    <script src="js/translations.js"></script>
 
     <!-- Main Portfolio Interactive Script -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </head>
   <body id="page-top">
     <!-- Top Scroll Reading Progress Bar -->
@@ -111,16 +114,25 @@
           <!-- Desktop Navigation Links -->
           <div class="collapse navbar-collapse d-none d-lg-block">
             <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item"><a class="nav-link nav-link-pill" href="#home">Home</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-pill" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-pill" href="#project">Experience</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-pill" href="#sertifikat">Sertifikat</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-pill" href="#contact">Contact</a></li>
-              <li class="nav-item ms-lg-2">
-                <a href="pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" class="nav-btn-cv" target="_blank" download="CV_Johan_Krisbima_Abi.pdf">
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#home" data-i18n="nav_home">Home</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#about" data-i18n="nav_about">About</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#project" data-i18n="nav_experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#sertifikat" data-i18n="nav_sertifikat">Sertifikat</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-pill" href="#contact" data-i18n="nav_contact">Contact</a></li>
+              <li class="nav-item d-none d-lg-flex align-items-center">
+                <span class="nav-divider"></span>
+              </li>
+              <li class="nav-item">
+                <a href="assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" class="nav-btn-cv" target="_blank" download="CV_Johan_Krisbima_Abi.pdf">
                   <i class="bi bi-file-earmark-arrow-down-fill"></i>
-                  <span>Unduh CV</span>
+                  <span data-i18n="nav_download_cv">Unduh CV</span>
                 </a>
+              </li>
+              <li class="nav-item ms-1">
+                <button type="button" id="langToggleBtn" class="lang-pill-btn" aria-label="Ganti Bahasa (ID / EN)" title="Ganti Bahasa / Switch Language">
+                  <i class="bi bi-translate"></i>
+                  <span id="currentLangText" class="lang-code">EN</span>
+                </button>
               </li>
             </ul>
           </div>
@@ -146,35 +158,35 @@
           <li>
             <a href="#home" class="mobile-nav-item">
               <div class="mobile-nav-icon"><i class="bi bi-house-door-fill"></i></div>
-              <span>Home</span>
+              <span data-i18n="nav_home">Home</span>
               <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
             </a>
           </li>
           <li>
             <a href="#about" class="mobile-nav-item">
               <div class="mobile-nav-icon"><i class="bi bi-person-badge-fill"></i></div>
-              <span>About</span>
+              <span data-i18n="nav_about">About</span>
               <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
             </a>
           </li>
           <li>
             <a href="#project" class="mobile-nav-item">
               <div class="mobile-nav-icon"><i class="bi bi-briefcase-fill"></i></div>
-              <span>Experience</span>
+              <span data-i18n="nav_experience">Experience</span>
               <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
             </a>
           </li>
           <li>
             <a href="#sertifikat" class="mobile-nav-item">
               <div class="mobile-nav-icon"><i class="bi bi-award-fill"></i></div>
-              <span>Sertifikat</span>
+              <span data-i18n="nav_sertifikat">Sertifikat</span>
               <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
             </a>
           </li>
           <li>
             <a href="#contact" class="mobile-nav-item">
               <div class="mobile-nav-icon"><i class="bi bi-envelope-paper-heart-fill"></i></div>
-              <span>Contact</span>
+              <span data-i18n="nav_contact">Contact</span>
               <i class="bi bi-chevron-right ms-auto arrow-hint"></i>
             </a>
           </li>
@@ -182,9 +194,22 @@
 
         <!-- Bottom CTA, Theme Segment & Social Links in Mobile Drawer -->
         <div class="mobile-drawer-footer pt-3 border-top border-white border-opacity-10">
+          <!-- Mobile Language Switcher Segment -->
+          <div class="mobile-lang-segment-box mb-3">
+            <span class="small fw-semibold text-white d-block mb-2"><i class="bi bi-translate me-1 text-cyan"></i> <span data-i18n="mobile_lang_label">Bahasa / Language:</span></span>
+            <div class="lang-segmented-group" role="group" aria-label="Pilih Bahasa">
+              <button type="button" class="lang-seg-btn active" data-lang-choice="id" id="btnLangId">
+                <span>ID (Bahasa)</span>
+              </button>
+              <button type="button" class="lang-seg-btn" data-lang-choice="en" id="btnLangEn">
+                <span>EN (English)</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Mobile Theme Switcher Segment -->
           <div class="mobile-theme-segment-box mb-3">
-            <span class="small fw-semibold text-white d-block mb-2"><i class="bi bi-palette2 me-1 text-cyan"></i> Mode Tampilan:</span>
+            <span class="small fw-semibold text-white d-block mb-2"><i class="bi bi-palette2 me-1 text-cyan"></i> <span data-i18n="mobile_theme_label">Mode Tampilan:</span></span>
             <div class="theme-segmented-group" role="group" aria-label="Pilih Mode Tema">
               <button type="button" class="theme-seg-btn active" data-theme-choice="dark" id="btnThemeDark">
                 <i class="bi bi-moon-stars-fill"></i>
@@ -197,13 +222,13 @@
             </div>
           </div>
 
-          <a href="pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" target="_blank" class="btn-pill-cv w-100 justify-content-center mb-2">
+          <a href="assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" target="_blank" class="btn-pill-cv w-100 justify-content-center mb-2">
             <i class="bi bi-file-earmark-arrow-down-fill"></i>
-            <span>Unduh CV (PDF)</span>
+            <span data-i18n="mobile_download_cv">Unduh CV (PDF)</span>
           </a>
           <a href="https://wa.me/6287851865091" target="_blank" class="btn-pill-primary w-100 justify-content-center mb-3">
             <i class="bi bi-whatsapp"></i>
-            <span>Chat via WhatsApp</span>
+            <span data-i18n="mobile_chat_wa">Chat via WhatsApp</span>
           </a>
         </div>
       </div>
@@ -216,11 +241,11 @@
           <div class="col-lg-7 text-center text-lg-start mb-0">
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              <span>Available for Opportunities</span>
+              <span data-i18n="hero_status">Tersedia untuk Peluang Baru</span>
             </div>
 
             <h1 class="hero-title">
-              Hi, I'm <br class="d-none d-sm-inline" />
+              <span data-i18n="hero_greeting">Hi, I'm</span> <br class="d-none d-sm-inline" />
               <span class="text-gradient">Johan Krisbima Abi</span>
             </h1>
 
@@ -236,15 +261,15 @@
             <!-- Mobile Portrait Card: Prominent, Sharp & Fully Visible -->
             <div class="hero-avatar-wrapper hero-avatar-mobile d-lg-none my-3">
               <div class="hero-avatar-ring">
-                <img src="img/profile_wisuda.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
+                <img src="assets/img/profile_wisuda.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
               </div>
 
               <!-- Floating Chip 1 -->
               <div class="floating-chip chip-1">
                 <i class="bi bi-code-square chip-icon"></i>
                 <div>
-                  <div class="chip-subtitle">Specialist</div>
-                  <div>Web Development</div>
+                  <div class="chip-subtitle" data-i18n="hero_chip_specialist">Specialist</div>
+                  <div data-i18n="hero_chip_specialist_val">Web Development</div>
                 </div>
               </div>
 
@@ -252,13 +277,13 @@
               <div class="floating-chip chip-2">
                 <i class="bi bi-database-check chip-icon"></i>
                 <div>
-                  <div class="chip-subtitle">Core Tech</div>
+                  <div class="chip-subtitle" data-i18n="hero_chip_core">Core Tech</div>
                   <div>Laravel</div>
                 </div>
               </div>
             </div>
 
-            <p class="hero-desc"><span class="fw-semibold text-white">Software Developer</span> dengan keahlian perancangan RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.</p>
+            <p class="hero-desc" data-i18n="hero_desc"><span class="fw-semibold text-white">Software Developer</span> dengan keahlian perancangan RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.</p>
 
             <!-- Quick Tech Focus Badges -->
             <div class="hero-tech-chips d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start mb-3">
@@ -269,11 +294,11 @@
 
             <div class="hero-cta-group d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
               <a href="#contact" class="btn-pill-primary">
-                <span>Let's Talk</span>
+                <span data-i18n="hero_btn_contact">Hubungi Saya</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
               <a href="#project" class="btn-pill-secondary">
-                <span>View Projects</span>
+                <span data-i18n="hero_btn_projects">Lihat Proyek</span>
                 <i class="bi bi-code-slash"></i>
               </a>
             </div>
@@ -288,7 +313,7 @@
                     </div>
                     <div>
                       <div class="stat-number"><span class="stat-counter" data-target="3">0</span>+</div>
-                      <div class="stat-label">Pengalaman</div>
+                      <div class="stat-label" data-i18n="hero_stat_exp">Pengalaman</div>
                     </div>
                   </div>
                 </div>
@@ -299,7 +324,7 @@
                     </div>
                     <div>
                       <div class="stat-number"><span class="stat-counter" data-target="10">0</span>+</div>
-                      <div class="stat-label">Tech Stack</div>
+                      <div class="stat-label" data-i18n="hero_stat_tech">Tech Stack</div>
                     </div>
                   </div>
                 </div>
@@ -310,7 +335,7 @@
                     </div>
                     <div>
                       <div class="stat-number"><span class="stat-counter" data-target="6">0</span>+</div>
-                      <div class="stat-label">Sertifikasi</div>
+                      <div class="stat-label" data-i18n="hero_stat_cert">Sertifikasi</div>
                     </div>
                   </div>
                 </div>
@@ -322,15 +347,15 @@
           <div class="col-lg-5 text-center d-none d-lg-block">
             <div class="hero-avatar-wrapper">
               <div class="hero-avatar-ring">
-                <img src="img/profile_wisuda.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
+                <img src="assets/img/profile_wisuda.jpeg" class="hero-avatar-img" alt="Johan Krisbima Abi" />
               </div>
 
               <!-- Floating Chip 1 -->
               <div class="floating-chip chip-1">
                 <i class="bi bi-code-square chip-icon"></i>
                 <div>
-                  <div class="chip-subtitle">Specialist</div>
-                  <div>Web Development</div>
+                  <div class="chip-subtitle" data-i18n="hero_chip_specialist">Specialist</div>
+                  <div data-i18n="hero_chip_specialist_val">Web Development</div>
                 </div>
               </div>
 
@@ -338,7 +363,7 @@
               <div class="floating-chip chip-2">
                 <i class="bi bi-database-check chip-icon"></i>
                 <div>
-                  <div class="chip-subtitle">Core Tech</div>
+                  <div class="chip-subtitle" data-i18n="hero_chip_core">Core Tech</div>
                   <div>Laravel</div>
                 </div>
               </div>
@@ -354,10 +379,15 @@
         <div class="section-title-wrapper text-center">
           <div class="section-pill-tag">
             <i class="bi bi-person-badge"></i>
-            <span>About Me</span>
+            <span data-i18n="about_tag">About Me</span>
           </div>
-          <h2 class="section-main-title">Profil & Keahlian</h2>
-          <p class="section-subtitle">Dedikasi dalam membangun arsitektur perangkat lunak yang efisien, bersih, dan solutif.</p>
+          <h2 class="section-main-title" data-i18n="about_title">Profil & Keahlian</h2>
+          <p class="section-subtitle" data-i18n="about_subtitle">Dedikasi dalam merancang dan mengembangkan arsitektur perangkat lunak yang efisien, scalable, serta berorientasi solusi enterprise.</p>
+          <div class="exp-highlights-ribbon">
+            <span class="exp-hl-chip"><i class="bi bi-mortarboard"></i> <span data-i18n="about_hl_1">D4 Teknik Informatika (IPK 3.87)</span></span>
+            <span class="exp-hl-chip"><i class="bi bi-briefcase"></i> <span data-i18n="about_hl_2">1+ Tahun Pengalaman Web & API</span></span>
+            <span class="exp-hl-chip"><i class="bi bi-award"></i> <span data-i18n="about_hl_3">Hibah PKM-PM Kemendikbudristek</span></span>
+          </div>
         </div>
 
         <div class="row g-4">
@@ -370,14 +400,14 @@
                 </div>
                 <div>
                   <h3 class="h4 mb-0 fw-bold text-white">Johan Krisbima Abi</h3>
-                  <p class="text-white mb-0 small">Software Developer & D4 Teknik Informatika</p>
+                  <p class="text-white mb-0 small" data-i18n="about_role_subtitle">Software Developer & D4 Teknik Informatika</p>
                 </div>
               </div>
 
-              <p class="about-bio-text">
+              <p class="about-bio-text" data-i18n="about_bio_1">
                 Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan <em>web application</em> melalui program MagangHub yang dilanjutkan dengan kontrak internship di <span class="highlight-pill">PT PAL Indonesia</span>.
               </p>
-              <p class="about-bio-text mb-4">
+              <p class="about-bio-text mb-4" data-i18n="about_bio_2">
                 Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.
               </p>
 
@@ -387,9 +417,9 @@
                   <div class="mini-rounded-card spotlight-card h-100">
                     <i class="bi bi-mortarboard-fill fs-3 text-info"></i>
                     <div>
-                      <div class="fw-bold text-white small">Politeknik Negeri Jember</div>
-                      <div class="text-white-50 small">D4 Teknik Informatika (2021 - 2025)</div>
-                      <div class="badge bg-cyan text-dark ipk rounded-pill px-2 py-1 small mt-1 fw-bold">IPK: 3.87 / 4.00</div>
+                      <div class="fw-bold text-white small" data-i18n="about_edu_school">Politeknik Negeri Jember</div>
+                      <div class="text-white-50 small" data-i18n="about_edu_degree">D4 Teknik Informatika (2021 - 2025)</div>
+                      <div class="badge bg-cyan text-dark ipk rounded-pill px-2 py-1 small mt-1 fw-bold" data-i18n="about_edu_ipk">IPK: 3.87 / 4.00</div>
                     </div>
                   </div>
                 </div>
@@ -397,8 +427,8 @@
                   <div class="mini-rounded-card spotlight-card h-100">
                     <i class="bi bi-journal-bookmark-fill fs-3 text-success"></i>
                     <div>
-                      <div class="fw-bold text-white small">Publikasi Jurnal &amp; PKM-PM</div>
-                      <div class="text-white-50 card-micro-desc">
+                      <div class="fw-bold text-white small" data-i18n="about_pkm_title">Publikasi Jurnal &amp; PKM-PM</div>
+                      <div class="text-white-50 card-micro-desc" data-i18n="about_pkm_desc">
                         Lolos Pendanaan PKM-PM Kemendikbudristek &amp; Publikasi Jurnal Web Cloud GIS Deteksi Banjir Tambakkemerakan
                       </div>
                     </div>
@@ -413,14 +443,14 @@
                     <i class="bi bi-file-earmark-pdf-fill"></i>
                   </div>
                   <div>
-                    <div class="fw-bold text-white small">Curriculum Vitae (CV) Resmi</div>
-                    <div class="text-white small">Format PDF • Lengkap &amp; Terverifikasi</div>
+                    <div class="fw-bold text-white small" data-i18n="about_cv_title">Curriculum Vitae (CV) Resmi</div>
+                    <div class="text-white small" data-i18n="about_cv_desc">Format PDF • Lengkap &amp; Terverifikasi</div>
                   </div>
                 </div>
                 <div class="d-flex gap-2 mt-3 mt-sm-0">
-                  <a href="pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" class="btn-cv-action btn-cv-download" title="Unduh file CV PDF">
+                  <a href="assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" download="CV_Johan_Krisbima_Abi.pdf" class="btn-cv-action btn-cv-download" title="Unduh file CV PDF">
                     <i class="bi bi-download text-donwload-cv"></i>
-                    <span class="text-donwload-cv">Unduh CV</span>
+                    <span class="text-donwload-cv" data-i18n="about_cv_btn">Unduh CV</span>
                   </a>
                 </div>
               </div>
@@ -430,12 +460,12 @@
           <!-- Skills Bento Card (Exact CV Skills) -->
           <div class="col-lg-5">
             <div class="bento-card spotlight-card">
-              <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i>Skills &amp; Keahlian</h3>
+              <h3 class="h4 fw-bold text-white mb-4"><i class="bi bi-cpu text-gradient me-2"></i><span data-i18n="about_skills_title">Skills &amp; Keahlian</span></h3>
 
               <!-- Programming (from CV) -->
               <div class="skill-category-title">
                 <i class="bi bi-code-slash"></i>
-                <span>Programming</span>
+                <span data-i18n="about_skills_prog">Programming</span>
               </div>
               <div class="skill-chips-group">
                 <span class="skill-pill"><i class="bi bi-filetype-html"></i>HTML</span>
@@ -453,7 +483,7 @@
               <!-- Non-Programming & Tools -->
               <div class="skill-category-title">
                 <i class="bi bi-tools"></i>
-                <span>Non-Programming &amp; Tools</span>
+                <span data-i18n="about_skills_tools">Non-Programming &amp; Tools</span>
               </div>
               <div class="skill-chips-group">
                 <span class="skill-pill"><i class="bi bi-file-word"></i>Microsoft Office</span>
@@ -465,7 +495,7 @@
               <!-- Soft Skills & Languages (from CV) -->
               <div class="skill-category-title">
                 <i class="bi bi-person-check-fill"></i>
-                <span>Soft Skills &amp; Bahasa</span>
+                <span data-i18n="about_skills_soft">Soft Skills &amp; Bahasa</span>
               </div>
               <div class="skill-chips-group">
                 <span class="skill-pill"><i class="bi bi-check2-circle"></i>Problem Solving</span>
@@ -492,16 +522,16 @@
                 <div class="terminal-title">
                   <i class="bi bi-terminal-fill me-1 text-cyan"></i>
                   <span>johan@portfolio:~</span>
-                  <span class="d-none d-md-inline text-white-50 ms-1">(Interactive CLI)</span>
+                  <span class="d-none d-md-inline text-white-50 ms-1" data-i18n="term_subtitle">(Interactive CLI)</span>
                 </div>
                 <div class="terminal-actions">
-                  <button type="button" class="term-clear-btn" id="termClearBtn" title="Bersihkan Terminal"><i class="bi bi-trash3"></i> <span>Clear</span></button>
+                  <button type="button" class="term-clear-btn" id="termClearBtn" title="Bersihkan Terminal"><i class="bi bi-trash3"></i> <span data-i18n="term_clear">Clear</span></button>
                 </div>
               </div>
 
               <!-- Quick Command Chips (Scrollable Ribbon on Mobile) -->
               <div class="terminal-quick-actions">
-                <span class="term-quick-label"><i class="bi bi-lightning-charge-fill text-warning"></i> <span class="d-none d-sm-inline">Quick:</span></span>
+                <span class="term-quick-label"><i class="bi bi-lightning-charge-fill text-warning"></i> <span class="d-none d-sm-inline" data-i18n="term_quick_label">Quick:</span></span>
                 <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
                 <button type="button" class="term-chip" data-cmd="skills">skills</button>
                 <button type="button" class="term-chip" data-cmd="projects">projects</button>
@@ -513,14 +543,14 @@
 
               <div class="terminal-body" id="terminalOutput">
                 <div class="term-line term-welcome"><span class="text-cyan fw-bold">Johan.dev Interactive Shell v2.4</span> [Type <span class="text-warning">'help'</span> or click buttons above]</div>
-                <div class="term-line text-white-50">Selamat datang! Anda dapat mengeksplorasi profil, tech stack, dan proyek Johan melalui terminal interaktif ini.</div>
+                <div class="term-line text-white-50" data-i18n="term_welcome">Selamat datang! Anda dapat mengeksplorasi profil, tech stack, dan proyek Johan melalui terminal interaktif ini.</div>
               </div>
 
               <div class="terminal-input-wrapper">
                 <div class="term-prompt">
                   <span class="term-prompt-user"><span class="d-none d-sm-inline">guest@</span>johan</span><span class="text-white-50">:</span><span class="term-prompt-path">~</span><span class="term-prompt-symbol">$</span>
                 </div>
-                <input type="text" id="terminalInput" class="term-input" placeholder="Ketik perintah (contoh: skills)..." autocomplete="off" spellcheck="false" />
+                <input type="text" id="terminalInput" class="term-input" data-i18n-placeholder="term_placeholder" placeholder="Ketik perintah (contoh: skills)..." autocomplete="off" spellcheck="false" />
                 <button type="button" class="term-send-btn" id="termSendBtn" title="Kirim Perintah" aria-label="Kirim Perintah">
                   <i class="bi bi-arrow-return-left"></i>
                 </button>
@@ -537,33 +567,38 @@
         <div class="section-title-wrapper text-center">
           <div class="section-pill-tag">
             <i class="bi bi-journal-code"></i>
-            <span>Professional Journey</span>
+            <span data-i18n="exp_tag">Professional Journey</span>
           </div>
-          <h2 class="section-main-title">Pengalaman & Proyek</h2>
-          <p class="section-subtitle">Rekam jejak kontribusi pengembangan aplikasi web, backend API, dan otomatisasi sistem.</p>
+          <h2 class="section-main-title" data-i18n="exp_title">Pengalaman & Proyek</h2>
+          <p class="section-subtitle" data-i18n="exp_subtitle">Rekam jejak kontribusi nyata dalam perancangan dan pengembangan ekosistem aplikasi web enterprise, arsitektur backend RESTful API yang scalable, serta otomasi data pipeline.</p>
+          <div class="exp-highlights-ribbon">
+            <span class="exp-hl-chip"><i class="bi bi-building"></i> <span data-i18n="exp_hl_1">4+ Sistem Enterprise BUMN</span></span>
+            <span class="exp-hl-chip"><i class="bi bi-hdd-network"></i> <span data-i18n="exp_hl_2">35+ RESTful API Endpoints</span></span>
+            <span class="exp-hl-chip"><i class="bi bi-robot"></i> <span data-i18n="exp_hl_3">100K+ Data Ingestion Nobox AI</span></span>
+          </div>
         </div>
 
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <!-- Interactive Category Filter Tabs -->
-            <div class="exp-filter-wrapper text-center mb-4">
+            <div class="exp-filter-wrapper text-center">
               <div class="filter-pill-group">
                 <button type="button" class="filter-btn active" data-filter="all">
                   <i class="bi bi-grid-fill"></i>
-                  <span>Semua</span>
+                  <span data-i18n="exp_filter_all">Semua</span>
                   <span class="filter-badge" id="badgeAll">3</span>
                 </button>
                 <button type="button" class="filter-btn" data-filter="enterprise">
                   <i class="bi bi-building"></i>
-                  <span>Enterprise<span class="d-none d-md-inline"> & Web</span></span>
+                  <span data-i18n="exp_filter_enterprise">Enterprise</span>
                 </button>
                 <button type="button" class="filter-btn" data-filter="automation">
                   <i class="bi bi-robot"></i>
-                  <span><span class="d-none d-md-inline">Web </span>Automation</span>
+                  <span data-i18n="exp_filter_automation">Automation</span>
                 </button>
                 <button type="button" class="filter-btn" data-filter="backend">
                   <i class="bi bi-gear-wide-connected"></i>
-                  <span>Backend<span class="d-none d-md-inline"> & API</span></span>
+                  <span data-i18n="exp_filter_backend">Backend</span>
                 </button>
               </div>
             </div>
@@ -571,43 +606,43 @@
             <div class="experience-card spotlight-card" data-category="enterprise">
               <div class="exp-header">
                 <div>
-                  <h3 class="exp-role">Pemrogram Komputer Contract</h3>
+                  <h3 class="exp-role" data-i18n="exp_pal_role">Pemrogram Komputer Contract</h3>
                   <div class="exp-company">
                     <i class="bi bi-building"></i>
-                    <span>PT PAL Indonesia</span>
+                    <span data-i18n="exp_pal_company">PT PAL Indonesia</span>
                   </div>
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Okt 2025 – Agu 2026</span>
+                  <span data-i18n="exp_pal_date">Okt 2025 – Agu 2026</span>
                 </div>
               </div>
 
               <div class="exp-desc">
-                <p class="mb-2 text-light">Mengembangkan, mengoptimalkan, dan mengamankan aplikasi web enterprise melalui 4 proyek utama:</p>
+                <p class="mb-2 text-light" data-i18n="exp_pal_summary">Mengembangkan, mengoptimalkan, dan mengamankan aplikasi web enterprise melalui 4 proyek utama:</p>
                 <div class="row g-2 mb-3">
                   <div class="col-md-6">
                     <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
-                      <div class="fw-bold text-white small"><i class="bi bi-cup-hot text-cyan me-1"></i>Website Siamang (Absensi Makan Siang)</div>
-                      <div class="text-white-50 exp-sub-desc">Membenahi bug, optimasi sistem &amp; fitur baru, deployment ke server, serta penyusunan UAT &amp; Manual Book.</div>
+                      <div class="fw-bold text-white small"><i class="bi bi-cup-hot text-cyan me-1"></i><span data-i18n="exp_pal_proj1_title">Website Siamang (Absensi Makan Siang)</span></div>
+                      <div class="text-white-50 exp-sub-desc" data-i18n="exp_pal_proj1_desc">Membenahi bug, optimasi sistem &amp; fitur baru, deployment ke server, serta penyusunan UAT &amp; Manual Book.</div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
-                      <div class="fw-bold text-white small"><i class="bi bi-file-earmark-lock text-cyan me-1"></i>Website Simandok (Management Document)</div>
-                      <div class="text-white-50 exp-sub-desc">Refactoring codebase framework terbaru, security hardening proteksi data enterprise, dan dokumentasi UAT lengkap.</div>
+                      <div class="fw-bold text-white small"><i class="bi bi-file-earmark-lock text-cyan me-1"></i><span data-i18n="exp_pal_proj2_title">Website Simandok (Management Document)</span></div>
+                      <div class="text-white-50 exp-sub-desc" data-i18n="exp_pal_proj2_desc">Refactoring codebase framework terbaru, security hardening proteksi data enterprise, dan dokumentasi UAT lengkap.</div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
-                      <div class="fw-bold text-white small"><i class="bi bi-cash-coin text-cyan me-1"></i>Website Ebidding (Lelang Tender)</div>
-                      <div class="text-white-50 exp-sub-desc">Fasilitasi vendor lelang tender, pengujian komprehensif stabilitas sistem, serta UAT &amp; video tutorial bagi vendor.</div>
+                      <div class="fw-bold text-white small"><i class="bi bi-cash-coin text-cyan me-1"></i><span data-i18n="exp_pal_proj3_title">Website Ebidding (Lelang Tender)</span></div>
+                      <div class="text-white-50 exp-sub-desc" data-i18n="exp_pal_proj3_desc">Fasilitasi vendor lelang tender, pengujian komprehensif stabilitas sistem, serta UAT &amp; video tutorial bagi vendor.</div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="p-2 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
-                      <div class="fw-bold text-white small"><i class="bi bi-people text-cyan me-1"></i>Website Subkon (Absensi Vendor)</div>
-                      <div class="text-white-50 exp-sub-desc">Pengembangan end-to-end (skema database s/d implementasi), User Management, data karyawan vendor &amp; deployment server.</div>
+                      <div class="fw-bold text-white small"><i class="bi bi-people text-cyan me-1"></i><span data-i18n="exp_pal_proj4_title">Website Subkon (Absensi Vendor)</span></div>
+                      <div class="text-white-50 exp-sub-desc" data-i18n="exp_pal_proj4_desc">Pengembangan end-to-end (skema database s/d implementasi), User Management, data karyawan vendor &amp; deployment server.</div>
                     </div>
                   </div>
                 </div>
@@ -627,11 +662,11 @@
               <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
                 <span class="text-white small d-inline-flex align-items-center gap-2">
                   <i class="bi bi-shield-check text-info"></i>
-                  <span>Dokumentasi Terverifikasi</span>
+                  <span data-i18n="exp_verified_badge">Dokumentasi Terverifikasi</span>
                 </span>
-                <a href="detail-pt-pal.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT PAL Indonesia">
+                <a href="views/detail-pt-pal.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT PAL Indonesia">
                   <i class="bi bi-journal-text"></i>
-                  <span>Baca Detail</span>
+                  <span data-i18n="exp_read_detail">Baca Detail</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -641,24 +676,24 @@
             <div class="experience-card spotlight-card" data-category="automation">
               <div class="exp-header">
                 <div>
-                  <h3 class="exp-role">Web Automation Intern</h3>
+                  <h3 class="exp-role" data-i18n="exp_ubig_role">Web Automation Intern</h3>
                   <div class="exp-company">
                     <i class="bi bi-robot"></i>
-                    <span>PT Universal Big Data</span>
+                    <span data-i18n="exp_ubig_company">PT Universal Big Data</span>
                   </div>
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Jul 2024 – Des 2024</span>
+                  <span data-i18n="exp_ubig_date">Jul 2024 – Des 2024</span>
                 </div>
               </div>
 
               <div class="exp-desc">
-                <div class="fw-semibold text-white mb-2"><i class="bi bi-window-stack text-cyan me-1"></i>Project: Web Scraping for Nobox Extractor App</div>
+                <div class="fw-semibold text-white mb-2"><i class="bi bi-window-stack text-cyan me-1"></i><span data-i18n="exp_ubig_proj_title">Project: Web Scraping for Nobox Extractor App</span></div>
                 <ul class="subsystem-list mb-0">
-                  <li>Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
-                  <li>Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
-                  <li>Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
+                  <li data-i18n="exp_ubig_point1">Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
+                  <li data-i18n="exp_ubig_point2">Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
+                  <li data-i18n="exp_ubig_point3">Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
                 </ul>
               </div>
 
@@ -675,11 +710,11 @@
               <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
                 <span class="text-white small d-inline-flex align-items-center gap-2">
                   <i class="bi bi-shield-check text-info"></i>
-                  <span>Dokumentasi Terverifikasi</span>
+                  <span data-i18n="exp_verified_badge">Dokumentasi Terverifikasi</span>
                 </span>
-                <a href="detail-universal-big-data.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Universal Big Data">
+                <a href="views/detail-universal-big-data.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Universal Big Data">
                   <i class="bi bi-journal-text"></i>
-                  <span>Baca Detail</span>
+                  <span data-i18n="exp_read_detail">Baca Detail</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -689,24 +724,24 @@
             <div class="experience-card spotlight-card" data-category="backend">
               <div class="exp-header">
                 <div>
-                  <h3 class="exp-role">Backend Developer Intern</h3>
+                  <h3 class="exp-role" data-i18n="exp_stechoq_role">Backend Developer Intern</h3>
                   <div class="exp-company">
                     <i class="bi bi-gear-wide-connected"></i>
-                    <span>PT Stechoq Robotika Indonesia</span>
+                    <span data-i18n="exp_stechoq_company">PT Stechoq Robotika Indonesia</span>
                   </div>
                 </div>
                 <div class="date-pill">
                   <i class="bi bi-calendar3"></i>
-                  <span>Feb 2024 – Jul 2024</span>
+                  <span data-i18n="exp_stechoq_date">Feb 2024 – Jul 2024</span>
                 </div>
               </div>
 
               <div class="exp-desc">
-                <div class="fw-semibold text-white mb-2"><i class="bi bi-box-seam text-cyan me-1"></i>Project: Website Management System for Mobile Phone Warehouse</div>
+                <div class="fw-semibold text-white mb-2"><i class="bi bi-box-seam text-cyan me-1"></i><span data-i18n="exp_stechoq_proj_title">Project: Website Management System for Mobile Phone Warehouse</span></div>
                 <ul class="subsystem-list mb-0">
-                  <li>Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
-                  <li>Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
-                  <li>Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
+                  <li data-i18n="exp_stechoq_point1">Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
+                  <li data-i18n="exp_stechoq_point2">Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
+                  <li data-i18n="exp_stechoq_point3">Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
                 </ul>
               </div>
 
@@ -723,11 +758,11 @@
               <div class="exp-proof-bar mt-3 pt-3 border-top border-white border-opacity-10 d-flex flex-wrap align-items-center justify-content-between gap-2">
                 <span class="text-white small d-inline-flex align-items-center gap-2">
                   <i class="bi bi-shield-check text-info"></i>
-                  <span>Dokumentasi Terverifikasi</span>
+                  <span data-i18n="exp_verified_badge">Dokumentasi Terverifikasi</span>
                 </span>
-                <a href="detail-stechoq.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Stechoq Robotika Indonesia">
+                <a href="views/detail-stechoq.html" class="btn-exp-detail" title="Baca studi kasus detail pengalaman PT Stechoq Robotika Indonesia">
                   <i class="bi bi-journal-text"></i>
-                  <span>Baca Detail</span>
+                  <span data-i18n="exp_read_detail">Baca Detail</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -743,10 +778,10 @@
         <div class="section-title-wrapper text-center">
           <div class="section-pill-tag">
             <i class="bi bi-award-fill"></i>
-            <span>Certificates &amp; Awards</span>
+            <span data-i18n="cert_tag">Certificates &amp; Awards</span>
           </div>
-          <h2 class="section-main-title">Sertifikasi &amp; Lisensi Resmi</h2>
-          <p class="section-subtitle">Kredensial profesional terverifikasi industri: Lisensi Web Developer resmi <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, program magang industri bersertifikat (MSIB), dan penghargaan hibah Kemendikbudristek.</p>
+          <h2 class="section-main-title" data-i18n="cert_title">Sertifikasi &amp; Lisensi Resmi</h2>
+          <p class="section-subtitle" data-i18n="cert_subtitle">Kredensial profesional terverifikasi industri: Lisensi Web Developer resmi <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, program magang industri bersertifikat (MSIB), dan penghargaan hibah Kemendikbudristek.</p>
         </div>
 
         <!-- Credential Highlights Bar -->
@@ -754,24 +789,24 @@
           <div class="cert-highlight-item">
             <div class="cert-highlight-icon cert-hl-gold"><i class="bi bi-shield-check"></i></div>
             <div class="cert-highlight-text">
-              <span class="cert-hl-number">1 Lisensi BNSP</span>
-              <span class="cert-hl-sub">Web Developer RI (3 Th)</span>
+              <span class="cert-hl-number" data-i18n="cert_hl1_title">1 Lisensi BNSP</span>
+              <span class="cert-hl-sub" data-i18n="cert_hl1_sub">Web Developer RI (3 Th)</span>
             </div>
           </div>
           <div class="cert-highlight-divider d-none d-md-block"></div>
           <div class="cert-highlight-item">
             <div class="cert-highlight-icon cert-hl-cyan"><i class="bi bi-buildings"></i></div>
             <div class="cert-highlight-text">
-              <span class="cert-hl-number">4 Kredensial Industri</span>
-              <span class="cert-hl-sub">PT PAL, Stechoq &amp; UBig</span>
+              <span class="cert-hl-number" data-i18n="cert_hl2_title">4 Kredensial Industri</span>
+              <span class="cert-hl-sub" data-i18n="cert_hl2_sub">PT PAL, Stechoq &amp; UBig</span>
             </div>
           </div>
           <div class="cert-highlight-divider d-none d-md-block"></div>
           <div class="cert-highlight-item">
             <div class="cert-highlight-icon cert-hl-purple"><i class="bi bi-trophy"></i></div>
             <div class="cert-highlight-text">
-              <span class="cert-hl-number">1 Hibah Nasional</span>
-              <span class="cert-hl-sub">Kemendikbudristek (PKM-PM)</span>
+              <span class="cert-hl-number" data-i18n="cert_hl3_title">1 Hibah Nasional</span>
+              <span class="cert-hl-sub" data-i18n="cert_hl3_sub">Kemendikbudristek (PKM-PM)</span>
             </div>
           </div>
         </div>
@@ -781,20 +816,20 @@
           <div class="filter-pill-group">
             <button type="button" class="filter-btn cert-filter-btn active" data-cert-filter="all">
               <i class="bi bi-grid-fill"></i>
-              <span>Semua</span>
+              <span data-i18n="cert_filter_all">Semua</span>
               <span class="filter-badge">6</span>
             </button>
             <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="bnsp">
               <i class="bi bi-shield-check"></i>
-              <span>BNSP<span class="d-none d-md-inline"> &amp; Profesi</span></span>
+              <span data-i18n="cert_filter_bnsp">BNSP</span>
             </button>
             <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="msib">
               <i class="bi bi-building"></i>
-              <span>Magang<span class="d-none d-md-inline"> Industri</span></span>
+              <span data-i18n="cert_filter_msib">Magang</span>
             </button>
             <button type="button" class="filter-btn cert-filter-btn" data-cert-filter="prestasi">
               <i class="bi bi-award"></i>
-              <span>Prestasi<span class="d-none d-md-inline"> &amp; Hibah</span></span>
+              <span data-i18n="cert_filter_prestasi">Prestasi</span>
             </button>
           </div>
         </div>
@@ -803,16 +838,16 @@
         <div class="row g-4 cert-grid-container" id="certGridContainer">
           <!-- Cert 1: BNSP Web Developer (Official BNSP SKKNI) -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="bnsp">
-            <div class="cert-card spotlight-card" data-cert-img="img/Web Developer.jpg" data-cert-title="Sertifikat Kompetensi BNSP - Web Developer (Pengembang Web)">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/Web Developer.jpg" data-cert-title="Sertifikat Kompetensi BNSP - Web Developer (Pengembang Web)">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-gold"><i class="bi bi-patch-check-fill"></i> BNSP RI</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/Web Developer.jpg" alt="Sertifikat Kompetensi BNSP Web Developer" loading="lazy" />
+                  <img src="assets/img/Web Developer.jpg" alt="Sertifikat Kompetensi BNSP Web Developer" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -821,14 +856,14 @@
                   <i class="bi bi-shield-check"></i>
                   <span>Badan Nasional Sertifikasi Profesi • LSP Polije</span>
                 </div>
-                <h3 class="cert-title">Web Developer (Pengembang Web)</h3>
-                <p class="cert-desc">Sertifikat Kompetensi Kerja Nasional Indonesia (SKKNI) resmi skema Pengembang Web (Web Developer) terlisensi Badan Nasional Sertifikasi Profesi.</p>
+                <h3 class="cert-title" data-i18n="cert_item1_title">Web Developer (Pengembang Web)</h3>
+                <p class="cert-desc" data-i18n="cert_item1_desc">Sertifikat Kompetensi Kerja Nasional Indonesia (SKKNI) resmi skema Pengembang Web (Web Developer) terlisensi Badan Nasional Sertifikasi Profesi.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>19 Agu 2025 – 19 Agu 2028</span>
                   </div>
-                  <span class="cert-scope-tag">Lisensi 3 Tahun</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item1_scope">Lisensi 3 Tahun</span>
                 </div>
               </div>
             </div>
@@ -836,16 +871,16 @@
 
           <!-- Cert 2: PT PAL Indonesia (MagangHub Kemnaker) -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
-            <div class="cert-card spotlight-card" data-cert-img="img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat Pemagangan PT PAL Indonesia - Pemrogram Komputer">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat Pemagangan PT PAL Indonesia - Pemrogram Komputer">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-building"></i> MagangHub</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/Sertif Maganghub.jpeg" alt="Sertifikat Pemagangan PT PAL Indonesia" loading="lazy" />
+                  <img src="assets/img/Sertif Maganghub.jpeg" alt="Sertifikat Pemagangan PT PAL Indonesia" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -854,14 +889,14 @@
                   <i class="bi bi-building"></i>
                   <span>Kemnaker RI • PT PAL Indonesia</span>
                 </div>
-                <h3 class="cert-title">Pemrogram Komputer (MagangHub)</h3>
-                <p class="cert-desc">Sertifikat resmi Program Pemagangan Kemnaker di PT PAL Indonesia pada Divisi TI &amp; K3LH dengan predikat kelulusan Sangat Baik.</p>
+                <h3 class="cert-title" data-i18n="cert_item2_title">Pemrogram Komputer (MagangHub)</h3>
+                <p class="cert-desc" data-i18n="cert_item2_desc">Sertifikat resmi Program Pemagangan Kemnaker di PT PAL Indonesia pada Divisi TI &amp; K3LH dengan predikat kelulusan Sangat Baik.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>20 Okt 2025 – 19 Apr 2026</span>
                   </div>
-                  <span class="cert-scope-tag">Predikat: Sangat Baik</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item2_scope">Predikat: Sangat Baik</span>
                 </div>
               </div>
             </div>
@@ -869,16 +904,16 @@
 
           <!-- Cert 3: PT Stechoq Robotika Indonesia -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
-            <div class="cert-card spotlight-card" data-cert-img="img/sertifMsib1.png" data-cert-title="Backend Developer Intern - PT Stechoq Robotika Indonesia (MSIB)">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifMsib1.png" data-cert-title="Backend Developer Intern - PT Stechoq Robotika Indonesia (MSIB)">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-cpu-fill"></i> MSIB Batch 6</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
+                  <img src="assets/img/sertifMsib1.png" alt="Sertifikat MSIB Stechoq" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -887,14 +922,14 @@
                   <i class="bi bi-building"></i>
                   <span>PT Stechoq Robotika Indonesia</span>
                 </div>
-                <h3 class="cert-title">Backend Developer Intern</h3>
-                <p class="cert-desc">Certificate of Achievement perancangan sistem backend, arsitektur RESTful API, dan integrasi database IoT industri.</p>
+                <h3 class="cert-title" data-i18n="cert_item3_title">Backend Developer Intern</h3>
+                <p class="cert-desc" data-i18n="cert_item3_desc">Certificate of Achievement perancangan sistem backend, arsitektur RESTful API, dan integrasi database IoT industri.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>Feb 2024 – Jul 2024</span>
                   </div>
-                  <span class="cert-scope-tag">Score: Excellent</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item3_scope">Score: Excellent</span>
                 </div>
               </div>
             </div>
@@ -902,16 +937,16 @@
 
           <!-- Cert 4: Lolos Pendanaan PKM-PM -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="prestasi">
-            <div class="cert-card spotlight-card" data-cert-img="img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-purple"><i class="bi bi-trophy-fill"></i> Hibah Nasional</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/sertifPKM.jpg" alt="Penghargaan PKM-PM Kemendikbudristek" loading="lazy" />
+                  <img src="assets/img/sertifPKM.jpg" alt="Penghargaan PKM-PM Kemendikbudristek" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -920,14 +955,14 @@
                   <i class="bi bi-mortarboard-fill"></i>
                   <span>Kemendikbudristek RI</span>
                 </div>
-                <h3 class="cert-title">Lolos Pendanaan PKM-PM</h3>
-                <p class="cert-desc">Penghargaan lolos pendanaan nasional skema Pengabdian Masyarakat: implementasi Web GIS peringatan dini banjir.</p>
+                <h3 class="cert-title" data-i18n="cert_item4_title">Lolos Pendanaan PKM-PM</h3>
+                <p class="cert-desc" data-i18n="cert_item4_desc">Penghargaan lolos pendanaan nasional skema Pengabdian Masyarakat: implementasi Web GIS peringatan dini banjir.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>Tahun 2023 – 2024</span>
                   </div>
-                  <span class="cert-scope-tag">Belmawa Dikti</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item4_scope">Belmawa Dikti</span>
                 </div>
               </div>
             </div>
@@ -935,16 +970,16 @@
 
           <!-- Cert 5: UBiG Completion Certificate -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
-            <div class="cert-card spotlight-card" data-cert-img="img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-blue"><i class="bi bi-database-fill-check"></i> AI Platform</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/ubig.png" alt="UBig Certificate" loading="lazy" />
+                  <img src="assets/img/ubig.png" alt="UBig Certificate" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -953,14 +988,14 @@
                   <i class="bi bi-building"></i>
                   <span>Universal Big Data (UBiG)</span>
                 </div>
-                <h3 class="cert-title">Web Automation Intern</h3>
-                <p class="cert-desc">Sertifikasi kelulusan proyek analitik platform kecerdasan buatan, otomasi data pipeline, dan pemrosesan data terdistribusi.</p>
+                <h3 class="cert-title" data-i18n="cert_item5_title">Web Automation Intern</h3>
+                <p class="cert-desc" data-i18n="cert_item5_desc">Sertifikasi kelulusan proyek analitik platform kecerdasan buatan, otomasi data pipeline, dan pemrosesan data terdistribusi.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>Desember 2024</span>
                   </div>
-                  <span class="cert-scope-tag">Big Data &amp; AI</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item5_scope">Big Data &amp; AI</span>
                 </div>
               </div>
             </div>
@@ -968,16 +1003,16 @@
 
           <!-- Cert 6: Kepesertaan MSIB -->
           <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
-            <div class="cert-card spotlight-card" data-cert-img="img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
+            <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
               <div class="cert-card-header">
                 <span class="cert-tag-pill cert-pill-cyan"><i class="bi bi-mortarboard-fill"></i> Kampus Merdeka</span>
-                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> Terverifikasi</span>
+                <span class="cert-verified-pill"><i class="bi bi-shield-fill-check"></i> <span data-i18n="cert_verified">Terverifikasi</span></span>
               </div>
               <div class="cert-img-wrapper">
                 <div class="cert-doc-frame">
-                  <img src="img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
+                  <img src="assets/img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
                   <div class="cert-overlay">
-                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> Pratinjau Dokumen</span>
+                    <span class="cert-zoom-btn"><i class="bi bi-arrows-fullscreen"></i> <span data-i18n="cert_preview_btn">Pratinjau Dokumen</span></span>
                   </div>
                 </div>
               </div>
@@ -986,14 +1021,14 @@
                   <i class="bi bi-patch-check"></i>
                   <span>Kemendikbudristek RI</span>
                 </div>
-                <h3 class="cert-title">Sertifikat Kepesertaan MSIB</h3>
-                <p class="cert-desc">Sertifikat resmi keikutsertaan program Magang &amp; Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</p>
+                <h3 class="cert-title" data-i18n="cert_item6_title">Sertifikat Kepesertaan MSIB</h3>
+                <p class="cert-desc" data-i18n="cert_item6_desc">Sertifikat resmi keikutsertaan program Magang &amp; Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</p>
                 <div class="cert-meta-footer">
                   <div class="cert-period-badge">
                     <i class="bi bi-calendar3"></i>
                     <span>Tahun 2024</span>
                   </div>
-                  <span class="cert-scope-tag">Program Resmi</span>
+                  <span class="cert-scope-tag" data-i18n="cert_item6_scope">Program Resmi</span>
                 </div>
               </div>
             </div>
@@ -1012,19 +1047,19 @@
                 <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
                   <div class="section-pill-tag">
                     <i class="bi bi-envelope-heart"></i>
-                    <span>Let's Connect</span>
+                    <span data-i18n="contact_tag">Let's Connect</span>
                   </div>
-                  <h2 class="section-main-title mb-3">Siap Berkolaborasi?</h2>
-                  <p class="text-white mb-4 pe-lg-4">Saya terbuka untuk peluang kerja Full-time, Contract, maupun project freelance. Silakan hubungi saya melalui kanal komunikasi di bawah ini.</p>
+                  <h2 class="section-main-title mb-3" data-i18n="contact_title">Siap Berkolaborasi?</h2>
+                  <p class="text-white mb-4 pe-lg-4" data-i18n="contact_desc">Saya terbuka untuk peluang kerja Full-time, Contract, maupun project freelance. Silakan hubungi saya melalui kanal komunikasi di bawah ini.</p>
 
                   <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white bg-opacity-10 text-white small mb-4">
                     <i class="bi bi-geo-alt-fill text-danger"></i>
-                    <span>Mojokerto, Jawa Timur, 61382 • Remote / On-site Ready</span>
+                    <span data-i18n="contact_loc_chip">Mojokerto, Jawa Timur, 61382 • Remote / On-site Ready</span>
                   </div>
 
                   <!-- Quick Copy Action Bar -->
                   <div class="quick-copy-box pt-3 border-top border-white border-opacity-10">
-                    <div class="text-white-50 small mb-2 text-start"><i class="bi bi-clipboard-check me-1 text-cyan"></i> Salin Kontak Cepat:</div>
+                    <div class="text-white-50 small mb-2 text-start"><i class="bi bi-clipboard-check me-1 text-cyan"></i> <span data-i18n="contact_quick_label">Salin Kontak Cepat:</span></div>
                     <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
                       <button type="button" class="btn-copy-chip" data-copy="johankrisbima77@gmail.com" title="Klik untuk salin email">
                         <i class="bi bi-envelope-fill text-info"></i>
@@ -1041,32 +1076,32 @@
                     <div class="d-flex align-items-center justify-content-between mb-3">
                       <div class="d-flex align-items-center gap-2">
                         <i class="bi bi-chat-square-dots-fill text-cyan fs-5"></i>
-                        <span class="text-white fw-bold small">Kirim Pesan Instan</span>
+                        <span class="text-white fw-bold small" data-i18n="contact_composer_title">Kirim Pesan Instan</span>
                       </div>
-                      <span class="badge bg-cyan text-dark text-auto-whatsapp rounded-pill px-2 py-1 small">Auto WhatsApp</span>
+                      <span class="badge bg-cyan text-dark text-auto-whatsapp rounded-pill px-2 py-1 small" data-i18n="contact_composer_badge">Auto WhatsApp</span>
                     </div>
 
                     <div class="mb-2">
-                      <label for="composerName" class="form-label text-white-50 small mb-1">Nama / Perusahaan</label>
-                      <input type="text" id="composerName" class="form-control composer-input" placeholder="Contoh: Budi - Rekruter / Tim Tech" />
+                      <label for="composerName" class="form-label text-white-50 small mb-1" data-i18n="contact_label_name">Nama / Perusahaan</label>
+                      <input type="text" id="composerName" class="form-control composer-input" data-i18n-placeholder="contact_placeholder_name" placeholder="Contoh: Budi - Rekruter / Tim Tech" />
                     </div>
 
                     <div class="mb-2">
-                      <label for="composerTopic" class="form-label text-white-50 small mb-1">Tujuan / Kepentingan</label>
+                      <label for="composerTopic" class="form-label text-white-50 small mb-1" data-i18n="contact_label_topic">Tujuan / Kepentingan</label>
                       <select id="composerTopic" class="form-select composer-input">
-                        <option value="Tawaran Pekerjaan Full-time / Kontrak">Lowongan Pekerjaan (Full-time / Kontrak)</option>
-                        <option value="Diskusi Teknis &amp; Pertanyaan Umum">Diskusi Teknis &amp; Tanya Jawab</option>
+                        <option value="Tawaran Pekerjaan Full-time / Kontrak" data-i18n="contact_opt_job">Lowongan Pekerjaan (Full-time / Kontrak)</option>
+                        <option value="Diskusi Teknis &amp; Pertanyaan Umum" data-i18n="contact_opt_tech">Diskusi Teknis &amp; Tanya Jawab</option>
                       </select>
                     </div>
 
                     <div class="mb-3">
-                      <label for="composerMessage" class="form-label text-white-50 small mb-1">Pesan Tambahan (Opsional)</label>
-                      <textarea id="composerMessage" class="form-control composer-input" rows="2" placeholder="Tuliskan catatan atau detail tawaran di sini..."></textarea>
+                      <label for="composerMessage" class="form-label text-white-50 small mb-1" data-i18n="contact_label_msg">Pesan Tambahan (Opsional)</label>
+                      <textarea id="composerMessage" class="form-control composer-input" rows="2" data-i18n-placeholder="contact_placeholder_msg" placeholder="Tuliskan catatan atau detail tawaran di sini..."></textarea>
                     </div>
 
                     <button type="button" id="btnSendComposer" class="btn-pill-primary w-100 justify-content-center">
                       <i class="bi bi-whatsapp fs-5"></i>
-                      <span>Generate &amp; Kirim ke WhatsApp</span>
+                      <span data-i18n="contact_btn_send">Generate &amp; Kirim ke WhatsApp</span>
                     </button>
                   </div>
 
@@ -1100,8 +1135,8 @@
                   <span class="brand-avatar-mini brand-avatar-footer">JK</span>
                   <span class="footer-brand-name">Johan<span class="text-gradient">.dev</span></span>
                 </a>
-                <div class="footer-role-badge mb-3"><i class="bi bi-code-slash text-cyan me-1"></i> Software &amp; Web Developer</div>
-                <p class="footer-bio-text mb-4">
+                <div class="footer-role-badge mb-3"><i class="bi bi-code-slash text-cyan me-1"></i> <span data-i18n="footer_role">Software &amp; Web Developer</span></div>
+                <p class="footer-bio-text mb-4" data-i18n="footer_bio">
                   Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata
                   bagi bisnis.
                 </p>
@@ -1131,23 +1166,23 @@
             <div class="col-12 col-sm-6 col-lg-2">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Eksplorasi</span>
+                  <span data-i18n="footer_col_explore">Eksplorasi</span>
                 </h4>
                 <ul class="footer-nav-list list-unstyled mb-0">
                   <li>
-                    <a href="#home"><i class="bi bi-chevron-right"></i> Beranda</a>
+                    <a href="#home"><i class="bi bi-chevron-right"></i> <span data-i18n="footer_link_home">Beranda</span></a>
                   </li>
                   <li>
-                    <a href="#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a>
+                    <a href="#about"><i class="bi bi-chevron-right"></i> <span data-i18n="footer_link_about">Profil &amp; Edukasi</span></a>
                   </li>
                   <li>
-                    <a href="#project"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a>
+                    <a href="#project"><i class="bi bi-chevron-right"></i> <span data-i18n="footer_link_project">Pengalaman Kerja</span></a>
                   </li>
                   <li>
-                    <a href="#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a>
+                    <a href="#sertifikat"><i class="bi bi-chevron-right"></i> <span data-i18n="footer_link_cert">Sertifikasi Resmi</span></a>
                   </li>
                   <li>
-                    <a href="#contact"><i class="bi bi-chevron-right"></i> Hubungi Langsung</a>
+                    <a href="#contact"><i class="bi bi-chevron-right"></i> <span data-i18n="footer_link_contact">Hubungi Langsung</span></a>
                   </li>
                 </ul>
               </div>
@@ -1157,19 +1192,19 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Keahlian Utama</span>
+                  <span data-i18n="footer_col_skills">Keahlian Utama</span>
                 </h4>
                 <div class="footer-skill-tags d-flex flex-column gap-2">
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> Backend &amp; REST API</div>
+                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> <span data-i18n="footer_skill1_title">Backend &amp; REST API</span></div>
                     <div class="skill-detail">Laravel, PHP, MySQL, RESTful</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> Modern Frontend</div>
+                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> <span data-i18n="footer_skill2_title">Modern Frontend</span></div>
                     <div class="skill-detail">JavaScript ES6+, Bootstrap 5, UI/UX</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> Metodologi &amp; Tools</div>
+                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> <span data-i18n="footer_skill3_title">Metodologi &amp; Tools</span></div>
                     <div class="skill-detail">Git, GitHub, Agile Scrum, Postman</div>
                   </div>
                 </div>
@@ -1180,28 +1215,28 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Info Rekrutmen</span>
+                  <span data-i18n="footer_col_recruiter">Info Rekrutmen</span>
                 </h4>
                 <div class="footer-recruiter-facts d-flex flex-column gap-3">
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-danger"><i class="bi bi-geo-alt-fill"></i></div>
                     <div>
-                      <div class="fact-label">Lokasi Domisili</div>
-                      <div class="fact-value">Mojokerto / Jawa Timur</div>
+                      <div class="fact-label" data-i18n="footer_loc_label">Lokasi Domisili</div>
+                      <div class="fact-value" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-success"><i class="bi bi-briefcase-fill"></i></div>
                     <div>
-                      <div class="fact-label">Status Ketersediaan</div>
-                      <div class="fact-value fact-highlight-status">Tersedia Segera (Immediate)</div>
+                      <div class="fact-label" data-i18n="footer_status_label">Status Ketersediaan</div>
+                      <div class="fact-value fact-highlight-status" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-info"><i class="bi bi-building-check"></i></div>
                     <div>
-                      <div class="fact-label">Mobilitas Kerja</div>
-                      <div class="fact-value">On-site / Hybrid / Remote Ready</div>
+                      <div class="fact-label" data-i18n="footer_mobility_label">Mobilitas Kerja</div>
+                      <div class="fact-value" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
                     </div>
                   </div>
                 </div>
@@ -1234,8 +1269,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <div>
-              <h5 class="modal-title mb-1" id="certModalLabel">Preview Dokumen</h5>
-              <p class="modal-subtitle mb-0" id="certModalDesc">Dokumentasi Terverifikasi</p>
+              <h5 class="modal-title mb-1" id="certModalLabel" data-i18n="modal_cert_title">Preview Dokumen</h5>
+              <p class="modal-subtitle mb-0" id="certModalDesc" data-i18n="modal_cert_subtitle">Dokumentasi Terverifikasi</p>
             </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>

@@ -7,9 +7,12 @@
     <meta name="description" content="Studi kasus mendalam pengalaman Johan Krisbima Abi sebagai Web Automation Intern di PT Universal Big Data. Mengembangkan aplikasi desktop Nobox Extractor menggunakan C# dan .NET." />
     <meta name="author" content="Johan Krisbima Abi" />
 
+    <meta name="page-meta-title-key" content="ubig_meta_title" />
+    <meta name="page-meta-desc-key" content="ubig_meta_desc" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="img/profile_wisuda.jpeg" />
-    <link rel="apple-touch-icon" href="img/profile_wisuda.jpeg" />
+    <link rel="icon" type="image/jpeg" href="../assets/img/profile_wisuda.jpeg" />
+    <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.jpeg" />
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,10 +26,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
-    <!-- Detail Page Interactive & Theme Script -->
-    <script src="detail.js"></script>
+    <!-- Translation Dictionary & Detail Interactive Scripts -->
+    <script src="../js/translations.js"></script>
+    <script src="../js/detail.js"></script>
   </head>
   <body id="page-top">
     <!-- Reading Progress Bar -->
@@ -42,24 +46,27 @@
     <!-- Floating Top Navigation Bar -->
     <header class="blog-nav-sticky">
       <div class="blog-nav-inner">
-        <a href="index.html#project" class="blog-back-btn" title="Kembali ke portofolio utama">
+        <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
           <i class="bi bi-arrow-left"></i>
-          <span class="d-none d-sm-inline">Kembali ke Portofolio</span>
-          <span class="d-inline d-sm-none">Kembali</span>
+          <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
+          <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
         </a>
 
-        <a href="index.html#home" class="navbar-brand-pill text-decoration-none">
+        <a href="../index.html#home" class="navbar-brand-pill text-decoration-none">
           <span class="brand-avatar-mini">JK</span>
           <span class="d-none d-md-inline">Johan<span class="text-gradient">.dev</span></span>
         </a>
 
-        <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
-          <div class="floating-theme-icon-box">
-            <i class="bi bi-sun-fill theme-icon-sun"></i>
-            <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-          </div>
-          <span class="floating-theme-text d-none d-md-inline" id="blogThemeText">Dark Mode</span>
-        </button>
+        <div class="d-flex align-items-center gap-2">
+
+          <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
+            <div class="floating-theme-icon-box">
+              <i class="bi bi-sun-fill theme-icon-sun"></i>
+              <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
+            </div>
+            <span class="floating-theme-text d-none d-md-inline" id="blogThemeText">Dark Mode</span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -72,9 +79,9 @@
             <article class="blog-article-card">
               <!-- Breadcrumbs -->
               <nav class="blog-breadcrumbs" aria-label="breadcrumb">
-                <a href="index.html"><i class="bi bi-house-door-fill me-1"></i>Beranda</a>
+                <a href="../index.html"><i class="bi bi-house-door-fill me-1"></i><span data-i18n="detail_breadcrumb_home">Beranda</span></a>
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <a href="index.html#project">Pengalaman &amp; Proyek</a>
+                <a href="../index.html#project" data-i18n="detail_breadcrumb_exp">Pengalaman &amp; Proyek</a>
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
                 <span class="text-white fw-semibold">PT Universal Big Data</span>
               </nav>
@@ -87,29 +94,29 @@
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-briefcase-fill text-cyan"></i>
-                  <span>Web Automation Intern</span>
+                  <span data-i18n="ubig_role">Web Automation Intern</span>
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-calendar3"></i>
-                  <span>Jul 2024 – Des 2024</span>
+                  <span data-i18n="ubig_date">Jul 2024 – Des 2024</span>
                 </span>
                 <span class="blog-pill-meta">
                   <i class="bi bi-folder-check"></i>
-                  <span>Project: Web Scraping for Nobox Extractor App</span>
+                  <span data-i18n="ubig_proj_tag">Project: Web Scraping for Nobox Extractor App</span>
                 </span>
               </div>
 
               <!-- Main Title & Lead -->
-              <h1 class="blog-main-title">Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data</h1>
-              <p class="blog-subtitle-lead">Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.</p>
+              <h1 class="blog-main-title" data-i18n="ubig_title">Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data</h1>
+              <p class="blog-subtitle-lead" data-i18n="ubig_subtitle">Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.</p>
 
               <!-- Executive Summary Callout Box (Exact CV Bullets) -->
               <div class="blog-executive-box">
-                <h4><i class="bi bi-lightning-charge-fill"></i> Ringkasan Proyek (Berdasarkan CV Resmi)</h4>
+                <h4><i class="bi bi-lightning-charge-fill"></i> <span data-i18n="ubig_exec_heading">Ringkasan Proyek (Berdasarkan CV Resmi)</span></h4>
                 <ul class="subsystem-list mb-0">
-                  <li>Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
-                  <li>Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
-                  <li>Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
+                  <li data-i18n="ubig_exec_p1">Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
+                  <li data-i18n="ubig_exec_p2">Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
+                  <li data-i18n="ubig_exec_p3">Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
                 </ul>
               </div>
 
@@ -117,16 +124,16 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-compass"></i>
-                  <span>1. Latar Belakang Masalah &amp; Kebutuhan Data</span>
+                  <span data-i18n="ubig_sec1_heading">1. Latar Belakang Masalah &amp; Kebutuhan Data</span>
                 </h2>
-                <p class="blog-body-p">
+                <p class="blog-body-p" data-i18n="ubig_sec1_p">
                   Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan
                   teknis utama yang harus dipecahkan meliputi:
                 </p>
                 <ul class="subsystem-list">
-                  <li><strong>Volatilitas Struktur HTML:</strong> Layout situs e-commerce sering mengalami pembaruan selector CSS/DOM, yang rawan mematahkan script scraping konvensional.</li>
-                  <li><strong>Kecepatan vs Pemblokiran (Rate Limiting):</strong> Menjalankan proses ekstraksi berkecepatan tinggi tanpa membebani server target dan tanpa terblokir oleh mekanisme proteksi bot (Cloudflare / CAPTCHA).</li>
-                  <li><strong>Manajemen Memori &amp; Kestabilan Desktop:</strong> Aplikasi harus mampu berjalan selama berhari-hari nonstop tanpa memory leak dan tanpa mengalami freeze antarmuka (UI thread hanging).</li>
+                  <li data-i18n="ubig_sec1_item1"><strong>Volatilitas Struktur HTML:</strong> Layout situs e-commerce sering mengalami pembaruan selector CSS/DOM, yang rawan mematahkan script scraping konvensional.</li>
+                  <li data-i18n="ubig_sec1_item2"><strong>Kecepatan vs Pemblokiran (Rate Limiting):</strong> Menjalankan proses ekstraksi berkecepatan tinggi tanpa membebani server target dan tanpa terblokir oleh mekanisme proteksi bot (Cloudflare / CAPTCHA).</li>
+                  <li data-i18n="ubig_sec1_item3"><strong>Manajemen Memori &amp; Kestabilan Desktop:</strong> Aplikasi harus mampu berjalan selama berhari-hari nonstop tanpa memory leak dan tanpa mengalami freeze antarmuka (UI thread hanging).</li>
                 </ul>
               </section>
 
@@ -134,9 +141,9 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-cpu-fill"></i>
-                  <span>2. Solusi Teknis &amp; Fitur Unggulan</span>
+                  <span data-i18n="ubig_sec2_heading">2. Solusi Teknis &amp; Fitur Unggulan</span>
                 </h2>
-                <p class="blog-body-p">Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:</p>
+                <p class="blog-body-p" data-i18n="ubig_sec2_p">Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:</p>
 
                 <!-- Feature Grid Cards -->
                 <div class="blog-grid-cards">
@@ -146,15 +153,15 @@
                         <i class="bi bi-diagram-3-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Multi-Threaded Asynchronous Engine</h3>
-                        <span class="subsystem-role">C# Async / Await &amp; Task Parallel Library</span>
+                        <h3 class="subsystem-title" data-i18n="ubig_feat1_title">Multi-Threaded Asynchronous Engine</h3>
+                        <span class="subsystem-role" data-i18n="ubig_feat1_role">C# Async / Await &amp; Task Parallel Library</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Memisahkan thread rendering UI dari thread HTTP crawler sehingga antarmuka tetap responsif 60 FPS meskipun sedang mengekstrak ribuan baris data secara simultan.</p>
+                    <p class="subsystem-desc" data-i18n="ubig_feat1_desc">Memisahkan thread rendering UI dari thread HTTP crawler sehingga antarmuka tetap responsif 60 FPS meskipun sedang mengekstrak ribuan baris data secara simultan.</p>
                     <ul class="subsystem-list">
-                      <li>Pengaturan konkurensi dinamis (configurable thread pool limit).</li>
-                      <li>Distribusi antrian link target menggunakan thread-safe concurrent queue.</li>
-                      <li>Mekanisme auto-pause dan resume tanpa kehilangan status progres crawling.</li>
+                      <li data-i18n="ubig_feat1_item1">Pengaturan konkurensi dinamis (configurable thread pool limit).</li>
+                      <li data-i18n="ubig_feat1_item2">Distribusi antrian link target menggunakan thread-safe concurrent queue.</li>
+                      <li data-i18n="ubig_feat1_item3">Mekanisme auto-pause dan resume tanpa kehilangan status progres crawling.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">C# .NET</span>
@@ -169,15 +176,15 @@
                         <i class="bi bi-funnel-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Smart DOM Parser &amp; Sanitizer</h3>
-                        <span class="subsystem-role">Normalisasi &amp; Validasi Data Otomatis</span>
+                        <h3 class="subsystem-title" data-i18n="ubig_feat2_title">Smart DOM Parser &amp; Sanitizer</h3>
+                        <span class="subsystem-role" data-i18n="ubig_feat2_role">Normalisasi &amp; Validasi Data Otomatis</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Ekstraksi atribut esensial produk: judul listing, harga mata uang lokal/internasional, rating, lokasi seller, nomor kontak, serta deskripsi spesifikasi.</p>
+                    <p class="subsystem-desc" data-i18n="ubig_feat2_desc">Ekstraksi atribut esensial produk: judul listing, harga mata uang lokal/internasional, rating, lokasi seller, nomor kontak, serta deskripsi spesifikasi.</p>
                     <ul class="subsystem-list">
-                      <li>Sistem fallback selector jika kelas CSS target mengalami modifikasi ringan.</li>
-                      <li>Pembersihan karakter regex, konversi format harga ke nilai integer baku.</li>
-                      <li>Filter deduplikasi instan berdasarkan hash unik kombinasi URL dan SKU produk.</li>
+                      <li data-i18n="ubig_feat2_item1">Sistem fallback selector jika kelas CSS target mengalami modifikasi ringan.</li>
+                      <li data-i18n="ubig_feat2_item2">Pembersihan karakter regex, konversi format harga ke nilai integer baku.</li>
+                      <li data-i18n="ubig_feat2_item3">Filter deduplikasi instan berdasarkan hash unik kombinasi URL dan SKU produk.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">Data Sanitization</span>
@@ -192,15 +199,15 @@
                         <i class="bi bi-database-fill-gear"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Bulk Pipeline Sync ke Nobox AI</h3>
-                        <span class="subsystem-role">MySQL Batch Inserts &amp; Cloud Integration</span>
+                        <h3 class="subsystem-title" data-i18n="ubig_feat3_title">Bulk Pipeline Sync ke Nobox AI</h3>
+                        <span class="subsystem-role" data-i18n="ubig_feat3_role">MySQL Batch Inserts &amp; Cloud Integration</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Alih-alih melakukan query insert satu-per-satu yang membebani I/O, saya mengimplementasikan sistem batching buffer untuk sinkronisasi massal.</p>
+                    <p class="subsystem-desc" data-i18n="ubig_feat3_desc">Alih-alih melakukan query insert satu-per-satu yang membebani I/O, saya mengimplementasikan sistem batching buffer untuk sinkronisasi massal.</p>
                     <ul class="subsystem-list">
-                      <li>Batch insert 500 records per transaksi database untuk efisiensi tinggi.</li>
-                      <li>Koneksi terenkripsi ke database staging dan production cloud Nobox AI.</li>
-                      <li>Export opsi darurat ke format Excel / CSV jika terjadi kendala jaringan internet.</li>
+                      <li data-i18n="ubig_feat3_item1">Batch insert 500 records per transaksi database untuk efisiensi tinggi.</li>
+                      <li data-i18n="ubig_feat3_item2">Koneksi terenkripsi ke database staging dan production cloud Nobox AI.</li>
+                      <li data-i18n="ubig_feat3_item3">Export opsi darurat ke format Excel / CSV jika terjadi kendala jaringan internet.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">MySQL</span>
@@ -215,15 +222,15 @@
                         <i class="bi bi-shield-lock-fill"></i>
                       </div>
                       <div>
-                        <h3 class="subsystem-title">Anti-Throttling &amp; Proxy Support</h3>
-                        <span class="subsystem-role">Ketahanan Sistem &amp; Kestabilan Crawling</span>
+                        <h3 class="subsystem-title" data-i18n="ubig_feat4_title">Anti-Throttling &amp; Proxy Support</h3>
+                        <span class="subsystem-role" data-i18n="ubig_feat4_role">Ketahanan Sistem &amp; Kestabilan Crawling</span>
                       </div>
                     </div>
-                    <p class="subsystem-desc">Meniru pola browsing manusia melalui variasi user-agent acak, random request delay interval, dan rotasi proxy HTTP/SOCKS5.</p>
+                    <p class="subsystem-desc" data-i18n="ubig_feat4_desc">Meniru pola browsing manusia melalui variasi user-agent acak, random request delay interval, dan rotasi proxy HTTP/SOCKS5.</p>
                     <ul class="subsystem-list">
-                      <li>Rotasi User-Agent realistis yang diperbarui secara periodik.</li>
-                      <li>Exponential backoff retry saat mendeteksi status kode HTTP 429 atau 503.</li>
-                      <li>Peringatan otomatis jika koneksi jaringan terputus di tengah jalan.</li>
+                      <li data-i18n="ubig_feat4_item1">Rotasi User-Agent realistis yang diperbarui secara periodik.</li>
+                      <li data-i18n="ubig_feat4_item2">Exponential backoff retry saat mendeteksi status kode HTTP 429 atau 503.</li>
+                      <li data-i18n="ubig_feat4_item3">Peringatan otomatis jika koneksi jaringan terputus di tengah jalan.</li>
                     </ul>
                     <div class="tags-group mt-auto">
                       <span class="tag-pill">Proxy Rotation</span>
@@ -238,28 +245,28 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-images"></i>
-                  <span>3. Dokumentasi Tampilan Aplikasi Nobox Extractor</span>
+                  <span data-i18n="ubig_sec3_heading">3. Dokumentasi Tampilan Aplikasi Nobox Extractor</span>
                 </h2>
-                <p class="blog-body-p">Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:</p>
+                <p class="blog-body-p" data-i18n="ubig_sec3_p">Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:</p>
 
                 <div class="blog-gallery-showcase">
                   <div class="row g-4">
                     <div class="col-12">
                       <figure class="blog-figure">
-                        <img src="img/webscrapping.png" alt="Aplikasi Desktop Nobox Extractor untuk Web Scraping" class="img-fluid" data-zoom-img="img/webscrapping.png" />
+                        <img src="../assets/img/webscrapping.png" alt="Aplikasi Desktop Nobox Extractor untuk Web Scraping" class="img-fluid" data-zoom-img="../assets/img/webscrapping.png" />
                         <figcaption class="blog-figure-caption">
                           <i class="bi bi-display text-cyan"></i>
-                          <span>Antarmuka Nobox Extractor &ndash; Konfigurasi Pencarian, Live Scraped Table, dan Log Progress Ekstraksi</span>
+                          <span data-i18n="ubig_cap_img1">Antarmuka Nobox Extractor &ndash; Konfigurasi Pencarian, Live Scraped Table, dan Log Progress Ekstraksi</span>
                         </figcaption>
                       </figure>
                     </div>
 
                     <div class="col-12">
                       <figure class="blog-figure">
-                        <img src="img/ubig.png" alt="Sertifikat / Dokumentasi PT Universal Big Data" class="img-fluid" data-zoom-img="img/ubig.png" />
+                        <img src="../assets/img/ubig.png" alt="Sertifikat / Dokumentasi PT Universal Big Data" class="img-fluid" data-zoom-img="../assets/img/ubig.png" />
                         <figcaption class="blog-figure-caption">
                           <i class="bi bi-check-circle-fill text-cyan"></i>
-                          <span>Dokumentasi Pelaksanaan Magang &amp; Verifikasi Proyek di PT Universal Big Data</span>
+                          <span data-i18n="ubig_cap_img2">Dokumentasi Pelaksanaan Magang &amp; Verifikasi Proyek di PT Universal Big Data</span>
                         </figcaption>
                       </figure>
                     </div>
@@ -271,26 +278,26 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-bar-chart-line-fill"></i>
-                  <span>4. Dampak &amp; Metrik Hasil (Impact)</span>
+                  <span data-i18n="ubig_sec4_heading">4. Dampak &amp; Metrik Hasil (Impact)</span>
                 </h2>
-                <p class="blog-body-p">Pengembangan Nobox Extractor memberikan percepatan dramatis terhadap proses intake data bagi tim kecerdasan buatan Nobox AI:</p>
+                <p class="blog-body-p" data-i18n="ubig_sec4_p">Pengembangan Nobox Extractor memberikan percepatan dramatis terhadap proses intake data bagi tim kecerdasan buatan Nobox AI:</p>
 
                 <div class="blog-metrics-row">
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">10x</span>
-                    <span class="blog-metric-label">Peningkatan Kecepatan Scraping vs Script Konvensional</span>
+                    <span class="blog-metric-label" data-i18n="ubig_metric1_label">Peningkatan Kecepatan Scraping vs Script Konvensional</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">&gt; 100K+</span>
-                    <span class="blog-metric-label">Baris Data Produk Terekstraksi &amp; Tersinkron</span>
+                    <span class="blog-metric-label" data-i18n="ubig_metric2_label">Baris Data Produk Terekstraksi &amp; Tersinkron</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">99.2%</span>
-                    <span class="blog-metric-label">Akurasi Kelengkapan Field Metadata Produk</span>
+                    <span class="blog-metric-label" data-i18n="ubig_metric3_label">Akurasi Kelengkapan Field Metadata Produk</span>
                   </div>
                   <div class="blog-metric-card">
                     <span class="blog-metric-num">&lt; 150 MB</span>
-                    <span class="blog-metric-label">Konsumsi RAM Ringan pada Lingkungan Desktop</span>
+                    <span class="blog-metric-label" data-i18n="ubig_metric4_label">Konsumsi RAM Ringan pada Lingkungan Desktop</span>
                   </div>
                 </div>
               </section>
@@ -299,30 +306,30 @@
               <section class="blog-section">
                 <h2 class="blog-section-heading">
                   <i class="bi bi-lightbulb-fill"></i>
-                  <span>5. Pembelajaran Utama (Key Learnings)</span>
+                  <span data-i18n="ubig_sec5_heading">5. Pembelajaran Utama (Key Learnings)</span>
                 </h2>
                 <div class="blog-body-p">
-                  <p>
+                  <p data-i18n="ubig_sec5_p1">
                     Proyek ini melatih pemahaman mendalam tentang arsitektur concurrency di .NET (thread synchronization, locking, async I/O), penanganan data berkapasitas besar, serta etika dan teknik penambangan data web (web scraping
                     best practices).
                   </p>
-                  <p class="mb-0">Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.</p>
+                  <p class="mb-0" data-i18n="ubig_sec5_p2">Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.</p>
                 </div>
               </section>
 
               <!-- Author Box Card -->
               <div class="blog-author-card">
                 <div class="author-info-group">
-                  <img src="img/profile_wisuda.jpeg" alt="Johan Krisbima Abi" class="author-avatar-img" />
+                  <img src="../assets/img/profile_wisuda.jpeg" alt="Johan Krisbima Abi" class="author-avatar-img" />
                   <div>
                     <h3 class="author-name">Johan Krisbima Abi</h3>
-                    <p class="author-desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
+                    <p class="author-desc" data-i18n="detail_author_desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
                   </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                   <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa">
                     <i class="bi bi-whatsapp"></i>
-                    <span>Hubungi via WA</span>
+                    <span data-i18n="detail_contact_wa">Hubungi via WA</span>
                   </a>
                   <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="channel-mini-pill in">
                     <i class="bi bi-linkedin text-info"></i>
@@ -341,7 +348,7 @@
               <a href="detail-pt-pal.html" class="blog-switch-card">
                 <div class="blog-switch-dir">
                   <i class="bi bi-arrow-left me-1"></i>
-                  <span>Pengalaman Sebelumnya</span>
+                  <span>Pengalaman PT PAL</span>
                 </div>
                 <div class="blog-switch-title">Pemprogram Komputer Contract &ndash; Enterprise App</div>
                 <div class="blog-switch-company"><i class="bi bi-building me-1"></i>PT PAL Indonesia</div>
@@ -349,7 +356,7 @@
 
               <a href="detail-stechoq.html" class="blog-switch-card">
                 <div class="blog-switch-dir">
-                  <span>Pengalaman Selanjutnya</span>
+                  <span data-i18n="detail_next_exp">Pengalaman Selanjutnya</span>
                   <i class="bi bi-arrow-right"></i>
                 </div>
                 <div class="blog-switch-title">Backend Developer Intern &ndash; Warehouse RESTful API</div>
@@ -372,12 +379,12 @@
             <!-- Column 1: Brand & Professional Summary -->
             <div class="col-12 col-md-6 col-lg-4">
               <div class="footer-brand-block">
-                <a href="index.html#home" class="footer-brand-title d-inline-flex align-items-center gap-2 mb-3 text-decoration-none">
+                <a href="../index.html#home" class="footer-brand-title d-inline-flex align-items-center gap-2 mb-3 text-decoration-none">
                   <span class="brand-avatar-mini brand-avatar-footer">JK</span>
                   <span class="footer-brand-name">Johan<span class="text-gradient">.dev</span></span>
                 </a>
                 <div class="footer-role-badge mb-3"><i class="bi bi-code-slash text-cyan me-1"></i> Software &amp; Web Developer</div>
-                <p class="footer-bio-text mb-4">
+                <p class="footer-bio-text mb-4" data-i18n="footer_brand_desc">
                   Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata
                   bagi bisnis.
                 </p>
@@ -407,23 +414,23 @@
             <div class="col-12 col-sm-6 col-lg-2">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Eksplorasi</span>
+                  <span data-i18n="footer_col_nav">Eksplorasi</span>
                 </h4>
                 <ul class="footer-nav-list list-unstyled mb-0">
                   <li>
-                    <a href="index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a>
+                    <a href="../index.html#home"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_home">Beranda</span></a>
                   </li>
                   <li>
-                    <a href="index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a>
+                    <a href="../index.html#about"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_about">Profil &amp; Edukasi</span></a>
                   </li>
                   <li>
-                    <a href="index.html#project"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a>
+                    <a href="../index.html#project"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_project">Pengalaman Kerja</span></a>
                   </li>
                   <li>
-                    <a href="index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a>
+                    <a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_certificate">Sertifikasi Resmi</span></a>
                   </li>
                   <li>
-                    <a href="index.html#contact"><i class="bi bi-chevron-right"></i> Hubungi Langsung</a>
+                    <a href="../index.html#contact"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_contact">Hubungi Langsung</span></a>
                   </li>
                 </ul>
               </div>
@@ -433,19 +440,19 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Keahlian Utama</span>
+                  <span data-i18n="footer_col_competencies">Keahlian Utama</span>
                 </h4>
                 <div class="footer-skill-tags d-flex flex-column gap-2">
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> Backend &amp; REST API</div>
+                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> <span data-i18n="footer_skill1_title">Backend &amp; REST API</span></div>
                     <div class="skill-detail">Laravel, PHP, MySQL, RESTful</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> Modern Frontend</div>
+                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> <span data-i18n="footer_skill2_title">Modern Frontend</span></div>
                     <div class="skill-detail">JavaScript ES6+, Bootstrap 5, UI/UX</div>
                   </div>
                   <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> Metodologi &amp; Tools</div>
+                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> <span data-i18n="footer_skill3_title">Metodologi &amp; Tools</span></div>
                     <div class="skill-detail">Git, GitHub, Agile Scrum, Postman</div>
                   </div>
                 </div>
@@ -456,28 +463,28 @@
             <div class="col-12 col-md-6 col-lg-3">
               <div class="footer-links-block">
                 <h4 class="footer-col-heading mb-3">
-                  <span>Info Rekrutmen</span>
+                  <span data-i18n="footer_col_recruiter">Info Rekrutmen</span>
                 </h4>
                 <div class="footer-recruiter-facts d-flex flex-column gap-3">
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-danger"><i class="bi bi-geo-alt-fill"></i></div>
                     <div>
-                      <div class="fact-label">Lokasi Domisili</div>
-                      <div class="fact-value">Mojokerto / Jawa Timur</div>
+                      <div class="fact-label" data-i18n="footer_loc_label">Lokasi Domisili</div>
+                      <div class="fact-value" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-success"><i class="bi bi-briefcase-fill"></i></div>
                     <div>
-                      <div class="fact-label">Status Ketersediaan</div>
-                      <div class="fact-value fact-highlight-status">Tersedia Segera (Immediate)</div>
+                      <div class="fact-label" data-i18n="footer_status_label">Status Ketersediaan</div>
+                      <div class="fact-value fact-highlight-status" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
                     </div>
                   </div>
                   <div class="recruiter-fact-item d-flex align-items-start gap-2">
                     <div class="fact-icon-box flex-shrink-0 text-info"><i class="bi bi-building-check"></i></div>
                     <div>
-                      <div class="fact-label">Mobilitas Kerja</div>
-                      <div class="fact-value">On-site / Hybrid / Remote Ready</div>
+                      <div class="fact-label" data-i18n="footer_mobility_label">Mobilitas Kerja</div>
+                      <div class="fact-value" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
                     </div>
                   </div>
                 </div>
@@ -493,7 +500,7 @@
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title text-white small" id="zoomModalTitle">Pratinjau Gambar Sistem</h5>
+            <h5 class="modal-title text-white small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Gambar Sistem</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center p-2 p-md-4">
@@ -512,3 +519,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
