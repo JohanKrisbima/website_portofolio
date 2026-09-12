@@ -1004,15 +1004,15 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
       },
       {
         root: null,
-        rootMargin: "0px 0px -20px 0px",
-        threshold: 0.08,
+        rootMargin: "0px 0px -90px 0px",
+        threshold: 0.18,
       },
     );
 
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
-      // If already in viewport on initial page load, reveal smoothly
+      // If already well within viewport on initial page load, reveal smoothly
       const rect = el.getBoundingClientRect();
-      if (rect.top < windowH - 80) {
+      if (rect.top < windowH - 120) {
         el.classList.add("revealed");
       } else {
         revealObserver.observe(el);

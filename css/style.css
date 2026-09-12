@@ -1247,18 +1247,167 @@ body {
 @media (max-width: 767.98px) {
   #about.section,
   #project.section {
-    padding-top: 40px;
-    padding-bottom: 50px;
+    padding-top: 32px;
+    padding-bottom: 40px;
   }
 
+  #project .section-title-wrapper {
+    margin-bottom: 14px;
+  }
+
+  #project .section-pill-tag {
+    margin-bottom: 8px;
+    font-size: 0.74rem;
+    padding: 4px 12px;
+  }
+
+  #project .section-main-title {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  #project .section-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    max-width: 92%;
+    padding: 0 4px;
+  }
+
+  /* Compact Horizontal Scroll Ribbon for Highlights (prevents 3 bulky stacked rows) */
   .exp-highlights-ribbon {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     gap: 8px;
-    margin-top: 12px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding: 2px 12px 8px 12px;
+    justify-content: flex-start;
+  }
+
+  .exp-highlights-ribbon::-webkit-scrollbar {
+    display: none;
   }
 
   .exp-hl-chip {
+    flex-shrink: 0;
+    font-size: 0.74rem;
+    padding: 4px 11px;
+    white-space: nowrap;
+  }
+
+  .exp-hl-chip i {
+    font-size: 0.82rem;
+  }
+
+  /* Compact & Modern Experience Cards for Mobile */
+  .experience-card {
+    padding: 18px 15px !important;
+    border-radius: 18px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .exp-header {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .exp-role {
+    font-size: 1.12rem !important;
+    line-height: 1.28;
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 0.86rem;
+    gap: 6px;
+  }
+
+  .date-pill {
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+
+  .exp-desc {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  /* PT PAL 4 Projects: Touch-Swipeable Snap Reel on Mobile */
+  .exp-subprojects-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding: 2px 2px 8px 2px;
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+    margin-bottom: 12px !important;
+    scrollbar-width: none;
+  }
+
+  .exp-subprojects-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-subprojects-row > [class*="col-"] {
+    flex: 0 0 84% !important;
+    max-width: 84% !important;
+    width: 84% !important;
+    scroll-snap-align: start;
+  }
+
+  .exp-subprojects-row .exp-sub-desc {
+    font-size: 0.77rem;
+    line-height: 1.4;
+  }
+
+  /* Stechoq & UBig Subsystem list */
+  .subsystem-list {
+    padding-left: 16px;
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+
+  .subsystem-list li {
+    margin-bottom: 5px;
+    line-height: 1.42;
+  }
+
+  /* Tags Group */
+  .tags-group {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .tag-pill {
+    padding: 3px 8px;
+    font-size: 0.72rem;
+  }
+
+  /* Card Footer Bar */
+  .exp-proof-bar {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    gap: 8px;
+  }
+
+  .exp-proof-bar span {
+    font-size: 0.75rem;
+  }
+
+  .btn-exp-detail {
+    padding: 6px 13px;
     font-size: 0.76rem;
-    padding: 5px 11px;
+    gap: 5px;
   }
 }
 
@@ -1510,7 +1659,7 @@ body {
 }
 
 .cert-item-col {
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cert-item-col.is-filtered-out {
@@ -1523,7 +1672,10 @@ body {
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   padding: 20px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -2996,7 +3148,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
   width: max-content;
-  max-width: 100%;
+  max-width: none;
+  min-width: min-content;
   white-space: nowrap;
   margin: 0 auto;
 }
@@ -3053,65 +3206,91 @@ body {
   color: var(--accent-cyan);
 }
 
-/* Responsive Mobile Filter Tabs (Compact Floating Capsule, Zero Wrapping & Natural Spacing) */
+/* Responsive Mobile Filter Tabs (Refined Capsule, Zero Clipping & Perfectly Contained) */
 @media (max-width: 768px) {
   .exp-filter-wrapper,
   .cert-filter-wrapper {
+    display: flex;
     justify-content: center;
-    padding: 4px 10px 14px 10px;
-    margin-bottom: 20px;
+    align-items: center;
+    padding: 2px 8px 12px 8px;
+    margin-bottom: 16px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
   .filter-pill-group {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none !important;
     gap: 4px;
     padding: 4px 5px;
     flex-shrink: 0;
-  }
-
-  .filter-btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    gap: 5px;
-  }
-
-  .filter-btn i {
-    font-size: 0.82rem;
-  }
-
-  .filter-badge {
-    width: 17px;
-    height: 17px;
-    font-size: 0.65rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .exp-filter-wrapper,
-  .cert-filter-wrapper {
-    justify-content: flex-start;
-    padding: 4px 14px 12px 14px;
-  }
-
-  .filter-pill-group {
     margin: 0 auto;
-    gap: 3px;
-    padding: 4px;
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
   }
 
   .filter-btn {
-    padding: 5px 9px;
+    padding: 5.5px 10px;
     font-size: 0.76rem;
     gap: 4px;
+    flex-shrink: 0;
   }
 
   .filter-btn i {
-    font-size: 0.76rem;
+    font-size: 0.78rem;
   }
 
   .filter-badge {
     width: 16px;
     height: 16px;
     font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-filter-wrapper,
+  .cert-filter-wrapper {
+    padding: 2px 6px 12px 6px;
+  }
+
+  .filter-pill-group {
+    gap: 3px;
+    padding: 3.5px 4px;
+  }
+
+  .filter-btn {
+    padding: 4.5px 7.5px;
+    font-size: 0.72rem;
+    gap: 3.5px;
+    letter-spacing: -0.01em;
+  }
+
+  .filter-btn i {
+    font-size: 0.72rem;
+  }
+
+  .filter-badge {
+    width: 15px;
+    height: 15px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .exp-filter-wrapper,
+  .cert-filter-wrapper {
+    justify-content: flex-start;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .filter-pill-group {
+    margin: 0;
   }
 }
 
@@ -3515,13 +3694,14 @@ select.composer-input option {
   white-space: nowrap;
 }
 
-/* 9. Scroll Reveal Animations */
+/* 9. Scroll Reveal Animations (Calm & Elegant Motion) */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(42px);
   transition:
-    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 1.35s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1.45s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.revealed {
@@ -4516,6 +4696,24 @@ select.composer-input option {
 
 [data-theme="light"] .exp-desc {
   color: #334155;
+}
+
+[data-theme="light"] .exp-subprojects-row .rounded-3 {
+  background: rgba(241, 245, 249, 0.85) !important;
+  border-color: rgba(191, 219, 254, 0.7) !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
+}
+
+[data-theme="light"] .exp-desc .text-white {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .exp-desc .text-white-50 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .exp-desc .text-cyan {
+  color: #0284c7 !important;
 }
 
 [data-theme="light"] .exp-proof-bar .text-white {
@@ -5557,62 +5755,76 @@ select.composer-input option {
 }
 
 /* ==========================================================================
-   Interactive Scroll Reveal Animations (Setiap Scroll Content)
+   Interactive Scroll Reveal Animations (Cinematic & Elegant Motion)
    ========================================================================== */
 .reveal-init .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(42px);
   transition:
-    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 1.35s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1.45s cubic-bezier(0.19, 1, 0.22, 1);
   will-change: opacity, transform;
 }
 
 .reveal-init .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
+  transition:
+    opacity 1.35s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1.45s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* Directional & Scale Variants */
 .reveal-init .reveal-on-scroll.reveal-left {
-  transform: translateX(-32px);
+  transform: translateX(-40px);
 }
 .reveal-init .reveal-on-scroll.reveal-left.revealed {
   transform: translateX(0);
 }
 
 .reveal-init .reveal-on-scroll.reveal-right {
-  transform: translateX(32px);
+  transform: translateX(40px);
 }
 .reveal-init .reveal-on-scroll.reveal-right.revealed {
   transform: translateX(0);
 }
 
 .reveal-init .reveal-on-scroll.reveal-scale {
-  transform: scale(0.94) translateY(20px);
+  transform: scale(0.94) translateY(30px);
 }
 .reveal-init .reveal-on-scroll.reveal-scale.revealed {
   transform: scale(1) translateY(0);
 }
 
-/* Staggered Cascade Delays for Grid Cards */
+/* Staggered Cascade Delays for Grid Cards (Elegant, Calibrated Timing) */
 .reveal-init .reveal-delay-1 {
-  transition-delay: 0.08s;
+  transition-delay: 0.15s;
 }
 .reveal-init .reveal-delay-2 {
-  transition-delay: 0.16s;
+  transition-delay: 0.3s;
 }
 .reveal-init .reveal-delay-3 {
-  transition-delay: 0.24s;
+  transition-delay: 0.45s;
 }
 .reveal-init .reveal-delay-4 {
-  transition-delay: 0.32s;
+  transition-delay: 0.6s;
 }
 .reveal-init .reveal-delay-5 {
-  transition-delay: 0.4s;
+  transition-delay: 0.75s;
 }
 .reveal-init .reveal-delay-6 {
-  transition-delay: 0.48s;
+  transition-delay: 0.9s;
+}
+
+/* Smooth Interactive Hover Lift on Revealed Cards */
+.reveal-init .cert-card.revealed:hover,
+.reveal-init .experience-card.revealed:hover,
+.reveal-init .bento-card.revealed:hover {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease !important;
 }
 
 /* Accessibility fallback */
