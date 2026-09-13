@@ -14,10 +14,10 @@
     <link rel="icon" type="image/jpeg" href="../assets/img/profile_wisuda.jpeg" />
     <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.jpeg" />
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Outfit (Display & Headings) + Plus Jakarta Sans (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
@@ -58,7 +58,6 @@
         </a>
 
         <div class="d-flex align-items-center gap-2">
-
           <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
             <div class="floating-theme-icon-box">
               <i class="bi bi-sun-fill theme-icon-sun"></i>
@@ -108,7 +107,9 @@
 
               <!-- Main Title & Lead -->
               <h1 class="blog-main-title" data-i18n="ubig_title">Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data</h1>
-              <p class="blog-subtitle-lead" data-i18n="ubig_subtitle">Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.</p>
+              <p class="blog-subtitle-lead" data-i18n="ubig_subtitle">
+                Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.
+              </p>
 
               <!-- Executive Summary Callout Box (Exact CV Bullets) -->
               <div class="blog-executive-box">
@@ -132,8 +133,12 @@
                 </p>
                 <ul class="subsystem-list">
                   <li data-i18n="ubig_sec1_item1"><strong>Volatilitas Struktur HTML:</strong> Layout situs e-commerce sering mengalami pembaruan selector CSS/DOM, yang rawan mematahkan script scraping konvensional.</li>
-                  <li data-i18n="ubig_sec1_item2"><strong>Kecepatan vs Pemblokiran (Rate Limiting):</strong> Menjalankan proses ekstraksi berkecepatan tinggi tanpa membebani server target dan tanpa terblokir oleh mekanisme proteksi bot (Cloudflare / CAPTCHA).</li>
-                  <li data-i18n="ubig_sec1_item3"><strong>Manajemen Memori &amp; Kestabilan Desktop:</strong> Aplikasi harus mampu berjalan selama berhari-hari nonstop tanpa memory leak dan tanpa mengalami freeze antarmuka (UI thread hanging).</li>
+                  <li data-i18n="ubig_sec1_item2">
+                    <strong>Kecepatan vs Pemblokiran (Rate Limiting):</strong> Menjalankan proses ekstraksi berkecepatan tinggi tanpa membebani server target dan tanpa terblokir oleh mekanisme proteksi bot (Cloudflare / CAPTCHA).
+                  </li>
+                  <li data-i18n="ubig_sec1_item3">
+                    <strong>Manajemen Memori &amp; Kestabilan Desktop:</strong> Aplikasi harus mampu berjalan selama berhari-hari nonstop tanpa memory leak dan tanpa mengalami freeze antarmuka (UI thread hanging).
+                  </li>
                 </ul>
               </section>
 
@@ -143,7 +148,9 @@
                   <i class="bi bi-cpu-fill"></i>
                   <span data-i18n="ubig_sec2_heading">2. Solusi Teknis &amp; Fitur Unggulan</span>
                 </h2>
-                <p class="blog-body-p" data-i18n="ubig_sec2_p">Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:</p>
+                <p class="blog-body-p" data-i18n="ubig_sec2_p">
+                  Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:
+                </p>
 
                 <!-- Feature Grid Cards -->
                 <div class="blog-grid-cards">
@@ -313,7 +320,9 @@
                     Proyek ini melatih pemahaman mendalam tentang arsitektur concurrency di .NET (thread synchronization, locking, async I/O), penanganan data berkapasitas besar, serta etika dan teknik penambangan data web (web scraping
                     best practices).
                   </p>
-                  <p class="mb-0" data-i18n="ubig_sec5_p2">Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.</p>
+                  <p class="mb-0" data-i18n="ubig_sec5_p2">
+                    Saya juga belajar bagaimana menghubungkan aplikasi klien desktop dengan ekosistem AI berbasis web, memastikan kualitas format data (clean data pipeline) sebelum masuk ke algoritma pemrosesan lanjutan.
+                  </p>
                 </div>
               </section>
 
@@ -519,4 +528,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-

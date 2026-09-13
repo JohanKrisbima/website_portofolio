@@ -3,7 +3,12 @@
    Theme: Modern Rounded & Glassmorphism Dark Theme
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
 :root,
 [data-theme="dark"] {
@@ -238,8 +243,9 @@ body {
 }
 
 .section-main-title {
-  font-size: 2.3rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.5vw, 2.35rem);
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
 }
@@ -247,8 +253,9 @@ body {
 .section-subtitle {
   color: var(--text-muted);
   font-size: 1.05rem;
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto;
+  line-height: 1.68;
 }
 
 .section {
@@ -298,14 +305,15 @@ body {
 }
 
 .navbar-brand-pill {
+  font-family: var(--font-display);
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   padding-right: 6px;
 }
 
@@ -627,15 +635,23 @@ body {
 }
 
 .hero-title {
-  font-size: 3.4rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   margin-bottom: 18px;
 }
 
+.hero-title span[data-i18n="hero_greeting"] {
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: -0.015em;
+}
+
 .hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  line-height: 1.75;
   color: var(--text-muted);
   max-width: 580px;
   margin-bottom: 32px;
@@ -1050,7 +1066,8 @@ body {
 }
 
 .stat-number {
-  font-size: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 800;
   color: #fff;
   line-height: 1.2;
@@ -1441,9 +1458,11 @@ body {
 }
 
 .exp-role {
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
+  letter-spacing: -0.015em;
   margin-bottom: 4px;
 }
 
@@ -1632,9 +1651,11 @@ body {
 }
 
 .cert-hl-number {
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .cert-hl-sub {
@@ -1659,7 +1680,9 @@ body {
 }
 
 .cert-item-col {
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cert-item-col.is-filtered-out {
@@ -1841,11 +1864,13 @@ body {
 }
 
 .cert-title {
-  font-size: 1.06rem;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 6px;
   line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .cert-desc {
@@ -2307,26 +2332,35 @@ body {
 }
 
 .footer-brand-name {
+  font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: #ffffff;
   letter-spacing: -0.02em;
+}
+
+.brand-avatar-footer {
+  width: 28px;
+  height: 28px;
+  font-size: 0.76rem;
 }
 
 [data-theme="light"] .footer-brand-name {
   color: #0f172a;
 }
 
+/* 2. Role Badge */
 .footer-role-badge {
   display: inline-flex;
   align-items: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-cyan);
-  background: rgba(0, 245, 212, 0.08);
-  border: 1px solid rgba(0, 245, 212, 0.2);
+  gap: 6px;
   padding: 4px 12px;
   border-radius: var(--radius-pill);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  color: var(--accent-cyan);
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 [data-theme="light"] .footer-role-badge {
@@ -2336,71 +2370,74 @@ body {
 }
 
 .footer-bio-text {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 0.88rem;
   line-height: 1.65;
+  color: var(--text-muted);
 }
 
-/* Social Channel Icons */
+/* Social Icon Buttons */
 .footer-social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  color: var(--text-light);
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: #cbd5e1;
   font-size: 1rem;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-icon:hover {
-  transform: translateY(-4px);
-  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 245, 212, 0.3);
+  color: #070a13;
+  border-color: transparent;
 }
 
 .footer-social-icon.in:hover {
   background: #0a66c2;
-  border-color: #0a66c2;
-  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.4);
 }
 
 .footer-social-icon.gh:hover {
   background: #24292e;
-  border-color: #555;
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
 }
 
 .footer-social-icon.ig:hover {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-  border-color: transparent;
-  box-shadow: 0 8px 20px rgba(214, 36, 159, 0.4);
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.4);
 }
 
 .footer-social-icon.em:hover {
   background: #ea4335;
-  border-color: #ea4335;
-  box-shadow: 0 8px 20px rgba(234, 67, 53, 0.4);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(234, 67, 53, 0.4);
 }
 
 .footer-social-icon.wa:hover {
   background: #25d366;
-  border-color: #25d366;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
 }
 
 [data-theme="light"] .footer-social-icon {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(99, 102, 241, 0.16);
   color: #475569;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* 3. Column Headings & Navigation */
 .footer-col-heading {
+  font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -4001,17 +4038,12 @@ select.composer-input option {
 
 [data-theme="light"] .bg-ambient {
   background-color: #f8fafc;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(224, 242, 254, 0.5) 0%, transparent 45%),
-    radial-gradient(circle at 90% 20%, rgba(224, 231, 255, 0.4) 0%, transparent 45%),
-    #f8fafc;
+  background: radial-gradient(circle at 10% 10%, rgba(224, 242, 254, 0.5) 0%, transparent 45%), radial-gradient(circle at 90% 20%, rgba(224, 231, 255, 0.4) 0%, transparent 45%), #f8fafc;
 }
 
 /* Thin, Crisp & Subtle Technical Grid across entire page (Garis-Garis Tipis Modern) */
 [data-theme="light"] .bg-ambient::before {
-  background-image:
-    linear-gradient(to right, rgba(37, 99, 235, 0.075) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 99, 235, 0.075) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(37, 99, 235, 0.075) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.075) 1px, transparent 1px);
   background-size: 52px 52px;
   background-position: center top;
   -webkit-mask-image: none !important;
@@ -5237,8 +5269,9 @@ select.composer-input option {
 }
 
 .blog-main-title {
+  font-family: var(--font-display);
   font-size: 2.35rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.25;
   color: #ffffff;
   margin-bottom: 16px;
@@ -5269,6 +5302,7 @@ select.composer-input option {
 }
 
 .blog-executive-box h4 {
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--accent-cyan);
@@ -5292,6 +5326,7 @@ select.composer-input option {
 }
 
 .blog-section-heading {
+  font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 700;
   color: #ffffff;
