@@ -11,12 +11,13 @@
   try {
     const THEME_STORAGE_KEY = "portfolio_theme_mode";
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    if (savedTheme === "light" || savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
+    if (savedTheme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      if (!savedTheme) {
+        localStorage.setItem(THEME_STORAGE_KEY, "light");
+      }
     }
   } catch (error) {
     console.warn("Theme storage access failed:", error);
@@ -125,18 +126,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initialize theme on page load
+  // Initialize theme on page load (Default: 'light')
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  if (savedTheme === "light" || savedTheme === "dark") {
-    applyTheme(savedTheme, false);
+  if (savedTheme === "dark") {
+    applyTheme("dark", false);
   } else {
-    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-    applyTheme(prefersLight ? "light" : "dark", false);
+    applyTheme("light", false);
   }
 
   // Floating Theme button click handler
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const nextTheme = current === "light" ? "dark" : "light";
+      applyTheme(nextTheme, true);
+    });
+  }
+
+  // Navbar Theme button click handler
+  const themeToggleNavBtn = document.getElementById("themeToggleNavBtn");
+  if (themeToggleNavBtn) {
+    themeToggleNavBtn.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme") || "dark";
       const nextTheme = current === "light" ? "dark" : "light";
       applyTheme(nextTheme, true);
@@ -703,6 +713,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Collapsible CLI Terminal Toggle
+  const btnToggleTerminal = document.getElementById("btnToggleTerminal");
+  const terminalCollapseContainer = document.getElementById("terminalCollapseContainer");
+  const termToggleText = document.getElementById("termToggleText");
+
+  if (btnToggleTerminal && terminalCollapseContainer) {
+    btnToggleTerminal.addEventListener("click", () => {
+      const isHidden = terminalCollapseContainer.classList.contains("d-none");
+      if (isHidden) {
+        terminalCollapseContainer.classList.remove("d-none");
+        if (termToggleText) {
+          termToggleText.textContent = currentLanguage === "id" ? "Tutup Terminal Interaktif" : "Hide Interactive Terminal";
+        }
+        if (terminalInput) terminalInput.focus();
+      } else {
+        terminalCollapseContainer.classList.add("d-none");
+        if (termToggleText) {
+          termToggleText.textContent = currentLanguage === "id" ? "Buka Terminal Interaktif (CLI)" : "Open Interactive Terminal (CLI)";
+        }
+      }
+    });
+  }
 
   // =========================================================================
   // 8. Quick Message Composer (WhatsApp Direct Form)

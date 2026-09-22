@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,10 +14,10 @@
     <link rel="icon" type="image/jpeg" href="../assets/img/profile_wisuda.jpeg" />
     <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.jpeg" />
 
-    <!-- Google Fonts: Outfit (Display & Headings) + Plus Jakarta Sans (Body) -->
+    <!-- Google Fonts: Montserrat (Headings) + Inter / Plus Jakarta Sans (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
@@ -36,35 +36,35 @@
     <!-- Reading Progress Bar -->
     <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
 
-    <!-- Ambient Glow Orbs -->
-    <div class="bg-ambient">
-      <div class="ambient-orb orb-1"></div>
-      <div class="ambient-orb orb-2"></div>
-      <div class="ambient-orb orb-3"></div>
-    </div>
-
-    <!-- Floating Top Navigation Bar -->
+    <!-- Floating Minimalist Navbar -->
     <header class="blog-nav-sticky">
-      <div class="blog-nav-inner">
-        <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
-          <i class="bi bi-arrow-left"></i>
-          <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
-          <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
-        </a>
+      <div class="container">
+        <div class="blog-nav-inner">
+          <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
+            <i class="bi bi-arrow-left"></i>
+            <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
+            <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
+          </a>
 
-        <a href="../index.html#home" class="navbar-brand-pill text-decoration-none">
-          <span class="brand-avatar-mini">JK</span>
-          <span class="d-none d-md-inline">Johan<span class="text-gradient">.dev</span></span>
-        </a>
+          <a href="../index.html#home" class="navbar-brand-minimal text-decoration-none">
+            <span class="brand-monogram">JK</span>
+            <span class="d-none d-md-inline">Johan Krisbima</span>
+          </a>
 
-        <div class="d-flex align-items-center gap-2">
-          <button type="button" id="blogThemeToggleBtn" class="blog-theme-btn" aria-label="Ganti Tema">
-            <div class="floating-theme-icon-box">
+          <div class="d-flex align-items-center gap-2">
+            <!-- Language Switcher -->
+            <button type="button" id="blogLangToggleBtn" class="btn-nav-lang" aria-label="Ganti Bahasa (ID / EN)" title="Ganti Bahasa / Switch Language">
+              <i class="bi bi-translate"></i>
+              <span id="blogLangText">EN</span>
+            </button>
+
+            <!-- Theme Switcher -->
+            <button type="button" id="blogThemeToggleBtn" class="btn-nav-theme" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
               <i class="bi bi-sun-fill theme-icon-sun"></i>
               <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-            </div>
-            <span class="floating-theme-text d-none d-md-inline" id="blogThemeText">Dark Mode</span>
-          </button>
+              <span class="visually-hidden" id="blogThemeText">Dark Mode</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -82,7 +82,7 @@
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
                 <a href="../index.html#project" data-i18n="detail_breadcrumb_exp">Pengalaman &amp; Proyek</a>
                 <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <span class="text-white fw-semibold">PT PAL Indonesia</span>
+                <span class="current-crumb">PT PAL Indonesia</span>
               </nav>
 
               <!-- Header Badges -->
@@ -411,129 +411,40 @@
     </main>
 
     <!-- =========================================================================
-         PROFESSIONAL RECRUITER-READY FOOTER
+         FOOTER (DEEP BLACK MONOCHROME ALA TOMASZ GAJDA)
          ========================================================================= -->
-    <footer class="footer-rounded" id="mainFooter">
-      <div class="container position-relative">
-        <!-- Main 4-Column Footer Content -->
-        <div class="footer-main-grid pb-4">
-          <div class="row g-4 g-xl-5">
-            <!-- Column 1: Brand & Professional Summary -->
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="footer-brand-block">
-                <a href="../index.html#home" class="footer-brand-title d-inline-flex align-items-center gap-2 mb-3 text-decoration-none">
-                  <span class="brand-avatar-mini brand-avatar-footer">JK</span>
-                  <span class="footer-brand-name">Johan<span class="text-gradient">.dev</span></span>
-                </a>
-                <div class="footer-role-badge mb-3"><i class="bi bi-code-slash text-cyan me-1"></i> Software &amp; Web Developer</div>
-                <p class="footer-bio-text mb-4" data-i18n="footer_brand_desc">
-                  Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata
-                  bagi bisnis.
-                </p>
-
-                <!-- Direct Social & Professional Channels -->
-                <div class="footer-social-row d-flex align-items-center gap-2">
-                  <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-icon in" aria-label="LinkedIn Profile" title="LinkedIn Profile">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                  <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-icon gh" aria-label="GitHub Profile" title="GitHub Profile">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-icon ig" aria-label="Instagram Profile" title="Instagram Profile">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                  <a href="mailto:johankrisbima77@gmail.com" class="footer-social-icon em" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
-                    <i class="bi bi-envelope-fill"></i>
-                  </a>
-                  <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-icon wa" aria-label="WhatsApp" title="WhatsApp Langsung">
-                    <i class="bi bi-whatsapp"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Column 2: Quick Navigation -->
-            <div class="col-12 col-sm-6 col-lg-2">
-              <div class="footer-links-block">
-                <h4 class="footer-col-heading mb-3">
-                  <span data-i18n="footer_col_nav">Eksplorasi</span>
-                </h4>
-                <ul class="footer-nav-list list-unstyled mb-0">
-                  <li>
-                    <a href="../index.html#home"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_home">Beranda</span></a>
-                  </li>
-                  <li>
-                    <a href="../index.html#about"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_about">Profil &amp; Edukasi</span></a>
-                  </li>
-                  <li>
-                    <a href="../index.html#project"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_project">Pengalaman Kerja</span></a>
-                  </li>
-                  <li>
-                    <a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_certificate">Sertifikasi Resmi</span></a>
-                  </li>
-                  <li>
-                    <a href="../index.html#contact"><i class="bi bi-chevron-right"></i> <span data-i18n="nav_contact">Hubungi Langsung</span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Column 3: Tech Competencies (HR/Tech Lead Focused) -->
-            <div class="col-12 col-sm-6 col-lg-3">
-              <div class="footer-links-block">
-                <h4 class="footer-col-heading mb-3">
-                  <span data-i18n="footer_col_competencies">Keahlian Utama</span>
-                </h4>
-                <div class="footer-skill-tags d-flex flex-column gap-2">
-                  <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-hdd-network text-cyan me-1"></i> <span data-i18n="footer_skill1_title">Backend &amp; REST API</span></div>
-                    <div class="skill-detail">Laravel, PHP, MySQL, RESTful</div>
-                  </div>
-                  <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-laptop text-primary me-1"></i> <span data-i18n="footer_skill2_title">Modern Frontend</span></div>
-                    <div class="skill-detail">JavaScript ES6+, Bootstrap 5, UI/UX</div>
-                  </div>
-                  <div class="footer-skill-item">
-                    <div class="skill-name"><i class="bi bi-git text-warning me-1"></i> <span data-i18n="footer_skill3_title">Metodologi &amp; Tools</span></div>
-                    <div class="skill-detail">Git, GitHub, Agile Scrum, Postman</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Column 4: HR Quick Facts & Contact Info -->
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="footer-links-block">
-                <h4 class="footer-col-heading mb-3">
-                  <span data-i18n="footer_col_recruiter">Info Rekrutmen</span>
-                </h4>
-                <div class="footer-recruiter-facts d-flex flex-column gap-3">
-                  <div class="recruiter-fact-item d-flex align-items-start gap-2">
-                    <div class="fact-icon-box flex-shrink-0 text-danger"><i class="bi bi-geo-alt-fill"></i></div>
-                    <div>
-                      <div class="fact-label" data-i18n="footer_loc_label">Lokasi Domisili</div>
-                      <div class="fact-value" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
-                    </div>
-                  </div>
-                  <div class="recruiter-fact-item d-flex align-items-start gap-2">
-                    <div class="fact-icon-box flex-shrink-0 text-success"><i class="bi bi-briefcase-fill"></i></div>
-                    <div>
-                      <div class="fact-label" data-i18n="footer_status_label">Status Ketersediaan</div>
-                      <div class="fact-value fact-highlight-status" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
-                    </div>
-                  </div>
-                  <div class="recruiter-fact-item d-flex align-items-start gap-2">
-                    <div class="fact-icon-box flex-shrink-0 text-info"><i class="bi bi-building-check"></i></div>
-                    <div>
-                      <div class="fact-label" data-i18n="footer_mobility_label">Mobilitas Kerja</div>
-                      <div class="fact-value" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <footer class="footer-monochrome" id="mainFooter">
+      <div class="container">
+        <!-- Back To Top Link with Chevron -->
+        <div class="footer-back-to-top-wrap">
+          <a href="#page-top" class="btn-back-to-top-link">
+            <i class="bi bi-chevron-double-up"></i>
+            <span data-i18n="footer_back_to_top">KEMBALI KE ATAS</span>
+          </a>
         </div>
+
+        <!-- Social Media Icons Row -->
+        <div class="footer-social-row">
+          <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-icon" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-icon" aria-label="GitHub Profile" title="GitHub Profile">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-icon" aria-label="Instagram Profile" title="Instagram Profile">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="mailto:johankrisbima77@gmail.com" class="footer-social-icon" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-icon" aria-label="WhatsApp" title="WhatsApp: 087851865091">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+
+        <p class="footer-copyright">
+          &copy; 2026 Johan Krisbima Abi. All Rights Reserved.
+        </p>
       </div>
     </footer>
 
@@ -541,9 +452,9 @@
     <div class="modal fade modal-rounded" id="imageZoomModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
-          <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title text-white small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Gambar Sistem</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-header">
+            <h5 class="modal-title small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Gambar Sistem</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center p-2 p-md-4">
             <img id="zoomModalImg" src="" alt="Pratinjau Gambar" class="img-fluid rounded-4 shadow-lg zoom-modal-img" />

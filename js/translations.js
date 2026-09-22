@@ -23,21 +23,22 @@ const portfolioTranslations = {
     hero_chip_specialist: "Specialist",
     hero_chip_specialist_val: "Web Development",
     hero_chip_core: "Core Tech",
-    hero_desc: '<span class="fw-semibold text-white">Software Developer</span> dengan keahlian perancangan RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.',
+    hero_desc: '<strong class="hero-bio-highlight">Software Developer</strong> dengan keahlian perancangan RESTful API, otomatisasi web, serta pengembangan sistem enterprise yang scalable & handal.',
     hero_btn_contact: "Hubungi Saya",
     hero_btn_projects: "Lihat Proyek",
     hero_stat_exp: "Pengalaman",
     hero_stat_tech: "Tech Stack",
     hero_stat_cert: "Sertifikasi",
 
+    // Strip Banner
+    strip_banner_text: "Software Developer fokus pada arsitektur backend scalable &amp; solusi enterprise",
+    strip_banner_btn: "Baca Selengkapnya",
+
     // Typewriter Roles
-    typewriter_roles: [
-      "Software Developer",
-      "Spesialis Backend & RESTful API",
-      "Pengalaman 1 Tahun Web Developer"
-    ],
+    typewriter_roles: ["Software Developer", "Spesialis Backend & RESTful API", "Pengalaman 1 Tahun Web Developer"],
 
     // About Section
+    about_box_title: "TENTANG SAYA",
     about_tag: "About Me",
     about_title: "Profil & Keahlian",
     about_subtitle: "Dedikasi dalam merancang dan mengembangkan arsitektur perangkat lunak yang efisien, scalable, serta berorientasi solusi enterprise.",
@@ -45,8 +46,10 @@ const portfolioTranslations = {
     about_hl_2: "1+ Tahun Pengalaman Web & API",
     about_hl_3: "Hibah PKM-PM Kemendikbudristek",
     about_role_subtitle: "Software Developer & D4 Teknik Informatika",
-    about_bio_1: 'Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan <em>web application</em> melalui program MagangHub yang dilanjutkan dengan kontrak internship di <span class="highlight-pill">PT PAL Indonesia</span>.',
-    about_bio_2: "Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.",
+    about_bio_1:
+      'Saya Johan Krisbima Abi, lulusan <span class="highlight-pill">D4 Teknik Informatika Politeknik Negeri Jember (2025)</span> dengan pengalaman profesional dalam pengembangan <em>web application</em> melalui program MagangHub yang dilanjutkan dengan kontrak internship di <span class="highlight-pill">PT PAL Indonesia</span>.',
+    about_bio_2:
+      "Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.",
     about_edu_school: "Politeknik Negeri Jember",
     about_edu_degree: "D4 Teknik Informatika (2021 - 2025)",
     about_edu_ipk: "IPK: 3.87 / 4.00",
@@ -60,6 +63,29 @@ const portfolioTranslations = {
     about_skills_tools: "Non-Programming & Tools",
     about_skills_soft: "Soft Skills & Bahasa",
 
+    // Tomasz Gajda 3 Pillars (About Me)
+    about_pillar1_title: "BACKEND DEVELOPMENT",
+    about_pillar1_desc: "Perancangan RESTful API, arsitektur database MySQL/PostgreSQL, keamanan dan performa enterprise yang andal.",
+    about_pillar2_title: "FRONTEND & WEB UI",
+    about_pillar2_desc: "Antarmuka web responsif, implementasi JavaScript ES6+, Bootstrap, serta pengalaman pengguna yang rapi dan adaptif.",
+    about_pillar3_title: "PROJECT MANAGEMENT",
+    about_pillar3_desc: "Analisis kebutuhan sistem, dokumentasi teknis & UAT, pengujian terstruktur, serta kerja kolaboratif agile.",
+
+    // Tomasz Gajda Skills Categories
+    skills_box_title: "SKILLS & KEAHLIAN",
+    skills_using_now: "SEDANG DIGUNAKAN:",
+    skills_learning: "SEDANG DIPELAJARI:",
+    skills_other: "SKILL LAIN & BAHASA:",
+    term_toggle_open: "Buka Terminal Interaktif (CLI)",
+    term_toggle_close: "Tutup Terminal Interaktif",
+
+    // Framed Titles
+    exp_box_title: "PENGALAMAN",
+    cert_box_title: "SERTIFIKASI",
+    contact_box_title: "KONTAK",
+    contact_btn_submit: "KIRIM KE WHATSAPP",
+    footer_back_to_top: "KEMBALI KE ATAS",
+
     // CLI Terminal
     term_subtitle: "(Interactive CLI)",
     term_clear: "Clear",
@@ -69,7 +95,7 @@ const portfolioTranslations = {
 
     // Experience Section
     exp_tag: "Professional Journey",
-    exp_title: "Pengalaman & Proyek",
+    exp_title: "Pengalaman",
     exp_subtitle: "Rekam jejak kontribusi nyata dalam perancangan dan pengembangan ekosistem aplikasi web enterprise, arsitektur backend RESTful API yang scalable, serta otomasi data pipeline.",
     exp_hl_1: "4+ Sistem Enterprise BUMN",
     exp_hl_2: "35+ RESTful API Endpoints",
@@ -120,9 +146,10 @@ const portfolioTranslations = {
     exp_stechoq_point3: "Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.",
 
     // Certificates Section
-    cert_tag: "Certificates & Awards",
+    cert_tag: "Certificates",
     cert_title: "Sertifikasi & Lisensi Resmi",
-    cert_subtitle: "Kredensial profesional terverifikasi industri: Lisensi Web Developer resmi <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, program magang industri bersertifikat (MSIB), dan penghargaan hibah Kemendikbudristek.",
+    cert_subtitle:
+      "Kredensial profesional terverifikasi industri: Lisensi Web Developer resmi <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong>, program magang industri bersertifikat (MSIB), dan penghargaan hibah Kemendikbudristek.",
     cert_hl1_title: "1 Lisensi BNSP",
     cert_hl1_sub: "Web Developer RI (3 Th)",
     cert_hl2_title: "4 Kredensial Industri",
@@ -180,7 +207,8 @@ const portfolioTranslations = {
 
     // Footer
     footer_role: "Software & Web Developer",
-    footer_bio: "Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi bisnis.",
+    footer_bio:
+      "Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi bisnis.",
     footer_col_explore: "Eksplorasi",
     footer_link_home: "Beranda",
     footer_link_about: "Profil & Edukasi",
@@ -228,10 +256,13 @@ const portfolioTranslations = {
     pal_title: "Pengembangan &amp; Pengamanan Ekosistem Aplikasi Enterprise di PT PAL Indonesia",
     pal_subtitle: "Studi kasus komprehensif mengenai perancangan sistem absensi vendor (Subkon), refactoring &amp; penguatan keamanan sistem dokumen enkripsi (Simandok), serta integrasi sistem internal perusahaan galangan kapal BUMN.",
     pal_exec_heading: "Ringkasan Eksekutif (Executive Summary)",
-    pal_exec_p: "Sebagai Pemrogram Komputer Contract di PT PAL Indonesia (Badan Usaha Milik Negara industri pertahanan &amp; maritim terkemuka), saya bertanggung jawab merancang, mengoptimalkan, dan mengamankan berbagai sistem informasi enterprise secara end-to-end. Fokus utama meliputi pembangunan Website Subkon dari tahap arsitektur skema database hingga deployment server, refactoring codebase Website Simandok untuk perlindungan dokumen rahasia, serta pengujian berkala terhadap modul absensi makan siang (Siamang) dan lelang tender (Ebidding).",
+    pal_exec_p:
+      "Sebagai Pemrogram Komputer Contract di PT PAL Indonesia (Badan Usaha Milik Negara industri pertahanan &amp; maritim terkemuka), saya bertanggung jawab merancang, mengoptimalkan, dan mengamankan berbagai sistem informasi enterprise secara end-to-end. Fokus utama meliputi pembangunan Website Subkon dari tahap arsitektur skema database hingga deployment server, refactoring codebase Website Simandok untuk perlindungan dokumen rahasia, serta pengujian berkala terhadap modul absensi makan siang (Siamang) dan lelang tender (Ebidding).",
     pal_sec1_heading: "1. Latar Belakang &amp; Kebutuhan Bisnis",
-    pal_sec1_p: "PT PAL Indonesia mengelola ribuan tenaga kerja eksternal (subkontraktor/vendor) dan ribuan dokumen teknik perkapalan yang berstatus sangat rahasia. Sebelum modernisasi sistem dilakukan, beberapa tantangan operasional yang dihadapi antara lain:",
-    pal_sec1_item1: "<strong>Validasi Absensi Vendor Manual:</strong> Kompleksitas pencatatan kehadiran personel subkontraktor di area galangan kapal yang luas memerlukan sistem terpusat yang presisi untuk mencegah kecurangan dan mempercepat rekonsiliasi penagihan bulanan.",
+    pal_sec1_p:
+      "PT PAL Indonesia mengelola ribuan tenaga kerja eksternal (subkontraktor/vendor) dan ribuan dokumen teknik perkapalan yang berstatus sangat rahasia. Sebelum modernisasi sistem dilakukan, beberapa tantangan operasional yang dihadapi antara lain:",
+    pal_sec1_item1:
+      "<strong>Validasi Absensi Vendor Manual:</strong> Kompleksitas pencatatan kehadiran personel subkontraktor di area galangan kapal yang luas memerlukan sistem terpusat yang presisi untuk mencegah kecurangan dan mempercepat rekonsiliasi penagihan bulanan.",
     pal_sec1_item2: "<strong>Keamanan Dokumen Manufaktur:</strong> Dokumen desain blueprint kapal militer dan niaga membutuhkan mekanisme enkripsi tingkat tinggi dan audit log yang ketat agar tidak bocor ke pihak luar.",
     pal_sec1_item3: "<strong>Integrasi Antar Layanan Internal:</strong> Perlunya sinkronisasi data identitas pekerja, fasilitas makan siang di galangan, serta sistem lelang barang/jasa vendor yang terhubung harmonis.",
     pal_sec2_heading: "2. Rincian Sistem yang Dikembangkan",
@@ -273,8 +304,10 @@ const portfolioTranslations = {
     pal_metric3_label: "Kecepatan Respon Query Transaksi Absensi",
     pal_metric4_label: "Insiden Kebocoran Dokumen (Data Breach)",
     pal_sec5_heading: "5. Pembelajaran Utama (Key Takeaways)",
-    pal_sec5_p1: "Bekerja di lingkungan industri manufaktur strategis seperti PT PAL Indonesia memberikan pengalaman berharga tentang bagaimana software engineering harus selaras dengan prosedur ketat (SOP), kepatuhan standar keamanan data (cyber security standards), dan keandalan sistem jangka panjang.",
-    pal_sec5_p2: "Kunci keberhasilan proyek ini adalah komunikasi lintas divisi yang intensif, pemahaman mendalam terhadap kebutuhan user non-teknis melalui pembuatan video panduan yang mudah dipahami, serta disiplin penulisan kode bersih yang siap di-audit sewaktu-waktu.",
+    pal_sec5_p1:
+      "Bekerja di lingkungan industri manufaktur strategis seperti PT PAL Indonesia memberikan pengalaman berharga tentang bagaimana software engineering harus selaras dengan prosedur ketat (SOP), kepatuhan standar keamanan data (cyber security standards), dan keandalan sistem jangka panjang.",
+    pal_sec5_p2:
+      "Kunci keberhasilan proyek ini adalah komunikasi lintas divisi yang intensif, pemahaman mendalam terhadap kebutuhan user non-teknis melalui pembuatan video panduan yang mudah dipahami, serta disiplin penulisan kode bersih yang siap di-audit sewaktu-waktu.",
 
     // PT Stechoq Robotika Indonesia Detail (ID)
     stechoq_meta_title: "Detail Pengalaman: Backend Developer Intern di PT Stechoq Robotika Indonesia | Johan Krisbima Abi",
@@ -289,7 +322,8 @@ const portfolioTranslations = {
     stechoq_exec_p2: "Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.",
     stechoq_exec_p3: "Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.",
     stechoq_sec1_heading: "1. Latar Belakang &amp; Tantangan Pergudangan Retail",
-    stechoq_sec1_p: "Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum yang dihadapi retail meliputi:",
+    stechoq_sec1_p:
+      "Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum yang dihadapi retail meliputi:",
     stechoq_sec1_item1: "<strong>Discrepancy Selisih Stok Antar Cabang:</strong> Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.",
     stechoq_sec1_item2: "<strong>Ketiadaan Peringatan Stok Rendah (Out of Stock Risk):</strong> Hilangnya potensi penjualan produk best-seller karena keterlambatan pengadaan ulang barang dari pihak prinsipal atau distributor.",
     stechoq_sec1_item3: "<strong>Audit Trail yang Lemah:</strong> Kesulitan melacak staf mana yang mengotorisasi pengeluaran barang jika terjadi kehilangan unit bernilai tinggi.",
@@ -346,7 +380,8 @@ const portfolioTranslations = {
     ubig_exec_p2: "Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.",
     ubig_exec_p3: "Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.",
     ubig_sec1_heading: "1. Latar Belakang Masalah &amp; Kebutuhan Data",
-    ubig_sec1_p: "Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan teknis utama yang harus dipecahkan meliputi:",
+    ubig_sec1_p:
+      "Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan teknis utama yang harus dipecahkan meliputi:",
     ubig_sec1_item1: "<strong>Volatilitas Struktur HTML:</strong> Layout situs e-commerce sering mengalami pembaruan selector CSS/DOM, yang rawan mematahkan script scraping konvensional.",
     ubig_sec1_item2: "<strong>Kecepatan vs Pemblokiran (Rate Limiting):</strong> Menjalankan proses ekstraksi berkecepatan tinggi tanpa membebani server target dan tanpa terblokir oleh mekanisme proteksi bot (Cloudflare / CAPTCHA).",
     ubig_sec1_item3: "<strong>Manajemen Memori &amp; Kestabilan Desktop:</strong> Aplikasi harus mampu berjalan selama berhari-hari nonstop tanpa memory leak dan tanpa mengalami freeze antarmuka (UI thread hanging).",
@@ -388,7 +423,8 @@ const portfolioTranslations = {
     ubig_metric4_label: "Stabilitas Crawling Tanpa Memory Leak / Crash",
     ubig_sec5_heading: "5. Pembelajaran Utama (Key Takeaways)",
     ubig_sec5_p1: "Mengembangkan Nobox Extractor di PT Universal Big Data memberikan wawasan mendalam mengenai teknik web scraping modern, pemrosesan data asinkronus skala besar, dan arsitektur desktop multithreading.",
-    ubig_sec5_p2: "Pelajaran paling bernilai adalah merancang kode ekstraksi yang tangguh (fault-tolerant): selalu mengantisipasi perubahan struktur DOM situs pihak ketiga, menangani kegagalan jaringan secara anggun (graceful degradation), dan menjaga kebersihan data sebelum disimpan ke database inti."
+    ubig_sec5_p2:
+      "Pelajaran paling bernilai adalah merancang kode ekstraksi yang tangguh (fault-tolerant): selalu mengantisipasi perubahan struktur DOM situs pihak ketiga, menangani kegagalan jaringan secara anggun (graceful degradation), dan menjaga kebersihan data sebelum disimpan ke database inti.",
   },
 
   en: {
@@ -410,21 +446,22 @@ const portfolioTranslations = {
     hero_chip_specialist: "Specialist",
     hero_chip_specialist_val: "Web Development",
     hero_chip_core: "Core Tech",
-    hero_desc: '<span class="fw-semibold text-white">Software Developer</span> specializing in RESTful API architecture, web automation, and building scalable & reliable enterprise systems.',
+    hero_desc: '<strong class="hero-bio-highlight">Software Developer</strong> specializing in RESTful API architecture, web automation, and building scalable & reliable enterprise systems.',
     hero_btn_contact: "Let's Talk",
     hero_btn_projects: "View Projects",
     hero_stat_exp: "Experience",
     hero_stat_tech: "Tech Stack",
     hero_stat_cert: "Certificates",
 
+    // Strip Banner
+    strip_banner_text: "Software Developer focused on scalable backend architecture &amp; enterprise solutions",
+    strip_banner_btn: "Explore More",
+
     // Typewriter Roles
-    typewriter_roles: [
-      "Software Developer",
-      "Backend & RESTful API Specialist",
-      "1 Year Experience as Web Developer"
-    ],
+    typewriter_roles: ["Software Developer", "Backend & RESTful API Specialist", "1 Year Experience as Web Developer"],
 
     // About Section
+    about_box_title: "ABOUT ME",
     about_tag: "About Me",
     about_title: "Profile & Expertise",
     about_subtitle: "Dedicated to engineering clean, efficient, and scalable software architectures tailored for enterprise-grade solutions.",
@@ -432,8 +469,10 @@ const portfolioTranslations = {
     about_hl_2: "1+ Year Web & API Experience",
     about_hl_3: "Kemendikbudristek PKM-PM Grantee",
     about_role_subtitle: "Software Developer & B.A.Sc in Informatics Engineering",
-    about_bio_1: 'I am Johan Krisbima Abi, a graduate in <span class="highlight-pill">Applied Informatics Engineering from Politeknik Negeri Jember (2025)</span> with professional experience in web application engineering through the MagangHub program, continued with an internship contract at <span class="highlight-pill">PT PAL Indonesia</span>.',
-    about_bio_2: "Experienced in developing and maintaining web applications across all stages—from requirements analysis, system architecture, and implementation to comprehensive testing and optimization. Equipped with strong technical proficiency, effective time management, and collaborative teamwork skills. Solution-driven and committed to delivering high-quality results that advance company objectives.",
+    about_bio_1:
+      'I am Johan Krisbima Abi, a graduate in <span class="highlight-pill">Applied Informatics Engineering from Politeknik Negeri Jember (2025)</span> with professional experience in web application engineering through the MagangHub program, continued with an internship contract at <span class="highlight-pill">PT PAL Indonesia</span>.',
+    about_bio_2:
+      "Experienced in developing and maintaining web applications across all stages—from requirements analysis, system architecture, and implementation to comprehensive testing and optimization. Equipped with strong technical proficiency, effective time management, and collaborative teamwork skills. Solution-driven and committed to delivering high-quality results that advance company objectives.",
     about_edu_school: "Politeknik Negeri Jember",
     about_edu_degree: "B.A.Sc Informatics Engineering (2021 - 2025)",
     about_edu_ipk: "GPA: 3.87 / 4.00",
@@ -447,6 +486,29 @@ const portfolioTranslations = {
     about_skills_tools: "Non-Programming & Tools",
     about_skills_soft: "Soft Skills & Languages",
 
+    // Tomasz Gajda 3 Pillars (About Me)
+    about_pillar1_title: "BACKEND DEVELOPMENT",
+    about_pillar1_desc: "Scalable RESTful API architecture, robust MySQL/PostgreSQL schema optimization, and enterprise-grade security.",
+    about_pillar2_title: "FRONTEND & WEB UI",
+    about_pillar2_desc: "Responsive web interfaces, modern ES6+ JavaScript, Bootstrap, and optimal rendering performance.",
+    about_pillar3_title: "PROJECT MANAGEMENT",
+    about_pillar3_desc: "End-to-end system analysis, UAT & manual documentation, structured testing, and adaptive team collaboration.",
+
+    // Tomasz Gajda Skills Categories
+    skills_box_title: "SKILLS & EXPERTISE",
+    skills_using_now: "USING NOW:",
+    skills_learning: "LEARNING:",
+    skills_other: "OTHER SKILLS & LANGUAGES:",
+    term_toggle_open: "Open Interactive Terminal (CLI)",
+    term_toggle_close: "Hide Interactive Terminal",
+
+    // Framed Titles
+    exp_box_title: "EXPERIENCE",
+    cert_box_title: "CERTIFICATES",
+    contact_box_title: "CONTACT",
+    contact_btn_submit: "SUBMIT TO WHATSAPP",
+    footer_back_to_top: "BACK TO TOP",
+
     // CLI Terminal
     term_subtitle: "(Interactive CLI)",
     term_clear: "Clear",
@@ -456,7 +518,7 @@ const portfolioTranslations = {
 
     // Experience Section
     exp_tag: "Professional Journey",
-    exp_title: "Experience & Projects",
+    exp_title: "Experience",
     exp_subtitle: "A proven track record in engineering enterprise web application ecosystems, architecting scalable backend RESTful APIs, and automating high-volume data pipelines.",
     exp_hl_1: "4+ Enterprise Systems at BUMN",
     exp_hl_2: "35+ RESTful API Endpoints",
@@ -567,7 +629,8 @@ const portfolioTranslations = {
 
     // Footer
     footer_role: "Software & Web Developer",
-    footer_bio: "Informatics Engineering graduate from Politeknik Negeri Jember with internship experience at PT PAL Indonesia (State-Owned Enterprise), Universal Big Data, and PT Stechoq. Driven by clean architecture, high performance, and impactful business solutions.",
+    footer_bio:
+      "Informatics Engineering graduate from Politeknik Negeri Jember with internship experience at PT PAL Indonesia (State-Owned Enterprise), Universal Big Data, and PT Stechoq. Driven by clean architecture, high performance, and impactful business solutions.",
     footer_col_explore: "Explore",
     footer_link_home: "Home",
     footer_link_about: "Profile & Education",
@@ -615,10 +678,13 @@ const portfolioTranslations = {
     pal_title: "Engineering &amp; Securing Enterprise Application Ecosystems at PT PAL Indonesia",
     pal_subtitle: "Comprehensive case study on vendor attendance engineering (Subkon), refactoring &amp; security hardening for encrypted document management (Simandok), and integrating internal BUMN shipyard platforms.",
     pal_exec_heading: "Executive Summary",
-    pal_exec_p: "As a Contract Computer Programmer at PT PAL Indonesia (a premier state-owned enterprise in defense and maritime shipbuilding), I was responsible for designing, optimizing, and securing enterprise information systems end-to-end. Key highlights include building the Subkon platform from database architecture to server deployment, refactoring the Simandok codebase for confidential document protection, and continuously testing and enhancing the Siamang lunch attendance system and the Ebidding tender procurement portal.",
+    pal_exec_p:
+      "As a Contract Computer Programmer at PT PAL Indonesia (a premier state-owned enterprise in defense and maritime shipbuilding), I was responsible for designing, optimizing, and securing enterprise information systems end-to-end. Key highlights include building the Subkon platform from database architecture to server deployment, refactoring the Simandok codebase for confidential document protection, and continuously testing and enhancing the Siamang lunch attendance system and the Ebidding tender procurement portal.",
     pal_sec1_heading: "1. Background &amp; Business Context",
-    pal_sec1_p: "PT PAL Indonesia coordinates thousands of external personnel (subcontractors/vendors) and manages vast repositories of highly classified naval engineering blueprints. Prior to system modernization, key operational bottlenecks included:",
-    pal_sec1_item1: "<strong>Manual Vendor Attendance Reconciliation:</strong> Tracking external subcontractor personnel across sprawling shipyard docks required a centralized, tamper-proof system to eliminate discrepancies and accelerate monthly vendor invoicing.",
+    pal_sec1_p:
+      "PT PAL Indonesia coordinates thousands of external personnel (subcontractors/vendors) and manages vast repositories of highly classified naval engineering blueprints. Prior to system modernization, key operational bottlenecks included:",
+    pal_sec1_item1:
+      "<strong>Manual Vendor Attendance Reconciliation:</strong> Tracking external subcontractor personnel across sprawling shipyard docks required a centralized, tamper-proof system to eliminate discrepancies and accelerate monthly vendor invoicing.",
     pal_sec1_item2: "<strong>Naval Manufacturing Document Security:</strong> Military and commercial vessel blueprint designs necessitated high-grade encryption and granular audit logging to prevent unauthorized disclosures.",
     pal_sec1_item3: "<strong>Inter-Service Platform Integration:</strong> The operational necessity of synchronizing contractor credentialing, dockside meal entitlement quotas, and procurement auction services into a unified workflow.",
     pal_sec2_heading: "2. Core Production Systems Developed",
@@ -660,7 +726,8 @@ const portfolioTranslations = {
     pal_metric3_label: "Attendance Query Response Time",
     pal_metric4_label: "Data Leak Incidents (Zero Breach Record)",
     pal_sec5_heading: "5. Key Takeaways &amp; Engineering Insights",
-    pal_sec5_p1: "Working in a mission-critical defense manufacturing environment like PT PAL Indonesia reinforced the vital principle that software architecture must rigorously align with strict Standard Operating Procedures (SOP), data protection protocols, and enterprise system reliability.",
+    pal_sec5_p1:
+      "Working in a mission-critical defense manufacturing environment like PT PAL Indonesia reinforced the vital principle that software architecture must rigorously align with strict Standard Operating Procedures (SOP), data protection protocols, and enterprise system reliability.",
     pal_sec5_p2: "Key project successes stemmed from proactive cross-departmental coordination, empathetic technical communication through clear video training guides, and uncompromising adherence to clean, audit-ready code.",
 
     // PT Stechoq Robotika Indonesia Detail (EN)
@@ -676,7 +743,8 @@ const portfolioTranslations = {
     stechoq_exec_p2: "Designed and built RESTful APIs for managing product catalogs, suppliers, and warehouse transaction records.",
     stechoq_exec_p3: "Led backend engineering, covering user authentication, relational database management, and interactive API documentation.",
     stechoq_sec1_heading: "1. Background &amp; Retail Warehouse Challenges",
-    stechoq_sec1_p: "The smartphone retail sector features high inventory turnover rates and high unit price valuations. Every single device carries a unique IMEI/Serial Number requiring flawless lifecycle tracking. Common industry bottlenecks include:",
+    stechoq_sec1_p:
+      "The smartphone retail sector features high inventory turnover rates and high unit price valuations. Every single device carries a unique IMEI/Serial Number requiring flawless lifecycle tracking. Common industry bottlenecks include:",
     stechoq_sec1_item1: "<strong>Inter-Branch Stock Discrepancies:</strong> Discrepancies between digital catalog quantities and physical shelf inventory caused by delayed logging of inter-outlet store transfers.",
     stechoq_sec1_item2: "<strong>Lack of Low Stock Alerts (Stockout Risk):</strong> Lost sales revenue for best-selling smartphone models due to delayed replenishment triggers sent to principals or distributors.",
     stechoq_sec1_item3: "<strong>Deficient Audit Trails:</strong> Inability to trace staff authorization signatures on high-value unit movements in the event of missing merchandise.",
@@ -733,7 +801,8 @@ const portfolioTranslations = {
     ubig_exec_p2: "Implemented core functionalities including search logic, pagination, <em>&ldquo;no result&rdquo;</em> detection, and phone number format normalization to boost data accuracy.",
     ubig_exec_p3: "Synchronized extracted data with the <strong>Nobox AI</strong> platform, alongside debugging, rigorous testing, and performance optimization for optimal stability.",
     ubig_sec1_heading: "1. Problem Background &amp; Data Ingestion Demands",
-    ubig_sec1_p: "The Nobox AI artificial intelligence models require continuous, comprehensive, and structured streams of market intelligence data. Manual data harvesting is impossible at a scale of hundreds of thousands of items. Major technical hurdles included:",
+    ubig_sec1_p:
+      "The Nobox AI artificial intelligence models require continuous, comprehensive, and structured streams of market intelligence data. Manual data harvesting is impossible at a scale of hundreds of thousands of items. Major technical hurdles included:",
     ubig_sec1_item1: "<strong>DOM/HTML Volatility:</strong> Target e-commerce platforms frequently update markup and CSS selectors, which readily breaks conventional static scraping scripts.",
     ubig_sec1_item2: "<strong>Throughput vs. Rate Limiting:</strong> Maintaining high-throughput extraction velocities without overloading origin servers or triggering bot protection countermeasures (Cloudflare / CAPTCHA).",
     ubig_sec1_item3: "<strong>Desktop Memory Management &amp; Stability:</strong> The extraction application had to sustain multi-day continuous operational runs without memory leaks or UI thread freezes.",
@@ -775,6 +844,7 @@ const portfolioTranslations = {
     ubig_metric4_label: "Crawler Uptime with Zero Memory Leaks or Crashes",
     ubig_sec5_heading: "5. Key Takeaways &amp; Engineering Insights",
     ubig_sec5_p1: "Developing Nobox Extractor at PT Universal Big Data provided deep expertise in modern web scraping architectures, large-scale asynchronous data pipelines, and multithreaded desktop systems.",
-    ubig_sec5_p2: "The most valuable engineering insight was designing fault-tolerant pipelines: always anticipating DOM schema shifts, orchestrating graceful degradation during network throttling, and enforcing data hygiene before persistence."
-  }
+    ubig_sec5_p2:
+      "The most valuable engineering insight was designing fault-tolerant pipelines: always anticipating DOM schema shifts, orchestrating graceful degradation during network throttling, and enforcing data hygiene before persistence.",
+  },
 };

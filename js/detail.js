@@ -18,12 +18,13 @@
     const THEME_STORAGE_KEY = "portfolio_theme_mode";
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
 
-    if (savedTheme === "light" || savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
+    if (savedTheme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      if (!savedTheme) {
+        localStorage.setItem(THEME_STORAGE_KEY, "light");
+      }
     }
   } catch (error) {
     console.warn("Theme storage access failed:", error);
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Sinkronisasi status awal teks tombol
-    const initialTheme = document.documentElement.getAttribute("data-theme") || "dark";
+    const initialTheme = document.documentElement.getAttribute("data-theme") || "light";
     updateThemeDisplay(initialTheme);
 
     // Event listener pergantian mode tema
