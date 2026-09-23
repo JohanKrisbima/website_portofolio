@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (notify) {
       showToast(isLight ? "Mode Terang Aktif" : "Mode Gelap Aktif", isLight ? "bi-sun-fill" : "bi-moon-stars-fill");
     }
+
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => AOS.refresh(), 100);
+    }
   }
 
   // Initialize theme on page load (Default: 'light')
@@ -225,6 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // 6. Notify user with toast notification
       if (notify && typeof showToast === "function") {
         showToast(dict.toast_lang_switched, "bi-translate");
+      }
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
       }
     }
   }
@@ -443,6 +451,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 250);
         }
       });
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 300);
+      }
     });
   });
 
@@ -479,6 +491,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 250);
         }
       });
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 300);
+      }
     });
   });
 
@@ -531,16 +547,16 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="mb-2">
     <span class="text-warning fw-bold">1. PT Stechoq Robotika Indonesia</span> (Feb 2024 – Jul 2024)<br/>
     <span class="text-cyan small">Backend Developer Intern &bull; Project: Website Management System for Mobile Phone Warehouse</span><br/>
-    <span class="text-white-50 small">• Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</span><br/>
-    <span class="text-white-50 small">• Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</span><br/>
-    <span class="text-white-50 small">• Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</span>
+    <span class="text-white-50 small">• Membangun aplikasi web manajemen inventaris gudang handphone untuk melacak aliran stok masuk dan keluar secara akurat dan terpusat.</span><br/>
+    <span class="text-white-50 small">• Merancang RESTful API modular guna mengintegrasikan modul pengelolaan produk, data supplier, dan pencatatan transaksi pergudangan.</span><br/>
+    <span class="text-white-50 small">• Mengelola fondasi sisi backend, meliputi mekanisme autentikasi dan otorisasi pengguna, manajemen basis data, serta standarisasi dokumentasi endpoint API.</span>
   </div>
   <div class="mb-2">
     <span class="text-warning fw-bold">2. PT Universal Big Data</span> (Jul 2024 – Des 2024)<br/>
     <span class="text-cyan small">Web Automation Intern &bull; Project: Web Scraping for Nobox Extractor App</span><br/>
-    <span class="text-white-50 small">• Mengembangkan dan memelihara Nobox Extractor, aplikasi desktop scraping data publik e-commerce global.</span><br/>
-    <span class="text-white-50 small">• Mengimplementasikan logika pencarian, pagination, deteksi "no result", dan normalisasi nomor telepon.</span><br/>
-    <span class="text-white-50 small">• Menyinkronkan data ke platform Nobox AI, pengujian, debugging, dan optimasi performa.</span>
+    <span class="text-white-50 small">• Membangun dan memelihara aplikasi otomasi Nobox Extractor untuk mengekstraksi data publik lintas platform e-commerce global dengan tingkat keandalan tinggi.</span><br/>
+    <span class="text-white-50 small">• Mengimplementasikan fitur-fitur kritikal, seperti penanganan pagination kompleks, validasi kueri pencarian, dan standardisasi format data untuk meminimalisasi anomali serta meningkatkan akurasi data.</span><br/>
+    <span class="text-white-50 small">• Menghubungkan integrasi data ke platform Nobox AI serta melakukan pengujian dan penalaan performa (performance tuning) secara rutin guna menjaga reliabilitas aplikasi desktop.</span>
   </div>
   <div>
     <span class="text-warning fw-bold">3. PT PAL Indonesia</span> (Oct 2025 – Aug 2026)<br/>
@@ -1000,77 +1016,31 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
   });
 
   // =========================================================================
-  // 12. Dynamic Scroll Reveal Animation Engine (Optimized & Instant)
+  // 12. AOS (Animate On Scroll) Responsive Initialization Engine
   // =========================================================================
-  function initScrollReveal() {
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
+  function initAOS() {
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 750,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 40,
+        delay: 30,
+        disableMutationObserver: false,
+      });
     }
-
-    document.documentElement.classList.add("reveal-init");
-
-    const targetSelectors = [
-      ".section-title-wrapper",
-      ".bento-card",
-      ".mini-rounded-card",
-      ".cv-download-banner",
-      ".exp-filter-wrapper",
-      ".experience-card",
-      ".cert-highlights-bar",
-      ".cert-filter-wrapper",
-      ".cert-card",
-      ".contact-card-main",
-      ".composer-card",
-      ".quick-copy-box",
-      ".terminal-box",
-      ".github-showcase-box",
-    ];
-
-    const elements = document.querySelectorAll(targetSelectors.join(", "));
-    const windowH = window.innerHeight;
-
-    elements.forEach((el) => {
-      if (!el.classList.contains("reveal-on-scroll")) {
-        el.classList.add("reveal-on-scroll");
-      }
-
-      // Fast stagger for multi-column grid items
-      const colParent = el.closest(".col-lg-6, .col-lg-4, .col-lg-7, .col-lg-5, .col-md-6, .col-md-4, .col-sm-6");
-      if (colParent && colParent.parentElement) {
-        const siblings = Array.from(colParent.parentElement.children);
-        const colIdx = siblings.indexOf(colParent);
-        if (colIdx > 0 && colIdx <= 5 && !Array.from(el.classList).some((c) => c.startsWith("reveal-delay-"))) {
-          el.classList.add(`reveal-delay-${colIdx}`);
-        }
-      }
-    });
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -90px 0px",
-        threshold: 0.18,
-      },
-    );
-
-    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
-      // If already well within viewport on initial page load, reveal smoothly
-      const rect = el.getBoundingClientRect();
-      if (rect.top < windowH - 120) {
-        el.classList.add("revealed");
-      } else {
-        revealObserver.observe(el);
-      }
-    });
   }
 
-  initScrollReveal();
+  // Initialize immediately and refresh on window load / orientation change
+  initAOS();
+  window.addEventListener("load", () => {
+    if (typeof AOS !== "undefined") {
+      AOS.refresh();
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (typeof AOS !== "undefined") {
+      AOS.refresh();
+    }
+  });
 });

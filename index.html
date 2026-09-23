@@ -83,6 +83,9 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- AOS (Animate On Scroll) CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
     <!-- Custom Tomasz Gajda Minimalist Theme CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -247,7 +250,7 @@
       <div class="hero-split-container">
         <!-- Left Side: Introduction & Bio -->
         <div class="hero-split-left">
-          <div class="hero-left-content">
+          <div class="hero-left-content" data-aos="fade-right" data-aos-duration="850">
             <p class="hero-pre-title" data-i18n="hero_greeting">Hi, I'm</p>
             <h1 class="hero-name">Johan Krisbima Abi</h1>
 
@@ -291,7 +294,7 @@
 
         <!-- Right Side: Black Angled Background with Portrait -->
         <div class="hero-split-right">
-          <div class="hero-photo-frame">
+          <div class="hero-photo-frame" data-aos="fade-left" data-aos-duration="850" data-aos-delay="100">
             <img src="assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="hero-photo-img" />
           </div>
           <div class="hero-watermark-text">JK</div>
@@ -302,7 +305,7 @@
     <!-- =========================================================================
          2. STRIP BANNER SECTION
          ========================================================================= -->
-    <section class="strip-banner-section">
+    <section class="strip-banner-section" data-aos="fade-up" data-aos-duration="700">
       <div class="container">
         <div class="strip-banner-content">
           <div class="strip-banner-left">
@@ -325,7 +328,7 @@
          ========================================================================= -->
     <section id="about" class="section section-light">
       <div class="container">
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="about_box_title">TENTANG SAYA</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -335,7 +338,7 @@
         </div>
 
         <!-- Bio Summary -->
-        <div class="about-summary-wrapper">
+        <div class="about-summary-wrapper" data-aos="fade-up" data-aos-delay="100">
           <p class="about-lead-text" data-i18n="about_bio_1">
             Saya Johan Krisbima Abi, lulusan <strong class="text-decoration-underline">D4 Teknik Informatika Politeknik Negeri Jember (2025)</strong> dengan pengalaman profesional dalam pengembangan <em>web application</em> melalui program
             MagangHub yang dilanjutkan dengan kontrak internship di <strong>PT PAL Indonesia</strong>.
@@ -356,7 +359,7 @@
 
         <!-- 3 Pillars (Tomasz Gajda layout) -->
         <div class="row g-4 about-pillars-grid">
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="pillar-card spotlight-card">
               <div class="pillar-icon-box">
                 <i class="bi bi-hdd-network-fill"></i>
@@ -365,7 +368,7 @@
               <p class="pillar-desc" data-i18n="about_pillar1_desc">Perancangan RESTful API, arsitektur database MySQL/PostgreSQL, keamanan dan performa enterprise yang andal.</p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="pillar-card spotlight-card">
               <div class="pillar-icon-box">
                 <i class="bi bi-laptop-fill"></i>
@@ -374,7 +377,7 @@
               <p class="pillar-desc" data-i18n="about_pillar2_desc">Antarmuka web responsif, implementasi JavaScript ES6+, Bootstrap, serta pengalaman pengguna yang rapi dan adaptif.</p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="pillar-card spotlight-card">
               <div class="pillar-icon-box">
                 <i class="bi bi-kanban-fill"></i>
@@ -386,7 +389,7 @@
         </div>
 
         <!-- Download CV Minimal Bar -->
-        <div class="cv-minimal-bar mt-5">
+        <div class="cv-minimal-bar mt-5" data-aos="fade-up" data-aos-delay="150">
           <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3 text-center text-sm-start">
             <div class="d-flex align-items-center gap-3">
               <i class="bi bi-file-earmark-pdf fs-2 text-danger"></i>
@@ -406,7 +409,7 @@
          ========================================================================= -->
     <section id="skills" class="section section-white">
       <div class="container">
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="skills_box_title">SKILLS &amp; KEAHLIAN</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -416,7 +419,7 @@
         </div>
 
         <!-- Category 1: USING NOW -->
-        <div class="skills-category-block">
+        <div class="skills-category-block" data-aos="fade-up" data-aos-delay="100">
           <h3 class="skills-category-heading" data-i18n="skills_using_now">USING NOW:</h3>
           <div class="skills-icon-grid">
             <div class="skill-icon-item">
@@ -467,7 +470,7 @@
         </div>
 
         <!-- Category 2: LEARNING -->
-        <div class="skills-category-block">
+        <div class="skills-category-block" data-aos="fade-up" data-aos-delay="150">
           <h3 class="skills-category-heading" data-i18n="skills_learning">LEARNING:</h3>
           <div class="skills-icon-grid">
             <div class="skill-icon-item">
@@ -490,7 +493,7 @@
         </div>
 
         <!-- Category 3: OTHER SKILLS & LANGUAGES -->
-        <div class="skills-category-block">
+        <div class="skills-category-block" data-aos="fade-up" data-aos-delay="200">
           <h3 class="skills-category-heading" data-i18n="skills_other">OTHER SKILLS &amp; LANGUAGES:</h3>
           <div class="skills-icon-grid">
             <div class="skill-icon-item">
@@ -517,7 +520,7 @@
         </div>
 
         <!-- Collapsible CLI Terminal Easter Egg (Sesuai redesign.md) -->
-        <div class="terminal-easter-egg-wrap text-center">
+        <div class="terminal-easter-egg-wrap text-center" data-aos="fade-up" data-aos-delay="100">
           <button type="button" class="btn-box-outline btn-sm" id="btnToggleTerminal">
             <i class="bi bi-terminal-fill me-1"></i>
             <span id="termToggleText" data-i18n="term_toggle_open">Buka Terminal Interaktif (CLI)</span>
@@ -576,7 +579,7 @@
          ========================================================================= -->
     <section id="project" class="section section-light">
       <div class="container">
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="exp_box_title">PENGALAMAN &amp; PROYEK</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -588,7 +591,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <!-- Underline Filter Tabs (Tomasz Gajda style) -->
-            <div class="exp-filter-wrapper text-center">
+            <div class="exp-filter-wrapper text-center" data-aos="fade-up" data-aos-delay="100">
               <button type="button" class="filter-btn filter-btn-underline active" data-filter="all"><span data-i18n="exp_filter_all">Semua</span> (3)</button>
               <button type="button" class="filter-btn filter-btn-underline" data-filter="enterprise">
                 <span data-i18n="exp_filter_enterprise">Enterprise</span>
@@ -602,7 +605,7 @@
             </div>
 
             <!-- Item 1: PT PAL Indonesia -->
-            <div class="experience-card spotlight-card" data-category="enterprise">
+            <div class="experience-card spotlight-card" data-category="enterprise" data-aos="fade-up" data-aos-delay="100">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role" data-i18n="exp_pal_role">Pemrogram Komputer Contract</h3>
@@ -671,7 +674,7 @@
             </div>
 
             <!-- Item 2: PT Universal Big Data -->
-            <div class="experience-card spotlight-card" data-category="automation">
+            <div class="experience-card spotlight-card" data-category="automation" data-aos="fade-up" data-aos-delay="150">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role" data-i18n="exp_ubig_role">Web Automation Intern</h3>
@@ -689,9 +692,9 @@
               <div class="exp-desc">
                 <div class="fw-bold mb-2"><i class="bi bi-window-stack me-1 text-primary"></i><span data-i18n="exp_ubig_proj_title">Project: Web Scraping for Nobox Extractor App</span></div>
                 <ul class="mb-0 ps-3">
-                  <li data-i18n="exp_ubig_point1">Mengembangkan dan memelihara <strong>Nobox Extractor</strong>, aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping.</li>
-                  <li data-i18n="exp_ubig_point2">Mengimplementasikan fitur penting seperti logika pencarian, pagination, deteksi <em>&ldquo;no result&rdquo;</em>, dan normalisasi format nomor telepon untuk meningkatkan akurasi data.</li>
-                  <li data-i18n="exp_ubig_point3">Menyinkronkan data ke platform <strong>Nobox AI</strong>, serta melakukan pengujian, debugging, dan optimasi performa agar aplikasi stabil dan responsif.</li>
+                  <li data-i18n="exp_ubig_point1">Membangun dan memelihara aplikasi otomasi Nobox Extractor untuk mengekstraksi data publik lintas platform e-commerce global dengan tingkat keandalan tinggi.</li>
+                  <li data-i18n="exp_ubig_point2">Mengimplementasikan fitur-fitur kritikal, seperti penanganan pagination kompleks, validasi kueri pencarian, dan standardisasi format data untuk meminimalisasi anomali serta meningkatkan akurasi data.</li>
+                  <li data-i18n="exp_ubig_point3">Menghubungkan integrasi data ke platform Nobox AI serta melakukan pengujian dan penalaan performa (performance tuning) secara rutin guna menjaga reliabilitas aplikasi desktop.</li>
                 </ul>
               </div>
 
@@ -718,7 +721,7 @@
             </div>
 
             <!-- Item 3: PT Stechoq Robotika Indonesia -->
-            <div class="experience-card spotlight-card" data-category="backend">
+            <div class="experience-card spotlight-card" data-category="backend" data-aos="fade-up" data-aos-delay="200">
               <div class="exp-header">
                 <div>
                   <h3 class="exp-role" data-i18n="exp_stechoq_role">Backend Developer Intern</h3>
@@ -736,9 +739,9 @@
               <div class="exp-desc">
                 <div class="fw-bold mb-2"><i class="bi bi-box-seam me-1 text-primary"></i><span data-i18n="exp_stechoq_proj_title">Project: Website Management System for Mobile Phone Warehouse</span></div>
                 <ul class="mb-0 ps-3">
-                  <li data-i18n="exp_stechoq_point1">Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.</li>
-                  <li data-i18n="exp_stechoq_point2">Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.</li>
-                  <li data-i18n="exp_stechoq_point3">Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.</li>
+                  <li data-i18n="exp_stechoq_point1">Membangun aplikasi web manajemen inventaris gudang handphone untuk melacak aliran stok masuk dan keluar secara akurat dan terpusat.</li>
+                  <li data-i18n="exp_stechoq_point2">Merancang RESTful API modular guna mengintegrasikan modul pengelolaan produk, data supplier, dan pencatatan transaksi pergudangan.</li>
+                  <li data-i18n="exp_stechoq_point3">Mengelola fondasi sisi backend, meliputi mekanisme autentikasi dan otorisasi pengguna, manajemen basis data, serta standarisasi dokumentasi endpoint API.</li>
                 </ul>
               </div>
 
@@ -774,7 +777,7 @@
     <section id="projects" class="section section-white projects-section">
       <div class="container">
         <!-- Section Title (Framed Box ala Tomasz Gajda) -->
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="projects_box_title">PROJECTS</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -789,7 +792,7 @@
         <!-- Editorial Alternating List -->
         <div class="projects-editorial-list">
           <!-- PROJECT 01: IoT Auto-Feeding System -->
-          <article class="project-editorial-row">
+          <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
               <a href="https://github.com/JohanKrisbima/Auto-feeding-system-using-IoT-with-website-monitoring" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Auto-Feeding System di GitHub">
                 <span class="project-cat-badge" data-i18n="proj1_badge">IoT</span>
@@ -827,7 +830,7 @@
           </article>
 
           <!-- PROJECT 02: Coffee Detection System -->
-          <article class="project-editorial-row">
+          <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
               <a href="https://github.com/JohanKrisbima/Training-Data-Detection-kopi-with-yolo5" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Coffee Detection System di GitHub">
                 <span class="project-cat-badge" data-i18n="proj2_badge">Computer Vision</span>
@@ -865,7 +868,7 @@
           </article>
 
           <!-- PROJECT 03: Photo Sales Website POVSHOTNBK -->
-          <article class="project-editorial-row">
+          <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
               <a href="https://github.com/JohanKrisbima/Website-PovShotnbk_" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek POVSHOTNBK di GitHub">
                 <span class="project-cat-badge" data-i18n="proj3_badge">Web Development</span>
@@ -899,7 +902,7 @@
           </article>
 
           <!-- PROJECT 04: E-Commerce Ilham Collection -->
-          <article class="project-editorial-row">
+          <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
               <a href="https://github.com/JohanKrisbima/Ilham-collection-Web" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Ilham Collection di GitHub">
                 <span class="project-cat-badge" data-i18n="proj4_badge">Web Development</span>
@@ -966,7 +969,7 @@
         <!-- Certificates Grid -->
         <div class="row g-4" id="certGridContainer">
           <!-- Cert 1: BNSP Web Developer -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="bnsp">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="bnsp" data-aos="fade-up" data-aos-delay="100">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/Web Developer.jpg" data-cert-title="Sertifikat Kompetensi BNSP - Web Developer (Pengembang Web)">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-patch-check-fill text-warning me-1"></i> BNSP RI</span>
@@ -994,7 +997,7 @@
           </div>
 
           <!-- Cert 2: PT PAL Indonesia (MagangHub Kemnaker) -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib" data-aos="fade-up" data-aos-delay="150">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/Sertif Maganghub.jpeg" data-cert-title="Sertifikat Pemagangan PT PAL Indonesia - Pemrogram Komputer">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-building me-1 text-primary"></i> MagangHub</span>
@@ -1022,7 +1025,7 @@
           </div>
 
           <!-- Cert 3: PT Stechoq Robotika Indonesia -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib" data-aos="fade-up" data-aos-delay="200">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifMsib1.png" data-cert-title="Backend Developer Intern - PT Stechoq Robotika Indonesia (MSIB)">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-cpu-fill me-1 text-primary"></i> MSIB Batch 6</span>
@@ -1050,7 +1053,7 @@
           </div>
 
           <!-- Cert 4: Lolos Pendanaan PKM-PM -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="prestasi">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="prestasi" data-aos="fade-up" data-aos-delay="250">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifPKM.jpg" data-cert-title="Penghargaan Pendanaan PKM-PM Kemendikbudristek">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-trophy-fill me-1 text-warning"></i> Hibah Nasional</span>
@@ -1078,7 +1081,7 @@
           </div>
 
           <!-- Cert 5: UBiG Completion Certificate -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib" data-aos="fade-up" data-aos-delay="300">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/ubig.png" data-cert-title="Universal Big Data Completion Certificate">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-database-fill-check me-1 text-info"></i> AI Platform</span>
@@ -1106,7 +1109,7 @@
           </div>
 
           <!-- Cert 6: Kepesertaan MSIB -->
-          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib">
+          <div class="col-lg-4 col-md-6 cert-item-col" data-cert-category="msib" data-aos="fade-up" data-aos-delay="350">
             <div class="cert-card spotlight-card" data-cert-img="assets/img/sertifikat_Kepesertaan_MSIB.jpg" data-cert-title="Sertifikat Kepesertaan MSIB Kemendikbudristek">
               <div class="cert-card-header">
                 <span class="cert-tag-pill"><i class="bi bi-mortarboard-fill me-1 text-primary"></i> Kampus Merdeka</span>
@@ -1142,7 +1145,7 @@
     <section id="honors" class="section section-white honors-section">
       <div class="container">
         <!-- Section Title with Minimalist Box Framing Ala Tomasz Gajda -->
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="honors_box_title">PENGHARGAAN</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -1155,7 +1158,7 @@
         <!-- Honors Card Container (Scalable layout for awards) -->
         <div class="row justify-content-center">
           <div class="col-lg-10 col-xl-9">
-            <div class="honors-card">
+            <div class="honors-card" data-aos="fade-up" data-aos-delay="100">
               <!-- Header: Award Title, Issuer & Affiliation -->
               <div class="honors-card-header">
                 <h3 class="honors-award-title" data-i18n="honors_title">Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)</h3>
@@ -1234,7 +1237,7 @@
          ========================================================================= -->
     <section id="contact" class="section section-light">
       <div class="container">
-        <div class="section-title-wrap text-center">
+        <div class="section-title-wrap text-center" data-aos="fade-up">
           <h2 class="section-box-title" data-i18n="contact_box_title">KONTAK</h2>
           <div class="section-ornament-line">
             <span class="ornament-dash"></span>
@@ -1243,7 +1246,7 @@
           </div>
         </div>
 
-        <div class="contact-container">
+        <div class="contact-container" data-aos="fade-up" data-aos-delay="100">
           <div class="contact-info-top">
             <div class="contact-loc-chip">
               <i class="bi bi-geo-alt-fill text-danger"></i>
@@ -1302,7 +1305,7 @@
       </div>
     </section>
 
-    <!-- ===================================    <!-- =========================================================================
+    <!-- =========================================================================
          8. COMPREHENSIVE PROFESSIONAL FOOTER (AS SHOWN IN IMAGE 2)
          ========================================================================= -->
     <footer class="footer-professional" id="mainFooter">
@@ -1547,5 +1550,8 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) JS via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   </body>
 </html>

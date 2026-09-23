@@ -284,6 +284,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // =========================================================================
+  // AOS (Animate On Scroll) Responsive Initialization Engine
+  // =========================================================================
+  function initAOS() {
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 750,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 40,
+        delay: 30,
+      });
+    }
+  }
+
   // Jalankan semua modul inisialisasi
   initLanguageManager();
   initReadingProgressBar();
@@ -291,4 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initThemeSwitcher();
   initImageLightbox();
   initScrollReveal();
+  initAOS();
+
+  window.addEventListener("load", () => {
+    if (typeof AOS !== "undefined") {
+      AOS.refresh();
+    }
+  });
 });
+
