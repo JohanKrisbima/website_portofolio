@@ -838,6 +838,20 @@ img {
   z-index: 2;
 }
 
+/* Ambient Studio Rim Light Aura Behind Portrait */
+.hero-split-right::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  transform: translate(-50%, -30%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(30, 64, 175, 0.10) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .hero-photo-frame {
   position: relative;
   z-index: 3;
@@ -849,21 +863,28 @@ img {
 }
 
 .hero-photo-img {
-  max-height: 84vh;
+  max-height: 88vh;
   width: auto;
-  max-width: 90%;
+  max-width: 95%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  filter: contrast(1.03) brightness(0.96);
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.45)) contrast(1.05) saturate(1.02);
+  mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-photo-img:hover {
+  transform: scale(1.02);
 }
 
 .hero-watermark-text {
   position: absolute;
-  right: 5%;
-  bottom: 5%;
+  right: 6%;
+  bottom: 8%;
   font-family: var(--font-heading);
   font-size: clamp(140px, 18vw, 260px);
   font-weight: 900;
@@ -872,6 +893,7 @@ img {
   pointer-events: none;
   z-index: 1;
   user-select: none;
+  letter-spacing: -4px;
 }
 
 /* --------------------------------------------------------------------------
