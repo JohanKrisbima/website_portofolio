@@ -849,6 +849,25 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
     });
   });
 
+  // Honors documentation card preview click
+  const honorsDocCards = document.querySelectorAll(".honors-doc-card");
+  honorsDocCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const imgSrc = card.getAttribute("data-cert-img");
+      const title = card.getAttribute("data-cert-title");
+
+      if (imgSrc && certBootstrapModal && certModalImg && certModalTitle) {
+        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
+        if (modalSingleContainer) modalSingleContainer.classList.remove("d-none");
+
+        certModalImg.src = imgSrc;
+        certModalTitle.textContent = title || "Dokumentasi PKM-PM";
+        if (certModalDesc) certModalDesc.textContent = "Program Kreativitas Mahasiswa (PKM-PM) Kemendikbudristek";
+        certBootstrapModal.show();
+      }
+    });
+  });
+
   // Experience Proof click (supports data-gallery JSON or single data-proof-img)
   expProofBtns.forEach((btn) => {
     btn.addEventListener("click", () => {

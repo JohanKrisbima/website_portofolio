@@ -8,8 +8,10 @@ const portfolioTranslations = {
     // Navigation
     nav_home: "Home",
     nav_about: "About",
+    nav_skills: "Skills",
     nav_experience: "Experience",
     nav_sertifikat: "Sertifikat",
+    nav_honors: "Penghargaan",
     nav_contact: "Contact",
     nav_download_cv: "Unduh CV",
     mobile_lang_label: "Bahasa / Language:",
@@ -188,6 +190,18 @@ const portfolioTranslations = {
     cert_item6_desc: "Sertifikat resmi keikutsertaan program Magang & Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.",
     cert_item6_scope: "Program Resmi",
 
+    // Honors & Awards Section
+    honors_box_title: "PENGHARGAAN",
+    honors_subtitle: "Penghargaan pendanaan riset nasional yang berhasil dipublikasikan sebagai jurnal ilmiah.",
+    honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
+    honors_issuer: "Diberikan oleh <strong>Direktorat Jenderal Pendidikan Tinggi, Riset dan Teknologi (Kemdikbudristek)</strong> · 2023",
+    honors_affiliation: "Terafiliasi dengan Politeknik Negeri Jember",
+    honors_desc: 'Tim mahasiswa (termasuk Johan sebagai anggota) lolos pendanaan nasional PKM-PM dengan judul "Sistem Deteksi Dini Banjir Berbasis Geographic Information System Terintegrasi Cloud Computing Website di Kelurahan Tambakkemerakan". Proyek ini merancang alat pemantau ketinggian air yang terhubung ke peta digital berbasis web, sehingga warga dan aparat desa bisa memantau status banjir secara real-time dan mengambil keputusan evakuasi lebih cepat. Program mencakup pemasangan alat di lokasi rawan banjir serta sosialisasi dan pelatihan penggunaan sistem kepada warga setempat.',
+    honors_doc_cert: "Dok. Sertifikat Pendanaan PKM-PM",
+    honors_doc_field: "Dok. Kegiatan Sosialisasi di Lapangan",
+    honors_pub_info: "Hasil program ini dipublikasikan sebagai <strong>artikel jurnal ilmiah</strong> di <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, bersama tim penulis Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, dan Junia Vitasari.",
+    honors_btn_pub: "BACA PUBLIKASI ILMIAH",
+
     // Contact Section
     contact_tag: "Let's Connect",
     contact_title: "Siap Berkolaborasi?",
@@ -214,11 +228,13 @@ const portfolioTranslations = {
     footer_link_about: "Profil & Edukasi",
     footer_link_project: "Pengalaman Kerja",
     footer_link_cert: "Sertifikasi Resmi",
+    footer_link_honors: "Penghargaan",
     footer_link_contact: "Hubungi Langsung",
     footer_col_skills: "Keahlian Utama",
     footer_skill1_title: "Backend & REST API",
-    footer_skill2_title: "Modern Frontend",
-    footer_skill3_title: "Metodologi & Tools",
+    footer_skill2_title: "Web Automation",
+    footer_skill3_title: "Modern Frontend",
+    footer_skill4_title: "Metodologi & Tools",
     footer_col_recruiter: "Info Rekrutmen",
     footer_loc_label: "Lokasi Domisili",
     footer_loc_val: "Mojokerto / Jawa Timur",
@@ -226,6 +242,10 @@ const portfolioTranslations = {
     footer_status_val: "Tersedia Segera (Immediate)",
     footer_mobility_label: "Mobilitas Kerja",
     footer_mobility_val: "On-site / Hybrid / Remote Ready",
+    footer_email_label: "Email Rekrutmen",
+    footer_cv_label: "Resume / CV",
+    footer_cv_val: "Unduh CV Resmi (PDF)",
+    footer_back_to_top: "Kembali ke Atas",
 
     // Modals & Toasts
     modal_cert_title: "Preview Dokumen",
@@ -431,8 +451,10 @@ const portfolioTranslations = {
     // Navigation
     nav_home: "Home",
     nav_about: "About",
+    nav_skills: "Skills",
     nav_experience: "Experience",
     nav_sertifikat: "Certificates",
+    nav_honors: "Honors",
     nav_contact: "Contact",
     nav_download_cv: "Download CV",
     mobile_lang_label: "Language / Bahasa:",
@@ -610,6 +632,18 @@ const portfolioTranslations = {
     cert_item6_desc: "Official certificate of participation in the Certified Internship and Independent Study program under Kemendikbudristek Kampus Merdeka.",
     cert_item6_scope: "Official Program",
 
+    // Honors & Awards Section
+    honors_box_title: "HONORS",
+    honors_subtitle: "National research funding award successfully published as a scientific journal article.",
+    honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
+    honors_issuer: "Awarded by <strong>Directorate General of Higher Education, Research, and Technology (Kemdikbudristek)</strong> · 2023",
+    honors_affiliation: "Affiliated with Politeknik Negeri Jember",
+    honors_desc: 'A student team (including Johan as an active member) secured national PKM-PM funding for "Early Flood Detection System Based on Geographic Information System Integrated with Cloud Computing Website in Tambakkemerakan Village". This project engineered real-time water level monitoring sensors connected to a web-based digital map, enabling local residents and village authorities to monitor flood risks in real-time and accelerate evacuation decision-making. The program encompassed hardware installation at flood-prone points as well as public socialization and hands-on system training for the community.',
+    honors_doc_cert: "Doc. PKM-PM Funding Certificate",
+    honors_doc_field: "Doc. Field Socialization Activity",
+    honors_pub_info: "The program results were published as a <strong>peer-reviewed scientific journal article</strong> in <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, co-authored with Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, and Junia Vitasari.",
+    honors_btn_pub: "READ SCIENTIFIC PUBLICATION",
+
     // Contact Section
     contact_tag: "Let's Connect",
     contact_title: "Ready to Collaborate?",
@@ -636,11 +670,13 @@ const portfolioTranslations = {
     footer_link_about: "Profile & Education",
     footer_link_project: "Work Experience",
     footer_link_cert: "Certifications",
+    footer_link_honors: "Honors",
     footer_link_contact: "Contact Directly",
     footer_col_skills: "Core Competencies",
     footer_skill1_title: "Backend & REST API",
-    footer_skill2_title: "Modern Frontend",
-    footer_skill3_title: "Methodologies & Tools",
+    footer_skill2_title: "Web Automation",
+    footer_skill3_title: "Modern Frontend",
+    footer_skill4_title: "Methodologies & Tools",
     footer_col_recruiter: "Recruitment Info",
     footer_loc_label: "Domicile / Location",
     footer_loc_val: "Mojokerto, East Java, ID",
@@ -648,6 +684,10 @@ const portfolioTranslations = {
     footer_status_val: "Available Immediately",
     footer_mobility_label: "Work Mode",
     footer_mobility_val: "On-site / Hybrid / Remote Ready",
+    footer_email_label: "Recruitment Email",
+    footer_cv_label: "Resume / CV",
+    footer_cv_val: "Download Official CV (PDF)",
+    footer_back_to_top: "Back to Top",
 
     // Modals & Toasts
     modal_cert_title: "Document Preview",

@@ -99,7 +99,7 @@
     <!-- Floating Minimalist Navbar -->
     <header class="floating-navbar-container">
       <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-minimal navbar-pill">
-        <div class="container-fluid px-3 px-lg-4">
+        <div class="container">
           <a class="navbar-brand-minimal" href="#home">
             <span class="brand-monogram">JK</span>
             <span>Johan Krisbima</span>
@@ -115,9 +115,10 @@
             <ul class="navbar-nav ms-auto align-items-center">
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#home" data-i18n="nav_home">Home</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#about" data-i18n="nav_about">About</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#skills" data-i18n="about_skills_title">Skills</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#skills" data-i18n="nav_skills">Skills</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#project" data-i18n="nav_experience">Experience</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#sertifikat" data-i18n="nav_sertifikat">Sertifikat</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#honors" data-i18n="nav_honors">Honors</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#contact" data-i18n="nav_contact">Contact</a></li>
 
               <li class="nav-item d-none d-lg-flex align-items-center">
@@ -172,7 +173,7 @@
           <li class="mb-2">
             <a href="#skills" class="mobile-nav-item d-flex align-items-center gap-3 py-2 px-3 border border-dark border-opacity-10">
               <i class="bi bi-cpu"></i>
-              <span data-i18n="about_skills_title" class="fw-bold text-uppercase small">Skills</span>
+              <span data-i18n="nav_skills" class="fw-bold text-uppercase small">Skills</span>
             </a>
           </li>
           <li class="mb-2">
@@ -185,6 +186,12 @@
             <a href="#sertifikat" class="mobile-nav-item d-flex align-items-center gap-3 py-2 px-3 border border-dark border-opacity-10">
               <i class="bi bi-award"></i>
               <span data-i18n="nav_sertifikat" class="fw-bold text-uppercase small">Sertifikat</span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="#honors" class="mobile-nav-item d-flex align-items-center gap-3 py-2 px-3 border border-dark border-opacity-10">
+              <i class="bi bi-trophy"></i>
+              <span data-i18n="nav_honors" class="fw-bold text-uppercase small">Honors</span>
             </a>
           </li>
           <li class="mb-2">
@@ -957,9 +964,102 @@
     </section>
 
     <!-- =========================================================================
+         6B. HONORS & AWARDS SECTION (KEMDIKBUDRISTEK PKM-PM)
+         ========================================================================= -->
+    <section id="honors" class="section honors-section">
+      <div class="container">
+        <!-- Section Title with Minimalist Box Framing Ala Tomasz Gajda -->
+        <div class="section-title-wrap text-center">
+          <h2 class="section-box-title" data-i18n="honors_box_title">PENGHARGAAN</h2>
+          <div class="section-ornament-line">
+            <span class="ornament-dash"></span>
+            <span class="ornament-slash">//</span>
+            <span class="ornament-dash"></span>
+          </div>
+          <p class="section-subtitle-sub text-center" data-i18n="honors_subtitle">Penghargaan pendanaan riset nasional yang berhasil dipublikasikan sebagai jurnal ilmiah.</p>
+        </div>
+
+        <!-- Honors Card Container (Scalable layout for awards) -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-9">
+            <div class="honors-card">
+              <!-- Header: Award Title, Issuer & Affiliation -->
+              <div class="honors-card-header">
+                <h3 class="honors-award-title" data-i18n="honors_title">Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)</h3>
+                <p class="honors-issuer-row" data-i18n="honors_issuer">Diberikan oleh <strong>Direktorat Jenderal Pendidikan Tinggi, Riset dan Teknologi (Kemdikbudristek)</strong> · 2023</p>
+                <div class="honors-affiliation-row">
+                  <span class="affiliation-badge-circle">P</span>
+                  <span class="affiliation-text" data-i18n="honors_affiliation">Terafiliasi dengan Politeknik Negeri Jember</span>
+                </div>
+              </div>
+
+              <!-- Body: Descriptive Paragraph -->
+              <div class="honors-card-body">
+                <p class="honors-desc-text" data-i18n="honors_desc">
+                  Tim mahasiswa (termasuk Johan sebagai anggota) lolos pendanaan nasional PKM-PM dengan judul "Sistem Deteksi Dini Banjir Berbasis Geographic Information System Terintegrasi Cloud Computing Website di Kelurahan
+                  Tambakkemerakan". Proyek ini merancang alat pemantau ketinggian air yang terhubung ke peta digital berbasis web, sehingga warga dan aparat desa bisa memantau status banjir secara real-time dan mengambil keputusan evakuasi
+                  lebih cepat. Program mencakup pemasangan alat di lokasi rawan banjir serta sosialisasi dan pelatihan penggunaan sistem kepada warga setempat.
+                </p>
+
+                <!-- Documentation Thumbnails (Flex Row, Side-by-Side on Desktop & Mobile) -->
+                <div class="honors-docs-row">
+                  <div class="honors-doc-col">
+                    <div class="honors-doc-card" data-cert-img="assets/img/sertifPKM.jpg" data-cert-title="Dokumentasi Sertifikat Pendanaan PKM-PM Kemendikbudristek" role="button" tabindex="0" title="Klik untuk melihat pratinjau dokumen">
+                      <div class="honors-doc-thumb-box">
+                        <div class="honors-doc-stripe-pattern"></div>
+                        <div class="honors-doc-thumb-content">
+                          <i class="bi bi-file-earmark-text-fill"></i>
+                          <span class="honors-doc-label" data-i18n="honors_doc_cert">Dok. Sertifikat Pendanaan PKM-PM</span>
+                        </div>
+                        <div class="honors-doc-hover-indicator">
+                          <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="honors-doc-col">
+                    <div class="honors-doc-card" data-cert-img="assets/img/dokumentasiPKM.jpeg" data-cert-title="Dokumentasi Kegiatan Sosialisasi di Lapangan PKM-PM" role="button" tabindex="0" title="Klik untuk melihat pratinjau dokumen">
+                      <div class="honors-doc-thumb-box">
+                        <div class="honors-doc-stripe-pattern"></div>
+                        <div class="honors-doc-thumb-content">
+                          <i class="bi bi-people-fill"></i>
+                          <span class="honors-doc-label" data-i18n="honors_doc_field">Dok. Kegiatan Sosialisasi di Lapangan</span>
+                        </div>
+                        <div class="honors-doc-hover-indicator">
+                          <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer: Scientific Publication Info & CTA Button -->
+              <div class="honors-card-footer">
+                <div class="honors-pub-info">
+                  <p class="mb-0" data-i18n="honors_pub_info">
+                    Hasil program ini dipublikasikan sebagai <strong>artikel jurnal ilmiah</strong> di <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, bersama tim penulis Mochammad Rifki Ulil Albaab, Rangga Raditya
+                    Nugroho, dan Junia Vitasari.
+                  </p>
+                </div>
+                <div class="honors-pub-cta">
+                  <a href="https://ejurnal.kampusakademik.co.id/index.php/japm/article/view/906" target="_blank" rel="noopener noreferrer" class="btn-honors-pub">
+                    <span data-i18n="honors_btn_pub">BACA PUBLIKASI ILMIAH</span>
+                    <i class="bi bi-box-arrow-up-right ms-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
          7. CONTACT SECTION (UNDERLINE MINIMALIST FORM ALA TOMASZ GAJDA)
          ========================================================================= -->
-    <section id="contact" class="section section-light">
+    <section id="contact" class="section section-white">
       <div class="container">
         <div class="section-title-wrap text-center">
           <h2 class="section-box-title" data-i18n="contact_box_title">KONTAK</h2>
@@ -1029,39 +1129,200 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         8. FOOTER (DEEP BLACK MONOCHROME ALA TOMASZ GAJDA)
+    <!-- ===================================    <!-- =========================================================================
+         8. COMPREHENSIVE PROFESSIONAL FOOTER (AS SHOWN IN IMAGE 2)
          ========================================================================= -->
-    <footer class="footer-monochrome" id="mainFooter">
+    <footer class="footer-professional" id="mainFooter">
       <div class="container">
-        <!-- Back To Top Link with Chevron -->
-        <div class="footer-back-to-top-wrap">
-          <a href="#page-top" class="btn-back-to-top-link">
-            <i class="bi bi-chevron-double-up"></i>
-            <span data-i18n="footer_back_to_top">KEMBALI KE ATAS</span>
-          </a>
-        </div>
+        <div class="row g-4 g-xl-5">
+          <!-- Col 1: Brand & Profile Bio -->
+          <div class="col-lg-4 col-md-6 footer-col-brand">
+            <div class="footer-brand-wrap mb-3">
+              <a href="#page-top" class="footer-brand-link">
+                <span class="brand-monogram">JK</span>
+                <span class="brand-text">Johan<span class="text-cyan">.dev</span></span>
+              </a>
+              <span class="footer-role-badge">
+                <i class="bi bi-code-slash me-1"></i>
+                <span data-i18n="footer_role">Software &amp; Web Developer</span>
+              </span>
+            </div>
+            <p class="footer-bio-text" data-i18n="footer_bio">
+              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi
+              bisnis.
+            </p>
+            <div class="footer-social-row">
+              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-btn" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-btn" aria-label="GitHub Profile" title="GitHub Profile">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-btn" aria-label="Instagram Profile" title="Instagram Profile">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="mailto:johankrisbima77@gmail.com" class="footer-social-btn" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
+                <i class="bi bi-envelope-fill"></i>
+              </a>
+              <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-btn" aria-label="WhatsApp" title="WhatsApp: 087851865091">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </div>
+          </div>
 
-        <!-- Social Media Icons Row -->
-        <div class="footer-social-row">
-          <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-icon" aria-label="LinkedIn Profile" title="LinkedIn Profile">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-icon" aria-label="GitHub Profile" title="GitHub Profile">
-            <i class="bi bi-github"></i>
-          </a>
-          <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-icon" aria-label="Instagram Profile" title="Instagram Profile">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="mailto:johankrisbima77@gmail.com" class="footer-social-icon" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
-            <i class="bi bi-envelope-fill"></i>
-          </a>
-          <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-icon" aria-label="WhatsApp" title="WhatsApp: 087851865091">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-        </div>
+          <!-- Col 2: Eksplorasi (Quick Navigation) -->
+          <div class="col-lg-2 col-md-6 footer-col-links">
+            <h4 class="footer-col-title" data-i18n="footer_col_explore">EKSPLORASI</h4>
+            <ul class="footer-nav-list list-unstyled mb-0">
+              <li>
+                <a href="#home" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_home">Beranda</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_about">Profil &amp; Edukasi</span>
+                </a>
+              </li>
+              <li>
+                <a href="#skills" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="nav_skills">Skills</span>
+                </a>
+              </li>
+              <li>
+                <a href="#project" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_project">Pengalaman Kerja</span>
+                </a>
+              </li>
+              <li>
+                <a href="#sertifikat" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_cert">Sertifikasi Resmi</span>
+                </a>
+              </li>
+              <li>
+                <a href="#honors" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_honors">Penghargaan</span>
+                </a>
+              </li>
+              <li>
+                <a href="#contact" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_contact">Hubungi Langsung</span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <p class="footer-copyright">&copy; 2026 Johan Krisbima Abi. All Rights Reserved.</p>
+          <!-- Col 3: Keahlian Utama (4 Compact Cards) -->
+          <div class="col-lg-3 col-md-6 footer-col-skills">
+            <h4 class="footer-col-title" data-i18n="footer_col_skills">KEAHLIAN UTAMA</h4>
+            <div class="footer-skills-stack">
+              <div class="footer-skill-box">
+                <div class="footer-skill-icon-wrap text-cyan">
+                  <i class="bi bi-hdd-network-fill"></i>
+                </div>
+                <div class="footer-skill-content">
+                  <div class="footer-skill-title" data-i18n="footer_skill1_title">Backend &amp; REST API</div>
+                  <div class="footer-skill-subtitle">Laravel, PHP, MySQL, RESTful</div>
+                </div>
+              </div>
+
+              <div class="footer-skill-box">
+                <div class="footer-skill-icon-wrap text-cyan">
+                  <i class="bi bi-robot"></i>
+                </div>
+                <div class="footer-skill-content">
+                  <div class="footer-skill-title" data-i18n="footer_skill2_title">Web Automation</div>
+                  <div class="footer-skill-subtitle">Python, Selenium, Scraping Pipeline</div>
+                </div>
+              </div>
+
+              <div class="footer-skill-box">
+                <div class="footer-skill-icon-wrap text-cyan">
+                  <i class="bi bi-display"></i>
+                </div>
+                <div class="footer-skill-content">
+                  <div class="footer-skill-title" data-i18n="footer_skill3_title">Modern Frontend</div>
+                  <div class="footer-skill-subtitle">JavaScript ES6+, Bootstrap 5, UI/UX</div>
+                </div>
+              </div>
+
+              <div class="footer-skill-box">
+                <div class="footer-skill-icon-wrap text-warning">
+                  <i class="bi bi-git"></i>
+                </div>
+                <div class="footer-skill-content">
+                  <div class="footer-skill-title" data-i18n="footer_skill4_title">Metodologi &amp; Tools</div>
+                  <div class="footer-skill-subtitle">Git, GitHub, Agile Scrum, Postman</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 4: Info Rekrutmen -->
+          <div class="col-lg-3 col-md-6 footer-col-recruit">
+            <h4 class="footer-col-title" data-i18n="footer_col_recruiter">INFO REKRUTMEN</h4>
+            <div class="footer-recruit-stack">
+              <div class="footer-recruit-item">
+                <div class="footer-recruit-icon-wrap text-danger">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="footer-recruit-details">
+                  <div class="footer-recruit-label" data-i18n="footer_loc_label">LOKASI DOMISILI</div>
+                  <div class="footer-recruit-val" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
+                </div>
+              </div>
+
+              <div class="footer-recruit-item">
+                <div class="footer-recruit-icon-wrap text-success">
+                  <i class="bi bi-briefcase-fill"></i>
+                </div>
+                <div class="footer-recruit-details">
+                  <div class="footer-recruit-label" data-i18n="footer_status_label">STATUS KETERSEDIAAN</div>
+                  <div class="footer-recruit-val text-emerald" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
+                </div>
+              </div>
+
+              <div class="footer-recruit-item">
+                <div class="footer-recruit-icon-wrap text-info">
+                  <i class="bi bi-laptop-fill"></i>
+                </div>
+                <div class="footer-recruit-details">
+                  <div class="footer-recruit-label" data-i18n="footer_mobility_label">MOBILITAS KERJA</div>
+                  <div class="footer-recruit-val" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
+                </div>
+              </div>
+
+              <div class="footer-recruit-item">
+                <div class="footer-recruit-icon-wrap text-warning">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div class="footer-recruit-details">
+                  <div class="footer-recruit-label" data-i18n="footer_email_label">EMAIL REKRUTMEN</div>
+                  <a href="mailto:johankrisbima77@gmail.com" class="footer-recruit-link text-cyan">johankrisbima77@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="footer-recruit-item">
+                <div class="footer-recruit-icon-wrap text-danger">
+                  <i class="bi bi-file-earmark-pdf-fill"></i>
+                </div>
+                <div class="footer-recruit-details">
+                  <div class="footer-recruit-label" data-i18n="footer_cv_label">RESUME / CV</div>
+                  <a href="assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" class="footer-recruit-link text-cyan">
+                    <span data-i18n="footer_cv_val">Unduh CV Resmi (PDF)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
 
