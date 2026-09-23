@@ -99,8 +99,8 @@
     <!-- Floating Minimalist Navbar -->
     <header class="floating-navbar-container">
       <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-minimal navbar-pill">
-        <div class="container">
-          <a class="navbar-brand-minimal" href="#home">
+        <div class="container-fluid px-xl-5 px-lg-4 px-3">
+          <a class="navbar-brand-minimal" href="#home" title="Johan Krisbima - Ke Halaman Utama">
             <span class="brand-monogram">JK</span>
             <span>Johan Krisbima</span>
           </a>
@@ -113,19 +113,19 @@
           <!-- Desktop Navigation Links -->
           <div class="collapse navbar-collapse d-none d-lg-block">
             <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#home" data-i18n="nav_home">Home</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#about" data-i18n="nav_about">About</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#skills" data-i18n="nav_skills">Skills</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#project" data-i18n="nav_experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#projects" data-i18n="nav_projects">Projects</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#sertifikat" data-i18n="nav_sertifikat">Sertifikat</a></li>
-              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#honors" data-i18n="nav_honors">Honors</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#honors" data-i18n="nav_honors">Awards</a></li>
               <li class="nav-item"><a class="nav-link nav-link-minimal nav-link-pill" href="#contact" data-i18n="nav_contact">Contact</a></li>
 
               <li class="nav-item d-none d-lg-flex align-items-center">
                 <span class="nav-divider-line"></span>
               </li>
 
-              <li class="nav-item ms-2">
+              <li class="nav-item ms-1">
                 <a href="assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" class="btn-nav-cv" target="_blank" download="CV_Johan_Krisbima_Abi.pdf">
                   <i class="bi bi-file-earmark-arrow-down"></i>
                   <span data-i18n="nav_download_cv">Unduh CV</span>
@@ -133,7 +133,7 @@
               </li>
 
               <!-- Language Switcher -->
-              <li class="nav-item ms-2">
+              <li class="nav-item ms-1">
                 <button type="button" id="langToggleBtn" class="btn-nav-lang" aria-label="Ganti Bahasa (ID / EN)" title="Ganti Bahasa / Switch Language">
                   <i class="bi bi-translate"></i>
                   <span id="currentLangText">EN</span>
@@ -180,6 +180,12 @@
             <a href="#project" class="mobile-nav-item d-flex align-items-center gap-3 py-2 px-3 border border-dark border-opacity-10">
               <i class="bi bi-briefcase"></i>
               <span data-i18n="nav_experience" class="fw-bold text-uppercase small">Experience</span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="#projects" class="mobile-nav-item d-flex align-items-center gap-3 py-2 px-3 border border-dark border-opacity-10">
+              <i class="bi bi-code-slash"></i>
+              <span data-i18n="nav_projects" class="fw-bold text-uppercase small">Projects</span>
             </a>
           </li>
           <li class="mb-2">
@@ -763,9 +769,176 @@
     </section>
 
     <!-- =========================================================================
+         5B. PROJECTS SECTION (EDITORIAL ALTERNATING LAYOUT)
+         ========================================================================= -->
+    <section id="projects" class="section section-white projects-section">
+      <div class="container">
+        <!-- Section Title (Framed Box ala Tomasz Gajda) -->
+        <div class="section-title-wrap text-center">
+          <h2 class="section-box-title" data-i18n="projects_box_title">PROJECTS</h2>
+          <div class="section-ornament-line">
+            <span class="ornament-dash"></span>
+            <span class="ornament-slash">//</span>
+            <span class="ornament-dash"></span>
+          </div>
+          <p class="section-subtitle-sub text-center" data-i18n="projects_subtitle">
+            Koleksi proyek perangkat lunak, sistem IoT, computer vision, dan aplikasi web yang telah saya bangun.
+          </p>
+        </div>
+
+        <!-- Editorial Alternating List -->
+        <div class="projects-editorial-list">
+          <!-- PROJECT 01: IoT Auto-Feeding System -->
+          <article class="project-editorial-row">
+            <div class="project-col-media">
+              <a href="https://github.com/JohanKrisbima/Auto-feeding-system-using-IoT-with-website-monitoring" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Auto-Feeding System di GitHub">
+                <span class="project-cat-badge" data-i18n="proj1_badge">IoT</span>
+                <img src="assets/img/PAKAN OTOMATIS.png" alt="Auto-Feeding System using IoT with Website Monitoring" class="project-img" loading="lazy" />
+              </a>
+            </div>
+            <div class="project-col-content">
+              <span class="project-idx-label" data-i18n="proj1_idx">PROJECT 01 / 04</span>
+              <h3 class="project-title" data-i18n="proj1_title">Auto-Feeding System using IoT with Website Monitoring</h3>
+              <div class="project-meta-period">
+                <i class="bi bi-calendar3"></i>
+                <span data-i18n="proj1_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span>
+              </div>
+              <p class="project-desc" data-i18n="proj1_desc">
+                Sistem otomatisasi pakan ikan/hewan ternak menggunakan mikrokontroler ESP32 dan motor servo, dilengkapi dashboard monitoring berbasis website (PHP) dan algoritma Fuzzy Tsukamoto untuk menentukan takaran pakan secara presisi.
+              </p>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">ESP32</span>
+                <span class="project-tech-pill">PHP Native</span>
+                <span class="project-tech-pill">MySQL</span>
+                <span class="project-tech-pill">Fuzzy Tsukamoto</span>
+                <span class="project-tech-pill">IoT</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JohanKrisbima/Auto-feeding-system-using-IoT-with-website-monitoring" class="btn-project-gh" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                  <span data-i18n="projects_btn_github">LIHAT GITHUB</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=5Zd607Si5Zw" class="btn-project-demo" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-play-circle-fill"></i>
+                  <span data-i18n="projects_btn_demo">VIDEO DEMO</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: Coffee Detection System -->
+          <article class="project-editorial-row">
+            <div class="project-col-media">
+              <a href="https://github.com/JohanKrisbima/Training-Data-Detection-kopi-with-yolo5" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Coffee Detection System di GitHub">
+                <span class="project-cat-badge" data-i18n="proj2_badge">Computer Vision</span>
+                <img src="assets/img/Coffee Detection.png" alt="Coffee Detection System using Webcam" class="project-img" loading="lazy" />
+              </a>
+            </div>
+            <div class="project-col-content">
+              <span class="project-idx-label" data-i18n="proj2_idx">PROJECT 02 / 04</span>
+              <h3 class="project-title" data-i18n="proj2_title">Coffee Detection System using Webcam</h3>
+              <div class="project-meta-period">
+                <i class="bi bi-calendar3"></i>
+                <span data-i18n="proj2_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span>
+              </div>
+              <p class="project-desc" data-i18n="proj2_desc">
+                Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat pada perangkat lokal.
+              </p>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">Python</span>
+                <span class="project-tech-pill">YOLOv5</span>
+                <span class="project-tech-pill">PyTorch</span>
+                <span class="project-tech-pill">OpenCV</span>
+                <span class="project-tech-pill">Computer Vision</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JohanKrisbima/Training-Data-Detection-kopi-with-yolo5" class="btn-project-gh" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                  <span data-i18n="projects_btn_github">LIHAT GITHUB</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=bIaLn3YdVGM" class="btn-project-demo" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-play-circle-fill"></i>
+                  <span data-i18n="projects_btn_demo">VIDEO DEMO</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03: Photo Sales Website POVSHOTNBK -->
+          <article class="project-editorial-row">
+            <div class="project-col-media">
+              <a href="https://github.com/JohanKrisbima/Website-PovShotnbk_" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek POVSHOTNBK di GitHub">
+                <span class="project-cat-badge" data-i18n="proj3_badge">Web Development</span>
+                <img src="assets/img/POVSHOTNBK.jpeg" alt="Photo Sales Website POVSHOTNBK" class="project-img" loading="lazy" />
+              </a>
+            </div>
+            <div class="project-col-content">
+              <span class="project-idx-label" data-i18n="proj3_idx">PROJECT 03 / 04</span>
+              <h3 class="project-title" data-i18n="proj3_title">Photo Sales Website "POVSHOTNBK"</h3>
+              <div class="project-meta-period">
+                <i class="bi bi-calendar3"></i>
+                <span data-i18n="proj3_period">Mar 2023 – Jun 2023 · Politeknik Negeri Jember</span>
+              </div>
+              <p class="project-desc" data-i18n="proj3_desc">
+                Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin berbasis Blade.
+              </p>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">Laravel</span>
+                <span class="project-tech-pill">MySQL</span>
+                <span class="project-tech-pill">Midtrans API</span>
+                <span class="project-tech-pill">Full-Stack</span>
+                <span class="project-tech-pill">Bootstrap</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JohanKrisbima/Website-PovShotnbk_" class="btn-project-gh" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                  <span data-i18n="projects_btn_github">LIHAT GITHUB</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 04: E-Commerce Ilham Collection -->
+          <article class="project-editorial-row">
+            <div class="project-col-media">
+              <a href="https://github.com/JohanKrisbima/Ilham-collection-Web" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Ilham Collection di GitHub">
+                <span class="project-cat-badge" data-i18n="proj4_badge">Web Development</span>
+                <img src="assets/img/ilhamcollection.jpeg" alt="Website E-Commerce Ilham Collection" class="project-img" loading="lazy" />
+              </a>
+            </div>
+            <div class="project-col-content">
+              <span class="project-idx-label" data-i18n="proj4_idx">PROJECT 04 / 04</span>
+              <h3 class="project-title" data-i18n="proj4_title">Website E-Commerce "Ilham Collection"</h3>
+              <div class="project-meta-period">
+                <i class="bi bi-calendar3"></i>
+                <span data-i18n="proj4_period">Jun 2022 – Okt 2022 · Politeknik Negeri Jember</span>
+              </div>
+              <p class="project-desc" data-i18n="proj4_desc">
+                Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang efisien.
+              </p>
+              <div class="project-tech-pills">
+                <span class="project-tech-pill">PHP Native</span>
+                <span class="project-tech-pill">MySQL</span>
+                <span class="project-tech-pill">Back-End</span>
+                <span class="project-tech-pill">CSS3</span>
+                <span class="project-tech-pill">JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JohanKrisbima/Ilham-collection-Web" class="btn-project-gh" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                  <span data-i18n="projects_btn_github">LIHAT GITHUB</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
          6. SERTIFIKASI SECTION (CLEAN CARDS WITH LIGHTBOX PREVIEW)
          ========================================================================= -->
-    <section id="sertifikat" class="section section-white">
+    <section id="sertifikat" class="section section-light">
       <div class="container">
         <div class="section-title-wrap text-center">
           <h2 class="section-box-title" data-i18n="cert_box_title">SERTIFIKASI &amp; PENGHARGAAN</h2>
@@ -966,7 +1139,7 @@
     <!-- =========================================================================
          6B. HONORS & AWARDS SECTION (KEMDIKBUDRISTEK PKM-PM)
          ========================================================================= -->
-    <section id="honors" class="section honors-section">
+    <section id="honors" class="section section-white honors-section">
       <div class="container">
         <!-- Section Title with Minimalist Box Framing Ala Tomasz Gajda -->
         <div class="section-title-wrap text-center">
@@ -1059,7 +1232,7 @@
     <!-- =========================================================================
          7. CONTACT SECTION (UNDERLINE MINIMALIST FORM ALA TOMASZ GAJDA)
          ========================================================================= -->
-    <section id="contact" class="section section-white">
+    <section id="contact" class="section section-light">
       <div class="container">
         <div class="section-title-wrap text-center">
           <h2 class="section-box-title" data-i18n="contact_box_title">KONTAK</h2>
@@ -1196,6 +1369,12 @@
                 <a href="#project" class="footer-nav-link">
                   <i class="bi bi-chevron-right"></i>
                   <span data-i18n="footer_link_project">Pengalaman Kerja</span>
+                </a>
+              </li>
+              <li>
+                <a href="#projects" class="footer-nav-link">
+                  <i class="bi bi-chevron-right"></i>
+                  <span data-i18n="footer_link_projects">Karya &amp; Proyek</span>
                 </a>
               </li>
               <li>

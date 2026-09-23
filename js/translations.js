@@ -10,8 +10,9 @@ const portfolioTranslations = {
     nav_about: "About",
     nav_skills: "Skills",
     nav_experience: "Experience",
+    nav_projects: "Projects",
     nav_sertifikat: "Sertifikat",
-    nav_honors: "Penghargaan",
+    nav_honors: "Awards",
     nav_contact: "Contact",
     nav_download_cv: "Unduh CV",
     mobile_lang_label: "Bahasa / Language:",
@@ -83,6 +84,7 @@ const portfolioTranslations = {
 
     // Framed Titles
     exp_box_title: "PENGALAMAN",
+    projects_box_title: "PROJECTS",
     cert_box_title: "SERTIFIKASI",
     contact_box_title: "KONTAK",
     contact_btn_submit: "KIRIM KE WHATSAPP",
@@ -146,6 +148,43 @@ const portfolioTranslations = {
     exp_stechoq_point1: "Mengembangkan website untuk manajemen gudang handphone, termasuk pencatatan stok masuk dan keluar.",
     exp_stechoq_point2: "Merancang dan membangun API RESTful untuk pengelolaan produk, supplier, dan transaksi gudang.",
     exp_stechoq_point3: "Bertanggung jawab pada sisi backend, termasuk autentikasi pengguna, manajemen database, dan dokumentasi API.",
+
+    // Projects Section
+    projects_subtitle: "Koleksi proyek perangkat lunak, sistem IoT, computer vision, dan aplikasi web yang telah saya bangun.",
+    projects_btn_github: "LIHAT GITHUB",
+    projects_btn_demo: "VIDEO DEMO",
+
+    // Project 1
+    proj1_badge: "IoT",
+    proj1_idx: "PROJECT 01 / 04",
+    proj1_title: "Auto-Feeding System using IoT with Website Monitoring",
+    proj1_period: "Sep 2023 – Des 2023 · Politeknik Negeri Jember",
+    proj1_desc: "Sistem otomatisasi pakan ikan/hewan ternak menggunakan mikrokontroler ESP32 dan motor servo, dilengkapi dashboard monitoring berbasis website (PHP) dan algoritma Fuzzy Tsukamoto untuk menentukan takaran pakan secara presisi.",
+    proj1_watermark: "IoT AUTO-FEEDING SYSTEM",
+
+    // Project 2
+    proj2_badge: "Computer Vision",
+    proj2_idx: "PROJECT 02 / 04",
+    proj2_title: "Coffee Detection System using Webcam",
+    proj2_period: "Sep 2023 – Des 2023 · Politeknik Negeri Jember",
+    proj2_desc: "Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat pada perangkat lokal.",
+    proj2_watermark: "COFFEE DETECTION SYSTEM",
+
+    // Project 3
+    proj3_badge: "Web Development",
+    proj3_idx: "PROJECT 03 / 04",
+    proj3_title: "Photo Sales Website \"POVSHOTNBK\"",
+    proj3_period: "Mar 2023 – Jun 2023 · Politeknik Negeri Jember",
+    proj3_desc: "Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin berbasis Blade.",
+    proj3_watermark: "POVSHOTNBK MARKETPLACE",
+
+    // Project 4
+    proj4_badge: "Web Development",
+    proj4_idx: "PROJECT 04 / 04",
+    proj4_title: "Website E-Commerce \"Ilham Collection\"",
+    proj4_period: "Jun 2022 – Okt 2022 · Politeknik Negeri Jember",
+    proj4_desc: "Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang efisien.",
+    proj4_watermark: "ILHAM COLLECTION E-COMMERCE",
 
     // Certificates Section
     cert_tag: "Certificates",
@@ -227,6 +266,7 @@ const portfolioTranslations = {
     footer_link_home: "Beranda",
     footer_link_about: "Profil & Edukasi",
     footer_link_project: "Pengalaman Kerja",
+    footer_link_projects: "Karya & Proyek",
     footer_link_cert: "Sertifikasi Resmi",
     footer_link_honors: "Penghargaan",
     footer_link_contact: "Hubungi Langsung",
@@ -453,8 +493,9 @@ const portfolioTranslations = {
     nav_about: "About",
     nav_skills: "Skills",
     nav_experience: "Experience",
+    nav_projects: "Projects",
     nav_sertifikat: "Certificates",
-    nav_honors: "Honors",
+    nav_honors: "Awards",
     nav_contact: "Contact",
     nav_download_cv: "Download CV",
     mobile_lang_label: "Language / Bahasa:",
@@ -526,6 +567,7 @@ const portfolioTranslations = {
 
     // Framed Titles
     exp_box_title: "EXPERIENCE",
+    projects_box_title: "PROJECTS",
     cert_box_title: "CERTIFICATES",
     contact_box_title: "CONTACT",
     contact_btn_submit: "SUBMIT TO WHATSAPP",
@@ -589,6 +631,43 @@ const portfolioTranslations = {
     exp_stechoq_point1: "Engineered a web application for mobile phone warehouse management, including inbound and outbound inventory logging.",
     exp_stechoq_point2: "Designed and built RESTful APIs for managing product catalogs, suppliers, and warehouse transaction records.",
     exp_stechoq_point3: "Led backend engineering, covering user authentication, relational database management, and interactive API documentation.",
+
+    // Projects Section
+    projects_subtitle: "A curated collection of software systems, IoT, computer vision, and web applications I have built.",
+    projects_btn_github: "VIEW GITHUB",
+    projects_btn_demo: "VIDEO DEMO",
+
+    // Project 1
+    proj1_badge: "IoT",
+    proj1_idx: "PROJECT 01 / 04",
+    proj1_title: "Auto-Feeding System using IoT with Website Monitoring",
+    proj1_period: "Sep 2023 – Dec 2023 · Politeknik Negeri Jember",
+    proj1_desc: "Automated animal/fish feeding system using an ESP32 microcontroller and servo motor, featuring a web-based monitoring dashboard (PHP) and Fuzzy Tsukamoto algorithm for precise feed dosage calculation.",
+    proj1_watermark: "IoT AUTO-FEEDING SYSTEM",
+
+    // Project 2
+    proj2_badge: "Computer Vision",
+    proj2_idx: "PROJECT 02 / 04",
+    proj2_title: "Coffee Detection System using Webcam",
+    proj2_period: "Sep 2023 – Dec 2023 · Politeknik Negeri Jember",
+    proj2_desc: "Real-time computer vision application to detect and classify coffee cherries/beans via laptop webcam capture, powered by a custom-trained YOLOv5 model and PyTorch optimized for rapid local inference.",
+    proj2_watermark: "COFFEE DETECTION SYSTEM",
+
+    // Project 3
+    proj3_badge: "Web Development",
+    proj3_idx: "PROJECT 03 / 04",
+    proj3_title: "Photo Sales Website \"POVSHOTNBK\"",
+    proj3_period: "Mar 2023 – Jun 2023 · Politeknik Negeri Jember",
+    proj3_desc: "Digital photography marketplace and licensing e-commerce platform built with Laravel, featuring automated watermarking, Midtrans payment gateway integration, and a comprehensive Blade admin dashboard.",
+    proj3_watermark: "POVSHOTNBK MARKETPLACE",
+
+    // Project 4
+    proj4_badge: "Web Development",
+    proj4_idx: "PROJECT 04 / 04",
+    proj4_title: "Website E-Commerce \"Ilham Collection\"",
+    proj4_period: "Jun 2022 – Oct 2022 · Politeknik Negeri Jember",
+    proj4_desc: "Online fashion store offering an interactive product catalog, shopping cart, shipping calculation, and order management dashboard crafted with clean native PHP and MySQL.",
+    proj4_watermark: "ILHAM COLLECTION E-COMMERCE",
 
     // Certificates Section
     cert_tag: "Certificates & Awards",
@@ -669,6 +748,7 @@ const portfolioTranslations = {
     footer_link_home: "Home",
     footer_link_about: "Profile & Education",
     footer_link_project: "Work Experience",
+    footer_link_projects: "Projects",
     footer_link_cert: "Certifications",
     footer_link_honors: "Honors",
     footer_link_contact: "Contact Directly",
