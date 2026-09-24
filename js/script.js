@@ -103,6 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const tooltipLabel = isLight ? "Ganti ke Dark Mode" : "Ganti ke Light Mode";
     const buttonLabel = isLight ? "Light Mode" : "Dark Mode";
 
+    // Sync navbar theme toggle button (desktop)
+    const themeNavBtn = document.getElementById("themeToggleNavBtn");
+    if (themeNavBtn) {
+      themeNavBtn.setAttribute("title", tooltipLabel);
+      themeNavBtn.setAttribute("aria-label", tooltipLabel);
+    }
+
     if (themeToggleBtn) {
       themeToggleBtn.setAttribute("title", tooltipLabel);
       themeToggleBtn.setAttribute("aria-label", tooltipLabel);
@@ -138,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme("light", false);
   }
 
-  // Floating Theme button click handler
+  // Floating Theme button click handler (fallback if present)
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme") || "dark";
@@ -147,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Navbar Theme button click handler
+  // Navbar Theme button click handler (Desktop)
   const themeToggleNavBtn = document.getElementById("themeToggleNavBtn");
   if (themeToggleNavBtn) {
     themeToggleNavBtn.addEventListener("click", () => {

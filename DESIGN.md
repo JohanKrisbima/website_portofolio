@@ -1,19 +1,26 @@
 # Redesign Brief — Website Portofolio Johan Krisbima Abi
 
-**Referensi gaya:** Portofolio bertema diagonal-split, minimalis dengan judul section berbingkai (contoh: portofolio Tomasz Gajda), dipadukan palet **Navy & Emas** untuk kesan profesional-korporat
-**Situs yang akan diredesign:** https://website-portofolio-johan.vercel.app/
-**Tujuan:** Mengubah total tampilan visual (UI/UX) website menjadi tema profesional-korporat bernuansa navy & emas, TANPA mengubah konten/data yang sudah ada.
+**Referensi gaya:** Portofolio bertema diagonal-split, minimalis dengan judul section berbingkai (terinspirasi dari gaya minimalis monokrom editorial Tomasz Gajda), dipadukan palet **Navy, Putih Gading & Slate** untuk kesan profesional, modern, dan korporat bersih tanpa bentrok warna.
+**Situs:** https://website-portofolio-johan.vercel.app/
+**Tujuan:** Mengoptimalkan tampilan visual (UI/UX) website menjadi tema profesional-korporat yang rapi, elegan, berwibawa, dan berfokus pada hierarki konten yang jelas TANPA menggunakan warna emas agar tidak bentrok dengan warna brand teknologi (tech stack).
 
-**Palet warna:**
+---
 
-| Token | Hex | Penggunaan |
+## Palet Warna (Navy & Neutral Corporate — No Gold)
+
+| Token | Hex / Nilai | Penggunaan |
 |---|---|---|
-| Navy (ink) | `#0A1F3D` | Teks utama, background gelap (hero kanan, strip banner, footer), border kotak judul |
-| Putih gading (paper) | `#F7F5EF` | Background utama section terang |
-| Krem gelap (paper-2) | `#EFEADD` | Background section selang-seling (Skills, Sertifikasi) |
-| Abu kebiruan (muted) | `#5C6779` | Teks sekunder, deskripsi, label |
-| Emas (gold) | `#C9A227` | Aksen: tombol CTA, underline menu aktif, nomor urut, label jabatan, hover state |
-| Emas tua (gold-dark) | `#A9861D` | Hover tombol emas, aksen sekunder |
+| Navy (ink) | `#0A1F3D` | Teks utama, background gelap (hero kanan, strip banner, footer), border kotak judul, aksen tombol solid, active state |
+| Putih gading (paper) | `#F7F5EF` | Background utama section terang (Home kiri, About, Pengalaman, Kontak) |
+| Krem lembut (paper-2) | `#EFEADD` | Background section selang-seling ritmik (Skills, Projects, Sertifikasi) |
+| Abu kebiruan (muted) | `#5C6779` | Teks sekunder, deskripsi paragraf, label waktu, pembatas halus |
+| Kartu Putih (card) | `#FFFFFF` | Latar belakang kartu (pillar, skills, experience, project, cert) agar kontras bersih di atas latar ivory/krem |
+| Border Subtil | `rgba(10, 31, 61, 0.18)` | Garis pembatas kartu, separator, dan outline elegan |
+| Dark Mode Base | `#061122` / `#0A1A33` | Background utama mode gelap (midnight navy pekat) |
+| Dark Mode Text | `#FFFFFF` / `#94A3B8` | Teks utama putih & teks sekunder slate terang di dark mode |
+| Brand Tech Logos | Original Colors | Warna brand asli (Laravel merah, MySQL biru, React biru muda, dll.) tampil otentik tanpa tabrakan warna |
+
+> **Prinsip Utama:** Tidak ada aksen emas (gold). Semua aksen interaktif (tombol, garis aktif, counter) menggunakan perpaduan tegas **Navy pekat (`#0A1F3D`)** dan **Putih/Ivory**, memberikan estetika monokrom profesional arsitektural yang clean, matang, dan elegan.
 
 ---
 
@@ -23,88 +30,135 @@
 - Jabatan: Software Developer — Backend & Web Specialist
 - Pendidikan: D4 Teknik Informatika, Politeknik Negeri Jember (IPK 3.87)
 - Pengalaman: PT PAL Indonesia (BUMN), PT Universal Big Data, PT Stechoq Robotika Indonesia
-- Sertifikasi: BNSP Web Developer, MagangHub, MSIB, PKM-PM Kemendikbudristek, UBig
-- Lokasi: Mojokerto, Jawa Timur — Remote/On-site Ready
+- Sertifikasi: BNSP Web Developer, MagangHub Kemnaker, MSIB Kampus Merdeka, PKM-PM Kemendikbudristek, UBig
+- Lokasi: Mojokerto, Jawa Timur — Remote / On-site Ready
 - Kontak: Email, WhatsApp, LinkedIn, GitHub, Instagram
-- Fitur eksisting yang dipertahankan: toggle Dark/Light mode, toggle bahasa ID/EN, tombol Unduh CV, form auto-kirim ke WhatsApp
+- Fitur interaktif: Toggle Dark/Light mode, toggle bahasa ID/EN, download CV (PDF), terminal CLI interaktif (easter egg), filter kategori, form auto-kirim ke WhatsApp, toast notification, preview modal sertifikat.
 
 ---
 
 ## 1. Hero Section (Home)
 
-- Layout **split diagonal**: kiri latar putih gading (`#F7F5EF`) berisi teks perkenalan, kanan latar **navy pekat** (`#0A1F3D`) dengan foto diri (setengah badan) berbingkai tipis emas, dipotong garis diagonal sebagai pemisah dua warna.
-- Navbar atas: logo/inisial **"JK"** di kiri, menu (Home, About, Experience, Sertifikat, Contact) di tengah/kanan dengan underline **emas** saat hover/aktif, tombol pill **emas** (`#C9A227`) bertuliskan **"Hubungi Saya"** atau **"Unduh CV"** di ujung kanan (teks navy di atas emas).
-- Struktur teks:
-  - "Hi, I'm" (kecil, abu kebiruan)
-  - Nama besar, bold, huruf besar, warna navy
-  - Tagline jabatan: "Software Developer — Backend & Web Specialist"
-- 3–4 ikon sosial media (LinkedIn, GitHub, Instagram, WhatsApp/Email) berbentuk kotak kecil bergaris navy, berjejer di bawah tagline.
-- Hilangkan elemen yang terlalu ramai (gradient warna-warni, badge berlebihan) → ganti dengan tipografi tegas, whitespace lega, dan aksen emas secukupnya sebagai penanda elemen penting.
+- **Layout Split Diagonal:**
+  - **Sisi Kiri:** Latar putih gading (`#F7F5EF`), berisi teks perkenalan, availability status pill, nama tegas, typewriter role, bio padat, tombol sosial media bergaris navy, serta CTA buttons.
+  - **Sisi Kanan:** Latar navy pekat (`#0A1F3D`), dipotong garis diagonal geometris presisi, menampilkan foto portrait eksekutif berjas dan berdasi dalam bingkai arsitektural elegan (*Executive Portrait Showcase Card*) dengan backdrop offset geometris khas Tomasz Gajda, floating status pill (*Available for Opportunities*) dan badge pengalaman (*1+ Year Experience*), serta watermark inisial "JK" transparan. Ukuran proporsional (~340px lebar, 400px tinggi) terpusat rapi dan tidak memakan seluruh layar.
+- **Navbar Atas (Floating Navbar):**
+  - Logo inisial **"JK"** dalam kotak monogram navy di kiri.
+  - Menu navigasi (Home, About, Skills, Experience, Projects, Sertifikat, Awards, Contact) dengan garis bawah (**navy underline**) saat hover & aktif.
+  - Tombol **"Unduh CV"** bergaya solid navy (teks putih) atau outline tegas.
+  - Tombol switcher Bahasa (ID / EN) dan switcher Tema (Dark / Light).
+- **Struktur Teks Hero:**
+  - Status pill: *"Tersedia untuk Peluang Baru • Remote / On-site"*
+  - "Hi, I'm" (font uppercase, abu kebiruan/navy)
+  - Nama: **JOHAN KRISBIMA ABI** (besar, bold, uppercase, navy pekat)
+  - Typewriter role: *"Software Developer"*
+  - Bio deskriptif fokus pada RESTful API, otomatisasi web, & sistem enterprise yang andal.
+- **CTA Hero:**
+  - Tombol 1: **"Hubungi Saya"** (outline navy, hover solid navy teks putih)
+  - Tombol 2: **"Unduh CV"** (solid navy, hover navy-dark teks putih)
+- **Sosial Media:** Ikon kotak bergaris navy (LinkedIn, GitHub, Instagram, Email, WhatsApp) dengan efek hover inversi warna.
 
-## 2. Strip Banner
+---
 
-- Section tipis full-width, latar **navy pekat** (`#0A1F3D`), teks putih gading.
-- Kalimat singkat positioning: *"Software Developer fokus pada arsitektur backend scalable & solusi enterprise"*.
-- Tombol outline putih dengan hover berubah solid putih/navy: **"Baca Selengkapnya"**.
-- Elemen watermark dekoratif transparan **emas tipis** (`rgba(201,162,39,.10)`, misal inisial "JK" besar) di sisi kanan.
+## 2. Strip Banner Section
 
-## 3. About Me
+- Section tipis pemisah full-width berlatar **navy pekat** (`#0A1F3D`) dengan teks putih gading.
+- Badge kategori: *"IT SERVICES & DEVELOPMENT"*
+- Positioning headline: *"Software Developer fokus pada arsitektur backend scalable & solusi enterprise"*.
+- Tombol: **"Baca Selengkapnya"** outline putih dengan ikon panah, bertransisi menjadi solid putih teks navy saat hover.
+- Watermark tipis transparan *"DEV"* di sudut kanan.
 
-- Latar putih gading, teks sekunder abu kebiruan.
-- Judul section dalam **kotak border navy tipis**, huruf kapital, letter-spacing lebar: **"TENTANG SAYA"**.
-- Ringkasan profil (asal kampus, IPK, pengalaman magang) dalam paragraf rapi, lebar dibatasi agar nyaman dibaca.
-- 3 poin keahlian utama disusun grid dengan nomor urut **berwarna emas tua** (`#A9861D`) + judul + deskripsi singkat:
-  1. **Backend Development**
-  2. **Frontend / UI**
-  3. **Project Management**
-- Garis dekoratif tipis navy transparan sebagai pemisah antar sub-bagian.
+---
 
-## 4. Skills Section
+## 3. About Me Section
 
-- Latar krem gelap (`#EFEADD`) sebagai selang-seling section.
-- Judul dalam **kotak border navy tebal**: **"SKILLS & KEAHLIAN"**.
-- **Sedang Digunakan:** grid ikon teknologi asli (Laravel, PHP, JavaScript, MySQL, Bootstrap, Git, PostgreSQL, Node.js) dengan warna brand masing-masing + label di bawah ikon.
-- **Sedang Dipelajari:** grid ikon skill yang sedang didalami.
-- **Skill Lain:** soft skill & bahasa (ikon bendera Indonesia/Inggris untuk bahasa).
-- Tampilan CLI/terminal interaktif dipindah menjadi easter egg opsional di bagian bawah halaman (bukan section utama), diganti grid ikon bersih di section Skills.
+- Latar belakang putih gading (`#F7F5EF`).
+- Judul section dalam **kotak border navy** dengan ornamen garis: **"TENTANG SAYA"**.
+- Paragraf profil ringkas mengenai latar belakang D4 Teknik Informatika Polije (IPK 3.87) dan pengalaman di PT PAL Indonesia.
+- Pill badges informasi kunci: Kampus & IPK, Lisensi BNSP SKKNI, Hibah Nasional PKM-PM.
+- **3 Pilar Keahlian Utama (Grid Card):**
+  1. **Backend Development** — Arsitektur API, database relational, skalabilitas enterprise.
+  2. **Frontend & Web UI** — Antarmuka responsif, JavaScript modern, Bootstrap, kenyamanan pengguna.
+  3. **Project Management** — Analisis sistem, dokumentasi UAT, metodologi agile, pengujian.
+  - Masing-masing kartu berlatar putih dengan nomor urut navy (`01`, `02`, `03`), ikon box rapi, judul uppercase, dan deskripsi terstruktur.
+- **Bar Unduh CV:** Baris kartu putih rapi dengan ikon dokumen PDF, rincian file, dan tombol unduh langsung.
 
-## 5. Experience & Project Section
+---
 
-- Latar putih gading.
-- Judul dalam kotak border navy: **"PENGALAMAN & PROYEK"**.
-- Tab filter di atas: **Semua / Enterprise / Automation / Backend** — filter aktif diberi garis bawah **emas**, teks minimalis.
-- Setiap pengalaman kerja (PT PAL, UBig, Stechoq) ditampilkan sebagai card dengan border navy tipis, berisi:
-  - Label jabatan berwarna **emas tua** (uppercase) + perusahaan + durasi
-  - Deskripsi singkat
-  - Badge tech stack (outline navy tipis)
-  - Tombol outline navy **"Baca Detail"**
-- Opsional: tambahkan galeri thumbnail project/dokumentasi dengan hover overlay (judul + tombol "Detail"), meniru grid portfolio pada referensi.
+## 4. Skills & Keahlian Section
 
-## 6. Sertifikasi Section
+- Latar belakang krem lembut (`#EFEADD`) sebagai selang-seling section.
+- Judul berbingkai kotak navy: **"SKILLS & KEAHLIAN"**.
+- Pengelompokan kategori yang jelas:
+  - **USING NOW (Sedang Digunakan):** Laravel, PHP, JavaScript, MySQL, PostgreSQL, Node.js, Express Js, Bootstrap, Git, HTML5, CSS3.
+  - **LEARNING (Sedang Dipelajari):** React, TypeScript, Next.js, Tailwind CSS.
+  - **OTHER SKILLS & LANGUAGES:** Bahasa Indonesia (Native), English (Passive), Postman, RESTful API, Project Management.
+- Tampilan kartu skill: Kotak putih bersih bergaris subtil dengan ikon Devicon berwarna brand asli masing-masing teknologi + label teks di bawah ikon, dilengkapi efek hover angkat (lift) yang halus.
+- **CLI Terminal Interaktif:** Tombol collapse untuk membuka terminal emulator interaktif (johan@portfolio:~) sebagai fitur eksplorasi teknis opsional.
 
-- Latar krem gelap (`#EFEADD`), kartu berlatar putih gading.
-- Judul dalam kotak border navy: **"SERTIFIKASI & PENGHARGAAN"**.
-- Grid card sertifikat: thumbnail gambar, nama penerbit (uppercase, abu kebiruan), judul, deskripsi, tanggal berlaku.
-- Gaya kartu bersih dengan border navy tipis, tombol **"Pratinjau Dokumen"** outline navy.
+---
 
-## 7. Contact Section
+## 5. Experience & Projects Section
 
-- Latar putih gading.
-- Judul dalam kotak border navy: **"KONTAK"**.
-- Info lokasi (Mojokerto, Jawa Timur) dan status ketersediaan kerja ditampilkan ringkas di atas form, warna abu kebiruan.
-- Form dengan input bergaya **underline navy minimalis** (tanpa kotak penuh):
-  - Nama
-  - Email / Perusahaan
-  - Nomor WhatsApp
-  - Pesan
-- Tombol submit outline navy, berubah **solid emas** (teks navy) saat hover, terhubung ke WhatsApp (fitur auto-kirim yang sudah ada dipertahankan).
+- Latar belakang putih gading (`#F7F5EF`).
+- Judul kotak border navy: **"PENGALAMAN & PROYEK"**.
+- Tombol filter kategori dengan indikator garis bawah navy: **Semua / Enterprise / Automation / Backend**.
+- Kartu pengalaman kerja terstruktur (PT PAL Indonesia, PT Universal Big Data, PT Stechoq Robotika Indonesia):
+  - Header: Posisi / Role (navy bold), Nama Perusahaan, dan Pill Periode kerja.
+  - Deskripsi kontribusi teknis.
+  - Pada PT PAL Indonesia: 4 sub-proyek (Siamang, Simandok, Ebidding, Subkon) disajikan dalam kotak-kotak komponen rapi.
+  - Tag pill teknologi (Laravel, MySQL, C#, Node.js, dll.) bergaris rapi.
+  - Footer kartu: Badge *"Dokumentasi Terverifikasi"* dan tombol outline navy **"Baca Detail"** yang mengarah ke halaman studi kasus lengkap.
 
-## 8. Footer
+---
 
-- Background **navy pekat** (`#0A1F3D`).
-- Tombol **"Kembali ke Atas"** berwarna **emas** dengan ikon panah.
-- Ikon sosial media abu kebiruan terang, berubah **emas** saat hover, berjejer di tengah.
-- Teks copyright kecil abu kebiruan redup di bawah.
+## 6. Projects Section (Editorial Showcase)
+
+- Latar belakang krem lembut (`#EFEADD`).
+- Judul berbingkai kotak: **"PROJECTS"**.
+- Layout editorial berselang-seling (zig-zag):
+  - **Project 01:** Auto-Feeding System using IoT with Website Monitoring (ESP32, PHP, Fuzzy Tsukamoto).
+  - **Project 02:** Coffee Detection System using Webcam (Python, YOLOv5, PyTorch, OpenCV).
+  - **Project 03:** Photo Sales Website "POVSHOTNBK" (Laravel, Midtrans, MySQL).
+  - **Project 04:** Website E-Commerce "Ilham Collection" (PHP Native, MySQL).
+- Elemen tiap proyek: Wadah media thumbnail dengan badge kategori solid navy di sudut kiri atas, label indeks (*PROJECT 01 / 04*), judul tebal, periode & afiliasi, deskripsi ringkas, tech pills, serta tombol aksi **"LIHAT GITHUB"** & **"VIDEO DEMO"**.
+
+---
+
+## 7. Sertifikasi & Honors Section
+
+- Latar belakang krem lembut (`#EFEADD`) & putih gading (`#F7F5EF`).
+- Filter kategori: **Semua / BNSP / Magang / Prestasi**.
+- Grid card sertifikat berlatar putih dengan border rapi:
+  - Header: Tag lembaga penerbit (BNSP RI, MagangHub, MSIB, UBiG) & badge terverifikasi.
+  - Thumbnail dokumen sertifikat dengan overlay hover zoom **"Pratinjau Dokumen"** (membuka modal lightbox).
+  - Judul sertifikat, instansi penerbit, deskripsi cakupan, tanggal berlaku, dan badge predikat.
+- **Honors Card (Penghargaan PKM-PM Kemendikbudristek):**
+  - Kartu khusus dengan rincian pendanaan riset nasional sistem deteksi dini banjir Web GIS.
+  - Dua kartu pratinjau thumbnail dokumen berdampingan (Sertifikat Pendanaan & Dokumentasi Lapangan).
+  - Kutipan publikasi artikel ilmiah di *Jurnal Akademik Pengabdian Masyarakat (2024)* disertai tombol link langsung ke e-journal.
+
+---
+
+## 8. Contact Section & Form
+
+- Latar belakang putih gading (`#F7F5EF`).
+- Judul berbingkai kotak: **"KONTAK"**.
+- Chip lokasi domisili: *Mojokerto, Jawa Timur • Remote / On-site Ready*.
+- Form kontak bergaya **underline minimalis navy** (Nama/Perusahaan, Pilihan Topik Kebutuhan, Pesan).
+- Tombol submit berbingkai tegas: **"KIRIM KE WHATSAPP"** yang otomatis memformat dan membuka WhatsApp chat.
+- Tombol akses cepat (Direct Channels): Copy email satu-klik, link LinkedIn, GitHub, Instagram.
+
+---
+
+## 9. Footer
+
+- Background full-width **navy pekat** (`#0A1F3D`) dengan teks putih dan muted slate.
+- Kolom 1: Monogram brand "JK", bio singkat lulusan Polije, dan ikon jejaring sosial.
+- Kolom 2: Navigasi cepat halaman (Eksplorasi).
+- Kolom 3: Rangkuman 4 pilar keahlian utama.
+- Kolom 4: Informasi rekrutmen (domisili, status ketersediaan kerja segera, mobilitas kerja, link unduh CV resmi).
+- Tombol floating: **Back to Top** (kembali ke atas) dan **Theme Switcher** (Dark / Light mode).
 
 ---
 
@@ -112,23 +166,9 @@
 
 | Aspek | Ketentuan |
 |---|---|
-| Font judul | Sans-serif tebal, uppercase, letter-spacing lebar (contoh: Poppins / Montserrat Bold) |
-| Font body | Reguler/light, mudah dibaca (contoh: Inter / Roboto) |
-| Palet warna | Navy (`#0A1F3D`) – putih gading (`#F7F5EF`) – krem gelap (`#EFEADD`) sebagai dasar; **emas (`#C9A227`)** sebagai aksen selektif untuk CTA, underline, nomor, dan hover state; ikon skill tetap pakai warna asli brand tiap teknologi |
-| Whitespace | Lega, banyak ruang kosong antar elemen |
-| Pembatas section | Garis tipis navy transparan sebagai dekoratif, bukan blok warna tebal |
-| Judul section | Dibingkai kotak border navy (outline), bukan solid background |
-| Ritme warna antar section | Putih gading → navy (strip) → putih gading → krem gelap (Skills) → putih gading → krem gelap (Sertifikasi) → putih gading → navy (footer) |
-| Dark/Light mode | Dipertahankan, disesuaikan dengan palet warna baru |
-| Bahasa ID/EN | Dipertahankan |
-| Responsif | Wajib mobile-friendly; hero menyesuaikan (foto di atas, teks di bawah pada layar kecil) |
-
----
-
-## Prioritas Implementasi
-
-1. Hero section (dampak visual pertama terbesar)
-2. Skills section (grid ikon rapi menggantikan tampilan lama)
-3. About Me & Experience (konsistensi judul berbingkai + card)
-4. Sertifikasi & Contact (penyesuaian gaya form dan card)
-5. Footer & detail dekoratif (garis pemisah, watermark, tombol back-to-top)
+| Tipografi Judul | Sans-serif modern tegas, uppercase (Montserrat / Plus Jakarta Sans) |
+| Tipografi Isi | Bersih, nyaman dibaca (Inter / Plus Jakarta Sans) |
+| Palet Warna Utama | Navy (`#0A1F3D`) & Putih Gading (`#F7F5EF`), dengan variasi Krem (`#EFEADD`) dan Slate (`#5C6779`) |
+| Warna Emas | **DITIADAKAN** secara menyeluruh agar palet tetap tenang, konsisten, dan tidak bentrok dengan logo teknologi |
+| Border & Box | Garis border navy tegas dan tipis (outline minimalis), konsisten pada judul berbingkai, tombol, dan kartu |
+| Responsif | Mobile-first responsif: hero otomatis bertransformasi foto di atas dan teks di bawah pada layar smartphone |

@@ -142,6 +142,14 @@
                   <span id="currentLangText">EN</span>
                 </button>
               </li>
+
+              <!-- Theme Switcher (Navbar) -->
+              <li class="nav-item ms-1">
+                <button type="button" id="themeToggleNavBtn" class="btn-nav-theme" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
+                  <i class="bi bi-sun-fill theme-icon-sun"></i>
+                  <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -297,7 +305,6 @@
           <div class="hero-photo-frame" data-aos="fade-left" data-aos-duration="850" data-aos-delay="100">
             <img src="assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="hero-photo-img" />
           </div>
-          <div class="hero-watermark-text">JK</div>
         </div>
       </div>
     </section>
@@ -318,7 +325,7 @@
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
-          <div class="strip-watermark">DEV</div>
+          <div class="strip-watermark">JK.DEV</div>
         </div>
       </div>
     </section>
@@ -693,7 +700,9 @@
                 <div class="fw-bold mb-2"><i class="bi bi-window-stack me-1 text-primary"></i><span data-i18n="exp_ubig_proj_title">Project: Web Scraping for Nobox Extractor App</span></div>
                 <ul class="mb-0 ps-3">
                   <li data-i18n="exp_ubig_point1">Membangun dan memelihara aplikasi otomasi Nobox Extractor untuk mengekstraksi data publik lintas platform e-commerce global dengan tingkat keandalan tinggi.</li>
-                  <li data-i18n="exp_ubig_point2">Mengimplementasikan fitur-fitur kritikal, seperti penanganan pagination kompleks, validasi kueri pencarian, dan standardisasi format data untuk meminimalisasi anomali serta meningkatkan akurasi data.</li>
+                  <li data-i18n="exp_ubig_point2">
+                    Mengimplementasikan fitur-fitur kritikal, seperti penanganan pagination kompleks, validasi kueri pencarian, dan standardisasi format data untuk meminimalisasi anomali serta meningkatkan akurasi data.
+                  </li>
                   <li data-i18n="exp_ubig_point3">Menghubungkan integrasi data ke platform Nobox AI serta melakukan pengujian dan penalaan performa (performance tuning) secara rutin guna menjaga reliabilitas aplikasi desktop.</li>
                 </ul>
               </div>
@@ -784,9 +793,7 @@
             <span class="ornament-slash">//</span>
             <span class="ornament-dash"></span>
           </div>
-          <p class="section-subtitle-sub text-center" data-i18n="projects_subtitle">
-            Koleksi proyek perangkat lunak, sistem IoT, computer vision, dan aplikasi web yang telah saya bangun.
-          </p>
+          <p class="section-subtitle-sub text-center" data-i18n="projects_subtitle">Koleksi proyek perangkat lunak, sistem IoT, computer vision, dan aplikasi web yang telah saya bangun.</p>
         </div>
 
         <!-- Editorial Alternating List -->
@@ -794,17 +801,47 @@
           <!-- PROJECT 01: IoT Auto-Feeding System -->
           <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
-              <a href="https://github.com/JohanKrisbima/Auto-feeding-system-using-IoT-with-website-monitoring" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Auto-Feeding System di GitHub">
-                <span class="project-cat-badge" data-i18n="proj1_badge">IoT</span>
-                <img src="assets/img/PAKAN OTOMATIS.png" alt="Auto-Feeding System using IoT with Website Monitoring" class="project-img" loading="lazy" />
+              <a href="https://www.youtube.com/watch?v=5Zd607Si5Zw" class="project-img-card" target="_blank" rel="noopener noreferrer" title="Buka Proyek Auto-Feeding System di GitHub">
+                <!-- Browser/App Mockup Header Bar -->
+                <div class="project-card-header">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                  </div>
+                  <div class="mockup-address">
+                    <i class="bi bi-lock-fill me-1"></i>
+                    <span>https://www.youtube.com/watch?v=5Zd607Si5Zw</span>
+                  </div>
+                  <div class="mockup-action">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </div>
+                </div>
+
+                <div class="project-img-viewport">
+                  <span class="project-cat-badge">
+                    <i class="bi bi-cpu-fill me-1"></i>
+                    <span data-i18n="proj1_badge">IoT &amp; Embedded</span>
+                  </span>
+                  <img src="assets/img/PAKAN OTOMATIS.png" alt="Auto-Feeding System using IoT with Website Monitoring" class="project-img" loading="lazy" />
+                  <div class="project-img-hover-overlay">
+                    <span class="btn-overlay-preview">
+                      <span data-i18n="projects_btn_video">Lihat Video Demo</span>
+                      <i class="bi bi-arrow-up-right"></i>
+                    </span>
+                  </div>
+                </div>
               </a>
             </div>
+
             <div class="project-col-content">
-              <span class="project-idx-label" data-i18n="proj1_idx">PROJECT 01 / 04</span>
+              <div class="project-idx-wrapper">
+                <span class="project-idx-pill">01</span>
+                <span class="project-idx-label" data-i18n="proj1_idx">PROJECT 01 / 04</span>
+              </div>
               <h3 class="project-title" data-i18n="proj1_title">Auto-Feeding System using IoT with Website Monitoring</h3>
-              <div class="project-meta-period">
-                <i class="bi bi-calendar3"></i>
-                <span data-i18n="proj1_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span>
+              <div class="project-meta-pills">
+                <span class="meta-pill"><i class="bi bi-calendar3"></i> <span data-i18n="proj1_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span></span>
               </div>
               <p class="project-desc" data-i18n="proj1_desc">
                 Sistem otomatisasi pakan ikan/hewan ternak menggunakan mikrokontroler ESP32 dan motor servo, dilengkapi dashboard monitoring berbasis website (PHP) dan algoritma Fuzzy Tsukamoto untuk menentukan takaran pakan secara presisi.
@@ -832,20 +869,51 @@
           <!-- PROJECT 02: Coffee Detection System -->
           <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
-              <a href="https://github.com/JohanKrisbima/Training-Data-Detection-kopi-with-yolo5" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Coffee Detection System di GitHub">
-                <span class="project-cat-badge" data-i18n="proj2_badge">Computer Vision</span>
-                <img src="assets/img/Coffee Detection.png" alt="Coffee Detection System using Webcam" class="project-img" loading="lazy" />
+              <a href="https://www.youtube.com/watch?v=bIaLn3YdVGM" class="project-img-card" target="_blank" rel="noopener noreferrer" title="Buka Proyek Coffee Detection System di GitHub">
+                <!-- Browser/App Mockup Header Bar -->
+                <div class="project-card-header">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                  </div>
+                  <div class="mockup-address">
+                    <i class="bi bi-lock-fill me-1"></i>
+                    <span>https://www.youtube.com/watch?v=bIaLn3YdVGM</span>
+                  </div>
+                  <div class="mockup-action">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </div>
+                </div>
+
+                <div class="project-img-viewport">
+                  <span class="project-cat-badge">
+                    <i class="bi bi-eye-fill me-1"></i>
+                    <span data-i18n="proj2_badge">Computer Vision</span>
+                  </span>
+                  <img src="assets/img/Coffee Detection.png" alt="Coffee Detection System using Webcam" class="project-img" loading="lazy" />
+                  <div class="project-img-hover-overlay">
+                    <span class="btn-overlay-preview">
+                      <span data-i18n="projects_btn_video">Lihat Video Demo</span>
+                      <i class="bi bi-arrow-up-right"></i>
+                    </span>
+                  </div>
+                </div>
               </a>
             </div>
+
             <div class="project-col-content">
-              <span class="project-idx-label" data-i18n="proj2_idx">PROJECT 02 / 04</span>
+              <div class="project-idx-wrapper">
+                <span class="project-idx-pill">02</span>
+                <span class="project-idx-label" data-i18n="proj2_idx">PROJECT 02 / 04</span>
+              </div>
               <h3 class="project-title" data-i18n="proj2_title">Coffee Detection System using Webcam</h3>
-              <div class="project-meta-period">
-                <i class="bi bi-calendar3"></i>
-                <span data-i18n="proj2_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span>
+              <div class="project-meta-pills">
+                <span class="meta-pill"><i class="bi bi-calendar3"></i> <span data-i18n="proj2_period">Sep 2023 – Des 2023 · Politeknik Negeri Jember</span></span>
               </div>
               <p class="project-desc" data-i18n="proj2_desc">
-                Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat pada perangkat lokal.
+                Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat
+                pada perangkat lokal.
               </p>
               <div class="project-tech-pills">
                 <span class="project-tech-pill">Python</span>
@@ -870,20 +938,51 @@
           <!-- PROJECT 03: Photo Sales Website POVSHOTNBK -->
           <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
-              <a href="https://github.com/JohanKrisbima/Website-PovShotnbk_" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek POVSHOTNBK di GitHub">
-                <span class="project-cat-badge" data-i18n="proj3_badge">Web Development</span>
-                <img src="assets/img/POVSHOTNBK.jpeg" alt="Photo Sales Website POVSHOTNBK" class="project-img" loading="lazy" />
+              <a href="https://github.com/JohanKrisbima/Website-PovShotnbk_" class="project-img-card" target="_blank" rel="noopener noreferrer" title="Buka Proyek POVSHOTNBK di GitHub">
+                <!-- Browser/App Mockup Header Bar -->
+                <div class="project-card-header">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                  </div>
+                  <div class="mockup-address">
+                    <i class="bi bi-lock-fill me-1"></i>
+                    <span>github.com/JohanKrisbima/Website-PovShotnbk</span>
+                  </div>
+                  <div class="mockup-action">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </div>
+                </div>
+
+                <div class="project-img-viewport">
+                  <span class="project-cat-badge">
+                    <i class="bi bi-laptop-fill me-1"></i>
+                    <span data-i18n="proj3_badge">Web Development</span>
+                  </span>
+                  <img src="assets/img/POVSHOTNBK.jpeg" alt="Photo Sales Website POVSHOTNBK" class="project-img" loading="lazy" />
+                  <div class="project-img-hover-overlay">
+                    <span class="btn-overlay-preview">
+                      <span data-i18n="projects_btn_github">Lihat GitHub</span>
+                      <i class="bi bi-arrow-up-right"></i>
+                    </span>
+                  </div>
+                </div>
               </a>
             </div>
+
             <div class="project-col-content">
-              <span class="project-idx-label" data-i18n="proj3_idx">PROJECT 03 / 04</span>
+              <div class="project-idx-wrapper">
+                <span class="project-idx-pill">03</span>
+                <span class="project-idx-label" data-i18n="proj3_idx">PROJECT 03 / 04</span>
+              </div>
               <h3 class="project-title" data-i18n="proj3_title">Photo Sales Website "POVSHOTNBK"</h3>
-              <div class="project-meta-period">
-                <i class="bi bi-calendar3"></i>
-                <span data-i18n="proj3_period">Mar 2023 – Jun 2023 · Politeknik Negeri Jember</span>
+              <div class="project-meta-pills">
+                <span class="meta-pill"><i class="bi bi-calendar3"></i> <span data-i18n="proj3_period">Mar 2023 – Jun 2023 · Politeknik Negeri Jember</span></span>
               </div>
               <p class="project-desc" data-i18n="proj3_desc">
-                Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin berbasis Blade.
+                Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin
+                berbasis Blade.
               </p>
               <div class="project-tech-pills">
                 <span class="project-tech-pill">Laravel</span>
@@ -904,20 +1003,51 @@
           <!-- PROJECT 04: E-Commerce Ilham Collection -->
           <article class="project-editorial-row" data-aos="fade-up" data-aos-delay="100">
             <div class="project-col-media">
-              <a href="https://github.com/JohanKrisbima/Ilham-collection-Web" class="project-img-box" target="_blank" rel="noopener noreferrer" title="Buka Proyek Ilham Collection di GitHub">
-                <span class="project-cat-badge" data-i18n="proj4_badge">Web Development</span>
-                <img src="assets/img/ilhamcollection.jpeg" alt="Website E-Commerce Ilham Collection" class="project-img" loading="lazy" />
+              <a href="https://github.com/JohanKrisbima/Ilham-collection-Web" class="project-img-card" target="_blank" rel="noopener noreferrer" title="Buka Proyek Ilham Collection di GitHub">
+                <!-- Browser/App Mockup Header Bar -->
+                <div class="project-card-header">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                  </div>
+                  <div class="mockup-address">
+                    <i class="bi bi-lock-fill me-1"></i>
+                    <span>github.com/JohanKrisbima/Ilham-collection-Web</span>
+                  </div>
+                  <div class="mockup-action">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </div>
+                </div>
+
+                <div class="project-img-viewport">
+                  <span class="project-cat-badge">
+                    <i class="bi bi-bag-check-fill me-1"></i>
+                    <span data-i18n="proj4_badge">Web Development</span>
+                  </span>
+                  <img src="assets/img/ilhamcollection.jpeg" alt="Website E-Commerce Ilham Collection" class="project-img" loading="lazy" />
+                  <div class="project-img-hover-overlay">
+                    <span class="btn-overlay-preview">
+                      <span data-i18n="projects_btn_github">Lihat GitHub</span>
+                      <i class="bi bi-arrow-up-right"></i>
+                    </span>
+                  </div>
+                </div>
               </a>
             </div>
+
             <div class="project-col-content">
-              <span class="project-idx-label" data-i18n="proj4_idx">PROJECT 04 / 04</span>
+              <div class="project-idx-wrapper">
+                <span class="project-idx-pill">04</span>
+                <span class="project-idx-label" data-i18n="proj4_idx">PROJECT 04 / 04</span>
+              </div>
               <h3 class="project-title" data-i18n="proj4_title">Website E-Commerce "Ilham Collection"</h3>
-              <div class="project-meta-period">
-                <i class="bi bi-calendar3"></i>
-                <span data-i18n="proj4_period">Jun 2022 – Okt 2022 · Politeknik Negeri Jember</span>
+              <div class="project-meta-pills">
+                <span class="meta-pill"><i class="bi bi-calendar3"></i> <span data-i18n="proj4_period">Jun 2022 – Okt 2022 · Politeknik Negeri Jember</span></span>
               </div>
               <p class="project-desc" data-i18n="proj4_desc">
-                Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang efisien.
+                Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang
+                efisien.
               </p>
               <div class="project-tech-pills">
                 <span class="project-tech-pill">PHP Native</span>
@@ -1392,12 +1522,7 @@
                   <span data-i18n="footer_link_honors">Penghargaan</span>
                 </a>
               </li>
-              <li>
-                <a href="#contact" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_contact">Hubungi Langsung</span>
-                </a>
-              </li>
+            
             </ul>
           </div>
 
@@ -1508,14 +1633,6 @@
       </div>
     </footer>
 
-    <!-- Floating Theme Switcher Button (Fixed Bottom-Left) -->
-    <div class="floating-theme-wrapper" id="floatingThemeWrapper">
-      <button type="button" id="themeToggleBtn" class="floating-theme-btn" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
-        <i class="bi bi-sun-fill theme-icon-sun"></i>
-        <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-        <span class="floating-theme-text" id="themeToggleText">Light Mode</span>
-      </button>
-    </div>
 
     <!-- Floating Back to Top Button -->
     <a href="#page-top" id="backToTop" class="back-to-top-btn" aria-label="Scroll to top">

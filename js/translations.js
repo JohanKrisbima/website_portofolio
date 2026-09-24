@@ -152,6 +152,7 @@ const portfolioTranslations = {
     // Projects Section
     projects_subtitle: "Koleksi proyek perangkat lunak, sistem IoT, computer vision, dan aplikasi web yang telah saya bangun.",
     projects_btn_github: "LIHAT GITHUB",
+    projects_btn_video: "TAMPILKAN VIDEO",
     projects_btn_demo: "VIDEO DEMO",
 
     // Project 1
@@ -159,7 +160,8 @@ const portfolioTranslations = {
     proj1_idx: "PROJECT 01 / 04",
     proj1_title: "Auto-Feeding System using IoT with Website Monitoring",
     proj1_period: "Sep 2023 – Des 2023 · Politeknik Negeri Jember",
-    proj1_desc: "Sistem otomatisasi pakan ikan/hewan ternak menggunakan mikrokontroler ESP32 dan motor servo, dilengkapi dashboard monitoring berbasis website (PHP) dan algoritma Fuzzy Tsukamoto untuk menentukan takaran pakan secara presisi.",
+    proj1_desc:
+      "Sistem otomatisasi pakan ikan/hewan ternak menggunakan mikrokontroler ESP32 dan motor servo, dilengkapi dashboard monitoring berbasis website (PHP) dan algoritma Fuzzy Tsukamoto untuk menentukan takaran pakan secara presisi.",
     proj1_watermark: "IoT AUTO-FEEDING SYSTEM",
 
     // Project 2
@@ -167,23 +169,26 @@ const portfolioTranslations = {
     proj2_idx: "PROJECT 02 / 04",
     proj2_title: "Coffee Detection System using Webcam",
     proj2_period: "Sep 2023 – Des 2023 · Politeknik Negeri Jember",
-    proj2_desc: "Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat pada perangkat lokal.",
+    proj2_desc:
+      "Aplikasi computer vision untuk mendeteksi dan mengklasifikasikan buah/biji kopi secara real-time melalui tangkapan webcam laptop. Menggunakan model YOLOv5 dengan arsitektur PyTorch yang dioptimalkan untuk inferensi cepat pada perangkat lokal.",
     proj2_watermark: "COFFEE DETECTION SYSTEM",
 
     // Project 3
     proj3_badge: "Web Development",
     proj3_idx: "PROJECT 03 / 04",
-    proj3_title: "Photo Sales Website \"POVSHOTNBK\"",
+    proj3_title: 'Photo Sales Website "POVSHOTNBK"',
     proj3_period: "Mar 2023 – Jun 2023 · Politeknik Negeri Jember",
-    proj3_desc: "Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin berbasis Blade.",
+    proj3_desc:
+      "Platform e-commerce katalog dan penjualan lisensi foto digital karya fotografer. Dibangun menggunakan framework Laravel dengan manajemen hak cipta/watermark otomatis, integrasi payment gateway Midtrans, dan panel admin berbasis Blade.",
     proj3_watermark: "POVSHOTNBK MARKETPLACE",
 
     // Project 4
     proj4_badge: "Web Development",
     proj4_idx: "PROJECT 04 / 04",
-    proj4_title: "Website E-Commerce \"Ilham Collection\"",
+    proj4_title: 'Website E-Commerce "Ilham Collection"',
     proj4_period: "Jun 2022 – Okt 2022 · Politeknik Negeri Jember",
-    proj4_desc: "Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang efisien.",
+    proj4_desc:
+      "Website toko online busana dan pakaian jadi yang menyediakan katalog produk interaktif, keranjang belanja (cart), kalkulasi ongkos kirim, dan manajemen pesanan back-end yang dirancang dengan PHP Native dan MySQL yang efisien.",
     proj4_watermark: "ILHAM COLLECTION E-COMMERCE",
 
     // Certificates Section
@@ -235,10 +240,12 @@ const portfolioTranslations = {
     honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
     honors_issuer: "Diberikan oleh <strong>Direktorat Jenderal Pendidikan Tinggi, Riset dan Teknologi (Kemdikbudristek)</strong> · 2023",
     honors_affiliation: "Terafiliasi dengan Politeknik Negeri Jember",
-    honors_desc: 'Tim mahasiswa (termasuk Johan sebagai anggota) lolos pendanaan nasional PKM-PM dengan judul "Sistem Deteksi Dini Banjir Berbasis Geographic Information System Terintegrasi Cloud Computing Website di Kelurahan Tambakkemerakan". Proyek ini merancang alat pemantau ketinggian air yang terhubung ke peta digital berbasis web, sehingga warga dan aparat desa bisa memantau status banjir secara real-time dan mengambil keputusan evakuasi lebih cepat. Program mencakup pemasangan alat di lokasi rawan banjir serta sosialisasi dan pelatihan penggunaan sistem kepada warga setempat.',
+    honors_desc:
+      'Tim mahasiswa (termasuk Johan sebagai anggota) lolos pendanaan nasional PKM-PM dengan judul "Sistem Deteksi Dini Banjir Berbasis Geographic Information System Terintegrasi Cloud Computing Website di Kelurahan Tambakkemerakan". Proyek ini merancang alat pemantau ketinggian air yang terhubung ke peta digital berbasis web, sehingga warga dan aparat desa bisa memantau status banjir secara real-time dan mengambil keputusan evakuasi lebih cepat. Program mencakup pemasangan alat di lokasi rawan banjir serta sosialisasi dan pelatihan penggunaan sistem kepada warga setempat.',
     honors_doc_cert: "Dok. Sertifikat Pendanaan PKM-PM",
     honors_doc_field: "Dok. Kegiatan Sosialisasi di Lapangan",
-    honors_pub_info: "Hasil program ini dipublikasikan sebagai <strong>artikel jurnal ilmiah</strong> di <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, bersama tim penulis Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, dan Junia Vitasari.",
+    honors_pub_info:
+      "Hasil program ini dipublikasikan sebagai <strong>artikel jurnal ilmiah</strong> di <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, bersama tim penulis Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, dan Junia Vitasari.",
     honors_btn_pub: "BACA PUBLIKASI ILMIAH",
 
     // Contact Section
@@ -269,7 +276,6 @@ const portfolioTranslations = {
     footer_link_projects: "Karya & Proyek",
     footer_link_cert: "Sertifikasi Resmi",
     footer_link_honors: "Penghargaan",
-    footer_link_contact: "Hubungi Langsung",
     footer_col_skills: "Keahlian Utama",
     footer_skill1_title: "Backend & REST API",
     footer_skill2_title: "Web Automation",
@@ -635,6 +641,7 @@ const portfolioTranslations = {
     // Projects Section
     projects_subtitle: "A curated collection of software systems, IoT, computer vision, and web applications I have built.",
     projects_btn_github: "VIEW GITHUB",
+    projects_btn_video: "SHOW VIDEO",
     projects_btn_demo: "VIDEO DEMO",
 
     // Project 1
@@ -656,7 +663,7 @@ const portfolioTranslations = {
     // Project 3
     proj3_badge: "Web Development",
     proj3_idx: "PROJECT 03 / 04",
-    proj3_title: "Photo Sales Website \"POVSHOTNBK\"",
+    proj3_title: 'Photo Sales Website "POVSHOTNBK"',
     proj3_period: "Mar 2023 – Jun 2023 · Politeknik Negeri Jember",
     proj3_desc: "Digital photography marketplace and licensing e-commerce platform built with Laravel, featuring automated watermarking, Midtrans payment gateway integration, and a comprehensive Blade admin dashboard.",
     proj3_watermark: "POVSHOTNBK MARKETPLACE",
@@ -664,7 +671,7 @@ const portfolioTranslations = {
     // Project 4
     proj4_badge: "Web Development",
     proj4_idx: "PROJECT 04 / 04",
-    proj4_title: "Website E-Commerce \"Ilham Collection\"",
+    proj4_title: 'Website E-Commerce "Ilham Collection"',
     proj4_period: "Jun 2022 – Oct 2022 · Politeknik Negeri Jember",
     proj4_desc: "Online fashion store offering an interactive product catalog, shopping cart, shipping calculation, and order management dashboard crafted with clean native PHP and MySQL.",
     proj4_watermark: "ILHAM COLLECTION E-COMMERCE",
@@ -717,10 +724,12 @@ const portfolioTranslations = {
     honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
     honors_issuer: "Awarded by <strong>Directorate General of Higher Education, Research, and Technology (Kemdikbudristek)</strong> · 2023",
     honors_affiliation: "Affiliated with Politeknik Negeri Jember",
-    honors_desc: 'A student team (including Johan as an active member) secured national PKM-PM funding for "Early Flood Detection System Based on Geographic Information System Integrated with Cloud Computing Website in Tambakkemerakan Village". This project engineered real-time water level monitoring sensors connected to a web-based digital map, enabling local residents and village authorities to monitor flood risks in real-time and accelerate evacuation decision-making. The program encompassed hardware installation at flood-prone points as well as public socialization and hands-on system training for the community.',
+    honors_desc:
+      'A student team (including Johan as an active member) secured national PKM-PM funding for "Early Flood Detection System Based on Geographic Information System Integrated with Cloud Computing Website in Tambakkemerakan Village". This project engineered real-time water level monitoring sensors connected to a web-based digital map, enabling local residents and village authorities to monitor flood risks in real-time and accelerate evacuation decision-making. The program encompassed hardware installation at flood-prone points as well as public socialization and hands-on system training for the community.',
     honors_doc_cert: "Doc. PKM-PM Funding Certificate",
     honors_doc_field: "Doc. Field Socialization Activity",
-    honors_pub_info: "The program results were published as a <strong>peer-reviewed scientific journal article</strong> in <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, co-authored with Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, and Junia Vitasari.",
+    honors_pub_info:
+      "The program results were published as a <strong>peer-reviewed scientific journal article</strong> in <em>Jurnal Akademik Pengabdian Masyarakat, Vol. 2 No. 1 (2024)</em>, co-authored with Mochammad Rifki Ulil Albaab, Rangga Raditya Nugroho, and Junia Vitasari.",
     honors_btn_pub: "READ SCIENTIFIC PUBLICATION",
 
     // Contact Section
