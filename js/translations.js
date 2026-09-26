@@ -32,6 +32,11 @@ const portfolioTranslations = {
     hero_stat_exp: "Pengalaman",
     hero_stat_tech: "Tech Stack",
     hero_stat_cert: "Sertifikasi",
+    hero_badge_status_sub: "Status",
+    hero_badge_exp_sub: "Pengalaman",
+    hero_badge_exp_val: "1+ Tahun Web &amp; API",
+    hero_badge_edu_sub: "Pendidikan",
+    hero_badge_edu_val: "Polije &bull; IPK 3.87",
 
     // Strip Banner
     strip_banner_text: "Software Developer fokus pada arsitektur backend scalable &amp; solusi enterprise",
@@ -521,6 +526,11 @@ const portfolioTranslations = {
     hero_stat_exp: "Experience",
     hero_stat_tech: "Tech Stack",
     hero_stat_cert: "Certificates",
+    hero_badge_status_sub: "Status",
+    hero_badge_exp_sub: "Experience",
+    hero_badge_exp_val: "1+ Year Web &amp; API",
+    hero_badge_edu_sub: "Education",
+    hero_badge_edu_val: "Polije &bull; GPA 3.87",
 
     // Strip Banner
     strip_banner_text: "Software Developer focused on scalable backend architecture &amp; enterprise solutions",

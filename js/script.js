@@ -412,18 +412,75 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================================
-  // 5. Card Cursor Spotlight Effect (Vercel/Linear Style)
+  // 5. 3D Card Tilt, Specular Glare & Hero Parallax Stage
   // =========================================================================
-  const spotlightCards = document.querySelectorAll(".spotlight-card");
-  spotlightCards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    });
+  const canTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // 5.1 Card Specular Glare & 3D Interactive Tilt (Visual / Graphic Cards Only)
+  const tiltCardSelectors = [
+    ".pillar-card",
+    ".skill-icon-item",
+    ".project-img-card",
+    ".cert-card"
+  ].join(", ");
+
+  const interactiveCards = document.querySelectorAll(tiltCardSelectors);
+
+  interactiveCards.forEach((card) => {
+    let bounds;
+    let isHovering = false;
+    let rafId = null;
+
+    // Determine max tilt based on card size
+    const isSmallBadge = card.classList.contains("skill-icon-item");
+    const maxTilt = isSmallBadge ? 14 : 7;
+    const liftZ = isSmallBadge ? 10 : 16;
+
+    const onMouseEnter = () => {
+      bounds = card.getBoundingClientRect();
+      isHovering = true;
+      card.style.transition = "transform 0.12s ease-out, box-shadow 0.25s ease";
+    };
+
+    const onMouseMove = (e) => {
+      if (!bounds) bounds = card.getBoundingClientRect();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+
+      // Always update dynamic specular spotlight coordinates
+      card.style.setProperty("--mouse-x", `${mouseX}px`);
+      card.style.setProperty("--mouse-y", `${mouseY}px`);
+
+      if (!canTilt) return;
+
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!isHovering) return;
+        const centerX = bounds.width / 2;
+        const centerY = bounds.height / 2;
+        const percentX = (mouseX - centerX) / centerX;
+        const percentY = (mouseY - centerY) / centerY;
+
+        const rotateX = (-percentY * maxTilt).toFixed(2);
+        const rotateY = (percentX * maxTilt).toFixed(2);
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${liftZ}px)`;
+      });
+    };
+
+    const onMouseLeave = () => {
+      isHovering = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      card.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease";
+      card.style.transform = "";
+    };
+
+    card.addEventListener("mouseenter", onMouseEnter);
+    card.addEventListener("mousemove", onMouseMove);
+    card.addEventListener("mouseleave", onMouseLeave);
   });
+
+
 
   // =========================================================================
   // 6. Experience & Project Category Filters
