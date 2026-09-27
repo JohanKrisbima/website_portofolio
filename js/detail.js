@@ -76,6 +76,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
+   * Mengatur efek elevasi bayangan navbar saat halaman detail di-scroll.
+   */
+  function initStickyNavbar() {
+    const navbar = document.querySelector(".blog-nav-sticky");
+    if (!navbar) return;
+
+    const toggleNavbarScrolled = () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", toggleNavbarScrolled, { passive: true });
+    toggleNavbarScrolled();
+  }
+
+  /**
    * Mengatur tombol pengalih tema (Dark/Light Mode) pada navbar detail dan
    * menyinkronkannya dengan status penyimpanan lokal (localStorage).
    */
@@ -303,6 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLanguageManager();
   initReadingProgressBar();
   initBackToTop();
+  initStickyNavbar();
   initThemeSwitcher();
   initImageLightbox();
   initScrollReveal();

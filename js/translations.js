@@ -6,14 +6,14 @@
 const portfolioTranslations = {
   id: {
     // Navigation
-    nav_home: "Home",
-    nav_about: "About",
-    nav_skills: "Skills",
-    nav_experience: "Experience",
-    nav_projects: "Projects",
+    nav_home: "Beranda",
+    nav_about: "Tentang",
+    nav_skills: "Keahlian",
+    nav_experience: "Pengalaman",
+    nav_projects: "Proyek",
     nav_sertifikat: "Sertifikat",
-    nav_honors: "Awards",
-    nav_contact: "Contact",
+    nav_honors: "Penghargaan",
+    nav_contact: "Kontak",
     nav_download_cv: "Unduh CV",
     mobile_lang_label: "Bahasa / Language:",
     mobile_theme_label: "Mode Tampilan:",
@@ -242,7 +242,7 @@ const portfolioTranslations = {
     // Honors & Awards Section
     honors_box_title: "PENGHARGAAN",
     honors_subtitle: "Penghargaan pendanaan riset nasional yang berhasil dipublikasikan sebagai jurnal ilmiah.",
-    honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
+    honors_title: "Program Kreativitas Mahasiswa: Pengabdian Masyarakat (PKM-PM)",
     honors_issuer: "Diberikan oleh <strong>Direktorat Jenderal Pendidikan Tinggi, Riset dan Teknologi (Kemdikbudristek)</strong> · 2023",
     honors_affiliation: "Terafiliasi dengan Politeknik Negeri Jember",
     honors_desc:
@@ -551,7 +551,7 @@ const portfolioTranslations = {
     about_bio_1:
       'I am Johan Krisbima Abi, a graduate in <span class="highlight-pill">Applied Informatics Engineering from Politeknik Negeri Jember (2025)</span> with professional experience in web application engineering through the MagangHub program, continued with an internship contract at <span class="highlight-pill">PT PAL Indonesia</span>.',
     about_bio_2:
-      "Experienced in developing and maintaining web applications across all stages—from requirements analysis, system architecture, and implementation to comprehensive testing and optimization. Equipped with strong technical proficiency, effective time management, and collaborative teamwork skills. Solution-driven and committed to delivering high-quality results that advance company objectives.",
+      "Experienced in developing and maintaining web applications across all stages (from requirements analysis, system architecture, and implementation to comprehensive testing and optimization). Equipped with strong technical proficiency, effective time management, and collaborative teamwork skills. Solution-driven and committed to delivering high-quality results that advance company objectives.",
     about_edu_school: "Politeknik Negeri Jember",
     about_edu_degree: "B.A.Sc Informatics Engineering (2021 - 2025)",
     about_edu_ipk: "GPA: 3.87 / 4.00",
@@ -731,7 +731,7 @@ const portfolioTranslations = {
     // Honors & Awards Section
     honors_box_title: "HONORS",
     honors_subtitle: "National research funding award successfully published as a scientific journal article.",
-    honors_title: "Program Kreativitas Mahasiswa — Pengabdian Masyarakat (PKM-PM)",
+    honors_title: "Program Kreativitas Mahasiswa: Pengabdian Masyarakat (PKM-PM)",
     honors_issuer: "Awarded by <strong>Directorate General of Higher Education, Research, and Technology (Kemdikbudristek)</strong> · 2023",
     honors_affiliation: "Affiliated with Politeknik Negeri Jember",
     honors_desc:

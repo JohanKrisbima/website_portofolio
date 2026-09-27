@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Elements & References
   // =========================================================================
   const navbar = document.querySelector(".navbar-pill");
+  const floatingNavContainer = document.querySelector(".floating-navbar-container");
   const backToTopBtn = document.getElementById("backToTop");
   const scrollProgressBar = document.getElementById("scrollProgressBar");
   const mobileDrawerEl = document.getElementById("mobileMenu");
@@ -282,9 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. Floating navbar styling
     if (scrollY > 50) {
-      navbar.classList.add("scrolled");
+      if (navbar) navbar.classList.add("scrolled");
+      if (floatingNavContainer) floatingNavContainer.classList.add("scrolled");
     } else {
-      navbar.classList.remove("scrolled");
+      if (navbar) navbar.classList.remove("scrolled");
+      if (floatingNavContainer) floatingNavContainer.classList.remove("scrolled");
     }
 
     // 3. Back to top button
@@ -1043,7 +1046,7 @@ Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terim
   function scrollToTarget(targetId) {
     const targetEl = document.querySelector(targetId);
     if (targetEl) {
-      const headerOffset = 90;
+      const headerOffset = 75;
       const elementPosition = targetEl.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
