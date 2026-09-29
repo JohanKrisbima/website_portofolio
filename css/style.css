@@ -2289,6 +2289,12 @@ img {
 }
 .term-dot-red {
   background: #ff5f56;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.term-dot-red:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
 }
 .term-dot-yellow {
   background: #ffbd2e;

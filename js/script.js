@@ -708,16 +708,35 @@ window.addEventListener("keydown", (e) => {
 
 // 20. Interactive Terminal CLI
 const toggleTerminalBtn = document.getElementById("toggleTerminalBtn");
+const termBtnLabel = document.getElementById("termBtnLabel");
 const terminalBox = document.getElementById("terminalBox");
 const terminalInput = document.getElementById("terminalInput");
 const terminalOutput = document.getElementById("terminalOutput");
 const termClearBtn = document.getElementById("termClearBtn");
+const termDotRed = document.querySelector(".term-dot-red");
+
+function setTerminalOpen(open) {
+  if (!terminalBox) return;
+  terminalBox.style.display = open ? "block" : "none";
+  if (termBtnLabel) {
+    termBtnLabel.textContent = open ? "💻 Tutup Terminal Interaktif (CLI)" : "💻 Buka Terminal Interaktif (CLI)";
+  }
+  if (toggleTerminalBtn) {
+    toggleTerminalBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  if (open && terminalInput) {
+    terminalInput.focus();
+  }
+}
 
 toggleTerminalBtn?.addEventListener("click", () => {
   if (!terminalBox) return;
   const isOpen = terminalBox.style.display === "block";
-  terminalBox.style.display = isOpen ? "none" : "block";
-  if (!isOpen && terminalInput) terminalInput.focus();
+  setTerminalOpen(!isOpen);
+});
+
+termDotRed?.addEventListener("click", () => {
+  setTerminalOpen(false);
 });
 
 termClearBtn?.addEventListener("click", () => {
@@ -755,10 +774,16 @@ function runTerminalCommand(cmdRaw) {
       resp.innerHTML = "Email: johankrisbima77@gmail.com | WA: +62 878-5186-5091 | Lokasi: Mojokerto, Jawa Timur";
       break;
     case "help":
-      resp.innerHTML = 'Perintah tersedia: <span style="color:#cf8047;">whoami, skills, projects, cert, contact, clear, help</span>';
+      resp.innerHTML = 'Perintah tersedia: <span style="color:#cf8047;">whoami, skills, projects, cert, contact, clear, tutup, help</span>';
       break;
     case "clear":
       terminalOutput.innerHTML = "";
+      return;
+    case "exit":
+    case "quit":
+    case "close":
+    case "tutup":
+      setTerminalOpen(false);
       return;
     default:
       resp.innerHTML = `<span style="color:#ff5f56;">Perintah tidak ditemukan: ${cmd}</span>. Ketik <span style="color:#cf8047;">'help'</span> untuk daftar perintah.`;
