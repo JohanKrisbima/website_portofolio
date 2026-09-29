@@ -14,9 +14,7 @@
     <!-- Google Fonts: Plus Jakarta Sans (Headings) + Onest / Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Onest:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Onest:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
@@ -36,9 +34,9 @@
       <div class="detail-header-inner">
         <!-- Brand Link -->
         <a href="../index.html" class="detail-brand-btn" aria-label="Johan Krisbima - Kembali ke Beranda">
-          <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-            <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
-          </svg>
+          <span class="brand-logo-frame">
+            <img src="../assets/img/logo.png" alt="Logo Johan Krisbima Abi" class="brand-logo-img" />
+          </span>
           <span>Johan<span class="detail-brand-suffix">.dev</span></span>
         </a>
 
@@ -88,9 +86,7 @@
 
             <!-- Main Title & Lead -->
             <h1 class="detail-main-title">Project: Web Scraping for Nobox Extractor App &ndash; PT Universal Big Data</h1>
-            <p class="detail-subtitle-lead">
-              Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.
-            </p>
+            <p class="detail-subtitle-lead">Pengembangan dan pemeliharaan aplikasi desktop untuk ekstraksi data publik dari berbagai situs e-commerce global menggunakan teknik web scraping serta integrasi cloud platform Nobox AI.</p>
 
             <!-- Meta Pill Chips Row -->
             <div class="detail-meta-row">
@@ -147,7 +143,8 @@
               </h2>
             </div>
             <p class="detail-lead-p">
-              Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan teknis utama yang harus dipecahkan meliputi:
+              Model kecerdasan buatan Nobox AI membutuhkan asupan data tren pasar yang segar, luas, dan terstruktur setiap harinya. Pengumpulan data secara manual tidak realistis untuk skala ratusan ribu produk. Beberapa tantangan teknis
+              utama yang harus dipecahkan meliputi:
             </p>
             <div class="detail-challenge-list">
               <div class="detail-challenge-item">
@@ -185,9 +182,7 @@
                 <span>2. Solusi Teknis &amp; Fitur Unggulan</span>
               </h2>
             </div>
-            <p class="detail-lead-p">
-              Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:
-            </p>
+            <p class="detail-lead-p">Untuk mengatasi kendala di atas, saya merancang arsitektur aplikasi modular dengan pemisahan antara antarmuka pengguna (UI), mesin ekstraktor asynchronous, dan pipeline persistence database:</p>
 
             <div class="detail-subsystem-grid">
               <!-- Feature 1: Multi-Threaded Engine -->
@@ -333,9 +328,7 @@
                 <span>3. Dokumentasi Tampilan Aplikasi Nobox Extractor</span>
               </h2>
             </div>
-            <p class="detail-lead-p">
-              Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:
-            </p>
+            <p class="detail-lead-p">Berikut adalah tampilan aplikasi desktop Nobox Extractor saat menjalankan proses ekstraksi data produk e-commerce:</p>
 
             <div class="detail-gallery-grid">
               <!-- Figure 1 -->
@@ -393,9 +386,7 @@
                 <span>4. Dampak &amp; Hasil Nyata (Impact)</span>
               </h2>
             </div>
-            <p class="detail-lead-p">
-              Pengembangan aplikasi desktop Nobox Extractor memberikan kontribusi signifikan terhadap efisiensi pengumpulan data kecerdasan buatan:
-            </p>
+            <p class="detail-lead-p">Pengembangan aplikasi desktop Nobox Extractor memberikan kontribusi signifikan terhadap efisiensi pengumpulan data kecerdasan buatan:</p>
 
             <div class="detail-metrics-grid">
               <div class="detail-metric-card">
@@ -427,12 +418,10 @@
               </h2>
             </div>
             <div class="detail-takeaways-card">
+              <p>Mengembangkan Nobox Extractor di PT Universal Big Data memberikan wawasan mendalam mengenai teknik web scraping modern, pemrosesan data asinkronus skala besar, dan arsitektur desktop multithreading.</p>
               <p>
-                Mengembangkan Nobox Extractor di PT Universal Big Data memberikan wawasan mendalam mengenai teknik web scraping modern, pemrosesan data asinkronus skala besar, dan arsitektur desktop multithreading.
-              </p>
-              <p>
-                Pelajaran paling bernilai adalah merancang kode ekstraksi yang tangguh (fault-tolerant): selalu mengantisipasi perubahan struktur DOM situs pihak ketiga, menangani kegagalan jaringan secara anggun (graceful degradation),
-                dan menjaga kebersihan data sebelum disimpan ke database inti.
+                Pelajaran paling bernilai adalah merancang kode ekstraksi yang tangguh (fault-tolerant): selalu mengantisipasi perubahan struktur DOM situs pihak ketiga, menangani kegagalan jaringan secara anggun (graceful degradation), dan
+                menjaga kebersihan data sebelum disimpan ke database inti.
               </p>
             </div>
           </section>
@@ -508,13 +497,14 @@
           <!-- Col 1: Brand & Bio -->
           <div class="footer-brand-wrap">
             <a href="../index.html" class="footer-logo-btn">
-              <svg viewBox="0 0 48 48" fill="currentColor">
-                <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
-              </svg>
+              <span class="brand-logo-frame footer-logo-frame">
+                <img src="../assets/img/logo.png" alt="Logo Johan Krisbima Abi" class="brand-logo-img" />
+              </span>
               <span>Johan.dev</span>
             </a>
             <p class="footer-bio-p">
-              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi bisnis.
+              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi
+              bisnis.
             </p>
             <div class="footer-social-icons">
               <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-circle" aria-label="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
@@ -528,11 +518,21 @@
           <div>
             <h4 class="footer-col-head">EKSPLORASI</h4>
             <ul class="footer-col-links">
-              <li><a href="../index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a></li>
-              <li><a href="../index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a></li>
-              <li><a href="../index.html#experience"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a></li>
-              <li><a href="../index.html#projects"><i class="bi bi-chevron-right"></i> Karya &amp; Proyek</a></li>
-              <li><a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a></li>
+              <li>
+                <a href="../index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a>
+              </li>
+              <li>
+                <a href="../index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a>
+              </li>
+              <li>
+                <a href="../index.html#experience"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a>
+              </li>
+              <li>
+                <a href="../index.html#projects"><i class="bi bi-chevron-right"></i> Karya &amp; Proyek</a>
+              </li>
+              <li>
+                <a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a>
+              </li>
             </ul>
           </div>
 
@@ -540,10 +540,18 @@
           <div>
             <h4 class="footer-col-head">KEAHLIAN UTAMA</h4>
             <ul class="footer-col-links">
-              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Backend &amp; REST API</a></li>
-              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Web Automation &amp; Scraping</a></li>
-              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Modern Frontend UI/UX</a></li>
-              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Database Architecture</a></li>
+              <li>
+                <a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Backend &amp; REST API</a>
+              </li>
+              <li>
+                <a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Web Automation &amp; Scraping</a>
+              </li>
+              <li>
+                <a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Modern Frontend UI/UX</a>
+              </li>
+              <li>
+                <a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Database Architecture</a>
+              </li>
             </ul>
           </div>
 
@@ -551,17 +559,25 @@
           <div>
             <h4 class="footer-col-head">INFO REKRUTMEN</h4>
             <ul class="footer-col-links">
-              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Domisili:</strong> Mojokerto, Jatim</span></li>
-              <li><span style="font-size: 0.85rem; color: #10b981;"><strong>Status:</strong> Immediate Available</span></li>
-              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Mobilitas:</strong> On-site / Hybrid / Remote</span></li>
-              <li><a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" style="color: var(--accent-from);"><i class="bi bi-file-earmark-pdf-fill"></i> Unduh CV Resmi</a></li>
+              <li>
+                <span style="font-size: 0.85rem; color: #dedede"><strong>Domisili:</strong> Mojokerto, Jatim</span>
+              </li>
+              <li>
+                <span style="font-size: 0.85rem; color: #10b981"><strong>Status:</strong> Immediate Available</span>
+              </li>
+              <li>
+                <span style="font-size: 0.85rem; color: #dedede"><strong>Mobilitas:</strong> On-site / Hybrid / Remote</span>
+              </li>
+              <li>
+                <a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" style="color: var(--accent-from)"><i class="bi bi-file-earmark-pdf-fill"></i> Unduh CV Resmi</a>
+              </li>
             </ul>
           </div>
         </div>
 
         <!-- Footer Bottom Bar -->
         <div class="detail-footer-bottom">
-          <div>&copy; 2025 Johan Krisbima Abi. All rights reserved.</div>
+          <div>&copy; 2026 Johan Krisbima Abi. All rights reserved.</div>
           <div>Dibuat dengan dedikasi rekayasa perangkat lunak modern.</div>
         </div>
 
