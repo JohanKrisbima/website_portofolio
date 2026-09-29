@@ -1,1113 +1,815 @@
-/**
- * PORTFOLIO SCRIPTS - JOHAN KRISBIMA ABI
- * Modern Interactive Navigation, Dynamic Typewriter, CLI Terminal,
- * Card Spotlight, Category Filters, Stat Counters & Toast System
- */
+// 1. Initial Scroll reset
+window.scrollTo(0, 0);
 
-// =========================================================================
-// 0. Immediate Theme Initialization (Prevents Flash of Unstyled Content)
-// =========================================================================
-(function initThemeImmediately() {
+// 2. Lenis smooth scroll instantiation (with graceful fallback if CDN is blocked/offline)
+const LenisClass = window.Lenis;
+let lenis = null;
+if (typeof LenisClass === "function") {
   try {
-    const THEME_STORAGE_KEY = "portfolio_theme_mode";
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      if (!savedTheme) {
-        localStorage.setItem(THEME_STORAGE_KEY, "light");
-      }
+    lenis = new LenisClass({ smoothWheel: true });
+    function raf(t) {
+      if (lenis && typeof lenis.raf === "function") lenis.raf(t);
+      requestAnimationFrame(raf);
     }
-  } catch (error) {
-    console.warn("Theme storage access failed:", error);
+    requestAnimationFrame(raf);
+  } catch (err) {
+    console.warn("Lenis initialization error:", err);
+    lenis = null;
   }
-})();
+}
 
-// =========================================================================
-// 0.1 Immediate Language Initialization
-// =========================================================================
-const LANG_STORAGE_KEY = "portfolio_language_choice";
-(function initLangImmediately() {
-  try {
-    const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
-    document.documentElement.setAttribute("lang", savedLang);
-  } catch (error) {
-    console.warn("Language storage access failed:", error);
-  }
-})();
+if (!lenis) {
+  lenis = {
+    raf: function () {},
+    stop: function () {},
+    start: function () {},
+  };
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  // =========================================================================
-  // 1. Elements & References
-  // =========================================================================
-  const navbar = document.querySelector(".navbar-pill");
-  const floatingNavContainer = document.querySelector(".floating-navbar-container");
-  const backToTopBtn = document.getElementById("backToTop");
-  const scrollProgressBar = document.getElementById("scrollProgressBar");
-  const mobileDrawerEl = document.getElementById("mobileMenu");
-  const mobileDrawer = mobileDrawerEl ? bootstrap.Offcanvas.getOrCreateInstance(mobileDrawerEl) : null;
-  const desktopNavLinks = document.querySelectorAll(".nav-link-pill");
-  const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
-  const sections = document.querySelectorAll("section[id]");
-  const certModalEl = document.getElementById("certModal");
-  const certModalImg = document.getElementById("certModalImg");
-  const certModalTitle = document.getElementById("certModalLabel");
-  const certBootstrapModal = certModalEl ? new bootstrap.Modal(certModalEl) : null;
-  const toastNotification = document.getElementById("toastNotification");
-  const toastMessage = document.getElementById("toastMessage");
-  const toastIcon = document.getElementById("toastIcon");
+// 3. Scroll lock model
+let scrollEnabled = true;
+function stopScroll() {
+  scrollEnabled = false;
+  if (lenis && typeof lenis.stop === "function") lenis.stop();
+  document.documentElement.style.position = "relative";
+  document.documentElement.style.overflow = "hidden";
+  document.documentElement.style.height = "100%";
+}
+function startScroll() {
+  scrollEnabled = true;
+  if (lenis && typeof lenis.start === "function") lenis.start();
+  document.documentElement.style.removeProperty("position");
+  document.documentElement.style.removeProperty("overflow");
+  document.documentElement.style.removeProperty("height");
+}
 
-  // Theme Toggle Elements
-  const themeToggleBtn = document.getElementById("themeToggleBtn");
-  const themeToggleText = document.getElementById("themeToggleText");
-  const themeSegBtns = document.querySelectorAll(".theme-seg-btn");
-  const THEME_STORAGE_KEY = "portfolio_theme_mode";
+// 4. Smooth scrollTo(id) helper
+function smoothScrollToId(targetId) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  if (lenis && typeof lenis.stop === "function") lenis.stop();
+  setTimeout(() => {
+    const top = el.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({ top: top, behavior: "smooth" });
+    setTimeout(() => {
+      if (scrollEnabled && lenis && typeof lenis.start === "function") lenis.start();
+    }, 100);
+  }, 50);
+}
 
-  // Language Toggle Elements
-  const langToggleBtn = document.getElementById("langToggleBtn");
-  const currentLangText = document.getElementById("currentLangText");
-  const langSegBtns = document.querySelectorAll(".lang-seg-btn");
-  let currentLanguage = localStorage.getItem(LANG_STORAGE_KEY) || "id";
-
-  // =========================================================================
-  // 2. Toast System Function
-  // =========================================================================
-  let toastTimer = null;
-
-  function showToast(message, iconClass = "bi-check-circle-fill") {
-    if (!toastNotification || !toastMessage) return;
-
-    if (toastIcon) {
-      toastIcon.className = `bi ${iconClass} toast-icon`;
+// Bind all data-scroll-to elements
+document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = btn.getAttribute("data-scroll-to");
+    if (target) {
+      closeNavMenu();
+      smoothScrollToId(target);
     }
-    toastMessage.textContent = message;
-    toastNotification.classList.add("show");
+  });
+});
 
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toastNotification.classList.remove("show");
-    }, 3200);
-  }
+document.getElementById("headerBrandBtn")?.addEventListener("click", () => {
+  smoothScrollToId("home");
+});
 
-  // =========================================================================
-  // 3. Theme Manager (Dark & Light Modes)
-  // =========================================================================
-  function applyTheme(theme, notify = false) {
-    const isLight = theme === "light";
-    const activeTheme = isLight ? "light" : "dark";
-
-    document.documentElement.setAttribute("data-theme", activeTheme);
-    document.body.setAttribute("data-theme", activeTheme);
-    localStorage.setItem(THEME_STORAGE_KEY, activeTheme);
-
-    const tooltipLabel = isLight ? "Ganti ke Dark Mode" : "Ganti ke Light Mode";
-    const buttonLabel = isLight ? "Light Mode" : "Dark Mode";
-
-    // Sync navbar theme toggle button (desktop)
-    const themeNavBtn = document.getElementById("themeToggleNavBtn");
-    if (themeNavBtn) {
-      themeNavBtn.setAttribute("title", tooltipLabel);
-      themeNavBtn.setAttribute("aria-label", tooltipLabel);
-    }
-
-    if (themeToggleBtn) {
-      themeToggleBtn.setAttribute("title", tooltipLabel);
-      themeToggleBtn.setAttribute("aria-label", tooltipLabel);
-    }
-    if (themeToggleText) {
-      themeToggleText.textContent = buttonLabel;
-    }
-
-    // Sync segmented control buttons in mobile offcanvas
-    themeSegBtns.forEach((btn) => {
-      const choice = btn.getAttribute("data-theme-choice");
-      if (choice === activeTheme) {
-        btn.classList.add("active");
-      } else {
-        btn.classList.remove("active");
-      }
-    });
-
-    if (notify) {
-      showToast(isLight ? "Mode Terang Aktif" : "Mode Gelap Aktif", isLight ? "bi-sun-fill" : "bi-moon-stars-fill");
-    }
-
-    if (typeof AOS !== "undefined") {
-      setTimeout(() => AOS.refresh(), 100);
-    }
-  }
-
-  // Initialize theme on page load (Default: 'light')
-  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  if (savedTheme === "dark") {
-    applyTheme("dark", false);
+// 5. Adaptive Grid Scale-UP above 1920px (runtime damping formula)
+function applyAdaptiveGrid() {
+  const FONT_BASE = 16,
+    baseWidth = 1920,
+    coef = 0.6666;
+  const w = window.innerWidth;
+  const widthReduction = ((baseWidth - w) / baseWidth) * 100;
+  const size = FONT_BASE - (FONT_BASE * (widthReduction * coef)) / 100;
+  if (size > FONT_BASE) {
+    document.documentElement.style.fontSize = size + "px";
   } else {
-    applyTheme("light", false);
+    document.documentElement.style.removeProperty("font-size");
+  }
+}
+applyAdaptiveGrid();
+window.addEventListener("resize", applyAdaptiveGrid);
+
+// 6. Global intro ready flag
+let introReady = false;
+
+// 7. PageLoader Count & Entrance (1300ms easeInOutCubic)
+const pageLoader = document.getElementById("pageLoader");
+const loaderFill = document.getElementById("loaderFill");
+const loaderCounter = document.getElementById("loaderCounter");
+const siteHeader = document.getElementById("siteHeader");
+const homeSection = document.getElementById("home");
+
+stopScroll(); // Lock scroll on mount
+
+const FILL_MS = 1300;
+const loaderStartTime = performance.now();
+let loaderDismissed = false;
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function dismissLoader() {
+  if (loaderDismissed) return;
+  loaderDismissed = true;
+
+  if (pageLoader) {
+    pageLoader.classList.add("loader-exit");
   }
 
-  // Floating Theme button click handler (fallback if present)
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const nextTheme = current === "light" ? "dark" : "light";
-      applyTheme(nextTheme, true);
+  setTimeout(() => {
+    introReady = true;
+    startScroll();
+    if (pageLoader) pageLoader.style.display = "none";
+
+    // Reveal Header
+    if (siteHeader) siteHeader.classList.add("header-ready");
+    // Reveal Hero elements
+    if (homeSection) homeSection.classList.add("hero-ready", "revealed");
+
+    // Trigger above-the-fold reveals
+    document.querySelectorAll("#home .reveal-fade-up").forEach((el) => {
+      el.classList.add("revealed");
     });
+
+    // Start typing animation
+    startTypewriter();
+  }, 700);
+}
+
+function updateLoader(now) {
+  if (loaderDismissed) return;
+  const elapsed = now - loaderStartTime;
+  const t = Math.min(1, elapsed / FILL_MS);
+  const eased = easeInOutCubic(t);
+  const progress = Math.round(eased * 100);
+
+  if (loaderFill) loaderFill.style.width = progress + "%";
+  if (loaderCounter) loaderCounter.textContent = String(progress).padStart(3, "0");
+
+  if (t < 1) {
+    requestAnimationFrame(updateLoader);
+  } else {
+    setTimeout(dismissLoader, 150);
+  }
+}
+requestAnimationFrame(updateLoader);
+
+// Failsafe: dismiss loader unconditionally after 1.8s
+setTimeout(dismissLoader, 1800);
+
+// 8. Live Clock & Calendar (updates every 1s)
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const meridiem = hours >= 12 ? "pm" : "am";
+  hours = hours % 12 || 12;
+  const timeStr = `${hours}:${minutes}${meridiem}`;
+
+  const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+  const dateStr = `${now.getDate()} ${months[now.getMonth()]}, ${now.getFullYear()}`;
+
+  const clockTimeEl = document.getElementById("clockTime");
+  const clockDateEl = document.getElementById("clockDate");
+  const overlayTimeEl = document.getElementById("overlayLocalTime");
+
+  if (clockTimeEl) clockTimeEl.textContent = timeStr;
+  if (clockDateEl) clockDateEl.textContent = dateStr;
+  if (overlayTimeEl) overlayTimeEl.textContent = timeStr;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// 9. LIQUID REVEAL CANVAS WITH JOHAN'S PHOTO
+const liquidWrap = document.getElementById("liquidWrap");
+const liquidCanvas = document.getElementById("liquidCanvas");
+// Using the generated matching cyberpunk dark-mode developer portrait for hover reveal
+const afterSrc = "assets/img/profile_wisuda_hover.jpg";
+const baseImg = document.getElementById("liquidBaseImg");
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (liquidCanvas && liquidWrap && !prefersReducedMotion) {
+  const ctx = liquidCanvas.getContext("2d");
+  const brushRadius = 143;
+  const decay = 0.016;
+
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let width = 0;
+  let height = 0;
+  let radius = brushRadius * dpr;
+  let diam = Math.ceil(radius * 2);
+
+  // Offscreen cover canvas
+  const coverCanvas = document.createElement("canvas");
+  const coverCtx = coverCanvas.getContext("2d");
+
+  // Offscreen brush canvas
+  const brushCanvas = document.createElement("canvas");
+  const brushCtx = brushCanvas.getContext("2d");
+
+  // Load alternate image for brush painting
+  const afterImg = new Image();
+  let afterImgLoaded = false;
+  afterImg.onload = () => {
+    afterImgLoaded = true;
+    drawCoverImage();
+  };
+  afterImg.src = afterSrc;
+
+  if (baseImg) {
+    baseImg.addEventListener("load", drawCoverImage);
   }
 
-  // Navbar Theme button click handler (Desktop)
-  const themeToggleNavBtn = document.getElementById("themeToggleNavBtn");
-  if (themeToggleNavBtn) {
-    themeToggleNavBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const nextTheme = current === "light" ? "dark" : "light";
-      applyTheme(nextTheme, true);
-    });
-  }
+  function drawCoverImage() {
+    if (!afterImgLoaded || width === 0 || height === 0) return;
+    coverCanvas.width = width;
+    coverCanvas.height = height;
 
-  themeSegBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const choice = btn.getAttribute("data-theme-choice");
-      if (choice) {
-        applyTheme(choice, true);
-      }
-    });
-  });
-
-  // =========================================================================
-  // 1.1 Language Manager (Bilingual: ID & EN)
-  // =========================================================================
-  function applyLanguage(lang, notify = false) {
-    const targetLang = lang === "en" ? "en" : "id";
-    currentLanguage = targetLang;
-    document.documentElement.setAttribute("lang", targetLang);
-    try {
-      localStorage.setItem(LANG_STORAGE_KEY, targetLang);
-    } catch (e) {
-      console.warn("Failed to persist language choice in localStorage:", e);
-    }
-
-    if (typeof portfolioTranslations !== "undefined" && portfolioTranslations[targetLang]) {
-      const dict = portfolioTranslations[targetLang];
-
-      // 1. Update text of elements with [data-i18n]
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) {
-          el.innerHTML = dict[key];
-        }
-      });
-
-      // 2. Update placeholder attributes
-      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        if (dict[key] !== undefined) {
-          el.setAttribute("placeholder", dict[key]);
-        }
-      });
-
-      // 3. Update title attributes
-      document.querySelectorAll("[data-i18n-title]").forEach((el) => {
-        const key = el.getAttribute("data-i18n-title");
-        if (dict[key] !== undefined) {
-          el.setAttribute("title", dict[key]);
-        }
-      });
-
-      // 4. Update desktop navbar indicator text
-      if (currentLangText) {
-        currentLangText.textContent = targetLang === "id" ? "EN" : "ID";
-      }
-      if (langToggleBtn) {
-        const titleText = targetLang === "id" ? "Ganti ke English" : "Switch to Bahasa Indonesia";
-        langToggleBtn.setAttribute("title", titleText);
-        langToggleBtn.setAttribute("aria-label", titleText);
-      }
-
-      // 5. Update mobile drawer segmented buttons
-      langSegBtns.forEach((btn) => {
-        const choice = btn.getAttribute("data-lang-choice");
-        if (choice === targetLang) {
-          btn.classList.add("active");
-        } else {
-          btn.classList.remove("active");
-        }
-      });
-
-      // 6. Notify user with toast notification
-      if (notify && typeof showToast === "function") {
-        showToast(dict.toast_lang_switched, "bi-translate");
-      }
-
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 100);
-      }
-    }
-  }
-
-  // Initialize language on load
-  applyLanguage(currentLanguage, false);
-
-  // Desktop Navbar button click handler
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener("click", () => {
-      const nextLang = currentLanguage === "id" ? "en" : "id";
-      applyLanguage(nextLang, true);
-    });
-  }
-
-  // Mobile Drawer segmented buttons click handlers
-  langSegBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const choice = btn.getAttribute("data-lang-choice");
-      if (choice && choice !== currentLanguage) {
-        applyLanguage(choice, true);
-      }
-    });
-  });
-
-  // =========================================================================
-  // 2. High-Performance Throttled Scroll Engine (rAF + Passive)
-  // =========================================================================
-  let isScrollTicking = false;
-
-  function updateScrollState() {
-    const scrollY = window.pageYOffset || window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-    // 1. Top progress bar
-    if (scrollProgressBar && docHeight > 0) {
-      const scrollPercent = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
-      scrollProgressBar.style.width = `${scrollPercent}%`;
-    }
-
-    // 2. Floating navbar styling
-    if (scrollY > 50) {
-      if (navbar) navbar.classList.add("scrolled");
-      if (floatingNavContainer) floatingNavContainer.classList.add("scrolled");
+    let dw, dh, dx, dy;
+    if (baseImg && baseImg.offsetWidth > 0 && baseImg.offsetHeight > 0) {
+      const baseRect = baseImg.getBoundingClientRect();
+      const wrapRect = liquidWrap.getBoundingClientRect();
+      dx = (baseRect.left - wrapRect.left) * dpr;
+      dy = (baseRect.top - wrapRect.top) * dpr;
+      dw = baseRect.width * dpr;
+      dh = baseRect.height * dpr;
     } else {
-      if (navbar) navbar.classList.remove("scrolled");
-      if (floatingNavContainer) floatingNavContainer.classList.remove("scrolled");
+      const imgRatio = afterImg.naturalWidth / afterImg.naturalHeight;
+      const canvasRatio = width / height;
+      if (canvasRatio > imgRatio) {
+        dh = height * 0.96;
+        dw = dh * imgRatio;
+        dx = (width - dw) / 2 + (width > 1024 ? width * 0.03 : 0);
+        dy = height - dh;
+      } else {
+        dw = width * 0.85;
+        dh = dw / imgRatio;
+        dx = (width - dw) / 2;
+        dy = height - dh;
+      }
     }
 
-    // 3. Back to top button
-    if (scrollY > 350) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
-    }
-
-    // 4. ScrollSpy Active Link Tracking
-    let currentSectionId = "home";
-    if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 60) {
-      currentSectionId = "contact";
-    } else {
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute("id");
-        }
-      });
-    }
-    updateActiveNav(currentSectionId);
+    coverCtx.clearRect(0, 0, width, height);
+    coverCtx.drawImage(afterImg, dx, dy, dw, dh);
   }
+
+  function resizeCanvas() {
+    const rect = liquidWrap.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.round(rect.width * dpr);
+    height = Math.round(rect.height * dpr);
+
+    liquidCanvas.width = width;
+    liquidCanvas.height = height;
+    liquidCanvas.style.width = rect.width + "px";
+    liquidCanvas.style.height = rect.height + "px";
+
+    radius = brushRadius * dpr;
+    diam = Math.ceil(radius * 2);
+
+    brushCanvas.width = diam;
+    brushCanvas.height = diam;
+
+    drawCoverImage();
+  }
+
+  const ro = new ResizeObserver(resizeCanvas);
+  ro.observe(liquidWrap);
+  resizeCanvas();
+
+  // Pointer trail points queue
+  const points = [];
+  let lastPoint = null;
+  let idle = 0;
 
   window.addEventListener(
-    "scroll",
-    () => {
-      if (!isScrollTicking) {
-        window.requestAnimationFrame(() => {
-          updateScrollState();
-          isScrollTicking = false;
-        });
-        isScrollTicking = true;
+    "pointermove",
+    (e) => {
+      const rect = liquidWrap.getBoundingClientRect();
+      const px = (e.clientX - rect.left) * dpr;
+      const py = (e.clientY - rect.top) * dpr;
+
+      if (px < -radius || py < -radius || px > width + radius || py > height + radius) {
+        lastPoint = null;
+        return;
       }
+
+      if (!lastPoint) {
+        lastPoint = { x: px, y: py };
+        points.push(lastPoint);
+        return;
+      }
+
+      const dx = px - lastPoint.x;
+      const dy = py - lastPoint.y;
+      const dist = Math.hypot(dx, dy);
+      const step = Math.max(radius * 0.3, 1);
+      const n = Math.min(Math.ceil(dist / step), 60);
+
+      for (let i = 1; i <= n; i++) {
+        points.push({
+          x: lastPoint.x + (dx * i) / n,
+          y: lastPoint.y + (dy * i) / n,
+        });
+      }
+      lastPoint = { x: px, y: py };
     },
     { passive: true },
   );
 
-  // Initial call on page load
-  updateScrollState();
+  function stamp(x, y) {
+    if (!afterImgLoaded || width === 0) return;
+    const c = diam / 2;
 
-  // =========================================================================
-  // 3. Dynamic Typewriter Effect for Hero
-  // =========================================================================
-  const typewriterEl = document.getElementById("heroTypewriter");
-  if (typewriterEl) {
-    const defaultRoles = ["Software Developer", "Backend & RESTful API Specialist", "Experience 1 year as Web Developer"];
-    let roleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let typeSpeed = 90;
+    // 1. Prepare brush gradient
+    brushCtx.clearRect(0, 0, diam, diam);
+    brushCtx.globalCompositeOperation = "source-over";
+    const grad = brushCtx.createRadialGradient(c, c, 0, c, c, radius);
+    grad.addColorStop(0, "rgba(255,255,255,1)");
+    grad.addColorStop(0.55, "rgba(255,255,255,0.82)");
+    grad.addColorStop(1, "rgba(255,255,255,0)");
+    brushCtx.fillStyle = grad;
+    brushCtx.fillRect(0, 0, diam, diam);
 
-    function typeLoop() {
-      const activeRoles = (typeof portfolioTranslations !== "undefined" && portfolioTranslations[currentLanguage] && portfolioTranslations[currentLanguage].typewriter_roles)
-        ? portfolioTranslations[currentLanguage].typewriter_roles
-        : defaultRoles;
-      const currentRole = activeRoles[roleIdx % activeRoles.length];
+    // 2. Mask with matching cover region
+    brushCtx.globalCompositeOperation = "source-in";
+    brushCtx.drawImage(coverCanvas, x - c, y - c, diam, diam, 0, 0, diam, diam);
 
-      if (isDeleting) {
-        typewriterEl.textContent = currentRole.substring(0, charIdx - 1);
-        charIdx--;
-        typeSpeed = 40;
-      } else {
-        typewriterEl.textContent = currentRole.substring(0, charIdx + 1);
-        charIdx++;
-        typeSpeed = 80;
-      }
-
-      if (!isDeleting && charIdx === currentRole.length) {
-        // Pause at end of text
-        typeSpeed = 1800;
-        isDeleting = true;
-      } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        roleIdx = (roleIdx + 1) % activeRoles.length;
-        typeSpeed = 450;
-      }
-
-      setTimeout(typeLoop, typeSpeed);
-    }
-
-    typeLoop();
+    // 3. Stamp onto main canvas
+    ctx.globalCompositeOperation = "source-over";
+    ctx.drawImage(brushCanvas, x - c, y - c);
   }
 
-  // =========================================================================
-  // 4. Animated Number Counters
-  // =========================================================================
-  const statCounters = document.querySelectorAll(".stat-counter");
-  if (statCounters.length > 0) {
-    const counterObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const counterEl = entry.target;
-            const targetNum = parseInt(counterEl.getAttribute("data-target"), 10) || 0;
-            const duration = 1500;
-            const startTime = performance.now();
-
-            function updateCounter(now) {
-              const elapsed = now - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              // Ease out cubic
-              const easeOutProgress = 1 - Math.pow(1 - progress, 3);
-              const currentVal = Math.floor(easeOutProgress * targetNum);
-
-              counterEl.textContent = currentVal;
-
-              if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-              } else {
-                counterEl.textContent = targetNum;
-              }
-            }
-
-            requestAnimationFrame(updateCounter);
-            observer.unobserve(counterEl);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    statCounters.forEach((counter) => counterObserver.observe(counter));
-  }
-
-  // =========================================================================
-  // 5. 3D Card Tilt, Specular Glare & Hero Parallax Stage
-  // =========================================================================
-  const canTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-  // 5.1 Card Specular Glare & 3D Interactive Tilt (Visual / Graphic Cards Only)
-  const tiltCardSelectors = [
-    ".pillar-card",
-    ".skill-icon-item",
-    ".project-img-card",
-    ".cert-card"
-  ].join(", ");
-
-  const interactiveCards = document.querySelectorAll(tiltCardSelectors);
-
-  interactiveCards.forEach((card) => {
-    let bounds;
-    let isHovering = false;
-    let rafId = null;
-
-    // Determine max tilt based on card size
-    const isSmallBadge = card.classList.contains("skill-icon-item");
-    const maxTilt = isSmallBadge ? 14 : 7;
-    const liftZ = isSmallBadge ? 10 : 16;
-
-    const onMouseEnter = () => {
-      bounds = card.getBoundingClientRect();
-      isHovering = true;
-      card.style.transition = "transform 0.12s ease-out, box-shadow 0.25s ease";
-    };
-
-    const onMouseMove = (e) => {
-      if (!bounds) bounds = card.getBoundingClientRect();
-      const mouseX = e.clientX - bounds.left;
-      const mouseY = e.clientY - bounds.top;
-
-      // Always update dynamic specular spotlight coordinates
-      card.style.setProperty("--mouse-x", `${mouseX}px`);
-      card.style.setProperty("--mouse-y", `${mouseY}px`);
-
-      if (!canTilt) return;
-
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!isHovering) return;
-        const centerX = bounds.width / 2;
-        const centerY = bounds.height / 2;
-        const percentX = (mouseX - centerX) / centerX;
-        const percentY = (mouseY - centerY) / centerY;
-
-        const rotateX = (-percentY * maxTilt).toFixed(2);
-        const rotateY = (percentX * maxTilt).toFixed(2);
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${liftZ}px)`;
-      });
-    };
-
-    const onMouseLeave = () => {
-      isHovering = false;
-      if (rafId) cancelAnimationFrame(rafId);
-      card.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease";
-      card.style.transform = "";
-    };
-
-    card.addEventListener("mouseenter", onMouseEnter);
-    card.addEventListener("mousemove", onMouseMove);
-    card.addEventListener("mouseleave", onMouseLeave);
-  });
-
-
-
-  // =========================================================================
-  // 6. Experience & Project Category Filters
-  // =========================================================================
-  const expFilterBtns = document.querySelectorAll(".exp-filter-wrapper .filter-btn");
-  const experienceCards = document.querySelectorAll(".experience-card[data-category]");
-
-  expFilterBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const filterValue = btn.getAttribute("data-filter");
-      if (!filterValue) return;
-
-      expFilterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      experienceCards.forEach((card) => {
-        const category = card.getAttribute("data-category");
-        if (filterValue === "all" || category === filterValue) {
-          card.classList.remove("is-filtered-out");
-          card.style.display = "block";
-          setTimeout(() => {
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, 20);
-        } else {
-          card.style.opacity = "0";
-          card.style.transform = "scale(0.96)";
-          setTimeout(() => {
-            card.classList.add("is-filtered-out");
-            card.style.display = "none";
-          }, 250);
-        }
-      });
-
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 300);
-      }
-    });
-  });
-
-  // =========================================================================
-  // 6b. Certificate Category Filters
-  // =========================================================================
-  const certFilterBtns = document.querySelectorAll(".cert-filter-btn");
-  const certItems = document.querySelectorAll(".cert-item-col[data-cert-category]");
-
-  certFilterBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const filterVal = btn.getAttribute("data-cert-filter");
-      if (!filterVal) return;
-
-      certFilterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      certItems.forEach((item) => {
-        const itemCat = item.getAttribute("data-cert-category");
-        if (filterVal === "all" || itemCat === filterVal) {
-          item.classList.remove("is-filtered-out");
-          item.style.display = "";
-          setTimeout(() => {
-            item.style.opacity = "1";
-            item.style.transform = "translateY(0) scale(1)";
-          }, 20);
-        } else {
-          item.style.opacity = "0";
-          item.style.transform = "scale(0.95)";
-          setTimeout(() => {
-            item.classList.add("is-filtered-out");
-            item.style.display = "none";
-          }, 250);
-        }
-      });
-
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 300);
-      }
-    });
-  });
-
-  // =========================================================================
-  // 7. Interactive Developer CLI Terminal Engine
-  // =========================================================================
-  const terminalInput = document.getElementById("terminalInput");
-  const terminalOutput = document.getElementById("terminalOutput");
-  const termClearBtn = document.getElementById("termClearBtn");
-  const termChips = document.querySelectorAll(".term-chip");
-  const commandHistory = [];
-  let historyIndex = -1;
-
-  const terminalCommands = {
-    help: () => `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Daftar Perintah Tersedia:</div>
-  <div><span class="text-warning">whoami</span>   : Ringkasan profil dan latar belakang Johan</div>
-  <div><span class="text-warning">skills</span>   : Daftar keahlian teknis & tech stack utama</div>
-  <div><span class="text-warning">projects</span> : Pengalaman & proyek di PT PAL, UBig, Stechoq</div>
-  <div><span class="text-warning">cert</span>     : Daftar sertifikasi resmi yang dimiliki</div>
-  <div><span class="text-warning">contact</span>  : Kanal komunikasi (WhatsApp, Email, GitHub)</div>
-  <div><span class="text-warning">hire</span>     : Status ketersediaan & tawaran kerja</div>
-  <div><span class="text-warning">theme</span>    : Mengganti tema tampilan (Dark / Light)</div>
-  <div><span class="text-warning">date</span>     : Menampilkan tanggal & waktu lokal saat ini</div>
-  <div><span class="text-warning">clear</span>    : Membersihkan tampilan terminal</div>
-</div>`,
-
-    whoami: () => `
-<div class="term-output-block">
-  <div class="text-white fw-bold">Johan Krisbima Abi</div>
-  <div class="text-cyan small mb-2">D4 Teknik Informatika &bull; Politeknik Negeri Jember (2021 - 2025) &bull; IPK: 3.87/4.00</div>
-  <p class="mb-2 text-light">Saya Johan Krisbima Abi, lulusan D4 Teknik Informatika Politeknik Negeri Jember (2025) dengan pengalaman profesional dalam pengembangan web application melalui program MagangHub yang dilanjutkan dengan kontrak internship di PT PAL Indonesia. Memiliki pengalaman dalam mengembangkan dan memelihara aplikasi web, mulai dari analisis kebutuhan, perancangan, implementasi, hingga pengujian dan penyempurnaan sistem. Memiliki kemampuan teknis yang baik, manajemen waktu yang efektif, serta mampu bekerja secara kolaboratif dan adaptif dalam tim. Berorientasi pada solusi, pengembangan berkelanjutan, dan memberikan kontribusi nyata terhadap pencapaian tujuan perusahaan.</p>
-  <div class="text-white-50 small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Mojokerto, Jawa Timur, 61382 | 087851865091</div>
-  <div class="text-info small mt-1"><i class="bi bi-journal-bookmark me-1"></i>Publikasi Jurnal: “Sistem Deteksi Dini Banjir Berbasis GIS Cloud Web di Kelurahan Tambakkemerakan”</div>
-</div>`,
-
-    skills: () => `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Skills & Keahlian (Berdasarkan CV):</div>
-  <div><strong class="text-info">• Programming:</strong> HTML, CSS, JavaScript, PHP, Python, Bootstrap, Laravel, MySQL, Express Js, PostgreSQL</div>
-  <div><strong class="text-info">• Non-Programming:</strong> Microsoft Word, Canva</div>
-  <div><strong class="text-info">• Soft Skills:</strong> Problem Solving, Critical Thinking, Growth Mindset, Project Management</div>
-  <div><strong class="text-info">• Bahasa:</strong> Indonesia, Passive English</div>
-</div>`,
-
-    projects: () => `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Pengalaman & Proyek (Sesuai CV):</div>
-  <div class="mb-2">
-    <span class="text-warning fw-bold">1. PT Stechoq Robotika Indonesia</span> (Feb 2024 – Jul 2024)<br/>
-    <span class="text-cyan small">Backend Developer Intern &bull; Project: Website Management System for Mobile Phone Warehouse</span><br/>
-    <span class="text-white-50 small">• Membangun aplikasi web manajemen inventaris gudang handphone untuk melacak aliran stok masuk dan keluar secara akurat dan terpusat.</span><br/>
-    <span class="text-white-50 small">• Merancang RESTful API modular guna mengintegrasikan modul pengelolaan produk, data supplier, dan pencatatan transaksi pergudangan.</span><br/>
-    <span class="text-white-50 small">• Mengelola fondasi sisi backend, meliputi mekanisme autentikasi dan otorisasi pengguna, manajemen basis data, serta standarisasi dokumentasi endpoint API.</span>
-  </div>
-  <div class="mb-2">
-    <span class="text-warning fw-bold">2. PT Universal Big Data</span> (Jul 2024 – Des 2024)<br/>
-    <span class="text-cyan small">Web Automation Intern &bull; Project: Web Scraping for Nobox Extractor App</span><br/>
-    <span class="text-white-50 small">• Membangun dan memelihara aplikasi otomasi Nobox Extractor untuk mengekstraksi data publik lintas platform e-commerce global dengan tingkat keandalan tinggi.</span><br/>
-    <span class="text-white-50 small">• Mengimplementasikan fitur-fitur kritikal, seperti penanganan pagination kompleks, validasi kueri pencarian, dan standardisasi format data untuk meminimalisasi anomali serta meningkatkan akurasi data.</span><br/>
-    <span class="text-white-50 small">• Menghubungkan integrasi data ke platform Nobox AI serta melakukan pengujian dan penalaan performa (performance tuning) secara rutin guna menjaga reliabilitas aplikasi desktop.</span>
-  </div>
-  <div>
-    <span class="text-warning fw-bold">3. PT PAL Indonesia</span> (Oct 2025 – Aug 2026)<br/>
-    <span class="text-cyan small">Pemrogram Komputer Contract</span><br/>
-    <span class="text-white-50 small">• Website Siamang: optimasi absensi, deployment server, dokumentasi UAT & Manual Book.</span><br/>
-    <span class="text-white-50 small">• Website Simandok: refactoring codebase framework terbaru, security hardening, dokumentasi UAT.</span><br/>
-    <span class="text-white-50 small">• Website Ebidding: pengujian stabilitas lelang tender vendor, UAT, dan video tutorial.</span><br/>
-    <span class="text-white-50 small">• Website Subkon: pengembangan end-to-end database, User Management, data karyawan vendor, server deployment.</span>
-  </div>
-</div>`,
-
-    cert: () => `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Sertifikasi & Penghargaan (Sesuai CV):</div>
-  <div><strong class="text-warning">★ Web Developer</strong> — Badan Nasional Sertifikasi Profesi (BNSP) (Aug 2025 – Aug 2028)</div>
-  <div><strong class="text-warning">★ Lolos Pendanaan PKM-PM</strong> — Kemendikbudristek (Sistem Deteksi Dini Banjir GIS Cloud Tambak Kemerakan)</div>
-  <div>✓ Backend Developer Intern — PT Stechoq Robotika Indonesia (MSIB Kampus Merdeka)</div>
-  <div>✓ Web Automation Intern — PT Universal Big Data (MSIB Kampus Merdeka)</div>
-  <div>✓ Sertifikat Kepesertaan MSIB — Kemendikbudristek</div>
-  <div>✓ Sertifikat MagangHub — Kemnaker & PT PAL Indonesia</div>
-</div>`,
-
-    contact: () => `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Kontak Resmi (Sesuai CV):</div>
-  <div>• Lokasi    : <span class="text-light">Mojokerto, Jawa Timur, 61382</span></div>
-  <div>• WhatsApp  : <a href="https://wa.me/6287851865091" target="_blank" class="text-decoration-none text-success">+62 878-5186-5091 (087851865091)</a></div>
-  <div>• Email     : <span class="text-light">johankrisbima77@gmail.com</span></div>
-  <div>• LinkedIn  : <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="text-decoration-none text-info">linkedin.com/in/johan-krisbima-abi</a></div>
-  <div>• GitHub    : <a href="https://github.com/JohanKrisbima" target="_blank" class="text-decoration-none text-info">github.com/JohanKrisbima</a></div>
-  <div>• Portfolio : <a href="https://website-portofolio-johan.vercel.app/" target="_blank" class="text-decoration-none text-cyan">website-portofolio-johan.vercel.app</a></div>
-</div>`,
-
-    hire: () => `
-<div class="term-output-block">
-  <div class="text-success fw-bold mb-1">Status: Open for Opportunities!</div>
-  <div>Saya siap berkontribusi untuk posisi <strong>Full-time</strong>, <strong>Contract</strong>, maupun <strong>Project Freelance</strong>.</div>
-  <div class="mt-2">
-    <a href="https://wa.me/6287851865091?text=Halo%20Johan,%20kami%20tertarik%20merekrut%20Anda" target="_blank" class="btn-pill-primary py-1 px-3 fs-6 text-decoration-none d-inline-block">
-      Chat & Diskusi via WhatsApp
-    </a>
-  </div>
-</div>`,
-
-    theme: () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const nextTheme = current === "light" ? "dark" : "light";
-      applyTheme(nextTheme, true);
-      return `
-<div class="term-output-block">
-  <div class="text-cyan fw-bold mb-1">Theme Updated:</div>
-  <div>Mode tampilan berhasil diubah ke: <span class="text-warning fw-bold">${nextTheme.toUpperCase()} MODE</span></div>
-</div>`;
-    },
-
-    date: () => `
-<div class="term-output-block">
-  <span class="text-muted">Local Time:</span> <span class="text-white">${new Date().toLocaleString("id-ID")}</span>
-</div>`,
-  };
-
-  // Command aliases
-  terminalCommands.certificates = terminalCommands.cert;
-  terminalCommands.experience = terminalCommands.projects;
-  terminalCommands.exp = terminalCommands.projects;
-  terminalCommands.project = terminalCommands.projects;
-  terminalCommands.bio = terminalCommands.whoami;
-  terminalCommands.mode = terminalCommands.theme;
-  terminalCommands.dark = () => {
-    applyTheme("dark", true);
-    return `<div class="term-output-block"><div class="text-cyan fw-bold">Dark Mode Activated</div></div>`;
-  };
-  terminalCommands.light = () => {
-    applyTheme("light", true);
-    return `<div class="term-output-block"><div class="text-cyan fw-bold">Light Mode Activated</div></div>`;
-  };
-
-  function executeTerminalCommand(rawCmd) {
-    const cmd = rawCmd.trim().toLowerCase();
-    if (!cmd) return;
-
-    commandHistory.push(rawCmd);
-    historyIndex = commandHistory.length;
-
-    // Echo input command line (compact on mobile)
-    const isMobile = window.innerWidth <= 576;
-    const promptUser = isMobile ? "johan" : "guest@johan.dev";
-    const cmdEcho = document.createElement("div");
-    cmdEcho.className = "term-line";
-    cmdEcho.innerHTML = `<span class="term-prompt-user">${promptUser}</span>:<span class="term-prompt-path">~</span>$ <span class="term-cmd-echo">${escapeHtml(rawCmd)}</span>`;
-    terminalOutput.appendChild(cmdEcho);
-
-    if (cmd === "clear" || cmd === "cls") {
-      terminalOutput.innerHTML = `
-        <div class="term-line term-welcome">
-          <span class="text-cyan fw-bold">Johan.dev Interactive Shell v2.4</span> [Type <span class="text-warning">'help'</span> or click buttons above]
-        </div>`;
-      return;
-    }
-
-    const outputEl = document.createElement("div");
-    outputEl.className = "term-line";
-
-    if (terminalCommands[cmd]) {
-      outputEl.innerHTML = terminalCommands[cmd]();
+  function renderLiquid() {
+    const drawing = points.length > 0;
+    if (drawing) {
+      idle = 0;
     } else {
-      outputEl.innerHTML = `
-        <div class="term-output-block text-danger">
-          Perintah <span class="text-warning">'${escapeHtml(cmd)}'</span> tidak dikenali. Ketik <span class="text-cyan">'help'</span> untuk melihat perintah yang tersedia.
-        </div>`;
+      idle++;
     }
 
-    terminalOutput.appendChild(outputEl);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-  }
+    if (idle <= 120) {
+      const fade = drawing ? decay : Math.min(decay + idle * 0.004, 0.5);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = `rgba(0,0,0,${fade})`;
+      ctx.fillRect(0, 0, width, height);
 
-  function escapeHtml(str) {
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-
-  if (terminalInput) {
-    terminalInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        executeTerminalCommand(terminalInput.value);
-        terminalInput.value = "";
-      } else if (e.key === "ArrowUp") {
-        if (historyIndex > 0) {
-          historyIndex--;
-          terminalInput.value = commandHistory[historyIndex] || "";
+      if (drawing) {
+        for (let i = 0; i < points.length; i++) {
+          stamp(points[i].x, points[i].y);
         }
-      } else if (e.key === "ArrowDown") {
-        if (historyIndex < commandHistory.length - 1) {
-          historyIndex++;
-          terminalInput.value = commandHistory[historyIndex] || "";
-        } else {
-          historyIndex = commandHistory.length;
-          terminalInput.value = "";
-        }
+        points.length = 0;
       }
-    });
+
+      if (idle === 120) {
+        ctx.clearRect(0, 0, width, height);
+      }
+    }
+
+    requestAnimationFrame(renderLiquid);
+  }
+  requestAnimationFrame(renderLiquid);
+}
+
+// 10. TYPEWRITER EFFECT (AS IN CV)
+const roles = ["Software Developer", "Spesialis Backend & RESTful API", "Web Automation Specialist", "Pengalaman 1+ Tahun Web & API", "D4 Teknik Informatika Polije"];
+
+let currentRoleIdx = 0;
+let currentCharIdx = 0;
+let isDeletingRole = false;
+let typewriterTimer = null;
+
+function startTypewriter() {
+  if (typewriterTimer) clearTimeout(typewriterTimer);
+  typewriterTick();
+}
+
+function typewriterTick() {
+  const el = document.getElementById("typewriterText");
+  if (!el) return;
+
+  const fullText = roles[currentRoleIdx % roles.length];
+
+  if (isDeletingRole) {
+    currentCharIdx--;
+    el.textContent = fullText.substring(0, currentCharIdx);
+  } else {
+    currentCharIdx++;
+    el.textContent = fullText.substring(0, currentCharIdx);
   }
 
-  if (termClearBtn) {
-    termClearBtn.addEventListener("click", () => {
-      executeTerminalCommand("clear");
-      if (terminalInput) terminalInput.focus();
-    });
+  let speed = isDeletingRole ? 35 : 75;
+
+  if (!isDeletingRole && currentCharIdx === fullText.length) {
+    speed = 2000; // Pause at completed role
+    isDeletingRole = true;
+  } else if (isDeletingRole && currentCharIdx === 0) {
+    isDeletingRole = false;
+    currentRoleIdx = (currentRoleIdx + 1) % roles.length;
+    speed = 400; // Pause before typing next
   }
 
-  const termSendBtn = document.getElementById("termSendBtn");
-  if (termSendBtn && terminalInput) {
-    termSendBtn.addEventListener("click", () => {
-      const val = terminalInput.value.trim();
-      if (val) {
-        executeTerminalCommand(val);
-        terminalInput.value = "";
-      } else {
-        executeTerminalCommand("help");
-      }
-      terminalInput.focus();
-    });
+  typewriterTimer = setTimeout(typewriterTick, speed);
+}
+
+// 11. HeroCard Carousel Logic
+const carouselItems = [
+  { caption: "Backend Engineering", title: "Scalable API & Database Architecture." },
+  { caption: "Web Automation", title: "Resilient Scraping & Data Normalization." },
+  { caption: "Modern Full-Stack", title: "Effortless, Confident Web Solutions." },
+  { caption: "Enterprise Experience", title: "PT PAL Indonesia (BUMN) Verified." },
+];
+
+let currentCardIdx = 0;
+const heroCardSlot = document.getElementById("heroCardSlot");
+const cardDotsContainer = document.getElementById("cardDots");
+
+function renderCardItem(idx, direction = "down") {
+  if (!heroCardSlot) return;
+  const prevEl = heroCardSlot.querySelector(".card-slide-item.active");
+  if (prevEl) {
+    prevEl.className = `card-slide-item ${direction === "down" ? "out-up" : "out-down"}`;
+    setTimeout(() => prevEl.remove(), 450);
   }
 
-  termChips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      const cmd = chip.getAttribute("data-cmd");
-      if (cmd) {
-        executeTerminalCommand(cmd);
-        if (terminalInput) terminalInput.focus();
-      }
+  const item = carouselItems[idx];
+  const newEl = document.createElement("div");
+  newEl.className = `card-slide-item ${direction === "down" ? "out-down" : "out-up"}`;
+  newEl.innerHTML = `
+  <div class="card-caption">${item.caption}</div>
+  <div class="card-title">${item.title}</div>
+`;
+  heroCardSlot.appendChild(newEl);
+
+  void newEl.offsetWidth;
+  newEl.className = "card-slide-item active";
+
+  if (cardDotsContainer) {
+    cardDotsContainer.innerHTML = "";
+    carouselItems.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.className = `card-dot ${i === idx ? "active" : "inactive"}`;
+      cardDotsContainer.appendChild(dot);
     });
+  }
+}
+
+renderCardItem(0);
+
+function nextCard() {
+  currentCardIdx = (currentCardIdx + 1) % carouselItems.length;
+  renderCardItem(currentCardIdx, "down");
+}
+function prevCard() {
+  currentCardIdx = (currentCardIdx - 1 + carouselItems.length) % carouselItems.length;
+  renderCardItem(currentCardIdx, "up");
+}
+
+document.getElementById("heroCardNext")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  nextCard();
+});
+document.getElementById("heroCardPrev")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  prevCard();
+});
+document.getElementById("heroCardInner")?.addEventListener("click", () => {
+  nextCard();
+});
+
+// 12. Word Reveal Splitter for About Heading
+function splitAboutHeading() {
+  const aboutHeading = document.getElementById("aboutHeading");
+  if (!aboutHeading) return;
+  const text = aboutHeading.textContent.trim();
+  const words = text.split(/\s+/);
+  aboutHeading.innerHTML = "";
+
+  words.forEach((w, i) => {
+    const span = document.createElement("span");
+    span.className = "reveal-word";
+    if (i >= 7) {
+      span.classList.add("about-muted-text");
+    }
+    span.style.transitionDelay = `${i * 35}ms`;
+    span.textContent = w;
+    aboutHeading.appendChild(span);
+    aboutHeading.appendChild(document.createTextNode(" "));
   });
+}
+splitAboutHeading();
 
-  // Collapsible CLI Terminal Toggle
-  const btnToggleTerminal = document.getElementById("btnToggleTerminal");
-  const terminalCollapseContainer = document.getElementById("terminalCollapseContainer");
-  const termToggleText = document.getElementById("termToggleText");
-
-  if (btnToggleTerminal && terminalCollapseContainer) {
-    btnToggleTerminal.addEventListener("click", () => {
-      const isHidden = terminalCollapseContainer.classList.contains("d-none");
-      if (isHidden) {
-        terminalCollapseContainer.classList.remove("d-none");
-        if (termToggleText) {
-          termToggleText.textContent = currentLanguage === "id" ? "Tutup Terminal Interaktif" : "Hide Interactive Terminal";
-        }
-        if (terminalInput) terminalInput.focus();
-      } else {
-        terminalCollapseContainer.classList.add("d-none");
-        if (termToggleText) {
-          termToggleText.textContent = currentLanguage === "id" ? "Buka Terminal Interaktif (CLI)" : "Open Interactive Terminal (CLI)";
-        }
+// 13. IntersectionObserver for Reveal Animations
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        revealObserver.unobserve(entry.target);
       }
     });
-  }
+  },
+  { threshold: 0.15 },
+);
 
-  // =========================================================================
-  // 8. Quick Message Composer (WhatsApp Direct Form)
-  // =========================================================================
-  const btnSendComposer = document.getElementById("btnSendComposer");
-  const composerName = document.getElementById("composerName");
-  const composerTopic = document.getElementById("composerTopic");
-  const composerMessage = document.getElementById("composerMessage");
+document.querySelectorAll(".reveal-fade-up, #about, #experience, #projects, #services, #skills, #sertifikat, #siteFooter, #statsPanel").forEach((el) => {
+  revealObserver.observe(el);
+});
 
-  if (btnSendComposer) {
-    btnSendComposer.addEventListener("click", () => {
-      const name = composerName && composerName.value.trim() ? composerName.value.trim() : "Rekan Kerja / Rekruter";
-      const topic = composerTopic ? composerTopic.value : "Diskusi Peluang Kerja";
-      const message = composerMessage && composerMessage.value.trim() ? composerMessage.value.trim() : "-";
+// 15. NavMenu Overlay Controls
+const navMenuOverlay = document.getElementById("navMenuOverlay");
+const menuToggleBtn = document.getElementById("menuToggleBtn");
+const navCloseBtn = document.getElementById("navCloseBtn");
 
-      const formattedText = `Halo Johan Krisbima Abi,
+function openNavMenu() {
+  if (!navMenuOverlay) return;
+  navMenuOverlay.scrollTop = 0;
+  navMenuOverlay.classList.add("menu-open");
+  stopScroll();
+}
+function closeNavMenu() {
+  if (!navMenuOverlay) return;
+  navMenuOverlay.classList.remove("menu-open");
+  startScroll();
+}
 
-Saya: ${name}
-Topik: ${topic}
-Catatan: ${message}
+menuToggleBtn?.addEventListener("click", openNavMenu);
+navCloseBtn?.addEventListener("click", closeNavMenu);
+
+document.getElementById("overlayStartProjectBtn")?.addEventListener("click", () => {
+  closeNavMenu();
+  openRequestModal();
+});
+document.getElementById("overlayContactItemBtn")?.addEventListener("click", () => {
+  closeNavMenu();
+  openRequestModal();
+});
+
+// 16. Request Modal Controls
+const requestModalBackdrop = document.getElementById("requestModalBackdrop");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+const modalSuccessCloseBtn = document.getElementById("modalSuccessCloseBtn");
+const requestForm = document.getElementById("requestForm");
+const modalFormContainer = document.getElementById("modalFormContainer");
+const modalSuccessContainer = document.getElementById("modalSuccessContainer");
+const modalSubmitBtn = document.getElementById("modalSubmitBtn");
+const modalSubmitText = document.getElementById("modalSubmitText");
+
+function openRequestModal() {
+  if (!requestModalBackdrop) return;
+  if (modalFormContainer) modalFormContainer.style.display = "block";
+  if (modalSuccessContainer) modalSuccessContainer.style.display = "none";
+  if (modalSubmitBtn) modalSubmitBtn.disabled = false;
+  if (modalSubmitText) modalSubmitText.textContent = "Kirim Pesan";
+
+  requestModalBackdrop.classList.add("modal-open");
+  stopScroll();
+}
+
+function closeRequestModal() {
+  if (!requestModalBackdrop) return;
+  requestModalBackdrop.classList.remove("modal-open");
+  startScroll();
+  setTimeout(() => {
+    if (requestForm) requestForm.reset();
+  }, 300);
+}
+
+modalCloseBtn?.addEventListener("click", closeRequestModal);
+modalSuccessCloseBtn?.addEventListener("click", closeRequestModal);
+
+requestModalBackdrop?.addEventListener("click", (e) => {
+  if (e.target === requestModalBackdrop) closeRequestModal();
+});
+
+document.getElementById("navContactBtn")?.addEventListener("click", openRequestModal);
+document.getElementById("heroTalkBtn")?.addEventListener("click", openRequestModal);
+document.getElementById("footerStartBtn")?.addEventListener("click", openRequestModal);
+document.getElementById("footerContactLink")?.addEventListener("click", openRequestModal);
+
+document.querySelectorAll('[data-open-modal="true"]').forEach((el) => {
+  el.addEventListener("click", openRequestModal);
+});
+
+requestForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nameInput = document.getElementById("reqName");
+  const emailInput = document.getElementById("reqEmail");
+  const projectInput = document.getElementById("reqProject");
+
+  const name = nameInput ? nameInput.value.trim() : "";
+  const email = emailInput ? emailInput.value.trim() : "";
+  const project = projectInput ? projectInput.value.trim() : "";
+
+  if (!name || !email || !project) return;
+
+  if (modalSubmitBtn) modalSubmitBtn.disabled = true;
+  if (modalSubmitText) modalSubmitText.textContent = "Membuka WhatsApp...";
+
+  const formattedText = `Halo Johan Krisbima Abi,
+
+*Nama / Perusahaan:* ${name}
+*Email:* ${email}
+*Detail Kebutuhan:*
+${project}
 
 Saya melihat portofolio Anda di website dan ingin berdiskusi lebih lanjut. Terima kasih!`;
 
-      const waUrl = `https://wa.me/6287851865091?text=${encodeURIComponent(formattedText)}`;
-      showToast("Membuka WhatsApp...", "bi-whatsapp");
-      window.open(waUrl, "_blank");
-    });
+  const waUrl = `https://wa.me/6287851865091?text=${encodeURIComponent(formattedText)}`;
+
+  // Buka WhatsApp langsung di tab baru
+  window.open(waUrl, "_blank");
+
+  // Perbarui tautan tombol WhatsApp di layar sukses
+  const directWaLink = modalSuccessContainer?.querySelector('a[href^="https://wa.me"]');
+  if (directWaLink) {
+    directWaLink.href = waUrl;
   }
 
-  // =========================================================================
-  // 9. Quick Copy to Clipboard System
-  // =========================================================================
-  const copyButtons = document.querySelectorAll("[data-copy]");
-  copyButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const textToCopy = btn.getAttribute("data-copy");
-      if (!textToCopy) return;
+  setTimeout(() => {
+    if (modalFormContainer) modalFormContainer.style.display = "none";
+    if (modalSuccessContainer) modalSuccessContainer.style.display = "flex";
+    if (modalSubmitBtn) modalSubmitBtn.disabled = false;
+    if (modalSubmitText) modalSubmitText.textContent = "Kirim Pesan";
+  }, 400);
+});
 
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard
-          .writeText(textToCopy)
-          .then(() => {
-            showToast(`Berhasil disalin: ${textToCopy}`);
-          })
-          .catch(() => {
-            fallbackCopy(textToCopy);
-          });
-      } else {
-        fallbackCopy(textToCopy);
-      }
-    });
-  });
+// 17. Certificate Lightbox Modal Controls
+const certModalBackdrop = document.getElementById("certModalBackdrop");
+const certLightboxCloseBtn = document.getElementById("certLightboxCloseBtn");
+const certLightboxImg = document.getElementById("certLightboxImg");
+const certLightboxTitle = document.getElementById("certLightboxTitle");
 
-  function fallbackCopy(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "fixed";
-    textArea.style.opacity = "0";
-    document.body.appendChild(textArea);
-    textArea.select();
-    try {
-      document.execCommand("copy");
-      showToast(`Berhasil disalin: ${text}`);
-    } catch (err) {
-      showToast("Gagal menyalin teks", "bi-exclamation-triangle-fill");
-    }
-    document.body.removeChild(textArea);
-  }
+function openCertLightbox(imgSrc, title) {
+  if (!certModalBackdrop || !certLightboxImg) return;
+  certLightboxImg.src = imgSrc;
+  if (certLightboxTitle) certLightboxTitle.textContent = title || "Pratinjau Dokumen";
+  certModalBackdrop.classList.add("lightbox-open");
+  stopScroll();
+}
+function closeCertLightbox() {
+  if (!certModalBackdrop) return;
+  certModalBackdrop.classList.remove("lightbox-open");
+  startScroll();
+}
 
-  // =========================================================================
-  // 10. Certificate & Experience Modal Lightbox (Single & Multi-Image Gallery)
-  // =========================================================================
-  const certCards = document.querySelectorAll(".cert-card");
-  const expProofBtns = document.querySelectorAll(".btn-exp-proof");
-  const certModalDesc = document.getElementById("certModalDesc");
-  const modalSingleContainer = document.getElementById("modalSingleContainer");
-  const modalGalleryCarousel = document.getElementById("modalGalleryCarousel");
-  const modalGalleryInner = document.getElementById("modalGalleryInner");
-  const galleryCaption = document.getElementById("galleryCaption");
-  const galleryCounter = document.getElementById("galleryCounter");
+certLightboxCloseBtn?.addEventListener("click", closeCertLightbox);
+certModalBackdrop?.addEventListener("click", (e) => {
+  if (e.target === certModalBackdrop) closeCertLightbox();
+});
 
-  let currentGalleryItems = [];
-
-  function updateGalleryFooter(index) {
-    if (!currentGalleryItems || currentGalleryItems.length === 0) return;
-    const item = currentGalleryItems[index];
-    if (galleryCaption && item) {
-      galleryCaption.textContent = item.caption || `Dokumentasi ${index + 1}`;
-    }
-    if (galleryCounter) {
-      galleryCounter.textContent = `${index + 1} / ${currentGalleryItems.length}`;
-    }
-  }
-
-  // Certificate card single click
-  certCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const imgSrc = card.getAttribute("data-cert-img");
-      const title = card.getAttribute("data-cert-title");
-
-      if (imgSrc && certBootstrapModal && certModalImg && certModalTitle) {
-        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
-        if (modalSingleContainer) modalSingleContainer.classList.remove("d-none");
-
-        certModalImg.src = imgSrc;
-        certModalTitle.textContent = title || "Detail Sertifikat";
-        if (certModalDesc) certModalDesc.textContent = "Sertifikasi Resmi & Terverifikasi";
-        certBootstrapModal.show();
-      }
-    });
-  });
-
-  // Honors documentation card preview click
-  const honorsDocCards = document.querySelectorAll(".honors-doc-card");
-  honorsDocCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const imgSrc = card.getAttribute("data-cert-img");
-      const title = card.getAttribute("data-cert-title");
-
-      if (imgSrc && certBootstrapModal && certModalImg && certModalTitle) {
-        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
-        if (modalSingleContainer) modalSingleContainer.classList.remove("d-none");
-
-        certModalImg.src = imgSrc;
-        certModalTitle.textContent = title || "Dokumentasi PKM-PM";
-        if (certModalDesc) certModalDesc.textContent = "Program Kreativitas Mahasiswa (PKM-PM) Kemendikbudristek";
-        certBootstrapModal.show();
-      }
-    });
-  });
-
-  // Experience Proof click (supports data-gallery JSON or single data-proof-img)
-  expProofBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const galleryAttr = btn.getAttribute("data-gallery");
-      const singleImg = btn.getAttribute("data-proof-img");
-      const title = btn.getAttribute("data-proof-title");
-      const desc = btn.getAttribute("data-proof-desc");
-
-      if (!certBootstrapModal || !certModalTitle) return;
-
-      certModalTitle.textContent = title || "Dokumentasi Pengalaman Kerja";
-      if (certModalDesc) certModalDesc.textContent = desc || "Dokumentasi Terverifikasi";
-
-      currentGalleryItems = [];
-      if (galleryAttr) {
-        try {
-          currentGalleryItems = JSON.parse(galleryAttr);
-        } catch (err) {
-          console.error("Failed to parse gallery JSON", err);
-          currentGalleryItems = [];
-        }
-      } else if (singleImg) {
-        currentGalleryItems = [{ src: singleImg, caption: title || "Dokumentasi Kerja" }];
-      }
-
-      if (currentGalleryItems.length > 1 && modalGalleryCarousel && modalGalleryInner) {
-        // Multi-image gallery mode
-        if (modalSingleContainer) modalSingleContainer.classList.add("d-none");
-        modalGalleryCarousel.classList.remove("d-none");
-
-        modalGalleryInner.innerHTML = currentGalleryItems
-          .map(
-            (item, idx) => `
-          <div class="carousel-item ${idx === 0 ? "active" : ""}">
-            <div class="text-center">
-              <img src="${item.src}" class="modal-cert-img" alt="${escapeHtml(item.caption || "Dokumentasi Proyek")}" />
-            </div>
-          </div>
-        `,
-          )
-          .join("");
-
-        updateGalleryFooter(0);
-
-        const bsCarousel = bootstrap.Carousel.getOrCreateInstance(modalGalleryCarousel, {
-          interval: false,
-          wrap: true,
-        });
-        bsCarousel.to(0);
-
-        certBootstrapModal.show();
-      } else if (currentGalleryItems.length === 1 && modalSingleContainer && certModalImg) {
-        // Single image mode
-        if (modalGalleryCarousel) modalGalleryCarousel.classList.add("d-none");
-        modalSingleContainer.classList.remove("d-none");
-
-        certModalImg.src = currentGalleryItems[0].src;
-        if (currentGalleryItems[0].caption && certModalDesc) {
-          certModalDesc.textContent = currentGalleryItems[0].caption;
-        }
-        certBootstrapModal.show();
-      }
-    });
-  });
-
-  if (modalGalleryCarousel) {
-    modalGalleryCarousel.addEventListener("slid.bs.carousel", (e) => {
-      updateGalleryFooter(e.to);
-    });
-  }
-
-  // =========================================================================
-  // 11. Navigation Links & Smooth Scrolling with Offset
-  // =========================================================================
-  function updateActiveNav(activeId) {
-    desktopNavLinks.forEach((link) => {
-      if (link.getAttribute("href") === `#${activeId}`) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-
-    mobileNavItems.forEach((link) => {
-      if (link.getAttribute("href") === `#${activeId}`) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-  }
-
-  function scrollToTarget(targetId) {
-    const targetEl = document.querySelector(targetId);
-    if (targetEl) {
-      const headerOffset = 75;
-      const elementPosition = targetEl.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  }
-
-  desktopNavLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      scrollToTarget(targetId);
-      updateActiveNav(targetId.replace("#", ""));
-    });
-  });
-
-  mobileNavItems.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-
-      if (mobileDrawer) {
-        mobileDrawer.hide();
-      }
-
-      setTimeout(() => {
-        scrollToTarget(targetId);
-        updateActiveNav(targetId.replace("#", ""));
-      }, 300);
-    });
-  });
-
-  // =========================================================================
-  // 12. AOS (Animate On Scroll) Responsive Initialization Engine
-  // =========================================================================
-  function initAOS() {
-    if (typeof AOS !== "undefined") {
-      AOS.init({
-        duration: 750,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 40,
-        delay: 30,
-        disableMutationObserver: false,
-      });
-    }
-  }
-
-  // Initialize immediately and refresh on window load / orientation change
-  initAOS();
-  window.addEventListener("load", () => {
-    if (typeof AOS !== "undefined") {
-      AOS.refresh();
-    }
-  });
-  window.addEventListener("resize", () => {
-    if (typeof AOS !== "undefined") {
-      AOS.refresh();
-    }
+document.querySelectorAll(".cert-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const imgSrc = card.getAttribute("data-img");
+    const title = card.getAttribute("data-title");
+    if (imgSrc) openCertLightbox(imgSrc, title);
   });
 });
+
+// 18. Certificate category filter
+const certFilterBtns = document.querySelectorAll(".cert-filter-btn");
+const certCards = document.querySelectorAll(".cert-card");
+
+certFilterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    certFilterBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+    certCards.forEach((card) => {
+      const category = card.getAttribute("data-category");
+      if (filter === "all") {
+        card.style.display = "flex";
+      } else if (filter === "magang-skkni") {
+        card.style.display = category === "bnsp" || category === "internship" ? "flex" : "none";
+      } else {
+        card.style.display = category === filter ? "flex" : "none";
+      }
+    });
+  });
+});
+
+// 19. ESC key listener closes open overlays
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (certModalBackdrop?.classList.contains("lightbox-open")) {
+      closeCertLightbox();
+    } else if (requestModalBackdrop?.classList.contains("modal-open")) {
+      closeRequestModal();
+    } else if (navMenuOverlay?.classList.contains("menu-open")) {
+      closeNavMenu();
+    }
+  }
+});
+
+// 20. Interactive Terminal CLI
+const toggleTerminalBtn = document.getElementById("toggleTerminalBtn");
+const terminalBox = document.getElementById("terminalBox");
+const terminalInput = document.getElementById("terminalInput");
+const terminalOutput = document.getElementById("terminalOutput");
+const termClearBtn = document.getElementById("termClearBtn");
+
+toggleTerminalBtn?.addEventListener("click", () => {
+  if (!terminalBox) return;
+  const isOpen = terminalBox.style.display === "block";
+  terminalBox.style.display = isOpen ? "none" : "block";
+  if (!isOpen && terminalInput) terminalInput.focus();
+});
+
+termClearBtn?.addEventListener("click", () => {
+  if (terminalOutput) terminalOutput.innerHTML = "";
+});
+
+function runTerminalCommand(cmdRaw) {
+  if (!terminalOutput) return;
+  const cmd = cmdRaw.trim().toLowerCase();
+  const line = document.createElement("div");
+  line.style.marginTop = "0.5rem";
+
+  const promptSpan = `<span style="color:#cf8047; font-weight:600;">johan@porto:~$</span> ${cmdRaw}`;
+  line.innerHTML = promptSpan;
+  terminalOutput.appendChild(line);
+
+  const resp = document.createElement("div");
+  resp.style.color = "#ffffff";
+
+  switch (cmd) {
+    case "whoami":
+      resp.innerHTML = "Johan Krisbima Abi &bull; Software Developer (D4 Teknik Informatika Politeknik Negeri Jember, IPK 3.87). Berpengalaman di PT PAL Indonesia, Universal Big Data, &amp; PT Stechoq.";
+      break;
+    case "skills":
+      resp.innerHTML = "Core: Laravel, PHP, JavaScript, MySQL, PostgreSQL, Node.js, Express, Bootstrap, Git, RESTful API.<br>Expanding: React, TypeScript, Next.js, Docker.";
+      break;
+    case "projects":
+      resp.innerHTML = "1. Auto-Feeding System using IoT (ESP32, PHP)<br>2. Coffee Detection System (Python, YOLOv5)<br>3. POVSHOTNBK Photo Sales (Laravel, Midtrans)<br>4. Ilham Collection E-Commerce (PHP Native)";
+      break;
+    case "cert":
+    case "credentials":
+      resp.innerHTML = "&bull; BNSP Web Developer (SKKNI)<br>&bull; MagangHub Kemnaker PT PAL Indonesia<br>&bull; MSIB Batch 6 PT Stechoq Robotika<br>&bull; Pendanaan PKM-PM Kemendikbudristek &amp; Publikasi Jurnal Ilmiah 2024";
+      break;
+    case "contact":
+      resp.innerHTML = "Email: johankrisbima77@gmail.com | WA: +62 878-5186-5091 | Lokasi: Mojokerto, Jawa Timur";
+      break;
+    case "help":
+      resp.innerHTML = 'Perintah tersedia: <span style="color:#cf8047;">whoami, skills, projects, cert, contact, clear, help</span>';
+      break;
+    case "clear":
+      terminalOutput.innerHTML = "";
+      return;
+    default:
+      resp.innerHTML = `<span style="color:#ff5f56;">Perintah tidak ditemukan: ${cmd}</span>. Ketik <span style="color:#cf8047;">'help'</span> untuk daftar perintah.`;
+  }
+
+  terminalOutput.appendChild(resp);
+  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+terminalInput?.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const val = terminalInput.value;
+    if (val.trim()) {
+      runTerminalCommand(val);
+      terminalInput.value = "";
+    }
+  }
+});
+
+document.querySelectorAll(".term-chip").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const cmd = btn.getAttribute("data-cmd");
+    if (cmd) runTerminalCommand(cmd);
+  });
+});
+
+// 21. Active Section Scroll Spy for Navbar
+const navSections = ["home", "experience", "projects", "services", "skills", "about", "sertifikat"];
+const navButtons = document.querySelectorAll(".nav-link-btn[data-scroll-to]");
+
+if ("IntersectionObserver" in window) {
+  const spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navButtons.forEach((btn) => {
+            if (btn.getAttribute("data-scroll-to") === id) {
+              btn.setAttribute("aria-current", "page");
+            } else {
+              btn.removeAttribute("aria-current");
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: "-20% 0px -50% 0px", threshold: 0.1 },
+  );
+
+  navSections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) spyObserver.observe(el);
+  });
+}

@@ -4,41 +4,16 @@
  * ==========================================================================
  *
  * @author Johan Krisbima Abi
- * @description Modul interaktif terpusat untuk seluruh halaman detail portofolio.
- *              Mengatur inisialisasi tema instan (bebas FOUC), progress bar scroll,
- *              tombol back to top, sinkronisasi tema, dan lightbox modal pratinjau gambar.
+ * @description Modul interaktif terpusat untuk halaman detail studi kasus.
+ *              Mengatur progress bar scroll, sticky header elevation,
+ *              tombol back to top, lightbox modal pratinjau gambar,
+ *              dan animasi scroll reveal.
+ *              (Fitur theme toggle dan translasi telah ditiadakan sesuai instruksi).
  */
 
-// ==========================================================================
-// 1. TEMA: INISIALISASI CEPAT (IMMEDIATE THEME INITIALIZATION)
-// ==========================================================================
-// Dijalankan segera saat script dimuat untuk mencegah Flash of Unstyled Content (FOUC).
-(function initThemeImmediately() {
-  try {
-    const THEME_STORAGE_KEY = "portfolio_theme_mode";
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      if (!savedTheme) {
-        localStorage.setItem(THEME_STORAGE_KEY, "light");
-      }
-    }
-  } catch (error) {
-    console.warn("Theme storage access failed:", error);
-  }
-})();
-
-// ==========================================================================
-// 2. MODUL INTERAKTIF DOM (DOM INTERACTIVE LOGIC)
-// ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-  const THEME_STORAGE_KEY = "portfolio_theme_mode";
-
   /**
-   * Mengatur indikator baris progres membaca artikel berdasarkan posisi scroll pengguna.
+   * 1. Mengatur indikator baris progres membaca artikel berdasarkan posisi scroll.
    */
   function initReadingProgressBar() {
     const scrollBar = document.getElementById("scrollProgressBar");
@@ -57,36 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Mengontrol visibilitas dan interaksi tombol 'Kembali ke Atas' (Back to Top).
-   */
-  function initBackToTop() {
-    const backToTopBtn = document.getElementById("backToTop");
-    if (!backToTopBtn) return;
-
-    const toggleBackToTop = () => {
-      if (window.scrollY > 320) {
-        backToTopBtn.classList.add("show");
-      } else {
-        backToTopBtn.classList.remove("show");
-      }
-    };
-
-    window.addEventListener("scroll", toggleBackToTop, { passive: true });
-    toggleBackToTop();
-  }
-
-  /**
-   * Mengatur efek elevasi bayangan navbar saat halaman detail di-scroll.
+   * 2. Mengatur efek elevasi bayangan navbar saat halaman di-scroll.
    */
   function initStickyNavbar() {
-    const navbar = document.querySelector(".blog-nav-sticky");
-    if (!navbar) return;
+    const header = document.querySelector(".detail-header");
+    if (!header) return;
 
     const toggleNavbarScrolled = () => {
       if (window.scrollY > 20) {
-        navbar.classList.add("scrolled");
+        header.classList.add("scrolled");
       } else {
-        navbar.classList.remove("scrolled");
+        header.classList.remove("scrolled");
       }
     };
 
@@ -95,97 +51,106 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Mengatur tombol pengalih tema (Dark/Light Mode) pada navbar detail dan
-   * menyinkronkannya dengan status penyimpanan lokal (localStorage).
+   * 3. Mengontrol visibilitas dan interaksi tombol 'Kembali ke Atas' (Back to Top).
    */
-  function initThemeSwitcher() {
-    const themeToggleBtn = document.getElementById("blogThemeToggleBtn");
-    const themeText = document.getElementById("blogThemeText");
+  function initBackToTop() {
+    const backToTopBtn = document.getElementById("backToTop");
+    if (!backToTopBtn) return;
 
-    const updateThemeDisplay = (theme) => {
-      const isLight = theme === "light";
-      const label = isLight ? "Light Mode" : "Dark Mode";
-      const tooltip = isLight ? "Ganti ke Dark Mode" : "Ganti ke Light Mode";
-
-      if (themeText) {
-        themeText.textContent = label;
-      }
-      if (themeToggleBtn) {
-        themeToggleBtn.setAttribute("title", tooltip);
-        themeToggleBtn.setAttribute("aria-label", tooltip);
+    const toggleBackToTop = () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
       }
     };
 
-    // Sinkronisasi status awal teks tombol
-    const initialTheme = document.documentElement.getAttribute("data-theme") || "light";
-    updateThemeDisplay(initialTheme);
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    toggleBackToTop();
 
-    // Event listener pergantian mode tema
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener("click", () => {
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-        const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-        document.documentElement.setAttribute("data-theme", nextTheme);
-        try {
-          localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-        } catch (error) {
-          console.warn("Failed to persist theme choice in localStorage:", error);
-        }
-
-        updateThemeDisplay(nextTheme);
-      });
-    }
-  }
-
-  /**
-   * Mengatur interaksi klik gambar screenshot untuk membuka pratinjau resolusi tinggi (Lightbox Modal).
-   */
-  function initImageLightbox() {
-    const zoomModalEl = document.getElementById("imageZoomModal");
-    const zoomModalImg = document.getElementById("zoomModalImg");
-    const zoomModalTitle = document.getElementById("zoomModalTitle");
-
-    // Validasi ketersediaan Bootstrap Modal dan elemen yang diperlukan
-    if (!zoomModalEl || typeof bootstrap === "undefined" || !bootstrap.Modal) return;
-
-    const zoomModal = new bootstrap.Modal(zoomModalEl);
-    const zoomableImages = document.querySelectorAll("[data-zoom-img]");
-
-    zoomableImages.forEach((img) => {
-      img.addEventListener("click", () => {
-        const fullImgSrc = img.getAttribute("data-zoom-img");
-        if (zoomModalImg && fullImgSrc) {
-          zoomModalImg.src = fullImgSrc;
-          if (zoomModalTitle) {
-            zoomModalTitle.textContent = img.alt || "Pratinjau Dokumentasi Sistem";
-          }
-          zoomModal.show();
-        }
-      });
+    backToTopBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
   /**
-   * Modul Animasi Scroll Reveal Otomatis
+   * 4. Mengatur interaksi Lightbox Modal pratinjau gambar tangkapan layar.
+   */
+  function initImageLightbox() {
+    const modalEl = document.getElementById("detailLightboxModal");
+    const modalImg = document.getElementById("lightboxModalImg");
+    const modalTitle = document.getElementById("lightboxModalTitle");
+    const closeBtn = document.getElementById("lightboxCloseBtn");
+
+    if (!modalEl || !modalImg) return;
+
+    const openModal = (imgSrc, imgAlt) => {
+      modalImg.src = imgSrc;
+      if (modalTitle) {
+        modalTitle.textContent = imgAlt || "Pratinjau Gambar Sistem";
+      }
+      modalEl.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      modalEl.classList.remove("active");
+      document.body.style.overflow = "";
+      setTimeout(() => {
+        if (!modalEl.classList.contains("active")) {
+          modalImg.src = "";
+        }
+      }, 300);
+    };
+
+    // Pasang listener pada semua gambar yang memiliki data-zoom-img
+    document.querySelectorAll("[data-zoom-img]").forEach((triggerEl) => {
+      triggerEl.addEventListener("click", () => {
+        const fullSrc = triggerEl.getAttribute("data-zoom-img") || triggerEl.getAttribute("src");
+        const altText = triggerEl.getAttribute("alt") || triggerEl.getAttribute("data-caption");
+        openModal(fullSrc, altText);
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+
+    // Klik di luar container untuk menutup
+    modalEl.addEventListener("click", (e) => {
+      if (e.target === modalEl) {
+        closeModal();
+      }
+    });
+
+    // Tekan tombol ESC untuk menutup modal
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalEl.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  }
+
+  /**
+   * 5. Modul Animasi Scroll Reveal Otomatis
    */
   function initScrollReveal() {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
-    document.documentElement.classList.add("reveal-init");
-
     const targetSelectors = [
-      ".section-title-wrapper",
-      ".detail-hero-card",
-      ".detail-figure-box",
-      ".detail-article-card",
-      ".blog-metric-card",
-      ".blog-author-card",
-      ".blog-switch-card",
-      ".card-modern",
-      ".spotlight-card"
+      ".detail-hero-header",
+      ".detail-summary-card",
+      ".detail-section",
+      ".detail-subsystem-card",
+      ".detail-figure-frame",
+      ".detail-metric-card",
+      ".detail-takeaways-card",
+      ".detail-author-card",
+      ".detail-switch-card",
+      ".detail-footer-cta"
     ];
 
     const elements = document.querySelectorAll(targetSelectors.join(", "));
@@ -207,8 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         root: null,
-        rootMargin: "0px 0px -90px 0px",
-        threshold: 0.18,
+        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.1,
       }
     );
 
@@ -217,121 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /**
-   * Mengatur bahasa halaman detail berdasarkan preferensi tersimpan di localStorage ('portfolio_language_choice').
-   * Jika pilihan adalah 'en', maka otomatis menerjemahkan seluruh konten halaman ke Bahasa Inggris.
-   */
-  function initLanguageManager() {
-    const LANG_STORAGE_KEY = "portfolio_language_choice";
-    const blogLangToggleBtn = document.getElementById("blogLangToggleBtn");
-    const blogLangText = document.getElementById("blogLangText");
-
-    function applyDetailLanguage(lang) {
-      const targetLang = lang === "en" ? "en" : "id";
-      document.documentElement.setAttribute("lang", targetLang);
-      try {
-        localStorage.setItem(LANG_STORAGE_KEY, targetLang);
-      } catch (e) {
-        console.warn("Language storage access failed:", e);
-      }
-
-      if (typeof portfolioTranslations !== "undefined" && portfolioTranslations[targetLang]) {
-        const dict = portfolioTranslations[targetLang];
-
-        // 1. Terjemahkan elemen yang memiliki atribut data-i18n
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          if (dict[key] !== undefined) {
-            el.innerHTML = dict[key];
-          }
-        });
-
-        // 2. Terjemahkan atribut title jika ada data-i18n-title
-        document.querySelectorAll("[data-i18n-title]").forEach((el) => {
-          const key = el.getAttribute("data-i18n-title");
-          if (dict[key] !== undefined) {
-            el.setAttribute("title", dict[key]);
-          }
-        });
-
-        // 3. Terjemahkan document title & meta description jika dispesifikasikan
-        const pageMetaTitleKey = document.querySelector("meta[name='page-meta-title-key']");
-        if (pageMetaTitleKey) {
-          const key = pageMetaTitleKey.getAttribute("content");
-          if (dict[key]) document.title = dict[key];
-        }
-        const pageMetaDescKey = document.querySelector("meta[name='page-meta-desc-key']");
-        if (pageMetaDescKey) {
-          const key = pageMetaDescKey.getAttribute("content");
-          const metaDesc = document.querySelector("meta[name='description']");
-          if (dict[key] && metaDesc) metaDesc.setAttribute("content", dict[key]);
-        }
-      }
-
-      // 4. Perbarui indikator tombol bahasa
-      if (blogLangText) {
-        blogLangText.textContent = targetLang === "id" ? "EN" : "ID";
-      }
-      if (blogLangToggleBtn) {
-        const titleText = targetLang === "id" ? "Ganti ke English" : "Switch to Bahasa Indonesia";
-        blogLangToggleBtn.setAttribute("title", titleText);
-        blogLangToggleBtn.setAttribute("aria-label", titleText);
-      }
-    }
-
-    // Inisialisasi status awal bahasa dari localStorage (default: 'id')
-    let savedLang = "id";
-    try {
-      savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
-    } catch (e) {
-      savedLang = "id";
-    }
-    applyDetailLanguage(savedLang);
-
-    // Event listener pergantian bahasa
-    if (blogLangToggleBtn) {
-      blogLangToggleBtn.addEventListener("click", () => {
-        let currentLang = "id";
-        try {
-          currentLang = localStorage.getItem(LANG_STORAGE_KEY) || "id";
-        } catch (e) {
-          currentLang = "id";
-        }
-        const nextLang = currentLang === "id" ? "en" : "id";
-        applyDetailLanguage(nextLang);
-      });
-    }
-  }
-
-  // =========================================================================
-  // AOS (Animate On Scroll) Responsive Initialization Engine
-  // =========================================================================
-  function initAOS() {
-    if (typeof AOS !== "undefined") {
-      AOS.init({
-        duration: 750,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 40,
-        delay: 30,
-      });
-    }
-  }
-
-  // Jalankan semua modul inisialisasi
-  initLanguageManager();
+  // Inisialisasi seluruh modul interaktif
   initReadingProgressBar();
-  initBackToTop();
   initStickyNavbar();
-  initThemeSwitcher();
+  initBackToTop();
   initImageLightbox();
   initScrollReveal();
-  initAOS();
-
-  window.addEventListener("load", () => {
-    if (typeof AOS !== "undefined") {
-      AOS.refresh();
-    }
-  });
 });
-

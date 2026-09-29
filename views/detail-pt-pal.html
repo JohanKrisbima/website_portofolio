@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-theme="light">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,635 +7,626 @@
     <meta name="description" content="Studi kasus mendalam pengalaman Johan Krisbima Abi sebagai Pemrogram Komputer Contract di PT PAL Indonesia. Mengembangkan Website Subkon, Simandok, Siamang, dan Ebidding." />
     <meta name="author" content="Johan Krisbima Abi" />
 
-    <meta name="page-meta-title-key" content="pal_meta_title" />
-    <meta name="page-meta-desc-key" content="pal_meta_desc" />
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/img/profile_wisuda.png" />
     <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.png" />
 
-    <!-- Google Fonts: Montserrat (Headings) + Inter / Plus Jakarta Sans (Body) -->
+    <!-- Google Fonts: Plus Jakarta Sans (Headings) + Onest / Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Onest:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Case Study Design System Stylesheet -->
+    <link rel="stylesheet" href="../css/detail.css" />
 
-    <!-- AOS (Animate On Scroll) CSS via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css" />
-
-    <!-- Translation Dictionary & Detail Interactive Scripts -->
-    <script src="../js/translations.js"></script>
-    <script src="../js/detail.js"></script>
+    <!-- Interactive Script -->
+    <script src="../js/detail.js" defer></script>
   </head>
   <body id="page-top">
-    <!-- Reading Progress Bar -->
+    <!-- Reading Progress Indicator -->
     <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
 
-    <!-- Floating Minimalist Navbar -->
-    <header class="blog-nav-sticky">
-      <div class="container">
-        <div class="blog-nav-inner">
-          <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
+    <!-- Floating Minimalist Header (Lumora Modern Editorial) -->
+    <header class="detail-header" id="detailHeader">
+      <div class="detail-header-inner">
+        <!-- Brand Link -->
+        <a href="../index.html" class="detail-brand-btn" aria-label="Johan Krisbima - Kembali ke Beranda">
+          <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+            <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
+          </svg>
+          <span>Johan<span class="detail-brand-suffix">.dev</span></span>
+        </a>
+
+        <!-- Center Breadcrumb Pill -->
+        <nav class="detail-nav-breadcrumb" aria-label="Breadcrumb Bar">
+          <a href="../index.html">Beranda</a>
+          <span class="sep">/</span>
+          <a href="../index.html#experience">Pengalaman</a>
+          <span class="sep">/</span>
+          <span class="active-crumb">PT PAL Indonesia</span>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="detail-header-actions">
+          <a href="../index.html#experience" class="detail-nav-back-btn" title="Kembali ke Portofolio">
             <i class="bi bi-arrow-left"></i>
-            <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
-            <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
+            <span>Kembali</span>
           </a>
-
-          <a href="../index.html#home" class="navbar-brand-minimal text-decoration-none">
-            <span class="brand-monogram">JK</span>
-            <span class="d-none d-md-inline">Johan Krisbima</span>
+          <a href="https://wa.me/6287851865091" target="_blank" class="detail-nav-contact-btn" title="Hubungi melalui WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+            <span class="nav-contact-text">Kontak</span>
           </a>
-
-          <div class="d-flex align-items-center gap-2">
-            <!-- Language Switcher -->
-            <button type="button" id="blogLangToggleBtn" class="btn-nav-lang" aria-label="Ganti Bahasa (ID / EN)" title="Ganti Bahasa / Switch Language">
-              <i class="bi bi-translate"></i>
-              <span id="blogLangText">EN</span>
-            </button>
-
-            <!-- Theme Switcher -->
-            <button type="button" id="blogThemeToggleBtn" class="btn-nav-theme" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
-              <i class="bi bi-sun-fill theme-icon-sun"></i>
-              <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-              <span class="visually-hidden" id="blogThemeText">Dark Mode</span>
-            </button>
-          </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Page -->
-    <main class="blog-post-page">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-11 col-xl-10">
-            <!-- Blog Article Card -->
-            <article class="blog-article-card" data-aos="fade-up">
-              <!-- Breadcrumbs -->
-              <nav class="blog-breadcrumbs" aria-label="breadcrumb">
-                <a href="../index.html"><i class="bi bi-house-door-fill me-1"></i><span data-i18n="detail_breadcrumb_home">Beranda</span></a>
-                <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <a href="../index.html#project" data-i18n="detail_breadcrumb_exp">Pengalaman &amp; Proyek</a>
-                <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <span class="current-crumb">PT PAL Indonesia</span>
-              </nav>
+    <!-- Main Content Container -->
+    <main class="detail-main">
+      <div class="detail-shell">
+        <article class="detail-article-card">
+          <!-- Article Top Hero -->
+          <header class="detail-hero-header">
+            <!-- Breadcrumbs Link -->
+            <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+              <a href="../index.html"><i class="bi bi-house-door-fill"></i> Beranda</a>
+              <span class="breadcrumb-sep"><i class="bi bi-chevron-right"></i></span>
+              <a href="../index.html#experience">Pengalaman Kerja</a>
+              <span class="breadcrumb-sep"><i class="bi bi-chevron-right"></i></span>
+              <span class="current-crumb">PT PAL Indonesia</span>
+            </nav>
 
-              <!-- Header Badges -->
-              <div class="blog-meta-tags">
-                <span class="blog-pill-meta primary-pill">
-                  <i class="bi bi-building"></i>
-                  <span>PT PAL Indonesia</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-briefcase-fill text-cyan"></i>
-                  <span data-i18n="pal_role">Pemrogram Komputer Contract</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-calendar3"></i>
-                  <span data-i18n="pal_date">Oktober 2025 - Agustus 2026</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-clock-history"></i>
-                  <span data-i18n="detail_min_read_6">6 Menit Baca</span>
-                </span>
-              </div>
+            <!-- Eyebrow Category -->
+            <div class="detail-eyebrow">
+              <span class="detail-eyebrow-dot"></span>
+              <span>STUDI KASUS ENTERPRISE • BUMN MARITIM</span>
+            </div>
 
-              <!-- Main Title & Lead -->
-              <h1 class="blog-main-title" data-i18n="pal_title">Pengembangan &amp; Pengamanan Ekosistem Aplikasi Enterprise di PT PAL Indonesia</h1>
-              <p class="blog-subtitle-lead" data-i18n="pal_subtitle">
-                Studi kasus komprehensif mengenai perancangan sistem absensi vendor (Subkon), refactoring &amp; penguatan keamanan sistem dokumen enkripsi (Simandok), serta integrasi sistem internal perusahaan galangan kapal BUMN.
+            <!-- Main Title & Lead -->
+            <h1 class="detail-main-title">Pengembangan &amp; Pengamanan Ekosistem Aplikasi Enterprise di PT PAL Indonesia</h1>
+            <p class="detail-subtitle-lead">
+              Studi kasus komprehensif mengenai perancangan sistem absensi vendor (Subkon), refactoring &amp; penguatan keamanan sistem dokumen enkripsi (Simandok), serta integrasi sistem internal perusahaan galangan kapal BUMN.
+            </p>
+
+            <!-- Meta Pill Chips Row -->
+            <div class="detail-meta-row">
+              <span class="meta-pill-chip primary-company">
+                <i class="bi bi-building"></i>
+                <span>PT PAL Indonesia</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-briefcase-fill"></i>
+                <span>Pemrogram Komputer Contract</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-calendar3"></i>
+                <span>Oktober 2025 - Agustus 2026</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-clock-history"></i>
+                <span>6 Menit Baca</span>
+              </span>
+            </div>
+          </header>
+
+          <!-- Executive Summary Callout Box -->
+          <div class="detail-summary-card">
+            <div class="detail-summary-header">
+              <span class="detail-summary-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+              <h4>Ringkasan Eksekutif (Executive Summary)</h4>
+            </div>
+            <div class="detail-summary-content">
+              <p>
+                Sebagai Pemrogram Komputer Contract di PT PAL Indonesia (Badan Usaha Milik Negara industri pertahanan &amp; maritim terkemuka), saya bertanggung jawab merancang, mengoptimalkan, dan mengamankan berbagai sistem informasi
+                enterprise secara end-to-end. Fokus utama meliputi pembangunan Website Subkon dari tahap arsitektur skema database hingga deployment server, refactoring codebase Website Simandok untuk perlindungan dokumen rahasia, serta
+                pengujian berkala terhadap modul absensi makan siang (Siamang) dan lelang tender (Ebidding).
               </p>
+            </div>
+          </div>
 
-              <!-- Executive Summary Callout Box -->
-              <div class="blog-executive-box" data-aos="fade-up">
-                <h4><i class="bi bi-lightning-charge-fill"></i> <span data-i18n="pal_exec_heading">Ringkasan Eksekutif (Executive Summary)</span></h4>
-                <p data-i18n="pal_exec_p">
-                  Sebagai Pemrogram Komputer Contract di PT PAL Indonesia (Badan Usaha Milik Negara industri pertahanan &amp; maritim terkemuka), saya bertanggung jawab merancang, mengoptimalkan, dan mengamankan berbagai sistem informasi
-                  enterprise secara end-to-end. Fokus utama meliputi pembangunan Website Subkon dari tahap arsitektur skema database hingga deployment server, refactoring codebase Website Simandok untuk perlindungan dokumen rahasia, serta
-                  pengujian berkala terhadap modul absensi makan siang (Siamang) dan lelang tender (Ebidding).
-                </p>
-              </div>
-
-              <!-- Section 1: Latar Belakang & Masalah -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-compass"></i>
-                  <span data-i18n="pal_sec1_heading">1. Latar Belakang &amp; Kebutuhan Bisnis</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="pal_sec1_p">
-                  PT PAL Indonesia mengelola ribuan tenaga kerja eksternal (subkontraktor/vendor) dan ribuan dokumen teknik perkapalan yang berstatus sangat rahasia. Sebelum modernisasi sistem dilakukan, beberapa tantangan operasional yang
-                  dihadapi antara lain:
-                </p>
-                <ul class="subsystem-list">
-                  <li data-i18n="pal_sec1_item1">
-                    <strong>Validasi Absensi Vendor Manual:</strong> Kompleksitas pencatatan kehadiran personel subkontraktor di area galangan kapal yang luas memerlukan sistem terpusat yang presisi untuk mencegah kecurangan dan mempercepat
-                    rekonsiliasi penagihan bulanan.
-                  </li>
-                  <li data-i18n="pal_sec1_item2">
-                    <strong>Keamanan Dokumen Manufaktur:</strong> Dokumen desain blueprint kapal militer dan niaga membutuhkan mekanisme enkripsi tingkat tinggi dan audit log yang ketat agar tidak bocor ke pihak luar.
-                  </li>
-                  <li data-i18n="pal_sec1_item3">
-                    <strong>Integrasi Antar Layanan Internal:</strong> Perlunya sinkronisasi data identitas pekerja, fasilitas makan siang di galangan, serta sistem lelang barang/jasa vendor yang terhubung harmonis.
-                  </li>
-                </ul>
-              </section>
-
-              <!-- Section 2: Sistem Utama yang Dikembangkan -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-grid-1x2"></i>
-                  <span data-i18n="pal_sec2_heading">2. Rincian Sistem yang Dikembangkan</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="pal_sec2_p">Berikut adalah 4 aplikasi web enterprise utama yang menjadi tanggung jawab saya dalam perancangan, pengembangan, dan pengujian:</p>
-
-                <!-- Subsystem Cards Grid (Exact from CV) -->
-                <div class="blog-grid-cards">
-                  <!-- Project 1: Website Siamang -->
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-cup-hot-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="pal_siamang_title">Website Siamang</h3>
-                        <span class="subsystem-role" data-i18n="pal_siamang_role">Sistem Absensi Makan Siang</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="pal_siamang_desc">Sistem otomasi pencatatan dan verifikasi kehadiran karyawan untuk fasilitas konsumsi makan siang di galangan kapal.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="pal_siamang_point1">Mengembangkan dan mengoptimalkan sistem absensi dengan membenahi bug/error serta menambahkan fitur-fitur baru.</li>
-                      <li data-i18n="pal_siamang_point2">Membantu proses deployment website ke server.</li>
-                      <li data-i18n="pal_siamang_point3">Menyusun dokumentasi sistem secara komprehensif, mulai dari User Acceptance Test (UAT) hingga Manual Book/Panduan Pengguna.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">PHP</span>
-                      <span class="tag-pill">MySQL</span>
-                      <span class="tag-pill">Bug Fixing</span>
-                      <span class="tag-pill">Server Deployment</span>
-                      <span class="tag-pill">UAT &amp; Manual Book</span>
-                    </div>
-                  </div>
-
-                  <!-- Project 2: Website Simandok -->
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-file-earmark-lock-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="pal_simandok_title">Website Simandok</h3>
-                        <span class="subsystem-role" data-i18n="pal_simandok_role">Sistem Management Document</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="pal_simandok_desc">Aplikasi sentralisasi penyimpanan dan sirkulasi dokumen teknis serta manajerial enterprise yang membutuhkan proteksi ketat.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="pal_simandok_point1">Melakukan refactoring codebase ke versi framework terbaru untuk meningkatkan performa, maintainability, dan skalabilitas sistem.</li>
-                      <li data-i18n="pal_simandok_point2">Menerapkan security hardening pada aplikasi web untuk meminimalisir celah kerentanan dan melindungi data enterprise.</li>
-                      <li data-i18n="pal_simandok_point3">Menyusun dokumentasi teknis dan operasional secara lengkap, mencakup UAT serta panduan penggunaan aplikasi.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">Framework Refactoring</span>
-                      <span class="tag-pill">Security Hardening</span>
-                      <span class="tag-pill">UAT Documentation</span>
-                      <span class="tag-pill">Enterprise Data</span>
-                    </div>
-                  </div>
-
-                  <!-- Project 3: Website Ebidding -->
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-cash-coin"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="pal_ebidding_title">Website Ebidding</h3>
-                        <span class="subsystem-role" data-i18n="pal_ebidding_role">Website Lelang Tender</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="pal_ebidding_desc">Portal pengadaan barang dan lelang terbuka untuk memfasilitasi vendor eksternal secara transparan dan akuntabel.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="pal_ebidding_point1">Mendukung pengembangan website untuk memfasilitasi vendor dalam mengikuti proses lelang tender.</li>
-                      <li data-i18n="pal_ebidding_point2">Melakukan pengujian (testing) secara menyeluruh untuk mengidentifikasi, menganalisis, dan memperbaiki bug demi menjaga stabilitas sistem.</li>
-                      <li data-i18n="pal_ebidding_point3">Menyusun dokumen User Acceptance Testing (UAT) serta membuat video tutorial penggunaan website bagi vendor.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">E-Procurement</span>
-                      <span class="tag-pill">System Testing</span>
-                      <span class="tag-pill">UAT</span>
-                      <span class="tag-pill">Video Tutorial</span>
-                    </div>
-                  </div>
-
-                  <!-- Project 4: Website Subkon -->
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-people-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="pal_subkon_title">Website Subkon</h3>
-                        <span class="subsystem-role" data-i18n="pal_subkon_role">Website Absensi Vendor</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="pal_subkon_desc">Sistem absensi dan tata kelola tenaga kerja subkontraktor secara menyeluruh dari perancangan hingga implementasi server.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="pal_subkon_point1">Mengembangkan website absensi vendor secara end-to-end, mulai dari perancangan skema database hingga implementasi penuh sistem.</li>
-                      <li data-i18n="pal_subkon_point2">Melakukan pengujian (testing) secara menyeluruh untuk mengidentifikasi, menganalisis, dan memperbaiki bug demi menjaga stabilitas sistem.</li>
-                      <li data-i18n="pal_subkon_point3">
-                        Mengembangkan dan mengimplementasikan fitur inti, meliputi User Management System, manajemen data karyawan vendor, serta sistem absensi berbasis web hingga proses deployment ke server perusahaan.
-                      </li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">End-to-End Dev</span>
-                      <span class="tag-pill">Database Schema</span>
-                      <span class="tag-pill">User Management</span>
-                      <span class="tag-pill">Server Deployment</span>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Section 3: Galeri Dokumentasi Sistem -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-images"></i>
-                  <span data-i18n="pal_sec3_heading">3. Dokumentasi Tampilan Aplikasi</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="pal_sec3_p">Berikut adalah tangkapan layar antarmuka sistem yang telah terverifikasi dan digunakan di lingkungan operasional:</p>
-
-                <div class="blog-gallery-showcase">
-                  <div class="row g-4">
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/login subkon.png" alt="Halaman Login Website Subkon" class="img-fluid" data-zoom-img="../assets/img/login subkon.png" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-shield-check text-cyan"></i>
-                          <span data-i18n="pal_cap_subkon_login">Halaman Login Website Subkon (Portal Vendor)</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/subkon.png" alt="Halaman Utama Website Subkon" class="img-fluid" data-zoom-img="../assets/img/subkon.png" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-speedometer2 text-cyan"></i>
-                          <span data-i18n="pal_cap_subkon_dash">Dashboard &amp; Manajemen Data Tenaga Kerja Subkon</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/login simandok.png" alt="Halaman Login Website Simandok" class="img-fluid" data-zoom-img="../assets/img/login simandok.png" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-key-fill text-cyan"></i>
-                          <span data-i18n="pal_cap_simandok_login">Halaman Login Terproteksi Website Simandok</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/simandok.png" alt="Halaman Utama Website Simandok" class="img-fluid" data-zoom-img="../assets/img/simandok.png" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-folder2-open text-cyan"></i>
-                          <span data-i18n="pal_cap_simandok_dash">Katalog Dokumen Enkripsi &amp; Audit Trail Simandok</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Section 4: Metrik & Dampak Pencapaian -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-bar-chart-line-fill"></i>
-                  <span data-i18n="pal_sec4_heading">4. Dampak &amp; Hasil Nyata (Impact)</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="pal_sec4_p">Penerapan sistem informasi yang stabil, terstruktur, dan terdokumentasi menghasilkan peningkatan efisiensi yang terukur bagi tim manajemen dan pengguna di lapangan:</p>
-
-                <div class="blog-metrics-row">
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">4+</span>
-                    <span class="blog-metric-label" data-i18n="pal_metric1_label">Aplikasi Enterprise Dikembangkan / Dioptimasi</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">100%</span>
-                    <span class="blog-metric-label" data-i18n="pal_metric2_label">Dokumentasi UAT &amp; Manual Book Terselesaikan</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">&lt; 300ms</span>
-                    <span class="blog-metric-label" data-i18n="pal_metric3_label">Kecepatan Respon Query Transaksi Absensi</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">0</span>
-                    <span class="blog-metric-label" data-i18n="pal_metric4_label">Insiden Kebocoran Dokumen (Data Breach)</span>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Section 5: Pembelajaran & Kesimpulan -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-lightbulb-fill"></i>
-                  <span data-i18n="pal_sec5_heading">5. Pembelajaran Utama (Key Takeaways)</span>
-                </h2>
-                <div class="blog-body-p">
-                  <p data-i18n="pal_sec5_p1">
-                    Bekerja di lingkungan industri manufaktur strategis seperti PT PAL Indonesia memberikan pengalaman berharga tentang bagaimana software engineering harus selaras dengan prosedur ketat (SOP), kepatuhan standar keamanan
-                    data (cyber security standards), dan keandalan sistem jangka panjang.
-                  </p>
-                  <p class="mb-0" data-i18n="pal_sec5_p2">
-                    Kunci keberhasilan proyek ini adalah komunikasi lintas divisi yang intensif, pemahaman mendalam terhadap kebutuhan user non-teknis melalui pembuatan video panduan yang mudah dipahami, serta disiplin penulisan kode bersih
-                    yang siap di-audit sewaktu-waktu.
-                  </p>
-                </div>
-              </section>
-
-              <!-- Author Box Card -->
-              <div class="blog-author-card">
-                <div class="author-info-group">
-                  <img src="../assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="author-avatar-img" />
-                  <div>
-                    <h3 class="author-name">Johan Krisbima Abi</h3>
-                    <p class="author-desc" data-i18n="detail_author_desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
-                  </div>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                  <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa">
-                    <i class="bi bi-whatsapp"></i>
-                    <span data-i18n="detail_contact_wa">Hubungi via WA</span>
-                  </a>
-                  <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="channel-mini-pill in">
-                    <i class="bi bi-linkedin text-info"></i>
-                    <span>LinkedIn</span>
-                  </a>
-                  <a href="https://github.com/JohanKrisbima" target="_blank" class="channel-mini-pill gh">
-                    <i class="bi bi-github"></i>
-                    <span>GitHub</span>
-                  </a>
+          <!-- Section 1: Latar Belakang & Kebutuhan Bisnis -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">01 / KONTEKS &amp; TANTANGAN</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-compass"></i>
+                <span>1. Latar Belakang &amp; Kebutuhan Bisnis</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              PT PAL Indonesia mengelola ribuan tenaga kerja eksternal (subkontraktor/vendor) dan ribuan dokumen teknik perkapalan yang berstatus sangat rahasia. Sebelum modernisasi sistem dilakukan, beberapa tantangan operasional yang dihadapi antara lain:
+            </p>
+            <div class="detail-challenge-list">
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-person-badge-fill"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Validasi Absensi Vendor Manual:</strong>
+                  Kompleksitas pencatatan kehadiran personel subkontraktor di area galangan kapal yang luas memerlukan sistem terpusat yang presisi untuk mencegah kecurangan dan mempercepat rekonsiliasi penagihan bulanan.
                 </div>
               </div>
-            </article>
 
-            <!-- Previous / Next Experience Switcher -->
-            <div class="blog-switcher-row" data-aos="fade-up">
-              <a href="detail-universal-big-data.html" class="blog-switch-card">
-                <div class="blog-switch-dir">
-                  <span data-i18n="detail_next_exp">Pengalaman Selanjutnya</span>
-                  <i class="bi bi-arrow-right"></i>
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-file-earmark-lock2-fill"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Keamanan Dokumen Manufaktur:</strong>
+                  Dokumen desain blueprint kapal militer dan niaga membutuhkan mekanisme enkripsi tingkat tinggi dan audit log yang ketat agar tidak bocor ke pihak luar.
                 </div>
-                <div class="blog-switch-title">Web Automation Intern &ndash; Nobox Extractor</div>
-                <div class="blog-switch-company"><i class="bi bi-building me-1"></i>PT Universal Big Data</div>
+              </div>
+
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-diagram-3-fill"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Integrasi Antar Layanan Internal:</strong>
+                  Perlunya sinkronisasi data identitas pekerja, fasilitas makan siang di galangan, serta sistem lelang barang/jasa vendor yang terhubung harmonis.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: Rincian Sistem yang Dikembangkan -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">02 / ARSITEKTUR &amp; IMPLEMENTASI</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-grid-1x2"></i>
+                <span>2. Rincian Sistem yang Dikembangkan</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Berikut adalah 4 aplikasi web enterprise utama yang menjadi tanggung jawab saya dalam perancangan, pengembangan, dan pengujian:
+            </p>
+
+            <div class="detail-subsystem-grid">
+              <!-- System 1: Siamang -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-cup-hot-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Website Siamang</h3>
+                    <span class="subsystem-role-badge">Sistem Absensi Makan Siang</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Sistem otomasi pencatatan dan verifikasi kehadiran karyawan untuk fasilitas konsumsi makan siang di galangan kapal.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Mengembangkan dan mengoptimalkan sistem absensi dengan membenahi bug/error serta menambahkan fitur-fitur baru.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Membantu proses deployment website ke server.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Menyusun dokumentasi sistem secara komprehensif, mulai dari User Acceptance Test (UAT) hingga Manual Book/Panduan Pengguna.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">PHP</span>
+                  <span class="tag-pill-dark">MySQL</span>
+                  <span class="tag-pill-dark">Bug Fixing</span>
+                  <span class="tag-pill-dark">Server Deployment</span>
+                  <span class="tag-pill-dark">UAT &amp; Manual Book</span>
+                </div>
+              </div>
+
+              <!-- System 2: Simandok -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-file-earmark-lock-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Website Simandok</h3>
+                    <span class="subsystem-role-badge">Sistem Management Document</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Aplikasi sentralisasi penyimpanan dan sirkulasi dokumen teknis serta manajerial enterprise yang membutuhkan proteksi ketat.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Melakukan refactoring codebase ke versi framework terbaru untuk meningkatkan performa, maintainability, dan skalabilitas sistem.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Menerapkan security hardening pada aplikasi web untuk meminimalisir celah kerentanan dan melindungi data enterprise.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Menyusun dokumentasi teknis dan operasional secara lengkap, mencakup UAT serta panduan penggunaan aplikasi.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">Framework Refactoring</span>
+                  <span class="tag-pill-dark">Security Hardening</span>
+                  <span class="tag-pill-dark">UAT Documentation</span>
+                  <span class="tag-pill-dark">Enterprise Data</span>
+                </div>
+              </div>
+
+              <!-- System 3: Ebidding -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-cash-coin"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Website Ebidding</h3>
+                    <span class="subsystem-role-badge">Website Lelang Tender</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Portal pengadaan barang dan lelang terbuka untuk memfasilitasi vendor eksternal secara transparan dan akuntabel.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Mendukung pengembangan website untuk memfasilitasi vendor dalam mengikuti proses lelang tender.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Melakukan pengujian (testing) secara menyeluruh untuk mengidentifikasi, menganalisis, dan memperbaiki bug demi menjaga stabilitas sistem.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Menyusun dokumen User Acceptance Testing (UAT) serta membuat video tutorial penggunaan website bagi vendor.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">E-Procurement</span>
+                  <span class="tag-pill-dark">System Testing</span>
+                  <span class="tag-pill-dark">UAT</span>
+                  <span class="tag-pill-dark">Video Tutorial</span>
+                </div>
+              </div>
+
+              <!-- System 4: Subkon -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-people-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Website Subkon</h3>
+                    <span class="subsystem-role-badge">Website Absensi Vendor</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Sistem absensi dan tata kelola tenaga kerja subkontraktor secara menyeluruh dari perancangan hingga implementasi server.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Mengembangkan website absensi vendor secara end-to-end, mulai dari perancangan skema database hingga implementasi penuh sistem.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Melakukan pengujian (testing) secara menyeluruh untuk mengidentifikasi, menganalisis, dan memperbaiki bug demi menjaga stabilitas sistem.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Mengembangkan dan mengimplementasikan fitur inti, meliputi User Management System, manajemen data karyawan vendor, serta sistem absensi berbasis web hingga proses deployment ke server perusahaan.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">End-to-End Dev</span>
+                  <span class="tag-pill-dark">Database Schema</span>
+                  <span class="tag-pill-dark">User Management</span>
+                  <span class="tag-pill-dark">Server Deployment</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Dokumentasi Tampilan Aplikasi -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">03 / DOKUMENTASI SISTEM</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-images"></i>
+                <span>3. Dokumentasi Tampilan Aplikasi</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Berikut adalah tangkapan layar antarmuka sistem yang telah terverifikasi dan digunakan di lingkungan operasional:
+            </p>
+
+            <div class="detail-gallery-grid">
+              <!-- Figure 1 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">subkon-portal.pal.co.id/login</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/login subkon.png" alt="Halaman Login Website Subkon (Portal Vendor)">
+                  <img src="../assets/img/login subkon.png" alt="Halaman Login Website Subkon" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-shield-check"></i>
+                  <span>Halaman Login Website Subkon (Portal Vendor)</span>
+                </div>
+              </div>
+
+              <!-- Figure 2 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">subkon-portal.pal.co.id/dashboard</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/subkon.png" alt="Dashboard & Manajemen Data Tenaga Kerja Subkon">
+                  <img src="../assets/img/subkon.png" alt="Halaman Utama Website Subkon" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-speedometer2"></i>
+                  <span>Dashboard &amp; Manajemen Data Tenaga Kerja Subkon</span>
+                </div>
+              </div>
+
+              <!-- Figure 3 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">simandok.pal.co.id/auth</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/login simandok.png" alt="Halaman Login Terproteksi Website Simandok">
+                  <img src="../assets/img/login simandok.png" alt="Halaman Login Website Simandok" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-key-fill"></i>
+                  <span>Halaman Login Terproteksi Website Simandok</span>
+                </div>
+              </div>
+
+              <!-- Figure 4 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">simandok.pal.co.id/catalog</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/simandok.png" alt="Katalog Dokumen Enkripsi & Audit Trail Simandok">
+                  <img src="../assets/img/simandok.png" alt="Halaman Utama Website Simandok" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-folder2-open"></i>
+                  <span>Katalog Dokumen Enkripsi &amp; Audit Trail Simandok</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: Dampak & Hasil Nyata (Impact) -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">04 / METRIK &amp; HASIL TERUKUR</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-bar-chart-line-fill"></i>
+                <span>4. Dampak &amp; Hasil Nyata (Impact)</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Penerapan sistem informasi yang stabil, terstruktur, dan terdokumentasi menghasilkan peningkatan efisiensi yang terukur bagi tim manajemen dan pengguna di lapangan:
+            </p>
+
+            <div class="detail-metrics-grid">
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">4+</span>
+                <span class="detail-metric-label">Aplikasi Enterprise Dikembangkan / Dioptimasi</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">100%</span>
+                <span class="detail-metric-label">Dokumentasi UAT &amp; Manual Book Terselesaikan</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">&lt; 300ms</span>
+                <span class="detail-metric-label">Kecepatan Respon Query Transaksi Absensi</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">0</span>
+                <span class="detail-metric-label">Insiden Kebocoran Dokumen (Data Breach)</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Pembelajaran Utama (Key Takeaways) -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">05 / KESIMPULAN &amp; REFLEKSI</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-lightbulb-fill"></i>
+                <span>5. Pembelajaran Utama (Key Takeaways)</span>
+              </h2>
+            </div>
+            <div class="detail-takeaways-card">
+              <p>
+                Bekerja di lingkungan industri manufaktur strategis seperti PT PAL Indonesia memberikan pengalaman berharga tentang bagaimana software engineering harus selaras dengan prosedur ketat (SOP), kepatuhan standar keamanan
+                data (cyber security standards), dan keandalan sistem jangka panjang.
+              </p>
+              <p>
+                Kunci keberhasilan proyek ini adalah komunikasi lintas divisi yang intensif, pemahaman mendalam terhadap kebutuhan user non-teknis melalui pembuatan video panduan yang mudah dipahami, serta disiplin penulisan kode bersih
+                yang siap di-audit sewaktu-waktu.
+              </p>
+            </div>
+          </section>
+
+          <!-- Author Box Card -->
+          <div class="detail-author-card">
+            <div class="author-left-wrap">
+              <div class="author-avatar-wrap">
+                <img src="../assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="author-avatar-img" />
+                <span class="author-status-dot" title="Tersedia untuk Rekrutmen"></span>
+              </div>
+              <div class="author-info-box">
+                <h3>Johan Krisbima Abi</h3>
+                <p class="author-info-desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
+              </div>
+            </div>
+            <div class="author-social-pills">
+              <a href="https://wa.me/6287851865091" target="_blank" class="author-mini-pill wa">
+                <i class="bi bi-whatsapp"></i>
+                <span>Hubungi via WA</span>
               </a>
-
-              <a href="detail-stechoq.html" class="blog-switch-card">
-                <div class="blog-switch-dir">
-                  <span data-i18n="detail_other_exp">Lihat Pengalaman Lainnya</span>
-                  <i class="bi bi-arrow-right"></i>
-                </div>
-                <div class="blog-switch-title">Backend Developer Intern &ndash; Warehouse RESTful API</div>
-                <div class="blog-switch-company"><i class="bi bi-gear-wide-connected me-1"></i>PT Stechoq Robotika Indonesia</div>
+              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="author-mini-pill li">
+                <i class="bi bi-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/JohanKrisbima" target="_blank" class="author-mini-pill gh">
+                <i class="bi bi-github"></i>
+                <span>GitHub</span>
               </a>
             </div>
           </div>
+        </article>
+
+        <!-- Previous / Next Experience Switcher -->
+        <div class="detail-switcher-grid">
+          <a href="detail-universal-big-data.html" class="detail-switch-card">
+            <div class="switch-direction-label">
+              <span>Pengalaman Selanjutnya</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+            <div class="switch-title">Web Automation Intern &ndash; Nobox Extractor</div>
+            <div class="switch-company"><i class="bi bi-building"></i> PT Universal Big Data</div>
+          </a>
+
+          <a href="detail-stechoq.html" class="detail-switch-card">
+            <div class="switch-direction-label">
+              <span>Lihat Pengalaman Lainnya</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+            <div class="switch-title">Backend Developer Intern &ndash; Warehouse RESTful API</div>
+            <div class="switch-company"><i class="bi bi-gear-wide-connected"></i> PT Stechoq Robotika Indonesia</div>
+          </a>
         </div>
       </div>
     </main>
 
-    <!-- =========================================================================
-         FOOTER (COMPREHENSIVE PROFESSIONAL FOOTER)
-         ========================================================================= -->
-    <footer class="footer-professional" id="mainFooter">
-      <div class="container">
-        <div class="row g-4 g-xl-5">
-          <!-- Col 1: Brand & Profile Bio -->
-          <div class="col-lg-4 col-md-6 footer-col-brand">
-            <div class="footer-brand-wrap mb-3">
-              <a href="../index.html#home" class="footer-brand-link">
-                <span class="brand-monogram">JK</span>
-                <span class="brand-text">Johan<span class="text-cyan">.dev</span></span>
-              </a>
-              <span class="footer-role-badge">
-                <i class="bi bi-code-slash me-1"></i>
-                <span data-i18n="footer_role">Software &amp; Web Developer</span>
-              </span>
-            </div>
-            <p class="footer-bio-text" data-i18n="footer_bio">
-              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi
-              bisnis.
+    <!-- Professional Footer (Harmonized with index.html) -->
+    <footer class="detail-footer" id="mainFooter">
+      <div class="detail-footer-shell">
+        <!-- CTA Block -->
+        <div class="detail-footer-cta">
+          <div>
+            <div class="footer-cta-eyebrow">PUNYA IDE PROYEK?</div>
+            <h2 class="footer-cta-title">Punya ide proyek atau peluang kerja sama? Mari berdiskusi.</h2>
+          </div>
+          <a href="https://wa.me/6287851865091" target="_blank" class="pill-btn pill-light">
+            <span>Hubungi Saya via WhatsApp &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Columns Grid -->
+        <div class="detail-footer-grid">
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-brand-wrap">
+            <a href="../index.html" class="footer-logo-btn">
+              <svg viewBox="0 0 48 48" fill="currentColor">
+                <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
+              </svg>
+              <span>Johan.dev</span>
+            </a>
+            <p class="footer-bio-p">
+              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi bisnis.
             </p>
-            <div class="footer-social-row">
-              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-btn" aria-label="LinkedIn Profile" title="LinkedIn Profile">
-                <i class="bi bi-linkedin"></i>
-              </a>
-              <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-btn" aria-label="GitHub Profile" title="GitHub Profile">
-                <i class="bi bi-github"></i>
-              </a>
-              <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-btn" aria-label="Instagram Profile" title="Instagram Profile">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="mailto:johankrisbima77@gmail.com" class="footer-social-btn" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
-                <i class="bi bi-envelope-fill"></i>
-              </a>
-              <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-btn" aria-label="WhatsApp" title="WhatsApp: 087851865091">
-                <i class="bi bi-whatsapp"></i>
-              </a>
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-circle" aria-label="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-circle" aria-label="GitHub Profile"><i class="bi bi-github"></i></a>
+              <a href="mailto:johankrisbima77@gmail.com" class="footer-social-circle" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+              <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-circle" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
 
-          <!-- Col 2: Eksplorasi (Quick Navigation) -->
-          <div class="col-lg-2 col-md-6 footer-col-links">
-            <h4 class="footer-col-title" data-i18n="footer_col_explore">EKSPLORASI</h4>
-            <ul class="footer-nav-list list-unstyled mb-0">
-              <li>
-                <a href="../index.html#home" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_home">Beranda</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#about" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_about">Profil &amp; Edukasi</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#skills" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="nav_skills">Skills</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#project" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_project">Pengalaman Kerja</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#projects" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_projects">Karya &amp; Proyek</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#sertifikat" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_cert">Sertifikasi Resmi</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#honors" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_honors">Penghargaan</span>
-                </a>
-              </li>
+          <!-- Col 2: Eksplorasi -->
+          <div>
+            <h4 class="footer-col-head">EKSPLORASI</h4>
+            <ul class="footer-col-links">
+              <li><a href="../index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+              <li><a href="../index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a></li>
+              <li><a href="../index.html#experience"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a></li>
+              <li><a href="../index.html#projects"><i class="bi bi-chevron-right"></i> Karya &amp; Proyek</a></li>
+              <li><a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a></li>
             </ul>
           </div>
 
-          <!-- Col 3: Keahlian Utama (4 Compact Cards) -->
-          <div class="col-lg-3 col-md-6 footer-col-skills">
-            <h4 class="footer-col-title" data-i18n="footer_col_skills">KEAHLIAN UTAMA</h4>
-            <div class="footer-skills-stack">
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-hdd-network-fill"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill1_title">Backend &amp; REST API</div>
-                  <div class="footer-skill-subtitle">Laravel, PHP, MySQL, RESTful</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-robot"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill2_title">Web Automation</div>
-                  <div class="footer-skill-subtitle">Python, Selenium, Scraping Pipeline</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-display"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill3_title">Modern Frontend</div>
-                  <div class="footer-skill-subtitle">JavaScript ES6+, Bootstrap 5, UI/UX</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-warning">
-                  <i class="bi bi-git"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill4_title">Metodologi &amp; Tools</div>
-                  <div class="footer-skill-subtitle">Git, GitHub, Agile Scrum, Postman</div>
-                </div>
-              </div>
-            </div>
+          <!-- Col 3: Keahlian Utama -->
+          <div>
+            <h4 class="footer-col-head">KEAHLIAN UTAMA</h4>
+            <ul class="footer-col-links">
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Backend &amp; REST API</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Web Automation &amp; Scraping</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Modern Frontend UI/UX</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Database Architecture</a></li>
+            </ul>
           </div>
 
           <!-- Col 4: Info Rekrutmen -->
-          <div class="col-lg-3 col-md-6 footer-col-recruit">
-            <h4 class="footer-col-title" data-i18n="footer_col_recruiter">INFO REKRUTMEN</h4>
-            <div class="footer-recruit-stack">
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-danger">
-                  <i class="bi bi-geo-alt-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_loc_label">LOKASI DOMISILI</div>
-                  <div class="footer-recruit-val" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-success">
-                  <i class="bi bi-briefcase-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_status_label">STATUS KETERSEDIAAN</div>
-                  <div class="footer-recruit-val text-emerald" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-info">
-                  <i class="bi bi-laptop-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_mobility_label">MOBILITAS KERJA</div>
-                  <div class="footer-recruit-val" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-warning">
-                  <i class="bi bi-envelope-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_email_label">EMAIL REKRUTMEN</div>
-                  <a href="mailto:johankrisbima77@gmail.com" class="footer-recruit-link text-cyan">johankrisbima77@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-danger">
-                  <i class="bi bi-file-earmark-pdf-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_cv_label">RESUME / CV</div>
-                  <a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" class="footer-recruit-link text-cyan">
-                    <span data-i18n="footer_cv_val">Unduh CV Resmi (PDF)</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div>
+            <h4 class="footer-col-head">INFO REKRUTMEN</h4>
+            <ul class="footer-col-links">
+              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Domisili:</strong> Mojokerto, Jatim</span></li>
+              <li><span style="font-size: 0.85rem; color: #10b981;"><strong>Status:</strong> Immediate Available</span></li>
+              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Mobilitas:</strong> On-site / Hybrid / Remote</span></li>
+              <li><a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" style="color: var(--accent-from);"><i class="bi bi-file-earmark-pdf-fill"></i> Unduh CV Resmi</a></li>
+            </ul>
           </div>
         </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="detail-footer-bottom">
+          <div>&copy; 2025 Johan Krisbima Abi. All rights reserved.</div>
+          <div>Dibuat dengan dedikasi rekayasa perangkat lunak modern.</div>
+        </div>
+
+        <!-- Watermark -->
+        <div class="footer-watermark" aria-hidden="true">Krisbima</div>
       </div>
     </footer>
 
-    <!-- Simple Image Zoom Lightbox Modal -->
-    <div class="modal fade modal-rounded" id="imageZoomModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Gambar Sistem</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center p-2 p-md-4">
-            <img id="zoomModalImg" src="" alt="Pratinjau Gambar" class="img-fluid rounded-4 shadow-lg zoom-modal-img" />
-          </div>
+    <!-- Image Zoom Lightbox Modal -->
+    <div class="detail-lightbox-modal" id="detailLightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="lightbox-content-box">
+        <div class="lightbox-header">
+          <span class="lightbox-title" id="lightboxModalTitle">Pratinjau Gambar Sistem</span>
+          <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Tutup Pratinjau">&times;</button>
+        </div>
+        <div class="lightbox-body">
+          <img id="lightboxModalImg" src="" alt="Pratinjau Resolusi Tinggi" class="lightbox-img" />
         </div>
       </div>
     </div>
 
     <!-- Floating Back to Top Button -->
-    <a href="#page-top" id="backToTop" class="back-to-top-btn" aria-label="Scroll to top">
+    <button type="button" id="backToTop" class="detail-back-to-top" aria-label="Kembali ke atas">
       <i class="bi bi-chevron-up"></i>
-    </a>
-
-    <!-- Bootstrap 5 Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS (Animate On Scroll) JS via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    </button>
   </body>
 </html>

@@ -1,608 +1,591 @@
 <!doctype html>
-<html lang="id" data-theme="light">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Pengalaman: Backend Developer Intern di PT Stechoq Robotika Indonesia | Johan Krisbima Abi</title>
-    <meta name="description" content="Studi kasus mendalam pengalaman Johan Krisbima Abi sebagai Backend Developer Intern di PT Stechoq Robotika Indonesia. Merancang RESTful API sistem manajemen gudang retail handphone." />
+    <meta name="description" content="Studi kasus mendalam pengalaman magang Johan Krisbima Abi sebagai Backend Developer Intern di PT Stechoq Robotika Indonesia. Membangun RESTful API sistem manajemen inventaris gudang handphone." />
     <meta name="author" content="Johan Krisbima Abi" />
-
-    <meta name="page-meta-title-key" content="stechoq_meta_title" />
-    <meta name="page-meta-desc-key" content="stechoq_meta_desc" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/img/profile_wisuda.png" />
     <link rel="apple-touch-icon" href="../assets/img/profile_wisuda.png" />
 
-    <!-- Google Fonts: Montserrat (Headings) + Inter / Plus Jakarta Sans (Body) -->
+    <!-- Google Fonts: Plus Jakarta Sans (Headings) + Onest / Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Onest:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Case Study Design System Stylesheet -->
+    <link rel="stylesheet" href="../css/detail.css" />
 
-    <!-- AOS (Animate On Scroll) CSS via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css" />
-
-    <!-- Translation Dictionary & Detail Interactive Scripts -->
-    <script src="../js/translations.js"></script>
-    <script src="../js/detail.js"></script>
+    <!-- Interactive Script -->
+    <script src="../js/detail.js" defer></script>
   </head>
   <body id="page-top">
-    <!-- Reading Progress Bar -->
+    <!-- Reading Progress Indicator -->
     <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
 
-    <!-- Floating Minimalist Navbar -->
-    <header class="blog-nav-sticky">
-      <div class="container">
-        <div class="blog-nav-inner">
-          <a href="../index.html#project" class="blog-back-btn" data-i18n-title="detail_back_to_porto" title="Kembali ke Portofolio">
+    <!-- Floating Minimalist Header (Lumora Modern Editorial) -->
+    <header class="detail-header" id="detailHeader">
+      <div class="detail-header-inner">
+        <!-- Brand Link -->
+        <a href="../index.html" class="detail-brand-btn" aria-label="Johan Krisbima - Kembali ke Beranda">
+          <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+            <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
+          </svg>
+          <span>Johan<span class="detail-brand-suffix">.dev</span></span>
+        </a>
+
+        <!-- Center Breadcrumb Pill -->
+        <nav class="detail-nav-breadcrumb" aria-label="Breadcrumb Bar">
+          <a href="../index.html">Beranda</a>
+          <span class="sep">/</span>
+          <a href="../index.html#experience">Pengalaman</a>
+          <span class="sep">/</span>
+          <span class="active-crumb">PT Stechoq Robotika Indonesia</span>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="detail-header-actions">
+          <a href="../index.html#experience" class="detail-nav-back-btn" title="Kembali ke Portofolio">
             <i class="bi bi-arrow-left"></i>
-            <span class="d-none d-sm-inline" data-i18n="detail_back_to_porto">Kembali ke Portofolio</span>
-            <span class="d-inline d-sm-none" data-i18n="detail_back_short">Kembali</span>
+            <span>Kembali</span>
           </a>
-
-          <a href="../index.html#home" class="navbar-brand-minimal text-decoration-none">
-            <span class="brand-monogram">JK</span>
-            <span class="d-none d-md-inline">Johan Krisbima</span>
+          <a href="https://wa.me/6287851865091" target="_blank" class="detail-nav-contact-btn" title="Hubungi melalui WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+            <span class="nav-contact-text">Kontak</span>
           </a>
-
-          <div class="d-flex align-items-center gap-2">
-            <!-- Language Switcher -->
-            <button type="button" id="blogLangToggleBtn" class="btn-nav-lang" aria-label="Ganti Bahasa (ID / EN)" title="Ganti Bahasa / Switch Language">
-              <i class="bi bi-translate"></i>
-              <span id="blogLangText">EN</span>
-            </button>
-
-            <!-- Theme Switcher -->
-            <button type="button" id="blogThemeToggleBtn" class="btn-nav-theme" aria-label="Ganti Tema (Dark / Light)" title="Ganti Mode Tampilan (Dark / Light)">
-              <i class="bi bi-sun-fill theme-icon-sun"></i>
-              <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
-              <span class="visually-hidden" id="blogThemeText">Dark Mode</span>
-            </button>
-          </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Page -->
-    <main class="blog-post-page">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-11 col-xl-10">
-            <!-- Blog Article Card -->
-            <article class="blog-article-card" data-aos="fade-up">
-              <!-- Breadcrumbs -->
-              <nav class="blog-breadcrumbs" aria-label="breadcrumb">
-                <a href="../index.html"><i class="bi bi-house-door-fill me-1"></i><span data-i18n="detail_breadcrumb_home">Beranda</span></a>
-                <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <a href="../index.html#project" data-i18n="detail_breadcrumb_exp">Pengalaman &amp; Proyek</a>
-                <span class="separator"><i class="bi bi-chevron-right"></i></span>
-                <span class="current-crumb">PT Stechoq Robotika Indonesia</span>
-              </nav>
+    <!-- Main Content Container -->
+    <main class="detail-main">
+      <div class="detail-shell">
+        <article class="detail-article-card">
+          <!-- Article Top Hero -->
+          <header class="detail-hero-header">
+            <!-- Breadcrumbs Link -->
+            <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+              <a href="../index.html"><i class="bi bi-house-door-fill"></i> Beranda</a>
+              <span class="breadcrumb-sep"><i class="bi bi-chevron-right"></i></span>
+              <a href="../index.html#experience">Pengalaman Kerja</a>
+              <span class="breadcrumb-sep"><i class="bi bi-chevron-right"></i></span>
+              <span class="current-crumb">PT Stechoq Robotika Indonesia</span>
+            </nav>
 
-              <!-- Header Badges -->
-              <div class="blog-meta-tags">
-                <span class="blog-pill-meta primary-pill">
-                  <i class="bi bi-gear-wide-connected"></i>
-                  <span>PT Stechoq Robotika Indonesia</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-briefcase-fill text-cyan"></i>
-                  <span data-i18n="stechoq_role">Backend Developer Intern</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-calendar3"></i>
-                  <span data-i18n="stechoq_date">Feb 2024 – Jul 2024</span>
-                </span>
-                <span class="blog-pill-meta">
-                  <i class="bi bi-folder-check"></i>
-                  <span data-i18n="stechoq_proj_tag">Project: Website Management System for Mobile Phone Warehouse</span>
-                </span>
-              </div>
+            <!-- Eyebrow Category -->
+            <div class="detail-eyebrow">
+              <span class="detail-eyebrow-dot"></span>
+              <span>STUDI KASUS MAGANG • MSIB KAMPUS MERDEKA</span>
+            </div>
 
-              <!-- Main Title & Lead -->
-              <h1 class="blog-main-title" data-i18n="stechoq_title">Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia</h1>
-              <p class="blog-subtitle-lead" data-i18n="stechoq_subtitle">Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.</p>
+            <!-- Main Title & Lead -->
+            <h1 class="detail-main-title">Project: Website Management System for Mobile Phone Warehouse &ndash; PT Stechoq Robotika Indonesia</h1>
+            <p class="detail-subtitle-lead">
+              Perancangan dan pembangunan arsitektur backend RESTful API untuk sistem manajemen gudang retail handphone menggunakan Node.js, Express Js, dan MySQL.
+            </p>
 
-              <!-- Executive Summary Callout Box (Exact CV Bullets) -->
-              <div class="blog-executive-box" data-aos="fade-up">
-                <h4><i class="bi bi-lightning-charge-fill"></i> <span data-i18n="stechoq_exec_heading">Ringkasan Proyek (Berdasarkan CV Resmi)</span></h4>
-                <ul class="subsystem-list mb-0">
-                  <li data-i18n="stechoq_exec_p1">Membangun aplikasi web manajemen inventaris gudang handphone untuk melacak aliran stok masuk dan keluar secara akurat dan terpusat.</li>
-                  <li data-i18n="stechoq_exec_p2">Merancang RESTful API modular guna mengintegrasikan modul pengelolaan produk, data supplier, dan pencatatan transaksi pergudangan.</li>
-                  <li data-i18n="stechoq_exec_p3">Mengelola fondasi sisi backend, meliputi mekanisme autentikasi dan otorisasi pengguna, manajemen basis data, serta standarisasi dokumentasi endpoint API.</li>
-                </ul>
-              </div>
+            <!-- Meta Pill Chips Row -->
+            <div class="detail-meta-row">
+              <span class="meta-pill-chip primary-company">
+                <i class="bi bi-gear-wide-connected"></i>
+                <span>PT Stechoq Robotika Indonesia</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-briefcase-fill"></i>
+                <span>Backend Developer Intern</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-calendar3"></i>
+                <span>Feb 2024 – Jul 2024</span>
+              </span>
+              <span class="meta-pill-chip">
+                <i class="bi bi-folder-check"></i>
+                <span>Mobile Phone Warehouse System</span>
+              </span>
+            </div>
+          </header>
 
-              <!-- Section 1: Latar Belakang & Masalah -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-compass"></i>
-                  <span data-i18n="stechoq_sec1_heading">1. Latar Belakang &amp; Tantangan Pergudangan Retail</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="stechoq_sec1_p">
-                  Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum
-                  yang dihadapi retail meliputi:
-                </p>
-                <ul class="subsystem-list">
-                  <li data-i18n="stechoq_sec1_item1">
-                    <strong>Discrepancy Selisih Stok Antar Cabang:</strong> Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.
-                  </li>
-                  <li data-i18n="stechoq_sec1_item2">
-                    <strong>Ketiadaan Peringatan Stok Rendah (Out of Stock Risk):</strong> Hilangnya potensi penjualan produk best-seller karena keterlambatan pengadaan ulang barang dari pihak prinsipal atau distributor.
-                  </li>
-                  <li data-i18n="stechoq_sec1_item3"><strong>Audit Trail yang Lemah:</strong> Kesulitan melacak staf mana yang mengotorisasi pengeluaran barang jika terjadi kehilangan unit bernilai tinggi.</li>
-                </ul>
-              </section>
-
-              <!-- Section 2: Arsitektur Backend & Fitur API -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-layers-fill"></i>
-                  <span data-i18n="stechoq_sec2_heading">2. Arsitektur Backend &amp; Endpoint Utama</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="stechoq_sec2_p">
-                  Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:
-                </p>
-
-                <!-- Subsystem Grid Cards -->
-                <div class="blog-grid-cards">
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-shield-check"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="stechoq_mod1_title">Autentikasi &amp; RBAC JWT Terproteksi</h3>
-                        <span class="subsystem-role" data-i18n="stechoq_mod1_role">Keamanan &amp; Hak Akses Berjenjang</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="stechoq_mod1_desc">Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="stechoq_mod1_item1">Pembagian peran jelas: Superadmin, Manajer Gudang, Staff Input, dan Kasir Toko.</li>
-                      <li data-i18n="stechoq_mod1_item2">Enkripsi password menggunakan bcrypt dengan cost-factor aman.</li>
-                      <li data-i18n="stechoq_mod1_item3">Blacklisting token saat user logout untuk mencegah replay attack.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">JWT</span>
-                      <span class="tag-pill">Bcrypt</span>
-                      <span class="tag-pill">RBAC</span>
-                    </div>
-                  </div>
-
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-box-seam-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="stechoq_mod2_title">Multi-Location Inventory Tracking</h3>
-                        <span class="subsystem-role" data-i18n="stechoq_mod2_role">Manajemen Stok &amp; Mutasi Real-time</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="stechoq_mod2_desc">Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="stechoq_mod2_item1">ACID Transactions MySQL untuk menjamin integritas data mutasi stok.</li>
-                      <li data-i18n="stechoq_mod2_item2">Validasi stok sebelum transaksi pengeluaran (mencegah minus stock concurrency).</li>
-                      <li data-i18n="stechoq_mod2_item3">Pelacakan riwayat pergerakan unik setiap unit berdasarkan IMEI handphone.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">Node.js</span>
-                      <span class="tag-pill">Express.js</span>
-                      <span class="tag-pill">MySQL ACID</span>
-                    </div>
-                  </div>
-
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-bell-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="stechoq_mod3_title">Automated Reorder Threshold</h3>
-                        <span class="subsystem-role" data-i18n="stechoq_mod3_role">Pemicu Peringatan Stok Kritis</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="stechoq_mod3_desc">Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="stechoq_mod3_item1">Perhitungan lead time dan minimum buffer stock per kategori varian produk.</li>
-                      <li data-i18n="stechoq_mod3_item2">Endpoint laporan otomatis produk prioritas restock untuk tim Purchasing.</li>
-                      <li data-i18n="stechoq_mod3_item3">Penyaringan laporan berdasarkan vendor, merek handphone, dan lokasi cabang.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">Business Logic</span>
-                      <span class="tag-pill">Analytics</span>
-                      <span class="tag-pill">Reporting</span>
-                    </div>
-                  </div>
-
-                  <div class="blog-subsystem-card">
-                    <div class="subsystem-header">
-                      <div class="subsystem-icon-box">
-                        <i class="bi bi-file-code-fill"></i>
-                      </div>
-                      <div>
-                        <h3 class="subsystem-title" data-i18n="stechoq_mod4_title">Swagger OpenAPI &amp; Automated Testing</h3>
-                        <span class="subsystem-role" data-i18n="stechoq_mod4_role">Dokumentasi Interaktif &amp; QA Jest</span>
-                      </div>
-                    </div>
-                    <p class="subsystem-desc" data-i18n="stechoq_mod4_desc">Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.</p>
-                    <ul class="subsystem-list">
-                      <li data-i18n="stechoq_mod4_item1">Swagger UI interaktif yang memungkinkan tim developer mencoba request langsung.</li>
-                      <li data-i18n="stechoq_mod4_item2">Pengujian skenario endpoint menggunakan Jest dan Supertest (Happy &amp; Error Path).</li>
-                      <li data-i18n="stechoq_mod4_item3">Koleksi Postman terstruktur lengkap dengan environment variables otomatis.</li>
-                    </ul>
-                    <div class="tags-group mt-auto">
-                      <span class="tag-pill">Swagger / OpenAPI</span>
-                      <span class="tag-pill">Jest</span>
-                      <span class="tag-pill">Postman</span>
-                    </div>
-                  </div>
+          <!-- Executive Summary Callout Box -->
+          <div class="detail-summary-card">
+            <div class="detail-summary-header">
+              <span class="detail-summary-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+              <h4>Ringkasan Proyek (Berdasarkan CV Resmi)</h4>
+            </div>
+            <div class="detail-summary-content">
+              <div class="summary-bullet-list">
+                <div class="summary-bullet-item">
+                  <i class="bi bi-check2-circle"></i>
+                  <span>Membangun aplikasi web manajemen inventaris gudang handphone untuk melacak aliran stok masuk dan keluar secara akurat dan terpusat.</span>
                 </div>
-              </section>
-
-              <!-- Section 3: Dokumentasi & Sertifikasi -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-award-fill"></i>
-                  <span data-i18n="stechoq_sec3_heading">3. Verifikasi &amp; Dokumentasi Magang</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="stechoq_sec3_p">
-                  Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:
-                </p>
-
-                <div class="blog-gallery-showcase">
-                  <div class="row g-4">
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/sertifMsib1.png" alt="Sertifikat Magang PT Stechoq Robotika Indonesia" class="img-fluid" data-zoom-img="../assets/img/sertifMsib1.png" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-patch-check-fill text-cyan"></i>
-                          <span data-i18n="stechoq_cap_cert1">Sertifikat Kelulusan Program Magang &ndash; PT Stechoq Robotika Indonesia</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-
-                    <div class="col-md-6">
-                      <figure class="blog-figure">
-                        <img src="../assets/img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" class="img-fluid" data-zoom-img="../assets/img/sertifikat_Kepesertaan_MSIB.jpg" />
-                        <figcaption class="blog-figure-caption">
-                          <i class="bi bi-journal-check text-cyan"></i>
-                          <span data-i18n="stechoq_cap_cert2">Sertifikat resmi keikutsertaan program Magang & Studi Independen Bersertifikat dalam ekosistem Kampus Merdeka Kemendikbudristek.</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
+                <div class="summary-bullet-item">
+                  <i class="bi bi-check2-circle"></i>
+                  <span>Merancang RESTful API modular guna mengintegrasikan modul pengelolaan produk, data supplier, dan pencatatan transaksi pergudangan.</span>
                 </div>
-              </section>
-
-              <!-- Section 4: Dampak & Metrik Hasil -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-bar-chart-line-fill"></i>
-                  <span data-i18n="stechoq_sec4_heading">4. Dampak &amp; Metrik Hasil (Impact)</span>
-                </h2>
-                <p class="blog-body-p" data-i18n="stechoq_sec4_p">Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:</p>
-
-                <div class="blog-metrics-row">
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">35+</span>
-                    <span class="blog-metric-label" data-i18n="stechoq_metric1_label">RESTful Endpoint Dirancang &amp; Terdokumentasi</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">90%+</span>
-                    <span class="blog-metric-label" data-i18n="stechoq_metric2_label">Code Coverage Unit Testing Menggunakan Jest</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">100%</span>
-                    <span class="blog-metric-label" data-i18n="stechoq_metric3_label">Integritas Transaksi ACID (Zero Ghost Stock)</span>
-                  </div>
-                  <div class="blog-metric-card">
-                    <span class="blog-metric-num">&lt; 120ms</span>
-                    <span class="blog-metric-label" data-i18n="stechoq_metric4_label">Rata-rata Respon Latency Endpoint CRUD</span>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Section 5: Pembelajaran & Kesimpulan -->
-              <section class="blog-section">
-                <h2 class="blog-section-heading">
-                  <i class="bi bi-lightbulb-fill"></i>
-                  <span data-i18n="stechoq_sec5_heading">5. Pembelajaran Utama (Key Takeaways)</span>
-                </h2>
-                <div class="blog-body-p">
-                  <p data-i18n="stechoq_sec5_p1">
-                    Pengalaman di PT Stechoq Robotika Indonesia memantapkan standar saya dalam merancang RESTful API kelas industri: mulai dari penamaan resource URI yang representatif, penanganan HTTP status codes yang semantik, hingga
-                    pentingnya automated test suite agar pembaruan fitur di masa depan tidak menimbulkan regresi (breaking changes).
-                  </p>
-                  <p class="mb-0" data-i18n="stechoq_sec5_p2">
-                    Dokumentasi Swagger yang komprehensif terbukti sangat memangkas waktu rapat integrasi antara tim backend dan frontend, menghasilkan alur kerja pengembangan software yang jauh lebih cepat dan terkoordinasi.
-                  </p>
-                </div>
-              </section>
-
-              <!-- Author Box Card -->
-              <div class="blog-author-card">
-                <div class="author-info-group">
-                  <img src="../assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="author-avatar-img" />
-                  <div>
-                    <h3 class="author-name">Johan Krisbima Abi</h3>
-                    <p class="author-desc" data-i18n="detail_author_desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
-                  </div>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                  <a href="https://wa.me/6287851865091" target="_blank" class="channel-mini-pill wa">
-                    <i class="bi bi-whatsapp"></i>
-                    <span data-i18n="detail_contact_wa">Hubungi via WA</span>
-                  </a>
-                  <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="channel-mini-pill in">
-                    <i class="bi bi-linkedin text-info"></i>
-                    <span>LinkedIn</span>
-                  </a>
-                  <a href="https://github.com/JohanKrisbima" target="_blank" class="channel-mini-pill gh">
-                    <i class="bi bi-github"></i>
-                    <span>GitHub</span>
-                  </a>
+                <div class="summary-bullet-item">
+                  <i class="bi bi-check2-circle"></i>
+                  <span>Mengelola fondasi sisi backend, meliputi mekanisme autentikasi dan otorisasi pengguna, manajemen basis data, serta standarisasi dokumentasi endpoint API.</span>
                 </div>
               </div>
-            </article>
+            </div>
+          </div>
 
-            <!-- Previous / Next Experience Switcher -->
-            <div class="blog-switcher-row" data-aos="fade-up">
-              <a href="detail-pt-pal.html" class="blog-switch-card">
-                <div class="blog-switch-dir">
-                  <i class="bi bi-arrow-left me-1"></i>
-                  <span>Pengalaman PT PAL</span>
+          <!-- Section 1: Latar Belakang & Masalah -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">01 / KONTEKS &amp; TANTANGAN</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-compass"></i>
+                <span>1. Latar Belakang &amp; Tantangan Pergudangan Retail</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Industri retail smartphone memiliki dinamika persediaan yang sangat cepat dengan nilai barang (unit price) yang tinggi. Setiap unit memiliki nomor seri unik (IMEI/Serial Number) yang wajib terlacak akurat. Kendala umum yang dihadapi retail meliputi:
+            </p>
+            <div class="detail-challenge-list">
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-exclamation-triangle-fill"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Discrepancy Selisih Stok Antar Cabang:</strong>
+                  Terjadinya selisih antara stok tercatat di komputer dengan stok fisik di rak gudang akibat proses mutasi barang antar outlet yang lambat dicatat.
                 </div>
-                <div class="blog-switch-title">Pemprogram Komputer Contract &ndash; Enterprise App</div>
-                <div class="blog-switch-company"><i class="bi bi-building me-1"></i>PT PAL Indonesia</div>
+              </div>
+
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-bell-slash-fill"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Ketiadaan Peringatan Stok Rendah (Out of Stock Risk):</strong>
+                  Hilangnya potensi penjualan produk best-seller karena keterlambatan pengadaan ulang barang dari pihak prinsipal atau distributor.
+                </div>
+              </div>
+
+              <div class="detail-challenge-item">
+                <span class="detail-challenge-icon"><i class="bi bi-shield-x"></i></span>
+                <div class="detail-challenge-text">
+                  <strong>Audit Trail yang Lemah:</strong>
+                  Kesulitan melacak staf mana yang mengotorisasi pengeluaran barang jika terjadi kehilangan unit bernilai tinggi.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: Arsitektur Backend & Fitur API -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">02 / ARSITEKTUR &amp; ENDPOINT</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-layers-fill"></i>
+                <span>2. Arsitektur Backend &amp; Endpoint Utama</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Backend API dibangun dengan arsitektur berlapis (Controller-Service-Repository Pattern) menggunakan Node.js dan Express.js untuk memastikan kode bersih, mudah di-maintain, dan scalable:
+            </p>
+
+            <div class="detail-subsystem-grid">
+              <!-- Module 1: Auth & RBAC -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Autentikasi &amp; RBAC JWT Terproteksi</h3>
+                    <span class="subsystem-role-badge">Keamanan &amp; Hak Akses Berjenjang</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Implementasi token JSON Web Token (JWT) dengan refresh token rotation dan middleware otorisasi berbasis peran (Role-Based Access Control).</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Pembagian peran jelas: Superadmin, Manajer Gudang, Staff Input, dan Kasir Toko.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Enkripsi password menggunakan bcrypt dengan cost-factor aman.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Blacklisting token saat user logout untuk mencegah replay attack.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">JWT</span>
+                  <span class="tag-pill-dark">Bcrypt</span>
+                  <span class="tag-pill-dark">RBAC</span>
+                </div>
+              </div>
+
+              <!-- Module 2: Multi-Location Tracking -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-box-seam-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Multi-Location Inventory Tracking</h3>
+                    <span class="subsystem-role-badge">Manajemen Stok &amp; Mutasi Real-time</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Pencatatan persediaan di gudang pusat, gudang transit, dan masing-masing gerai cabang secara sinkron dalam satu basis data terpadu.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>ACID Transactions MySQL untuk menjamin integritas data mutasi stok.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Validasi stok sebelum transaksi pengeluaran (mencegah minus stock concurrency).</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Pelacakan riwayat pergerakan unik setiap unit berdasarkan IMEI handphone.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">Node.js</span>
+                  <span class="tag-pill-dark">Express.js</span>
+                  <span class="tag-pill-dark">MySQL ACID</span>
+                </div>
+              </div>
+
+              <!-- Module 3: Automated Reorder Threshold -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-bell-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Automated Reorder Threshold</h3>
+                    <span class="subsystem-role-badge">Pemicu Peringatan Stok Kritis</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Algoritma pengecekan stok otomatis yang memberikan status peringatan dini saat persediaan produk mencapai batas minimum pemesanan ulang.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Perhitungan lead time dan minimum buffer stock per kategori varian produk.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Endpoint laporan otomatis produk prioritas restock untuk tim Purchasing.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Penyaringan laporan berdasarkan vendor, merek handphone, dan lokasi cabang.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">Business Logic</span>
+                  <span class="tag-pill-dark">Analytics</span>
+                  <span class="tag-pill-dark">Reporting</span>
+                </div>
+              </div>
+
+              <!-- Module 4: Swagger & Testing -->
+              <div class="detail-subsystem-card">
+                <div class="subsystem-card-top">
+                  <div class="subsystem-icon-wrap">
+                    <i class="bi bi-file-code-fill"></i>
+                  </div>
+                  <div class="subsystem-title-box">
+                    <h3>Swagger OpenAPI &amp; Automated Testing</h3>
+                    <span class="subsystem-role-badge">Dokumentasi Interaktif &amp; QA Jest</span>
+                  </div>
+                </div>
+                <p class="subsystem-card-desc">Memudahkan kolaborasi dengan tim frontend dan mobile melalui dokumentasi interaktif Swagger UI serta automated unit/integration test.</p>
+                <div class="subsystem-bullet-list">
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Swagger UI interaktif yang memungkinkan tim developer mencoba request langsung.</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Pengujian skenario endpoint menggunakan Jest dan Supertest (Happy &amp; Error Path).</span>
+                  </div>
+                  <div class="subsystem-bullet-item">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Koleksi Postman terstruktur lengkap dengan environment variables otomatis.</span>
+                  </div>
+                </div>
+                <div class="subsystem-tags-group">
+                  <span class="tag-pill-dark">Swagger / OpenAPI</span>
+                  <span class="tag-pill-dark">Jest</span>
+                  <span class="tag-pill-dark">Postman</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Dokumentasi & Sertifikasi -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">03 / VERIFIKASI &amp; SERTIFIKASI</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-award-fill"></i>
+                <span>3. Verifikasi &amp; Dokumentasi Magang</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Program magang ini dilaksanakan melalui program resmi MSIB (Magang dan Studi Independen Bersertifikat) Kampus Merdeka di PT Stechoq Robotika Indonesia dengan pencapaian yang terakreditasi:
+            </p>
+
+            <div class="detail-gallery-grid">
+              <!-- Cert 1 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">stechoq-certificate.pdf</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/sertifMsib1.png" alt="Sertifikat Kelulusan Program Magang - PT Stechoq Robotika Indonesia">
+                  <img src="../assets/img/sertifMsib1.png" alt="Sertifikat Magang PT Stechoq Robotika Indonesia" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-patch-check-fill"></i>
+                  <span>Sertifikat Kelulusan Program Magang &ndash; PT Stechoq Robotika Indonesia</span>
+                </div>
+              </div>
+
+              <!-- Cert 2 -->
+              <div class="detail-figure-frame">
+                <div class="figure-window-bar">
+                  <div class="window-dots">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                  </div>
+                  <span class="window-title-tag">kampus-merdeka-msib.pdf</span>
+                </div>
+                <div class="figure-img-wrap" data-zoom-img="../assets/img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat resmi keikutsertaan program Magang & Studi Independen Bersertifikat MSIB Kemendikbudristek">
+                  <img src="../assets/img/sertifikat_Kepesertaan_MSIB.jpg" alt="Sertifikat Kepesertaan MSIB" loading="lazy" />
+                  <div class="figure-zoom-overlay">
+                    <span class="figure-zoom-btn"><i class="bi bi-zoom-in"></i> Perbesar Gambar</span>
+                  </div>
+                </div>
+                <div class="figure-caption-box">
+                  <i class="bi bi-journal-check"></i>
+                  <span>Sertifikat resmi keikutsertaan program MSIB Kampus Merdeka Kemendikbudristek</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: Dampak & Metrik Hasil -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">04 / METRIK &amp; HASIL TERUKUR</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-bar-chart-line-fill"></i>
+                <span>4. Dampak &amp; Metrik Hasil (Impact)</span>
+              </h2>
+            </div>
+            <p class="detail-lead-p">
+              Pembangunan arsitektur RESTful API yang terstruktur rapi memberikan fondasi yang kuat bagi operasional toko:
+            </p>
+
+            <div class="detail-metrics-grid">
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">35+</span>
+                <span class="detail-metric-label">RESTful Endpoint Dirancang &amp; Terdokumentasi</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">90%+</span>
+                <span class="detail-metric-label">Code Coverage Unit Testing Menggunakan Jest</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">100%</span>
+                <span class="detail-metric-label">Integritas Transaksi ACID (Zero Ghost Stock)</span>
+              </div>
+              <div class="detail-metric-card">
+                <span class="detail-metric-num">&lt; 120ms</span>
+                <span class="detail-metric-label">Rata-rata Respon Latency Endpoint CRUD</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Pembelajaran & Kesimpulan -->
+          <section class="detail-section">
+            <div class="detail-section-header">
+              <span class="detail-section-eyebrow">05 / KESIMPULAN &amp; REFLEKSI</span>
+              <h2 class="detail-section-title">
+                <i class="bi bi-lightbulb-fill"></i>
+                <span>5. Pembelajaran Utama (Key Takeaways)</span>
+              </h2>
+            </div>
+            <div class="detail-takeaways-card">
+              <p>
+                Pengalaman di PT Stechoq Robotika Indonesia memantapkan standar saya dalam merancang RESTful API kelas industri: mulai dari penamaan resource URI yang representatif, penanganan HTTP status codes yang semantik, hingga
+                pentingnya automated test suite agar pembaruan fitur di masa depan tidak menimbulkan regresi (breaking changes).
+              </p>
+              <p>
+                Dokumentasi Swagger yang komprehensif terbukti sangat memangkas waktu rapat integrasi antara tim backend dan frontend, menghasilkan alur kerja pengembangan software yang jauh lebih cepat dan terkoordinasi.
+              </p>
+            </div>
+          </section>
+
+          <!-- Author Box Card -->
+          <div class="detail-author-card">
+            <div class="author-left-wrap">
+              <div class="author-avatar-wrap">
+                <img src="../assets/img/profile_wisuda.png" alt="Johan Krisbima Abi" class="author-avatar-img" />
+                <span class="author-status-dot" title="Tersedia untuk Rekrutmen"></span>
+              </div>
+              <div class="author-info-box">
+                <h3>Johan Krisbima Abi</h3>
+                <p class="author-info-desc">Software Developer &bull; Mojokerto, Jawa Timur &bull; Lulusan D4 Teknik Informatika Politeknik Negeri Jember (IPK: 3.87/4.00)</p>
+              </div>
+            </div>
+            <div class="author-social-pills">
+              <a href="https://wa.me/6287851865091" target="_blank" class="author-mini-pill wa">
+                <i class="bi bi-whatsapp"></i>
+                <span>Hubungi via WA</span>
               </a>
-
-              <a href="detail-universal-big-data.html" class="blog-switch-card">
-                <div class="blog-switch-dir">
-                  <span data-i18n="detail_next_exp">Pengalaman Selanjutnya</span>
-                  <i class="bi bi-arrow-right"></i>
-                </div>
-                <div class="blog-switch-title">Web Automation Intern &ndash; Nobox Extractor</div>
-                <div class="blog-switch-company"><i class="bi bi-robot me-1"></i>PT Universal Big Data</div>
+              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="author-mini-pill li">
+                <i class="bi bi-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/JohanKrisbima" target="_blank" class="author-mini-pill gh">
+                <i class="bi bi-github"></i>
+                <span>GitHub</span>
               </a>
             </div>
           </div>
+        </article>
+
+        <!-- Previous / Next Experience Switcher -->
+        <div class="detail-switcher-grid">
+          <a href="detail-pt-pal.html" class="detail-switch-card prev">
+            <div class="switch-direction-label">
+              <i class="bi bi-arrow-left"></i>
+              <span>Pengalaman Sebelumnya</span>
+            </div>
+            <div class="switch-title">Pemprogram Komputer Contract &ndash; Enterprise App</div>
+            <div class="switch-company"><i class="bi bi-building"></i> PT PAL Indonesia</div>
+          </a>
+
+          <a href="detail-universal-big-data.html" class="detail-switch-card">
+            <div class="switch-direction-label">
+              <span>Pengalaman Selanjutnya</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+            <div class="switch-title">Web Automation Intern &ndash; Nobox Extractor</div>
+            <div class="switch-company"><i class="bi bi-robot"></i> PT Universal Big Data</div>
+          </a>
         </div>
       </div>
     </main>
 
-    <!-- =========================================================================
-         FOOTER (COMPREHENSIVE PROFESSIONAL FOOTER)
-         ========================================================================= -->
-    <footer class="footer-professional" id="mainFooter">
-      <div class="container">
-        <div class="row g-4 g-xl-5">
-          <!-- Col 1: Brand & Profile Bio -->
-          <div class="col-lg-4 col-md-6 footer-col-brand">
-            <div class="footer-brand-wrap mb-3">
-              <a href="../index.html#home" class="footer-brand-link">
-                <span class="brand-monogram">JK</span>
-                <span class="brand-text">Johan<span class="text-cyan">.dev</span></span>
-              </a>
-              <span class="footer-role-badge">
-                <i class="bi bi-code-slash me-1"></i>
-                <span data-i18n="footer_role">Software &amp; Web Developer</span>
-              </span>
-            </div>
-            <p class="footer-bio-text" data-i18n="footer_bio">
-              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi
-              bisnis.
+    <!-- Professional Footer (Harmonized with index.html) -->
+    <footer class="detail-footer" id="mainFooter">
+      <div class="detail-footer-shell">
+        <!-- CTA Block -->
+        <div class="detail-footer-cta">
+          <div>
+            <div class="footer-cta-eyebrow">PUNYA IDE PROYEK?</div>
+            <h2 class="footer-cta-title">Punya ide proyek atau peluang kerja sama? Mari berdiskusi.</h2>
+          </div>
+          <a href="https://wa.me/6287851865091" target="_blank" class="pill-btn pill-light">
+            <span>Hubungi Saya via WhatsApp &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Columns Grid -->
+        <div class="detail-footer-grid">
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-brand-wrap">
+            <a href="../index.html" class="footer-logo-btn">
+              <svg viewBox="0 0 48 48" fill="currentColor">
+                <path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
+              </svg>
+              <span>Johan.dev</span>
+            </a>
+            <p class="footer-bio-p">
+              Lulusan Teknik Informatika Politeknik Negeri Jember dengan rekam jejak magang di PT PAL Indonesia (BUMN), Universal Big Data, dan PT Stechoq. Berorientasi pada arsitektur bersih, performa tinggi, dan solusi bernilai nyata bagi bisnis.
             </p>
-            <div class="footer-social-row">
-              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-btn" aria-label="LinkedIn Profile" title="LinkedIn Profile">
-                <i class="bi bi-linkedin"></i>
-              </a>
-              <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-btn" aria-label="GitHub Profile" title="GitHub Profile">
-                <i class="bi bi-github"></i>
-              </a>
-              <a href="https://instagram.com/johankrisbima" target="_blank" class="footer-social-btn" aria-label="Instagram Profile" title="Instagram Profile">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="mailto:johankrisbima77@gmail.com" class="footer-social-btn" aria-label="Email Resmi" title="Email: johankrisbima77@gmail.com">
-                <i class="bi bi-envelope-fill"></i>
-              </a>
-              <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-btn" aria-label="WhatsApp" title="WhatsApp: 087851865091">
-                <i class="bi bi-whatsapp"></i>
-              </a>
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/in/johan-krisbima-abi/" target="_blank" class="footer-social-circle" aria-label="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/JohanKrisbima" target="_blank" class="footer-social-circle" aria-label="GitHub Profile"><i class="bi bi-github"></i></a>
+              <a href="mailto:johankrisbima77@gmail.com" class="footer-social-circle" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+              <a href="https://wa.me/6287851865091" target="_blank" class="footer-social-circle" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
 
-          <!-- Col 2: Eksplorasi (Quick Navigation) -->
-          <div class="col-lg-2 col-md-6 footer-col-links">
-            <h4 class="footer-col-title" data-i18n="footer_col_explore">EKSPLORASI</h4>
-            <ul class="footer-nav-list list-unstyled mb-0">
-              <li>
-                <a href="../index.html#home" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_home">Beranda</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#about" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_about">Profil &amp; Edukasi</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#skills" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="nav_skills">Skills</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#project" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_project">Pengalaman Kerja</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#projects" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_projects">Karya &amp; Proyek</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#sertifikat" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_cert">Sertifikasi Resmi</span>
-                </a>
-              </li>
-              <li>
-                <a href="../index.html#honors" class="footer-nav-link">
-                  <i class="bi bi-chevron-right"></i>
-                  <span data-i18n="footer_link_honors">Penghargaan</span>
-                </a>
-              </li>
+          <!-- Col 2: Eksplorasi -->
+          <div>
+            <h4 class="footer-col-head">EKSPLORASI</h4>
+            <ul class="footer-col-links">
+              <li><a href="../index.html#home"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+              <li><a href="../index.html#about"><i class="bi bi-chevron-right"></i> Profil &amp; Edukasi</a></li>
+              <li><a href="../index.html#experience"><i class="bi bi-chevron-right"></i> Pengalaman Kerja</a></li>
+              <li><a href="../index.html#projects"><i class="bi bi-chevron-right"></i> Karya &amp; Proyek</a></li>
+              <li><a href="../index.html#sertifikat"><i class="bi bi-chevron-right"></i> Sertifikasi Resmi</a></li>
             </ul>
           </div>
 
-          <!-- Col 3: Keahlian Utama (4 Compact Cards) -->
-          <div class="col-lg-3 col-md-6 footer-col-skills">
-            <h4 class="footer-col-title" data-i18n="footer_col_skills">KEAHLIAN UTAMA</h4>
-            <div class="footer-skills-stack">
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-hdd-network-fill"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill1_title">Backend &amp; REST API</div>
-                  <div class="footer-skill-subtitle">Laravel, PHP, MySQL, RESTful</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-robot"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill2_title">Web Automation</div>
-                  <div class="footer-skill-subtitle">Python, Selenium, Scraping Pipeline</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-cyan">
-                  <i class="bi bi-display"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill3_title">Modern Frontend</div>
-                  <div class="footer-skill-subtitle">JavaScript ES6+, Bootstrap 5, UI/UX</div>
-                </div>
-              </div>
-
-              <div class="footer-skill-box">
-                <div class="footer-skill-icon-wrap text-warning">
-                  <i class="bi bi-git"></i>
-                </div>
-                <div class="footer-skill-content">
-                  <div class="footer-skill-title" data-i18n="footer_skill4_title">Metodologi &amp; Tools</div>
-                  <div class="footer-skill-subtitle">Git, GitHub, Agile Scrum, Postman</div>
-                </div>
-              </div>
-            </div>
+          <!-- Col 3: Keahlian Utama -->
+          <div>
+            <h4 class="footer-col-head">KEAHLIAN UTAMA</h4>
+            <ul class="footer-col-links">
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Backend &amp; REST API</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Web Automation &amp; Scraping</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Modern Frontend UI/UX</a></li>
+              <li><a href="../index.html#skills"><i class="bi bi-chevron-right"></i> Database Architecture</a></li>
+            </ul>
           </div>
 
           <!-- Col 4: Info Rekrutmen -->
-          <div class="col-lg-3 col-md-6 footer-col-recruit">
-            <h4 class="footer-col-title" data-i18n="footer_col_recruiter">INFO REKRUTMEN</h4>
-            <div class="footer-recruit-stack">
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-danger">
-                  <i class="bi bi-geo-alt-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_loc_label">LOKASI DOMISILI</div>
-                  <div class="footer-recruit-val" data-i18n="footer_loc_val">Mojokerto / Jawa Timur</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-success">
-                  <i class="bi bi-briefcase-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_status_label">STATUS KETERSEDIAAN</div>
-                  <div class="footer-recruit-val text-emerald" data-i18n="footer_status_val">Tersedia Segera (Immediate)</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-info">
-                  <i class="bi bi-laptop-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_mobility_label">MOBILITAS KERJA</div>
-                  <div class="footer-recruit-val" data-i18n="footer_mobility_val">On-site / Hybrid / Remote Ready</div>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-warning">
-                  <i class="bi bi-envelope-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_email_label">EMAIL REKRUTMEN</div>
-                  <a href="mailto:johankrisbima77@gmail.com" class="footer-recruit-link text-cyan">johankrisbima77@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="footer-recruit-item">
-                <div class="footer-recruit-icon-wrap text-danger">
-                  <i class="bi bi-file-earmark-pdf-fill"></i>
-                </div>
-                <div class="footer-recruit-details">
-                  <div class="footer-recruit-label" data-i18n="footer_cv_label">RESUME / CV</div>
-                  <a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" class="footer-recruit-link text-cyan">
-                    <span data-i18n="footer_cv_val">Unduh CV Resmi (PDF)</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div>
+            <h4 class="footer-col-head">INFO REKRUTMEN</h4>
+            <ul class="footer-col-links">
+              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Domisili:</strong> Mojokerto, Jatim</span></li>
+              <li><span style="font-size: 0.85rem; color: #10b981;"><strong>Status:</strong> Immediate Available</span></li>
+              <li><span style="font-size: 0.85rem; color: #dedede;"><strong>Mobilitas:</strong> On-site / Hybrid / Remote</span></li>
+              <li><a href="../assets/pdf/CV_Johan%20Krisbima%20Abi_Polije.pdf" target="_blank" download="CV_Johan_Krisbima_Abi.pdf" style="color: var(--accent-from);"><i class="bi bi-file-earmark-pdf-fill"></i> Unduh CV Resmi</a></li>
+            </ul>
           </div>
         </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="detail-footer-bottom">
+          <div>&copy; 2025 Johan Krisbima Abi. All rights reserved.</div>
+          <div>Dibuat dengan dedikasi rekayasa perangkat lunak modern.</div>
+        </div>
+
+        <!-- Watermark -->
+        <div class="footer-watermark" aria-hidden="true">Krisbima</div>
       </div>
     </footer>
 
-    <!-- Simple Image Zoom Lightbox Modal -->
-    <div class="modal fade modal-rounded" id="imageZoomModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title small" id="zoomModalTitle" data-i18n="detail_zoom_modal_title">Pratinjau Dokumen / Gambar</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center p-2 p-md-4">
-            <img id="zoomModalImg" src="" alt="Pratinjau Gambar" class="img-fluid rounded-4 shadow-lg zoom-modal-img" />
-          </div>
+    <!-- Image Zoom Lightbox Modal -->
+    <div class="detail-lightbox-modal" id="detailLightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="lightbox-content-box">
+        <div class="lightbox-header">
+          <span class="lightbox-title" id="lightboxModalTitle">Pratinjau Gambar Sistem</span>
+          <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Tutup Pratinjau">&times;</button>
+        </div>
+        <div class="lightbox-body">
+          <img id="lightboxModalImg" src="" alt="Pratinjau Resolusi Tinggi" class="lightbox-img" />
         </div>
       </div>
     </div>
 
     <!-- Floating Back to Top Button -->
-    <a href="#page-top" id="backToTop" class="back-to-top-btn" aria-label="Scroll to top">
+    <button type="button" id="backToTop" class="detail-back-to-top" aria-label="Kembali ke atas">
       <i class="bi bi-chevron-up"></i>
-    </a>
-
-    <!-- Bootstrap 5 Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS (Animate On Scroll) JS via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    </button>
   </body>
 </html>
