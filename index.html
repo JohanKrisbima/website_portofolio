@@ -134,24 +134,64 @@
        PAGE LOADER
        ========================================================================== -->
     <div id="pageLoader" role="status" aria-live="polite">
-      <div class="loader-content">
-        <div class="loader-brand">
-          <!-- LogoMark Image -->
+      <!-- Animated Background Ambient Glow Orbs -->
+      <div class="loader-ambient-bg" aria-hidden="true">
+        <div class="loader-glow-orb orb-1"></div>
+        <div class="loader-glow-orb orb-2"></div>
+        <div class="loader-glow-orb orb-3"></div>
+        <div class="loader-grid-overlay"></div>
+      </div>
+
+      <!-- Floating Sparkles / Particles for Meriah & Modern Vibe -->
+      <div class="loader-particles" aria-hidden="true">
+        <span class="particle p1">✦</span>
+        <span class="particle p2">◆</span>
+        <span class="particle p3">✦</span>
+        <span class="particle p4">★</span>
+        <span class="particle p5">◆</span>
+        <span class="particle p6">✦</span>
+      </div>
+
+      <!-- Glassmorphic Central Card -->
+      <div class="loader-card">
+        <!-- Logo with Animated Conic Gradient Ring & Pulse -->
+        <div class="loader-logo-wrapper">
+          <div class="loader-logo-ring"></div>
+          <div class="loader-logo-ring-pulse"></div>
           <span class="brand-logo-frame loader-logo-frame">
             <img src="assets/img/logo.png" alt="Logo Johan Krisbima Abi" class="brand-logo-img" />
           </span>
-          <span>Johan Krisbima Abi</span>
         </div>
-        <p class="loader-tagline" id="loaderTagline">Bold ideas, shipped with quiet precision.</p>
-      </div>
 
-      <div class="loader-progress-box">
-        <div class="loader-track">
-          <div class="loader-fill" id="loaderFill"></div>
+        <!-- Brand Name with Shimmer Gradient Text -->
+        <div class="loader-brand-text">
+          <h1 class="loader-title">Johan Krisbima Abi</h1>
+          <div class="loader-badge-pill">
+            <span class="loader-live-dot"></span>
+            <span id="loaderLiveStatus">SOFTWARE DEVELOPER &bull; PORTOFOLIO</span>
+          </div>
         </div>
-        <div class="loader-meta-row">
-          <span>Loading</span>
-          <span class="loader-counter" id="loaderCounter">000</span>
+
+        <p class="loader-tagline" id="loaderTagline">
+          Bold ideas, shipped with quiet precision.
+        </p>
+
+        <!-- Modern Glowing Progress Bar -->
+        <div class="loader-progress-box">
+          <div class="loader-track">
+            <div class="loader-fill" id="loaderFill">
+              <span class="loader-fill-glow"></span>
+            </div>
+          </div>
+
+          <div class="loader-meta-row">
+            <div class="loader-status-msg" id="loaderStatusMsg">
+              <span>Menginisialisasi sistem...</span>
+            </div>
+            <div class="loader-counter-wrap">
+              <span class="loader-counter" id="loaderCounter">0</span><span class="loader-percent">%</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -169,7 +209,7 @@
             document.documentElement.style.removeProperty("height");
           }, 700);
         }
-      }, 2000);
+      }, 2600);
     </script>
 
     <!-- ==========================================================================
@@ -462,18 +502,21 @@
       <section id="about" aria-label="About studio and developer">
         <div class="shell px-shell">
           <div class="about-grid">
-            <!-- Left: Globe Block -->
+            <!-- Left: Portrait Photo Card Block (Reflecting Image 1 Aesthetic) -->
             <div class="about-globe-block">
-              <!-- Background big Globe SVG -->
-              <svg class="bg-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-                <circle cx="12" cy="12" r="9.25" />
-                <path d="M12 2.75c2.6 2.3 4 5.8 4 9.25s-1.4 6.95-4 9.25c-2.6-2.3-4-5.8-4-9.25s1.4-6.95 4-9.25zM2.75 12h18.5" />
-              </svg>
-
               <!-- Eyebrow -->
               <div class="eyebrow eyebrow-dark">
                 <span class="eyebrow-dot"></span>
                 <span id="aboutEyebrow">Profil &bull; Johan Krisbima Abi</span>
+              </div>
+
+              <!-- Portrait Photo Card -->
+              <div class="about-portrait-card reveal-fade-up">
+                <div class="about-portrait-frame">
+                  <img src="assets/img/pasFoto_Kaos_Hitam.png" alt="Johan Krisbima Abi - Software Developer" class="about-portrait-img" loading="lazy" />
+                  <!-- Studio lighting subtle gradient overlay -->
+                  <div class="about-portrait-glow" aria-hidden="true"></div>
+                </div>
               </div>
 
               <!-- Bottom Note -->
@@ -482,7 +525,7 @@
                   <circle cx="12" cy="12" r="9.25" />
                   <path d="M12 2.75c2.6 2.3 4 5.8 4 9.25s-1.4 6.95-4 9.25c-2.6-2.3-4-5.8-4-9.25s1.4-6.95 4-9.25zM2.75 12h18.5" />
                 </svg>
-                <span id="aboutSubnote" style="max-width: 18rem">Berdomisili di Mojokerto, siap bekerja remote, hybrid, maupun on-site lintas zona waktu.</span>
+                <span id="aboutSubnote" style="max-width: 20rem">Berdomisili di Mojokerto, siap bekerja remote, hybrid, maupun on-site lintas zona waktu.</span>
               </div>
             </div>
 

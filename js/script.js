@@ -45,12 +45,22 @@ function startScroll() {
 
 // 4. Smooth scrollTo(id) helper
 function smoothScrollToId(targetId) {
+  if (targetId === "home" || targetId === "top") {
+    if (lenis && typeof lenis.stop === "function") lenis.stop();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      if (scrollEnabled && lenis && typeof lenis.start === "function") lenis.start();
+    }, 100);
+    return;
+  }
   const el = document.getElementById(targetId);
   if (!el) return;
   if (lenis && typeof lenis.stop === "function") lenis.stop();
   setTimeout(() => {
-    const top = el.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({ top: top, behavior: "smooth" });
+    const headerEl = document.getElementById("siteHeader");
+    const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     setTimeout(() => {
       if (scrollEnabled && lenis && typeof lenis.start === "function") lenis.start();
     }, 100);
@@ -73,6 +83,24 @@ document.getElementById("headerBrandBtn")?.addEventListener("click", () => {
   smoothScrollToId("home");
 });
 
+// Sticky Header Scroll Elevation & Glassmorphism
+function initStickyHeader() {
+  const header = document.getElementById("siteHeader");
+  if (!header) return;
+
+  const updateStickyState = () => {
+    const isScrolled = window.scrollY > 20;
+    header.classList.toggle("header-scrolled", isScrolled);
+  };
+
+  window.addEventListener("scroll", updateStickyState, { passive: true });
+  if (lenis && typeof lenis.on === "function") {
+    lenis.on("scroll", updateStickyState);
+  }
+  updateStickyState();
+}
+initStickyHeader();
+
 // 5. Adaptive Grid Scale-UP above 1920px (runtime damping formula)
 function applyAdaptiveGrid() {
   const FONT_BASE = 16,
@@ -93,16 +121,17 @@ window.addEventListener("resize", applyAdaptiveGrid);
 // 6. Global intro ready flag
 let introReady = false;
 
-// 7. PageLoader Count & Entrance (1300ms easeInOutCubic)
+// 7. PageLoader Count & Entrance (1450ms easeInOutCubic)
 const pageLoader = document.getElementById("pageLoader");
 const loaderFill = document.getElementById("loaderFill");
 const loaderCounter = document.getElementById("loaderCounter");
+const loaderStatusMsg = document.getElementById("loaderStatusMsg");
 const siteHeader = document.getElementById("siteHeader");
 const homeSection = document.getElementById("home");
 
 stopScroll(); // Lock scroll on mount
 
-const FILL_MS = 1300;
+const FILL_MS = 1450;
 const loaderStartTime = performance.now();
 let loaderDismissed = false;
 
@@ -135,7 +164,7 @@ function dismissLoader() {
 
     // Start typing animation
     startTypewriter();
-  }, 700);
+  }, 750);
 }
 
 function updateLoader(now) {
@@ -146,18 +175,30 @@ function updateLoader(now) {
   const progress = Math.round(eased * 100);
 
   if (loaderFill) loaderFill.style.width = progress + "%";
-  if (loaderCounter) loaderCounter.textContent = String(progress).padStart(3, "0");
+  if (loaderCounter) loaderCounter.textContent = String(progress);
+
+  if (loaderStatusMsg) {
+    if (progress < 25) {
+      loaderStatusMsg.textContent = "Menginisialisasi sistem...";
+    } else if (progress < 60) {
+      loaderStatusMsg.textContent = "Memuat portofolio & arsitektur web...";
+    } else if (progress < 92) {
+      loaderStatusMsg.textContent = "Menyiapkan pengalaman interaktif...";
+    } else {
+      loaderStatusMsg.textContent = "Selesai! Selamat datang ✨";
+    }
+  }
 
   if (t < 1) {
     requestAnimationFrame(updateLoader);
   } else {
-    setTimeout(dismissLoader, 150);
+    setTimeout(dismissLoader, 250);
   }
 }
 requestAnimationFrame(updateLoader);
 
-// Failsafe: dismiss loader unconditionally after 1.8s
-setTimeout(dismissLoader, 1800);
+// Failsafe: dismiss loader unconditionally after 2.3s
+setTimeout(dismissLoader, 2300);
 
 // 8. Live Clock & Calendar (updates every 1s)
 function updateClock() {
