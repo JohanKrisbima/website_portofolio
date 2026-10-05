@@ -703,18 +703,252 @@ certModalBackdrop?.addEventListener("click", (e) => {
   if (e.target === certModalBackdrop) closeCertLightbox();
 });
 
-document.querySelectorAll(".cert-card").forEach((card) => {
-  card.addEventListener("click", () => {
+// 18. Certificate Slider & Category Filter
+const certSliderTrack = document.getElementById("certSliderTrack");
+const certPrevBtn = document.getElementById("certPrevBtn");
+const certNextBtn = document.getElementById("certNextBtn");
+const certCounter = document.getElementById("certCounter");
+const certProgressFill = document.getElementById("certProgressFill");
+const certDotsWrapper = document.getElementById("certDotsWrapper");
+const certFilterBtns = document.querySelectorAll(".cert-filter-btn");
+const certCards = Array.from(document.querySelectorAll(".cert-card"));
+
+let isCertDragging = false;
+let certStartX = 0;
+let certStartScrollLeft = 0;
+let certHasDragged = false;
+let certAutoPlayTimer = null;
+
+function getVisibleCertCards() {
+  return certCards.filter((card) => card.style.display !== "none");
+}
+
+// Lightbox click on cert card with drag prevention
+certCards.forEach((card) => {
+  card.addEventListener("click", (e) => {
+    if (certHasDragged) {
+      e.preventDefault();
+      return;
+    }
     const imgSrc = card.getAttribute("data-img");
     const title = card.getAttribute("data-title");
     if (imgSrc) openCertLightbox(imgSrc, title);
   });
 });
 
-// 18. Certificate category filter
-const certFilterBtns = document.querySelectorAll(".cert-filter-btn");
-const certCards = document.querySelectorAll(".cert-card");
+// Update slider state: counter, progress bar, active dot, nav buttons
+function updateCertSliderState() {
+  if (!certSliderTrack) return;
+  const visible = getVisibleCertCards();
+  if (visible.length === 0) return;
 
+  const trackRect = certSliderTrack.getBoundingClientRect();
+  let activeIndex = 0;
+  let minDistance = Infinity;
+
+  visible.forEach((card, idx) => {
+    const cardRect = card.getBoundingClientRect();
+    const dist = Math.abs(cardRect.left - trackRect.left);
+    if (dist < minDistance) {
+      minDistance = dist;
+      activeIndex = idx;
+    }
+  });
+
+  activeIndex = Math.max(0, Math.min(activeIndex, visible.length - 1));
+
+  if (certCounter) {
+    const current = String(activeIndex + 1).padStart(2, "0");
+    const total = String(visible.length).padStart(2, "0");
+    certCounter.textContent = `${current} / ${total}`;
+  }
+
+  if (certProgressFill) {
+    const pct = ((activeIndex + 1) / visible.length) * 100;
+    certProgressFill.style.width = `${pct}%`;
+  }
+
+  if (certDotsWrapper) {
+    const dots = certDotsWrapper.querySelectorAll(".cert-dot-btn");
+    dots.forEach((dot, idx) => {
+      const isActive = idx === activeIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+  }
+
+  const maxScroll = certSliderTrack.scrollWidth - certSliderTrack.clientWidth - 4;
+  const atStart = certSliderTrack.scrollLeft <= 4;
+  const atEnd = certSliderTrack.scrollLeft >= maxScroll || certSliderTrack.scrollWidth <= certSliderTrack.clientWidth + 4;
+
+  if (certPrevBtn) {
+    certPrevBtn.disabled = atStart;
+    certPrevBtn.classList.toggle("disabled", atStart);
+  }
+  if (certNextBtn) {
+    certNextBtn.disabled = atEnd;
+    certNextBtn.classList.toggle("disabled", atEnd);
+  }
+}
+
+// Generate pagination dots
+function renderCertDots() {
+  if (!certDotsWrapper) return;
+  certDotsWrapper.innerHTML = "";
+  const visible = getVisibleCertCards();
+
+  if (visible.length <= 1) {
+    certDotsWrapper.style.display = "none";
+    return;
+  }
+  certDotsWrapper.style.display = "flex";
+
+  visible.forEach((card, idx) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = `cert-dot-btn ${idx === 0 ? "active" : ""}`;
+    dot.setAttribute("role", "tab");
+    dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+    dot.addEventListener("click", () => {
+      card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      stopCertAutoplay();
+    });
+    certDotsWrapper.appendChild(dot);
+  });
+}
+
+// Scroll Slide by Card Step
+function scrollCertSlide(direction) {
+  if (!certSliderTrack) return;
+  const visible = getVisibleCertCards();
+  if (visible.length === 0) return;
+
+  const cardWidth = visible[0].offsetWidth;
+  const gap = parseFloat(window.getComputedStyle(certSliderTrack).gap) || 24;
+  const step = cardWidth + gap;
+
+  certSliderTrack.scrollBy({
+    left: direction === "next" ? step : -step,
+    behavior: "smooth"
+  });
+}
+
+certPrevBtn?.addEventListener("click", () => {
+  scrollCertSlide("prev");
+  stopCertAutoplay();
+});
+
+certNextBtn?.addEventListener("click", () => {
+  scrollCertSlide("next");
+  stopCertAutoplay();
+});
+
+// Scroll listener with rAF
+let isCertScrollTicking = false;
+certSliderTrack?.addEventListener("scroll", () => {
+  if (!isCertScrollTicking) {
+    window.requestAnimationFrame(() => {
+      updateCertSliderState();
+      isCertScrollTicking = false;
+    });
+    isCertScrollTicking = true;
+  }
+}, { passive: true });
+
+// Mouse Drag-to-Scroll for Desktop
+if (certSliderTrack) {
+  certSliderTrack.addEventListener("mousedown", (e) => {
+    isCertDragging = true;
+    certHasDragged = false;
+    certStartX = e.pageX - certSliderTrack.offsetLeft;
+    certStartScrollLeft = certSliderTrack.scrollLeft;
+    certSliderTrack.classList.add("is-dragging");
+    stopCertAutoplay();
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isCertDragging || !certSliderTrack) return;
+    const x = e.pageX - certSliderTrack.offsetLeft;
+    const walk = (x - certStartX) * 1.25;
+    if (Math.abs(walk) > 5) {
+      certHasDragged = true;
+    }
+    certSliderTrack.scrollLeft = certStartScrollLeft - walk;
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isCertDragging) return;
+    isCertDragging = false;
+    certSliderTrack?.classList.remove("is-dragging");
+    if (certHasDragged) {
+      setTimeout(() => {
+        certHasDragged = false;
+      }, 50);
+    }
+  });
+
+  // Keyboard navigation
+  certSliderTrack.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      scrollCertSlide("prev");
+      stopCertAutoplay();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      scrollCertSlide("next");
+      stopCertAutoplay();
+    }
+  });
+}
+
+// Gentle Auto-Slide
+function startCertAutoplay() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  stopCertAutoplay();
+  certAutoPlayTimer = setInterval(() => {
+    const visible = getVisibleCertCards();
+    if (visible.length <= 1 || !certSliderTrack) return;
+
+    const maxScroll = certSliderTrack.scrollWidth - certSliderTrack.clientWidth - 5;
+    if (certSliderTrack.scrollLeft >= maxScroll) {
+      certSliderTrack.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      scrollCertSlide("next");
+    }
+  }, 5000);
+}
+
+function stopCertAutoplay() {
+  if (certAutoPlayTimer) {
+    clearInterval(certAutoPlayTimer);
+    certAutoPlayTimer = null;
+  }
+}
+
+// Section visibility observer for autoplay
+const certSectionEl = document.getElementById("sertifikat");
+if (certSectionEl && "IntersectionObserver" in window) {
+  const certObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startCertAutoplay();
+      } else {
+        stopCertAutoplay();
+      }
+    });
+  }, { threshold: 0.25 });
+  certObserver.observe(certSectionEl);
+}
+
+certSliderTrack?.addEventListener("mouseenter", stopCertAutoplay);
+certSliderTrack?.addEventListener("mouseleave", () => {
+  if (certSectionEl?.getBoundingClientRect().top < window.innerHeight && certSectionEl?.getBoundingClientRect().bottom > 0) {
+    startCertAutoplay();
+  }
+});
+certSliderTrack?.addEventListener("touchstart", stopCertAutoplay, { passive: true });
+
+// Filter Button Click Handler
 certFilterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     certFilterBtns.forEach((b) => b.classList.remove("active"));
@@ -731,7 +965,20 @@ certFilterBtns.forEach((btn) => {
         card.style.display = category === filter ? "flex" : "none";
       }
     });
+
+    if (certSliderTrack) {
+      certSliderTrack.scrollTo({ left: 0, behavior: "smooth" });
+    }
+    renderCertDots();
+    setTimeout(updateCertSliderState, 150);
   });
+});
+
+// Initialize Slider State
+renderCertDots();
+updateCertSliderState();
+window.addEventListener("resize", () => {
+  updateCertSliderState();
 });
 
 // 19. ESC key listener closes open overlays
