@@ -416,7 +416,7 @@ if (liquidCanvas && liquidWrap && !prefersReducedMotion) {
 }
 
 // 10. TYPEWRITER EFFECT (AS IN CV)
-const roles = ["Software Developer", "Spesialis Backend & RESTful API", "Web Automation Specialist", "Pengalaman 1+ Tahun Web & API", "D4 Teknik Informatika Polije"];
+const roles = ["Software Developer", "Spesialis Backend & RESTful API", "Dekstop Application", "Pengalaman 1+ Tahun Web & API", "D4 Teknik Informatika Polije"];
 
 let currentRoleIdx = 0;
 let currentCharIdx = 0;
@@ -459,7 +459,7 @@ function typewriterTick() {
 // 11. HeroCard Carousel Logic
 const carouselItems = [
   { caption: "Backend Engineering", title: "Scalable API & Database Architecture." },
-  { caption: "Web Automation", title: "Resilient Scraping & Data Normalization." },
+  { caption: "Dekstop Application", title: "Resilient Scraping & Data Normalization." },
   { caption: "Modern Full-Stack", title: "Effortless, Confident Web Solutions." },
   { caption: "Enterprise Experience", title: "PT PAL Indonesia (BUMN) Verified." },
 ];
@@ -829,7 +829,7 @@ function scrollCertSlide(direction) {
 
   certSliderTrack.scrollBy({
     left: direction === "next" ? step : -step,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 
@@ -845,15 +845,19 @@ certNextBtn?.addEventListener("click", () => {
 
 // Scroll listener with rAF
 let isCertScrollTicking = false;
-certSliderTrack?.addEventListener("scroll", () => {
-  if (!isCertScrollTicking) {
-    window.requestAnimationFrame(() => {
-      updateCertSliderState();
-      isCertScrollTicking = false;
-    });
-    isCertScrollTicking = true;
-  }
-}, { passive: true });
+certSliderTrack?.addEventListener(
+  "scroll",
+  () => {
+    if (!isCertScrollTicking) {
+      window.requestAnimationFrame(() => {
+        updateCertSliderState();
+        isCertScrollTicking = false;
+      });
+      isCertScrollTicking = true;
+    }
+  },
+  { passive: true },
+);
 
 // Mouse Drag-to-Scroll for Desktop
 if (certSliderTrack) {
@@ -928,15 +932,18 @@ function stopCertAutoplay() {
 // Section visibility observer for autoplay
 const certSectionEl = document.getElementById("sertifikat");
 if (certSectionEl && "IntersectionObserver" in window) {
-  const certObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        startCertAutoplay();
-      } else {
-        stopCertAutoplay();
-      }
-    });
-  }, { threshold: 0.25 });
+  const certObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startCertAutoplay();
+        } else {
+          stopCertAutoplay();
+        }
+      });
+    },
+    { threshold: 0.25 },
+  );
   certObserver.observe(certSectionEl);
 }
 
@@ -1048,6 +1055,26 @@ function runTerminalCommand(cmdRaw) {
     case "whoami":
       resp.innerHTML = "Johan Krisbima Abi &bull; Software Developer (D4 Teknik Informatika Politeknik Negeri Jember, IPK 3.87). Berpengalaman di PT PAL Indonesia, Universal Big Data, &amp; PT Stechoq.";
       break;
+    case "experience":
+    case "exp":
+    case "pengalaman":
+    case "career":
+    case "kerja":
+      resp.innerHTML =
+        "<strong style=\"color:#cf8047;\">[Rekam Jejak Profesional]</strong><br>" +
+        "1. <strong>PT PAL Indonesia</strong> (Okt 2025 &ndash; Agu 2026)<br>" +
+        "   &bull; Role: Pemrogram Komputer Intern<br>" +
+        "   &bull; Proyek: Siamang (Makan Siang), Simandok (Document Management), E-Bidding, Subkon (Absensi Vendor)<br>" +
+        "   &bull; Tech: Laravel, MySQL, PostgreSQL, Bootstrap, Odoo, Postman<br>" +
+        "2. <strong>PT Universal Big Data</strong> (Jul 2024 &ndash; Des 2024)<br>" +
+        "   &bull; Role: Dekstop Application Intern<br>" +
+        "   &bull; Proyek: Nobox Extractor (Aplikasi Desktop C#/.NET &amp; Web Scraping E-Commerce Global)<br>" +
+        "   &bull; Tech: C#, .NET, MySQL, Playwright, Puppeteer Sharp<br>" +
+        "3. <strong>PT Stechoq Robotika Indonesia</strong> (Feb 2024 &ndash; Jul 2024)<br>" +
+        "   &bull; Role: Backend Developer Intern (MSIB Batch 6)<br>" +
+        "   &bull; Proyek: RESTful API Sistem Manajemen Inventaris Gudang<br>" +
+        "   &bull; Tech: Node.js, Express.js, MySQL, JWT, Swagger";
+      break;
     case "skills":
       resp.innerHTML = "Core: Laravel, PHP, JavaScript, MySQL, PostgreSQL, Node.js, Express, Bootstrap, Git, RESTful API.<br>Expanding: React, TypeScript, Next.js, Docker.";
       break;
@@ -1062,7 +1089,7 @@ function runTerminalCommand(cmdRaw) {
       resp.innerHTML = "Email: johankrisbima77@gmail.com | WA: +62 878-5186-5091 | Lokasi: Mojokerto, Jawa Timur";
       break;
     case "help":
-      resp.innerHTML = 'Perintah tersedia: <span style="color:#cf8047;">whoami, skills, projects, cert, contact, clear, tutup, help</span>';
+      resp.innerHTML = 'Perintah tersedia: <span style="color:#cf8047;">whoami, experience, skills, projects, cert, contact, clear, tutup, help</span>';
       break;
     case "clear":
       terminalOutput.innerHTML = "";
